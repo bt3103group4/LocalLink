@@ -12,6 +12,7 @@
 
         <div class="v218_77">
         <UserInfo/>
+        <SearchBar/>
         </div>
         <button class="settingsbtn"></button>
 
@@ -30,11 +31,9 @@ Tags
 Duration Offerred</span><span class="v207_106">Listing Name
 Tags
 Duration Offerred</span>
-    <input class="searchbox">
     <div class="logo"></div><div class="v97_459"></div>
     <div class="v207_105"></div><div class="v208_55"></div>
     <div class="v208_57"></div>
-    <div class="searchicon"></div>
 
     <div class="name"></div>
     <span class="v218_79">Listings</span>
@@ -48,10 +47,11 @@ Duration Offerred</span>
 <script>
 import Layout from '@/components/Layout.vue'
 import UserInfo from '@/components/UserInfo.vue'
+import SearchBar from '@/components/UserInfo.vue'
 
 export default {
     name: "TouristProfile",
-    components: { Layout , UserInfo},
+    components: { Layout , UserInfo, SearchBar},
     methods: {
         getTourGuideProfile() {
             //TODO: Pull data from database
@@ -231,21 +231,6 @@ body {
   opacity: 1;
   text-align: left;
 }
-.searchbox {
-  width: 416px;
-  height: 50px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 42px;
-  left: 156px;
-  overflow: hidden;
-  padding-left: 50px;
-  border-radius: 15px;
-}
-
 .logo {
   width: 100px;
   height: 101px;
@@ -324,19 +309,6 @@ body {
   position: absolute;
   top: 574px;
   left: 1019px;
-}
-.searchicon {
-  width: 27px;
-  height: 27px;
-  background: url("~@/images/v216_71.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 0.5;
-  position: absolute;
-  top: 55px;
-  left: 170px;
-  overflow: hidden;
 }
 .name {
   color: #fff;

@@ -1,31 +1,20 @@
 <template>
 <Layout/>
-  <h1>Tourist Profile here</h1>
-  <button v-if="isUserAccount" @click="$router.push('/editTouristProfile')"> Edit Profile </button>
     <head>
         <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
         <link href="./css/main.css" rel="stylesheet" />
         <title>Document</title>
     </head>
     <body>
-        <div class="v225_54">
+        <div class="page">
             <div class="v225_55"></div>
             <div class="v225_56"></div>
-            <div class="v225_57"></div>
-            <span class="v225_58">Click to Add Photo</span>
-            <div class="v225_59"></div>
-            <div class="name"></div>
             <div class="v225_60"></div>
             <div class="v225_61"></div>
-            <span class="v225_62">Name
 
-Languages
-
-Biography
-
-
-
-</span>
+    <UserInfo/>
+    <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/editTouristProfile')"></button>
+            
 <div class="v225_63">
     <span class="v225_64">Saved Listings</span>
     <span class="v225_65">Reviews</span>
@@ -41,27 +30,30 @@ Tags
 Duration Offerred</span><div class="v225_70"><div class="v225_71"><div class="v225_72"></div></div></div>
 <div class="v225_73"></div>
 <div class="v225_74"></div>
-<div class="v225_75">
-    <div class="name"></div>
-    <div class="name"></div>
-    <div class="name"></div>
-    <div class="name"></div>
-    <div class="name"></div>
-</div><div class="v225_81">
-    <div class="name"></div>
-    <div class="name"></div>
-    <div class="name"></div>
-    <div class="name"></div>
-    <div class="name"></div></div>
-    <div class="v225_87"><div class="name"></div><div class="name"></div><div class="name"></div><div class="name"></div><div class="name"></div></div><div class="v225_93"><div class="name"></div><div class="name"></div><div class="name"></div><div class="name"></div><div class="name"></div></div><div class="v225_99"></div><div class="v225_105"></div><div class="v225_106"></div><div class="v225_107"></div><div class="name"></div><span class="v225_109">@username</span><div class="name"></div><span class="v225_111">Saved Listings</span><span class="v225_113">About</span><div class="v225_116"></div><div class="v225_117"></div><div class="v225_118"></div><span class="v225_124">New Review</span><div class="name"></div></div></body>
+
+</div>
+    <div class="v225_87"></div>
+    <div class="v225_93">
+        </div><div class="v225_99"></div>
+        <div class="v225_105"></div>
+        <div class="v225_106"></div>
+        <div class="v225_107"></div>
+        <div class="name"></div>
+        <div class="name"></div>
+        <span class="v225_111">Saved Listings</span>
+        <div class="v225_116"></div>
+        <div class="v225_117"></div>
+        <div class="v225_118"></div>
+        <span class="v225_124">New Review</span></body>
 </template>
 
 <script>
 import Layout from '@/components/Layout.vue'
+import UserInfo from '@/components/UserInfo.vue'
 
 export default {
     name: "TouristProfile",
-    components: { Layout },
+    components: { Layout, UserInfo },
     methods: {
         getTouristProfile() {
             //TODO: Pull data from database
@@ -80,7 +72,7 @@ export default {
 body {
   font-size: 14px;
 }
-.v225_54 {
+.page {
   width: 100%;
   height: 883px;
   background: rgba(242,238,238,1);
@@ -88,7 +80,7 @@ body {
   position: absolute;
   top: 0px;
   left: 0px;
-  overflow: hidden;
+  overflow:visible;
 }
 .v225_55 {
   width: 16px;
@@ -116,42 +108,7 @@ body {
   left: 1226px;
   overflow: hidden;
 }
-.v225_57 {
-  width: 322px;
-  height: 322px;
-  background: rgba(255,251,251,1);
-  opacity: 1;
-  position: absolute;
-  top: 170px;
-  left: 147px;
-  border-radius: 50%;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-.v225_58 {
-  width: 189px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 284px;
-  left: 224px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 20px;
-  opacity: 1;
-  text-align: left;
-}
-.v225_59 {
-  width: 442px;
-  height: 289px;
-  background: rgba(255,251,251,1);
-  opacity: 1;
-  position: absolute;
-  top: 574px;
-  left: 87px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-.name {
-  color: #fff;
-}
+
 .v225_60 {
   width: 134px;
   height: 48px;
@@ -171,18 +128,6 @@ body {
   top: 46px;
   left: 1314px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-.v225_62 {
-  width: 416px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 680px;
-  left: 118px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 20px;
-  opacity: 1;
-  text-align: left;
 }
 .v225_63 {
   width: 327px;
@@ -341,33 +286,7 @@ body {
   border-bottom-right-radius: 10px;
   overflow: hidden;
 }
-.v225_75 {
-  width: 99px;
-  height: 20px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 501px;
-  left: 664px;
-  overflow: hidden;
-}
-.name {
-  color: #fff;
-}
-.name {
-  color: #fff;
-}
-.name {
-  color: #fff;
-}
-.name {
-  color: #fff;
-}
-.name {
-  color: #fff;
-}
+
 .v225_81 {
   width: 99px;
   height: 20px;
@@ -380,21 +299,7 @@ body {
   left: 663px;
   overflow: hidden;
 }
-.name {
-  color: #fff;
-}
-.name {
-  color: #fff;
-}
-.name {
-  color: #fff;
-}
-.name {
-  color: #fff;
-}
-.name {
-  color: #fff;
-}
+
 .v225_87 {
   width: 99px;
   height: 20px;
@@ -407,21 +312,7 @@ body {
   left: 1019px;
   overflow: hidden;
 }
-.name {
-  color: #fff;
-}
-.name {
-  color: #fff;
-}
-.name {
-  color: #fff;
-}
-.name {
-  color: #fff;
-}
-.name {
-  color: #fff;
-}
+
 .v225_93 {
   width: 99px;
   height: 20px;
@@ -434,21 +325,7 @@ body {
   left: 1022px;
   overflow: hidden;
 }
-.name {
-  color: #fff;
-}
-.name {
-  color: #fff;
-}
-.name {
-  color: #fff;
-}
-.name {
-  color: #fff;
-}
-.name {
-  color: #fff;
-}
+
 .v225_99 {
   width: 220px;
   height: 160px;
@@ -505,9 +382,7 @@ body {
   left: 177px;
   overflow: hidden;
 }
-.name {
-  color: #fff;
-}
+
 .v225_109 {
   width: 391px;
   color: rgba(95,94,94,1);
@@ -520,9 +395,7 @@ body {
   opacity: 1;
   text-align: center;
 }
-.name {
-  color: #fff;
-}
+
 .v225_111 {
   width: 255px;
   color: rgba(0,0,0,1);
@@ -598,8 +471,17 @@ body {
   opacity: 1;
   text-align: left;
 }
-.name {
-  color: #fff;
+#editprofilebtn {
+    width: 30px;
+    height: 30px;
+    position : absolute;
+    left: 440px;
+    top : 565px;
+    margin: 30px;
+    background: url("~@/images/edit.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border: none;
 }
-
 </style>
