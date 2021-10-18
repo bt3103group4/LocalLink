@@ -10,23 +10,12 @@
         <div class="v222_58"></div>
         <div class="deletebtn"></div>
 
-        <div class="profilePicture"></div>
-            <button class="addPhotoBtn"> Click to Add Photo</button>
-        <div class="detailsbox">
-
-        </div>
         <div class="v218_77">
-
+        <UserInfo/>
         </div>
         <button class="settingsbtn"></button>
 
-        <div class="details">
-            <h3 class="about">About</h3> <hr>
-            <button id="editprofilebtn" v-if="isUserAccount"  @click="$router.push('/editTourGuideProfile')"> Edit Profile </button>
-            <h4>Name </h4>
-            <h4>Languages</h4>
-            <h4>Biography</h4>
-        </div>
+        <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/editTourGuideProfile')"> </button>
 
         <div class="profilenavbar">
             <span class="v207_66">Listings</span>
@@ -41,27 +30,28 @@ Tags
 Duration Offerred</span><span class="v207_106">Listing Name
 Tags
 Duration Offerred</span>
-<input class="searchbox">
-<div class="logo"></div><div class="v97_459"></div>
-<div class="v207_105"></div><div class="v208_55"></div>
-<div class="v208_57"></div><div class="v216_71"></div>
+    <input class="searchbox">
+    <div class="logo"></div><div class="v97_459"></div>
+    <div class="v207_105"></div><div class="v208_55"></div>
+    <div class="v208_57"></div>
+    <div class="searchicon"></div>
 
-<span class="username">@username</span>
-<div class="name"></div>
-<span class="v218_79">Listings</span>
-<button class="uploadbtn">Upload Tour</button>
-<div class="v218_107"></div>
-<button class="v222_55"></button>
-<div class="v222_56"></div>
+    <div class="name"></div>
+    <span class="v218_79">Listings</span>
+    <button class="uploadbtn">Upload Tour</button>
+    <div class="v218_107"></div>
+    <button class="v222_55"></button>
+    <div class="v222_56"></div>
 
-</body>
-</template>
+    </body>
+    </template>
 <script>
 import Layout from '@/components/Layout.vue'
+import UserInfo from '@/components/UserInfo.vue'
 
 export default {
     name: "TouristProfile",
-    components: { Layout },
+    components: { Layout , UserInfo},
     methods: {
         getTourGuideProfile() {
             //TODO: Pull data from database
@@ -102,6 +92,14 @@ body {
   left: 1219px;
   overflow: hidden;
 }
+#uploadImage{
+    top : 300px;
+    width : 200px;
+    position: relative;
+    left : 210px;
+    align-content: center;
+}
+
 .deletebtn {
   width: 16px;
   height: 17px;
@@ -115,17 +113,7 @@ body {
   left: 1221px;
   overflow: hidden;
 }
-.profilePicture {
-  width: 322px;
-  height: 322px;
-  background: rgba(255,251,251,1);
-  opacity: 1;
-  position: absolute;
-  top: 170px;
-  left: 147px;
-  border-radius: 50%;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
+
 .addPhotoBtn {
   width: 189px;
   color: rgba(0,0,0,1);
@@ -158,30 +146,7 @@ body {
   left: 1314px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.details {
-  width: 400px;
-  height: 289px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 580px;
-  left: 105px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 20px;
-  opacity: 1;
-  text-align: left;
-  
-}
-.detailsbox {
-  width: 442px;
-  height: 289px;
-  background: rgba(255,251,251,1);
-  opacity: 1;
-  position: absolute;
-  top: 574px;
-  left: 87px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
+
 .profilenavbar {
   width: 268px;
   height: 53px;
@@ -268,7 +233,7 @@ body {
 }
 .searchbox {
   width: 416px;
-  height: 56px;
+  height: 50px;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -277,6 +242,8 @@ body {
   top: 42px;
   left: 156px;
   overflow: hidden;
+  padding-left: 50px;
+  border-radius: 15px;
 }
 
 .logo {
@@ -358,31 +325,18 @@ body {
   top: 574px;
   left: 1019px;
 }
-.v216_71 {
-  width: 39px;
-  height: 33px;
+.searchicon {
+  width: 27px;
+  height: 27px;
   background: url("~@/images/v216_71.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  opacity: 1;
+  opacity: 0.5;
   position: absolute;
-  top: 56px;
-  left: 177px;
+  top: 55px;
+  left: 170px;
   overflow: hidden;
-}
-
-.username {
-  width: 391px;
-  color: rgba(95,94,94,1);
-  position: absolute;
-  top: 511px;
-  left: 105px;
-  font-family: Roboto;
-  font-weight: Regular;
-  font-size: 35px;
-  opacity: 1;
-  text-align: center;
 }
 .name {
   color: #fff;
@@ -452,10 +406,18 @@ body {
   color: #fff;
 }
 
-#editprofilebtn{
-    top : 500px;
-    position: right;
-
+#editprofilebtn {
+    width: 30px;
+    height: 30px;
+    position : absolute;
+    left: 440px;
+    top : 565px;
+    margin: 30px;
+    background: url("~@/images/edit.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border: none;
 }
 
 </style>
