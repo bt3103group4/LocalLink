@@ -28,7 +28,7 @@ Tags
 Duration Offerred</span><span class="v225_69">Listing Name
 Tags
 Duration Offerred</span><div class="v225_70"><div class="v225_71"><div class="v225_72"></div></div></div>
-<div class="v225_73"></div>
+<Logo/>
 <div class="v225_74"></div>
 
 </div>
@@ -50,10 +50,11 @@ Duration Offerred</span><div class="v225_70"><div class="v225_71"><div class="v2
 <script>
 import Layout from '@/components/Layout.vue'
 import UserInfo from '@/components/UserInfo.vue'
+import Logo from '@/components/Logo.vue'
 
 export default {
     name: "TouristProfile",
-    components: { Layout, UserInfo },
+    components: { Layout, UserInfo, Logo },
     methods: {
         getTouristProfile() {
             //TODO: Pull data from database
@@ -250,23 +251,6 @@ body {
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  overflow: hidden;
-}
-.v225_73 {
-  width: 100px;
-  height: 101px;
-  background: url("~@/images/v225_73.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 22px;
-  left: 28px;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
   overflow: hidden;
 }
 .v225_74 {
