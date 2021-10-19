@@ -31,7 +31,8 @@ Tags
 Duration Offerred</span><span class="v207_106">Listing Name
 Tags
 Duration Offerred</span>
-    <div class="logo"></div><div class="v97_459"></div>
+    <Logo/>
+    <div class="v97_459"></div>
     <div class="v207_105"></div><div class="v208_55"></div>
     <div class="v208_57"></div>
 
@@ -48,10 +49,11 @@ Duration Offerred</span>
 import Layout from '@/components/Layout.vue'
 import UserInfo from '@/components/UserInfo.vue'
 import SearchBar from '@/components/UserInfo.vue'
+import Logo from '@/components/Logo.vue'
 
 export default {
     name: "TouristProfile",
-    components: { Layout , UserInfo, SearchBar},
+    components: { Layout , UserInfo, SearchBar, Logo},
     methods: {
         getTourGuideProfile() {
             //TODO: Pull data from database
@@ -230,23 +232,6 @@ body {
   font-size: 18px;
   opacity: 1;
   text-align: left;
-}
-.logo {
-  width: 100px;
-  height: 101px;
-  background: url("~@/images/v207_103.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 22px;
-  left: 28px;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-  overflow: hidden;
 }
 .v97_459 {
   width: 230px;
