@@ -7,41 +7,36 @@
         <title>Document</title>
     </head>
     <body>
-        <div class="v222_58"></div>
-        <div class="deletebtn"></div>
 
         <div class="v218_77">
         <UserInfo/>
         <SearchBar/>
-        </div>
+        <UserListings/>
+
+        <ul class = "tabs">
+          <li data-tab-target="#listings" class="active tab">Listings </li>
+          <li data-tab-target="#newReview" class="tab"> Reviews </li>
+        </ul>
+
+        <div class="tabcontent">
+          <div id = "listings" data-tab-content class="active">
+              <UserListings/>
+            </div>
+          <div id = "newReview" data-tab-content>
+              <h1 id = "reviewContent"> Reviews </h1>
+            </div>
+          </div>
+            </div>
+
         <button class="settingsbtn"></button>
 
         <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/editTourGuideProfile')"> </button>
 
-        <div class="profilenavbar">
-            <span class="v207_66">Listings</span>
-            <span class="v207_69">Reviews</span> 
-        </div>
-        <span class="v207_82">Listing Name
-Tags
-Duration Offerred</span><span class="v208_58">Listing Name
-Tags
-Duration Offerred</span><span class="v208_59">Listing Name
-Tags
-Duration Offerred</span><span class="v207_106">Listing Name
-Tags
-Duration Offerred</span>
     <Logo/>
-    <div class="v97_459"></div>
-    <div class="v207_105"></div><div class="v208_55"></div>
-    <div class="v208_57"></div>
 
     <div class="name"></div>
-    <span class="v218_79">Listings</span>
     <button class="uploadbtn">Upload Tour</button>
     <div class="v218_107"></div>
-    <button class="v222_55"></button>
-    <div class="v222_56"></div>
 
     </body>
     </template>
@@ -50,10 +45,26 @@ import Layout from '@/components/Layout.vue'
 import UserInfo from '@/components/UserInfo.vue'
 import SearchBar from '@/components/UserInfo.vue'
 import Logo from '@/components/Logo.vue'
+import UserListings from '@/components/UserListings.vue'
 
 export default {
     name: "TouristProfile",
-    components: { Layout , UserInfo, SearchBar, Logo},
+    components: { Layout , UserInfo, SearchBar, Logo, UserListings},
+      mounted(){
+      let tabs = document.querySelectorAll('[data-tab-target]')
+      let tabContents = document.querySelectorAll('[data-tab-content]')
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', ()=> {
+          const target = document.querySelector(tab.dataset.tabTarget)
+          tabContents.forEach(tabContent => tabContent.classList.remove('active'))
+          tabs.forEach(tab=> tab.classList.remove('active'))
+          target.classList.add('active')
+          tab.classList.add('active')
+        })
+      })
+    },
+
     methods: {
         getTourGuideProfile() {
             //TODO: Pull data from database
@@ -81,19 +92,7 @@ body {
   top: 0px;
   left: 0px;
 }
-.v222_58 {
-  width: 16px;
-  height: 17px;
-  background: url("~@/images/v222_58.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 748px;
-  left: 1219px;
-  overflow: hidden;
-}
+
 #uploadImage{
     top : 300px;
     width : 200px;
@@ -101,21 +100,6 @@ body {
     left : 210px;
     align-content: center;
 }
-
-.deletebtn {
-  width: 16px;
-  height: 17px;
-  background: url("~@/images/v222_57.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 434px;
-  left: 1221px;
-  overflow: hidden;
-}
-
 .addPhotoBtn {
   width: 189px;
   color: rgba(0,0,0,1);
@@ -149,18 +133,6 @@ body {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.profilenavbar {
-  width: 268px;
-  height: 53px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 101px;
-  left: 603px;
-  overflow: hidden;
-}
 .v207_66 {
   width: 118px;
   color: rgba(63,163,184,1);
@@ -233,68 +205,6 @@ body {
   opacity: 1;
   text-align: left;
 }
-.v97_459 {
-  width: 230px;
-  height: 160px;
-  background: url("~@/images/v97_459.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 255px;
-  left: 664px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  overflow: hidden;
-}
-
-.v207_105 {
-  width: 220px;
-  height: 160px;
-  background: url("~@/images/v207_105.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 255px;
-  left: 1022px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  overflow: hidden;
-}
-
-.v208_55 {
-  width: 230px;
-  height: 160px;
-  background: url("~@/images/v208_55.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 574px;
-  left: 664px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  overflow: hidden;
-}
-.v208_57 {
-  width: 223px;
-  height: 160px;
-  background: url("~@/images/v208_57.png");
-  opacity: 1;
-  position: absolute;
-  top: 574px;
-  left: 1019px;
-}
 .name {
   color: #fff;
 }
@@ -333,32 +243,6 @@ body {
   left: 1325px;
   overflow: hidden;
 }
-.v222_55 {
-  width: 16px;
-  height: 17px;
-  background: url("~~@/images/v222_55.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 433px;
-  left: 856px;
-  overflow: hidden;
-}
-.v222_56 {
-  width: 16px;
-  height: 17px;
-  background: url("~~@/images/v222_56.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 749px;
-  left: 856px;
-  overflow: hidden;
-}
 .name {
   color: #fff;
 }
@@ -375,6 +259,36 @@ body {
     background-position: center center;
     background-size: cover;
     border: none;
+}
+.tabs{
+  position: absolute;
+  top: 130px;
+  left: 600px;
+  display : flex;
+  color:rgba(0, 0, 0, 0.75);
+  list-style-type: none;
+  border-bottom: 2px solid black;
+  background-color : rgba(242,238,238,1);
+  font-size: 23px;
+  font-weight: 700;
+  width:750px;
+  text-align: left;
+}
+.tab{
+  cursor: pointer;
+  padding:20px;
+}
+.tab:hover{
+  background-color: #AAA;
+}
+.tab.active{
+  border-bottom: rgba(63,163,184,1) 5px solid;
+}
+[data-tab-content]{
+  display: none;
+}
+.active[data-tab-content]{
+  display: block;
 }
 
 </style>
