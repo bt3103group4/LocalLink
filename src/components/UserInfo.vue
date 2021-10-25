@@ -10,7 +10,7 @@
     <span class="username">@username</span>
     <div class="detailsbox">
         </div>
-
+        <div></div>
         <div class="details">
             <h3 class="about">About</h3> <hr>
             <h4>Name </h4>
