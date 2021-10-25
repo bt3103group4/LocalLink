@@ -74,7 +74,7 @@
 <script>
 import firebase from "firebase";
 import { ref } from "vue";
-
+import { db } from "../main.js";
 
 export default {
   setup() {
@@ -102,9 +102,37 @@ export default {
       email,
       password,
     };
-  }
-}
-  
+  },
+  data() {
+    return {
+      user: {
+    
+      },
+    };
+  },
+  methods: {
+    onFormSubmit(event) {
+      event.preventDefault();
+
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.user.email, this.user.password)
+        .then(() => {
+          db.collection("users")
+            .add(this.user)
+            .then(() => {
+              alert("User successfully created!");
+              console.log(this.user);
+              console.log(this.Register);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        })
+        .catch((err) => alert(err.message));
+    },
+  },
+};
 </script>
 
 <style>
