@@ -1,33 +1,33 @@
 <template>
-    <button class="logo" @click="homepage()"></button>
+  <button class="logo" @click="homepage()"></button>
 </template>
 
 <script>
 export default {
-    name: "Logo",
+  name: "Logo",
 
-    // data() {
-    //     return {
-    //         user: false,
-    //     }
-    // },
+  // data() {
+  //     return {
+  //         user: false,
+  //     }
+  // },
 
-    // mounted() {
-    //     const auth = getAuth();
-    //     onAuthStateChanged(auth, (user) => {
-    //         if (user) {
-    //             this.user = user;
-    //         }
-    //     })
-    // },
+  // mounted() {
+  //     const auth = getAuth();
+  //     onAuthStateChanged(auth, (user) => {
+  //         if (user) {
+  //             this.user = user;
+  //         }
+  //     })
+  // },
 
-    methods: {
-        homepage() {
-            // have to check the name
-            this.$router.push({name: 'Listing'}) 
-        }
-    }
-}
+  methods: {
+    homepage() {
+      // have to check the name
+      this.$router.push({ name: "Listing" });
+    },
+  },
+};
 </script>
 
 <style>
