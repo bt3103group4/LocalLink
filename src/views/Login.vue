@@ -27,7 +27,7 @@
   padding: 12px 20px;
   margin-bottom: 8px;
   box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: HT 10px;
 }
 
 .login-submit {

@@ -71,6 +71,42 @@
   </div>
 </template>
 
+<script>
+import firebase from "firebase";
+import { ref } from "vue";
+
+
+export default {
+  setup() {
+    const firstname = ref("");
+    const lastname = ref("");
+    const username = ref("");
+    const email = ref("");
+    const password = ref("");
+    // const user = ref("")
+
+    const Register = () => {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(email.value, password.value)
+        .then((user) => {
+          alert(user);
+        })
+        .catch((err) => alert(err.message));
+    };
+    return {
+      Register,
+      firstname,
+      lastname,
+      username,
+      email,
+      password,
+    };
+  }
+}
+  
+</script>
+
 <style>
 /* input[type=text], input[type=password] */
 
