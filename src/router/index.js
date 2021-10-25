@@ -4,7 +4,7 @@ import SignUp from "@/views/SignUp.vue";
 import Login from "@/views/Login.vue";
 import Search from "@/views/Search.vue";
 import TouristProfile from "@/views/TouristProfile.vue";
-import EditTouristProfile from "@/views/EditTouristProfile.vue";
+import NewTour from "@/views/NewTour.vue";
 import TourGuideProfile from "@/views/TourGuideProfile.vue";
 import EditTourGuideProfile from "@/views/EditTourGuideProfile.vue";
 import Review from "@/views/Review.vue";
@@ -34,9 +34,9 @@ const routes = [
     component: TouristProfile,
   },
   {
-    path: "/editTouristProfile",
-    name: "EditTouristProfile",
-    component: EditTouristProfile,
+    path: "/newtour",
+    name: "NewTour",
+    component: NewTour,
   },
   {
     path: "/tourGuideProfile",
