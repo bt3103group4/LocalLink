@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 // import Layout from '@/components/Layout.vue'
-import SignUp from "@/views/SignUp.vue";
 import Login from "@/views/Login.vue";
 import Search from "@/views/Search.vue";
 import NewTour from "@/views/NewTour.vue";
@@ -23,11 +22,6 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: Register
-    },
-    {
-    path: '/signup',
-    name: 'SignUp',
-    component: SignUp
     },
     {
     path: '/search',
