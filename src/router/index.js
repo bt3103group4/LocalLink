@@ -11,6 +11,7 @@ import Review from "@/views/Review.vue";
 import Chat from "@/views/Chat.vue";
 import Logout from "@/views/Logout.vue";
 import Listings from "@/views/Listings.vue";
+import MyTourListings from "@/views/MyTourListings.vue";
 
 const routes = [
   {
@@ -67,6 +68,11 @@ const routes = [
     path: "/listings",
     name: "Listings",
     component: Listings,
+  },
+  {
+    path: "/myTourListings",
+    name: "MyTourListings",
+    component: MyTourListings,
   },
 
   //delete later, for testing
