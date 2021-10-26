@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
       rel="stylesheet"
     />
-    <title>ListingsBeachClub</title>
+    <title>ListingsBeach</title>
   </head>
   <body>
     <div class="container" style="display: flex; height: 100px">

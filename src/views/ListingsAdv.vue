@@ -39,7 +39,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" @click="$router.push('/listingsbeach')"
-              >Beach Clubs</a
+              >Beach</a
             >
           </li>
         </ul>

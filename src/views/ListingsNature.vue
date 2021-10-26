@@ -35,10 +35,7 @@
             >
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              href="#"
-              @click="$router.push('/listingsbeachclub')"
+            <a class="nav-link" href="#" @click="$router.push('/listingsbeach')"
               >Beach Clubs</a
             >
           </li>
