@@ -25,11 +25,6 @@ const routes = [
     component: Register,
   },
   {
-    path: "/signup",
-    name: "SignUp",
-    component: SignUp,
-  },
-  {
     path: "/search",
     name: "Search",
     component: Search,
