@@ -10,7 +10,10 @@ import Review from "@/views/Review.vue";
 import Chat from "@/views/Chat.vue";
 import Logout from "@/views/Logout.vue";
 import Register from "@/views/Register.vue";
-//test
+import ListingsNature from "@/views/ListingsNature.vue";
+import ListingsAdv from "@/views/ListingsAdv.vue";
+import ListingsBeach from "@/views/ListingsBeach.vue";
+
 const routes = [
   {
     path: "/",
@@ -61,6 +64,21 @@ const routes = [
     path: "/logout",
     name: "Logout",
     component: Logout,
+  },
+  {
+    path: "/listingsnature",
+    name: "ListingsNature",
+    component: ListingsNature,
+  },
+  {
+    path: "/listingsadv",
+    name: "ListingsAdv",
+    component: ListingsAdv,
+  },
+  {
+    path: "/listingsbeach",
+    name: "ListingsNatureBeach",
+    component: ListingsBeach,
   },
 
   //delete later, for testing
