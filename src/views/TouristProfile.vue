@@ -14,8 +14,7 @@
         <UserInfo/>
         <SettingsButton/>
 
-    <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/editTouristProfile')"></button>
-    <button class="logout" @click="Logout">Logout</button>
+    <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/EditTouristProfile')"></button>
     <input class="searchBar" placeholder="Search ">  
     <Logo/>
 
@@ -50,8 +49,6 @@ import UserInfo from '@/components/UserInfo.vue'
 import Logo from '@/components/Logo.vue'
 import UserListings from '@/components/UserListings.vue'
 import SettingsButton from '@/components/SettingsButton.vue'
-import {ref, onBeforeMount} from 'vue';
-import firebase from 'firebase';
 
 export default {
     name: "TouristProfile",
@@ -69,8 +66,11 @@ export default {
           tabs.forEach(tab=> tab.classList.remove('active'))
           target.classList.add('active')
           tab.classList.add('active')
+
         })
       })
+      
+
     },
 
     methods: {
@@ -80,37 +80,12 @@ export default {
         isUserAccount() {
             //TODO: check if users account if they want to edit
         },
-    },
-    setup () {
-            const name = ref("");
-
-            onBeforeMount(() => {
-                const user = firebase.auth().currentUser;
-                if (user) {
-                    name.value = user.email.split('@')[0];
-                }
-                
-            });
-
-            const Logout = () => {
-                firebase    
-                    .auth()
-                    .signOut()
-                    .then(() => console.log("Sign Out"))
-                    .cathc(err => alert(err.message));
-            }
-
-            return{
-                name,
-                Logout
-            }
-            
-
-        }
+    }
+   
 }
 </script>
 
-<style>
+<style scoped>
 * {
   box-sizing: border-box;
 }
