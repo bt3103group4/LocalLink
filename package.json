@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "firebase": "^8.10.0",
     "firebase-tools": "^9.21.0",
+    "firebase": "^8.10.0",
     "package-lock.json": "^1.0.0",
     "package.json": "^2.0.1",
     "vue": "^3.2.19",
