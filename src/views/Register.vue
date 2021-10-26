@@ -119,7 +119,8 @@ export default {
         .createUserWithEmailAndPassword(this.user.email, this.user.password)
         .then(() => {
           db.collection("users")
-            .add(this.user)
+            .doc(this.user.email)
+            .set(this.user)
             .then(() => {
               alert("User successfully created!");
               console.log(this.user);
