@@ -8,7 +8,7 @@
 import Layout from '@/components/Layout.vue'
 
 export default {
-    name: "EditTourGuideProfile",
+    name: "EditTouristProfile",
     components: {Layout},
     methods: {
         saveEdits() {
