@@ -62,6 +62,7 @@ const routes = [
     name: "Logout",
     component: Logout,
   },
+
   //delete later, for testing
   // {
   // path: '/layout',
