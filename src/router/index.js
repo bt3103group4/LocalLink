@@ -15,7 +15,7 @@ import Register from '@/views/Register.vue'
 import ListingsNature from "@/views/ListingsNature.vue";
 import ListingsAdv from "@/views/ListingsAdv.vue";
 import ListingsBeach from "@/views/ListingsBeach.vue";
-import EditTouristProfile from "@/views/EditTouristProfile.vue";
+import EditUserProfile from "@/views/EditUserProfile.vue";
 
 const routes = [
     {
@@ -49,9 +49,9 @@ const routes = [
     component: TouristProfile
     },
     {
-      path: '/edittouristProfile',
-      name: 'EditTouristProfile',
-      component: EditTouristProfile
+      path: '/editUserProfile',
+      name: 'EditUserProfile',
+      component: EditUserProfile
       },
     {
     path: '/tourGuideProfile',

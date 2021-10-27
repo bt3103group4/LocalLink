@@ -1,4 +1,5 @@
 <template>
+<body>
     <div class="profilePicture"></div>
         <div id="uploadImage">
             <form action="/action_page.php">
@@ -14,16 +15,18 @@
         <div class="details">
             <h3 class="about">About</h3> <hr>
             <h4>Name </h4>
-            <span> {{name}} </span>
+            <span> {{firstname}} {{lastname}} </span>
             <h4>Languages</h4>
-            <span v-if="$lang"> {{lang}} </span>
+            <span v-if="$lang != ''"> {{lang}} </span>
             <span style="color:grey;font-style: italic;" v-else> Add your languages! </span>
             <h4>Biography</h4>
-            <span v-if="$bio"> {{bio}} </span>
+            <span v-if="$bio != ''"> {{bio}} </span>
             <span style="color:grey;font-style: italic;" v-else> Nothing here yet :(   Add your bio by clicking on the edit icon! </span><br>
         </div>
-</template>
 
+        <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/EditUserProfile')"></button>
+        </body>
+</template>
 <script>
 
 import firebase from 'firebase';
@@ -34,8 +37,8 @@ export default{
     data(){
       return{
         username: "",
-        name: "",
-        about: "",
+        firstname: "",
+        lastname: "",
         bio: "",
         lang:""
       }
@@ -53,9 +56,9 @@ export default{
           .then(doc => {
           if (doc.exists){
           const data = doc.data()
-          self.name = data["firstname"] 
+          self.firstname = data["firstname"] 
+          self.lastname = data["lastname"]
           self.username = data["username"]
-          self.about = data["about"]
           self.bio = data["bio"]
           self.lang = data["lang"]
           }
@@ -68,6 +71,11 @@ export default{
   })
 }
     display();
+    },
+        methods: {
+        isUserAccount() {
+            //TODO: check if users account if they want to edit
+        }
     }
 }
 </script>
@@ -76,6 +84,9 @@ export default{
 
 hr{
   border: 3px black solid rgba(0, 0, 0.75);
+}
+button{
+  cursor: pointer;
 }
 .profilePicture {
   width: 322px;
@@ -104,7 +115,7 @@ hr{
 }
 .detailsbox {
   width: 442px;
-  height: 440px;
+  height: 350px;
   background: rgba(255,251,251,1);
   opacity: 1;
   position: absolute;
@@ -131,5 +142,17 @@ hr{
   left : 210px;
   align-content: center;
 }
-
+#editprofilebtn {
+    width: 30px;
+    height: 30px;
+    position : absolute;
+    left: 440px;
+    top : 565px;
+    margin: 30px;
+    background: url("~@/images/edit.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border: none;
+}
 </style>

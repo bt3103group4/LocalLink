@@ -13,8 +13,6 @@
 
         <UserInfo/>
         <SettingsButton/>
-
-    <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/EditTouristProfile')"></button>
     <input class="searchBar" placeholder="Search ">  
     <Logo/>
 
@@ -50,6 +48,7 @@ import Logo from '@/components/Logo.vue'
 import UserListings from '@/components/UserListings.vue'
 import SettingsButton from '@/components/SettingsButton.vue'
 
+
 export default {
     name: "TouristProfile",
 
@@ -69,8 +68,6 @@ export default {
 
         })
       })
-      
-
     },
 
     methods: {
@@ -94,7 +91,7 @@ body {
 }
 .page {
   width: 100%;
-  height: 883px;
+  height: 1000px;
   background: rgba(242,238,238,1);
   opacity: 1;
   position: absolute;
@@ -136,9 +133,6 @@ body {
   position: absolute;
   top: 250px;
   left: 600px;
-}
-button{
-  cursor: pointer;
 }
 .newReviewBtn{
   width: 134px;
@@ -189,18 +183,5 @@ button{
   left: 177px;
   overflow: hidden;
   padding-left: 20px;
-}
-#editprofilebtn {
-    width: 30px;
-    height: 30px;
-    position : absolute;
-    left: 440px;
-    top : 565px;
-    margin: 30px;
-    background: url("~@/images/edit.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    border: none;
 }
 </style>
