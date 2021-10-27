@@ -13,9 +13,6 @@
 
         <UserInfo/>
         <SettingsButton/>
-
-    <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/editTouristProfile')"></button>
-    <button class="logout" @click="Logout">Logout</button>
     <input class="searchBar" placeholder="Search ">  
     <Logo/>
 
@@ -50,8 +47,7 @@ import UserInfo from '@/components/UserInfo.vue'
 import Logo from '@/components/Logo.vue'
 import UserListings from '@/components/UserListings.vue'
 import SettingsButton from '@/components/SettingsButton.vue'
-import {ref, onBeforeMount} from 'vue';
-import firebase from 'firebase';
+
 
 export default {
     name: "TouristProfile",
@@ -69,6 +65,7 @@ export default {
           tabs.forEach(tab=> tab.classList.remove('active'))
           target.classList.add('active')
           tab.classList.add('active')
+
         })
       })
     },
@@ -80,37 +77,12 @@ export default {
         isUserAccount() {
             //TODO: check if users account if they want to edit
         },
-    },
-    setup () {
-            const name = ref("");
-
-            onBeforeMount(() => {
-                const user = firebase.auth().currentUser;
-                if (user) {
-                    name.value = user.email.split('@')[0];
-                }
-                
-            });
-
-            const Logout = () => {
-                firebase    
-                    .auth()
-                    .signOut()
-                    .then(() => console.log("Sign Out"))
-                    .cathc(err => alert(err.message));
-            }
-
-            return{
-                name,
-                Logout
-            }
-            
-
-        }
+    }
+   
 }
 </script>
 
-<style>
+<style scoped>
 * {
   box-sizing: border-box;
 }
@@ -119,7 +91,7 @@ body {
 }
 .page {
   width: 100%;
-  height: 883px;
+  height: 1000px;
   background: rgba(242,238,238,1);
   opacity: 1;
   position: absolute;
@@ -161,9 +133,6 @@ body {
   position: absolute;
   top: 250px;
   left: 600px;
-}
-button{
-  cursor: pointer;
 }
 .newReviewBtn{
   width: 134px;
@@ -214,18 +183,5 @@ button{
   left: 177px;
   overflow: hidden;
   padding-left: 20px;
-}
-#editprofilebtn {
-    width: 30px;
-    height: 30px;
-    position : absolute;
-    left: 440px;
-    top : 565px;
-    margin: 30px;
-    background: url("~@/images/edit.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    border: none;
 }
 </style>

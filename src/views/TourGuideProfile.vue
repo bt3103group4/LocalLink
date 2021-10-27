@@ -76,7 +76,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 * {
   box-sizing: border-box;
 }
@@ -91,14 +91,6 @@ body {
   position: relative;
   top: 0px;
   left: 0px;
-}
-
-#uploadImage{
-    top : 300px;
-    width : 200px;
-    position: relative;
-    left : 210px;
-    align-content: center;
 }
 .addPhotoBtn {
   width: 189px;

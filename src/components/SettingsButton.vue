@@ -4,15 +4,55 @@
             <div class="dropdown-content">
                 <a href="#">Account</a> <br>
                 <a href="#">Help</a> <br>
-                <a href="#">Logout</a>
+                <button class="logout" @click="Logout">Logout</button>
               </div>
           </div>
 
     <div class="settingsIcon"></div>
 </template>
 
+<script>
+import {ref, onBeforeMount} from 'vue'
+import firebase from 'firebase'
+
+export default {
+   setup () {
+            let name = ref("");
+
+            onBeforeMount(() => {
+                const user = firebase.auth().currentUser;
+                if (user) {
+                    name.value = user.email.split('@')[0];
+                }
+                
+            });
+
+            const Logout = () => {
+                firebase    
+                    .auth()
+                    .signOut()
+                    .then(() => console.log("Sign Out"))
+                    .catch(err => alert(err.message));
+            }
+
+            return{
+                name,
+                Logout
+            }
+            
+
+        }
+}
+</script>
+
 <style scoped>
 
+button{
+  border:None;
+}
+button:hover{
+  cursor: pointer;
+}
 .settingsBtn{
     border:none;
     width: 40px;

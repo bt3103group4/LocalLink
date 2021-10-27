@@ -83,7 +83,6 @@ export default {
     const username = ref("");
     const email = ref("");
     const password = ref("");
-    // const user = ref("")
 
     const Register = () => {
       firebase
@@ -100,7 +99,7 @@ export default {
       lastname,
       username,
       email,
-      password,
+      password
     };
   },
   data() {
@@ -124,7 +123,6 @@ export default {
             .then(() => {
               alert("User successfully created!");
               console.log(this.user);
-              console.log(this.Register);
             })
             .catch((error) => {
               console.log(error);
