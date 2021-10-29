@@ -51,20 +51,35 @@
           of the shore.
         </p>
         <a href="#" class="btn btn-primary">Customize my trip now!</a>
+        <div @click="create_tours()">get Tours</div>
       </div>
     </div>
-
     <div class="card-group">
-      <div class="card">
+      <div class="card" v-for="tour in tours" :key="tour.tour_name">
         <img
           class="card-img-top"
-          src="..\images\v207_105.png"
+          src="..\images\v225_74.png"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ tour.tour_name }}</h5>
+          <p class="card-text">{{ tour.description }}</p>
+          <a href="#" class="btn btn-primary">See more</a>
+          <!-- <p class="card-text"> -->
+          <!-- <small class="text-muted">Last booked 5 mins ago</small> -->
+          <!-- </p> -->
+        </div>
+      </div>
+      <!-- <div class="card">
+        <img
+          class="card-img-top"
+          src="..\images\v225_106.png"
           alt="Card image cap"
         />
         <div class="card-body">
           <h5 class="card-title">Crystal Bay</h5>
           <p class="card-text">description and pdf</p>
-          <a href="#" class="btn btn-primary">Reserve</a>
+          <a href="#" class="btn btn-primary">See more</a>
           <p class="card-text">
             <small class="text-muted">Last booked 5 mins ago</small>
           </p>
@@ -73,44 +88,54 @@
       <div class="card">
         <img
           class="card-img-top"
-          src="..\images\v207_105.png"
+          src="..\images\v225_106.png"
           alt="Card image cap"
         />
         <div class="card-body">
           <h5 class="card-title">Crystal Bay</h5>
           <p class="card-text">description and pdf</p>
-          <a href="#" class="btn btn-primary">Reserve</a>
+          <a href="#" class="btn btn-primary">See more</a>
           <p class="card-text">
             <small class="text-muted">Last booked 5 mins ago</small>
           </p>
         </div>
-      </div>
-      <div class="card">
-        <img
-          class="card-img-top"
-          src="..\images\v207_105.png"
-          alt="Card image cap"
-        />
-        <div class="card-body">
-          <h5 class="card-title">Crystal Bay</h5>
-          <p class="card-text">description and pdf</p>
-          <a href="#" class="btn btn-primary">Reserve</a>
-          <p class="card-text">
-            <small class="text-muted">Last booked 5 mins ago</small>
-          </p>
-        </div>
-      </div>
+      </div> -->
     </div>
   </body>
 </template>
 
 <script>
-import Layout from "@/components/Layout.vue";
+//import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
+import Layout from "@/components/Layout.vue";
+// import firebase from "firebase";
+import { db } from "../main.js";
 
 export default {
   name: "ListingsAdv",
-
   components: { Layout, Logo },
+  data() {
+    return {
+      tours: []
+    }
+  },
+  // mounted() {
+  methods: {
+    async create_tours() {
+      let z = await db.collection("listings").where("tour_type","==","Adventure").get()
+      z.forEach((doc) => {
+        const data = doc.data()
+        let tour = {
+          email: data.email,
+          tour_name: data.tour_name,
+          description: data.description,
+        }
+        // console.log(this.tours)
+        // console.log(tour)
+        this.tours.push(tour)
+      });
+      console.log(this.tours)
+    }
+  }
 };
 </script>
