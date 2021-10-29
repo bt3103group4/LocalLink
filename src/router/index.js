@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 // import Layout from '@/components/Layout.vue'
-import SignUp from "@/views/SignUp.vue";
-import Login from "@/views/Login.vue";
 import Search from "@/views/Search.vue";
 import NewTour from "@/views/NewTour.vue";
 import TouristProfile from "@/views/TouristProfile.vue";
@@ -11,28 +9,48 @@ import Review from "@/views/Review.vue";
 import Chat from "@/views/Chat.vue";
 import Logout from "@/views/Logout.vue";
 import Listings from "@/views/Listings.vue";
-import Register from '@/views/Register.vue'
 import ListingsNature from "@/views/ListingsNature.vue";
 import ListingsAdv from "@/views/ListingsAdv.vue";
 import ListingsBeach from "@/views/ListingsBeach.vue";
 import EditUserProfile from "@/views/EditUserProfile.vue";
+// import SignUp from '@/views/SignUp.vue'
+import RegisterTourist from '@/views/RegisterTourist.vue'
+import LoginTourist from '@/views/LoginTourist.vue'
+import RegisterTourGuide from '@/views/RegisterTourGuide.vue'
+import LoginTourGuide from '@/views/LoginTourGuide.vue'
+import Landing from '@/views/Landing.vue'
 
 const routes = [
     {
     path: '/',
-    name: 'Login',
-    component: Login
+    name: 'Landing',
+    component: Landing
     },
     {
-    path: '/register',
-    name: 'Register',
-    component: Register
+    path: '/logintourguide',
+    name: 'LoginTourGuide',
+    component: LoginTourGuide
     },
     {
-    path: '/signup',
-    name: 'SignUp',
-    component: SignUp
+    path: '/registertourguide',
+    name: 'RegisterTourGuide',
+    component: RegisterTourGuide
     },
+    {
+    path: '/logintourist',
+    name: 'LoginTourist',
+    component: LoginTourist
+    },
+    {
+    path: '/registertourist',
+    name: 'RegisterTourist',
+    component: RegisterTourist
+    },
+    // {
+    // path: '/signup',
+    // name: 'SignUp',
+    // component: SignUp
+    // },
     {
     path: '/search',
     name: 'Search',
