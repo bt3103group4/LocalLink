@@ -1,5 +1,5 @@
 <template>
-    <Layout/>
+    <!-- <Layout/> -->
     <Logo/>
     <span class="header">Describe your experience</span>
     <div class="description"><b>What will you and your guests do?</b>
@@ -30,6 +30,7 @@
           <option>Car</option>
           <option>Public Transport</option>
           <option>Walk</option>
+          <option>Others</option>
         </select>
       </form>
     </div>
@@ -59,6 +60,20 @@
       <textarea class = "diff_input" v-model.lazy= "TourName" placeholder = "Name of tour."></textarea>
     </div>
 
+    <div class="category">Type of Tour</div>
+    <div class="category_box">
+      <form>
+        <input type="radio" id="nature" value="Nature" v-model.lazy= "Category">
+        <label for="nature">Nature</label><br>
+        <input type="radio" id="adventure" value="Adventure" v-model.lazy= "Category">
+        <label for="adventure">Adventure</label><br>
+        <input type="radio" id="beach" value="Beach Club" v-model.lazy= "Category">
+        <label for="beach">Beach Club</label><br>
+        <input type="radio" id="others" value="Others" v-model.lazy= "Category">
+        <label for="others">Others</label>
+      </form>
+    </div>
+
     <button class="list"> List </button>
     
 
@@ -69,7 +84,7 @@
       <title>Document</title>
     </head>
 
-    <body>
+    <!-- <body>
       <div class="v97_34">
         <div class="name"></div>
 
@@ -96,17 +111,17 @@
           <div class="v264_62"></div>
           <span class="v264_77">Transportation</span>
           <span class="v264_93">Cost</span>
-    </div>
- </body>
+    </div> -->
+ <!-- </body> -->
 </template>
 
 <script>
-import Layout from '@/components/Layout.vue'
+// import Layout from '@/components/Layout.vue'
 import Logo from '@/components/Logo.vue'
 
 export default {
     name: "NewTour",
-    components: { Layout ,Logo },
+    components: {Logo },
     data() {
       return {
         Description:"",
@@ -116,6 +131,7 @@ export default {
         Experience:"",
         Cost:"",
         TourName:"",
+        Category:"",
       }
     }
 }
@@ -434,19 +450,41 @@ select {
   background: rgba(63,163,184,1);
   opacity: 1;
   position: absolute;
-  top: 1972px;
-  left: 1133px;
+  top: 2100px;
+  left: 1000px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size:30px;
   color: white;
   font-family: Ubuntu;
 }
 
+.category {
+  width: 902px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 1950px;
+  left: 312px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Ubuntu;
+  font-weight: Bold;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+
+.category_box {
+  width: 920px;
+  height: 58px;
+  position: absolute;
+  top: 1990px;
+  left: 308px;
+}
+
 
 .name {
   color: #fff;
 }
-
+/* 
 .v97_516 {
   color: rgba(0,0,0,1);
   position: absolute;
@@ -649,6 +687,6 @@ select {
   font-size: 40px;
   opacity: 1;
   text-align: left;
-}
+} */
 
 </style>
