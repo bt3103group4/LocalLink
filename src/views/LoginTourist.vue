@@ -15,7 +15,7 @@
         <br>
         </div>
         <input class="login-submit" type="submit" value="Login">
-        <p>Don't have an account yet? <router-link to="/register">Register Here</router-link></p>
+        <p>Don't have an account yet? <router-link to="/registertourist">Register Here</router-link></p>
     </form>
 </div>
 </template>

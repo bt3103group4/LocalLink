@@ -2,7 +2,6 @@
     <div class= "dropdown">
           <button class="settingsBtn"></button>
             <div class="dropdown-content">
-                <a href="#">Account</a> <br>
                 <a href="#">Help</a> <br>
                 <button class="logout" @click="Logout">Logout</button>
               </div>
@@ -47,18 +46,23 @@ export default {
 
 <style scoped>
 
-button{
+.logout{
   border:None;
+  text-align: right;
+  padding: 0px;
+  font-family: Ubuntu;
+  font-size: 14px;
 }
-button:hover{
+.logout:hover{
   cursor: pointer;
 }
 .settingsBtn{
     border:none;
-    width: 40px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
     background: rgba(63,163,184,1);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin:0px;
+    padding:0px;
     cursor: pointer;
 }
 .dropdown-content {
@@ -67,22 +71,23 @@ button:hover{
   background-color: #f1f1f1;
   min-width: 175px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding:10px;
   z-index: 1;
-  padding: 10px;
   font-family: Ubuntu;
   right:0;
   text-align: right;
 }
 .dropdown {
   position: absolute;
-  top:46px;
-  left: 1315px;
+  top:9px;
+  right: 85px;
   display: inline-block;
 }
 .dropdown-content a {
   color: black;
   text-decoration: none;
   display: block;
+  padding-right: 0px;
 }
 .dropdown-content a:hover {
   background-color: #ddd;
@@ -91,7 +96,8 @@ button:hover{
   display: block;
 }
 .dropdown:hover .settingsBtn {
-  background-color: rgba(0,0,0,0.3);
+  background-color:grey;
+  height:55px;
 }
 .settingsIcon {
   width: 17px;
@@ -102,8 +108,8 @@ button:hover{
   background-size: cover;
   opacity: 1;
   position: absolute;
-  top: 61px;
-  left: 1325px;
+  top: 28px;
+  right:100px;
   overflow: hidden;
 }
 </style>

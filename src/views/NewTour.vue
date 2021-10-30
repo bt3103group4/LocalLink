@@ -1,140 +1,162 @@
 <template>
-    <!-- <Layout/> -->
-    <Logo/>
-    <span class="header">Describe your experience</span>
-    <div class="description"><b>What will you and your guests do?</b>
-      <li>Provide a detailed timeline of the tour from start to finish.</li>
-      <li>Describe how your tour stands out from the rest!</li>
-    </div>
-      
-    <div class="des_input">
-        <textarea class = "des_text" v-model.lazy= "Description" placeholder = "Describe your tour to stand out from the rest! A good description usually has more than 200 words."></textarea>
-    </div>
+  <Layout />
+  <Logo />
+  <span class="header">Describe your experience</span>
+  <div class="description">
+    <b>What will you and your guests do?</b>
+    <li>Provide a detailed timeline of the tour from start to finish.</li>
+    <li>Describe how your tour stands out from the rest!</li>
+  </div>
 
-    <div class="time">When will you be free to host the experience?</div>
-    <div id="time_box">
-      <div class="time_input">
-        <form action="/action_page.php">
-          <label for="start_date"> Start Date:</label>
-          <input id="start_date" v-model.lazy= "Start_Date" type="date" >
-          <label for="end_date"> End Date:</label>
-          <input id="end_date" v-model.lazy= "End_Date" type="date" >
-        </form>
-      </div>
-    </div>
+  <div class="des_input">
+    <textarea
+      class="des_text"
+      v-model.lazy="description"
+      placeholder="Describe your tour to stand out from the rest! A good description usually has more than 200 words."
+    ></textarea>
+  </div>
 
-    <div class="transport">Please select your mode of transportation provided for your guests:</div>
-    <div class="transport_box">
-      <form action="/action_page.php">
-        <select v-model= "Transport">
-          <option>Car</option>
-          <option>Public Transport</option>
-          <option>Walk</option>
-          <option>Others</option>
-        </select>
-      </form>
-    </div>
-
-    <div class="experience">How many years of tour experience do you have?</div>
-    <div class="experience_box">
-      <input class = "diff_input" type="number" v-model.lazy= "Experience" placeholder = "Input the number of years in numbers.">
-    </div>
-
-    <div class="cost">How much would the experience cost?</div>
-    <div class="cost_box">
-      <input class = "diff_input" type="number" v-model.lazy= "Cost" placeholder = "Price of tour.">
-    </div>
-
-    <div class="photos">Add photos to describe your tour</div>
-    <div id="photos_box">
-      <div class="photos_input">
-        <form action="/action_page.php">
-            <label for="img">Select photo:</label><br><br>
-            <input type="file" id="img" name="img" accept="image/*"><br><br>
-        </form>
-      </div>
-    </div>
-
-    <div class="tour_name">Name your tour</div>
-    <div class="tour_name_box">
-      <textarea class = "diff_input" v-model.lazy= "TourName" placeholder = "Name of tour."></textarea>
-    </div>
-
-    <div class="category">Type of Tour</div>
-    <div class="category_box">
+  <div class="time">When will you be free to host the experience?</div>
+  <div id="time_box">
+    <div class="time_input">
       <form>
-        <input type="radio" id="nature" value="Nature" v-model.lazy= "Category">
-        <label for="nature">Nature</label><br>
-        <input type="radio" id="adventure" value="Adventure" v-model.lazy= "Category">
-        <label for="adventure">Adventure</label><br>
-        <input type="radio" id="beach" value="Beach Club" v-model.lazy= "Category">
-        <label for="beach">Beach Club</label><br>
-        <input type="radio" id="others" value="Others" v-model.lazy= "Category">
-        <label for="others">Others</label>
+        <label for="start_date"> Start Date:</label>
+        <input id="start_date" v-model.lazy="start_date" type="date" />
+        <label for="end_date"> End Date:</label>
+        <input id="end_date" v-model.lazy="end_date" type="date" />
       </form>
     </div>
+  </div>
 
-    <button class="list"> List </button>
-    
+  <div class="transport">
+    Please select your mode of transportation provided for your guests:
+  </div>
+  <div class="transport_box">
+    <form action="/action_page.php">
+      <select v-model="transport">
+        <option>Car</option>
+        <option>Public Transport</option>
+        <option>Walk</option>
+      </select>
+    </form>
+  </div>
 
+  <div class="experience">How many years of tour experience do you have?</div>
+  <div class="experience_box">
+    <input
+      class="diff_input"
+      type="number"
+      v-model.lazy="experience"
+      placeholder="Input the number of years in numbers."
+    />
+  </div>
 
-    <head>
-      <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
-      <link href="./css/main.css" rel="stylesheet" />
-      <title>Document</title>
-    </head>
+  <div class="cost">How much would the experience cost?</div>
+  <div class="cost_box">
+    <input
+      class="diff_input"
+      type="number"
+      v-model.lazy="cost"
+      placeholder="Price of tour"
+    />
+  </div>
 
-    <!-- <body>
-      <div class="v97_34">
-        <div class="name"></div>
+  <div class="photos">Add photos to describe your tour</div>
+  <div id="photos_box">
+    <div class="photos_input">
+      <form>
+        <label for="img">Select photo:</label><br /><br />
+        <input type="file" id="img" name="img" accept="image/*" /><br /><br />
+      </form>
+    </div>
+  </div>
 
-        <div class="v97_508"></div>
-          
-          <span class="v97_516"> </span>
-          <div class="v97_518"></div>
-            <div class="v97_520"></div>
-          <div class="name"></div>
-          <div class="v151_59"></div>
-          <span class="v264_121">Tour Name</span>
-          <span class="v264_63">What you’ll do</span>
-          <span class="v264_96">Add photos</span>
-          <div class="name"></div>
-          <span class="v151_143">Duration Offered</span>
-          <span class="v264_85">Work Experience</span>
-          <div class="v264_78"></div>
-          <div class="v264_64"></div>
-          <div class="v264_86"></div>
-          <div class="v264_79"></div>
-          <div class="v264_122"></div>
-          <div class="v264_92"></div>
-          <div class="v264_97"></div>
-          <div class="v264_62"></div>
-          <span class="v264_77">Transportation</span>
-          <span class="v264_93">Cost</span>
-    </div> -->
- <!-- </body> -->
+  <div class="tour_name">Name your tour</div>
+  <div class="tour_name_box">
+    <textarea
+      class="diff_input"
+      v-model.lazy="tour_name"
+      placeholder="Name of tour"
+    ></textarea>
+  </div>
+
+  <div class="tour_type">Please select your tour type</div>
+  <div class="tour_type_box">
+    <form>
+      <select v-model="tour_type">
+        <option>Adventure</option>
+        <option>Nature</option>
+        <option>Beach</option>
+      </select>
+    </form>
+  </div>
+
+  <button class="save" @click="save">Save</button>
+
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./css/main.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
 </template>
 
 <script>
-// import Layout from '@/components/Layout.vue'
-import Logo from '@/components/Logo.vue'
+import Layout from "@/components/Layout.vue";
+import Logo from "@/components/Logo.vue";
+import firebase from "firebase";
+import { db } from "../main.js";
 
 export default {
-    name: "NewTour",
-    components: {Logo },
-    data() {
-      return {
-        Description:"",
-        Start_Date:"",
-        End_Date:"",
-        Transport:"",
-        Experience:"",
-        Cost:"",
-        TourName:"",
-        Category:"",
-      }
-    }
-}
+  name: "NewTour",
+  components: { Layout, Logo },
+  data() {
+    return {
+      description: "",
+      start_date: "",
+      end_date: "",
+      transport: "",
+      experience: "",
+      cost: "",
+      tour_name: "",
+      tour_type: "",
+      saved_list: "",
+      reserved_list: "",
+    };
+  },
+  methods: {
+    save() {
+      const self = this;
+      const auth = firebase.auth();
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          let fbuser = auth.currentUser.email;
+          const tour_id = String(fbuser + ", " + this.tour_name)
+          if (fbuser) {
+            db.collection("listings").doc(tour_id).set({
+              description: self.description,
+              start_date: self.start_date,
+              end_date: self.end_date,
+              transport: self.transport,
+              experience: self.experience,
+              cost: self.cost,
+              tour_name: self.tour_name,
+              tour_type: self.tour_type,
+              email: fbuser,
+            });
+            alert("Edit successfully saved!");
+            this.$router.push("/touristProfile")
+            // TODO clear the screen
+          } else {
+            console.log("no such document");
+          }
+        }
+      });
+    },
+  },
+};
 </script>
 
 <style>
@@ -150,7 +172,7 @@ body {
 }
 .header {
   width: 724px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 70px;
   left: 388px;
@@ -164,7 +186,7 @@ body {
 
 .description {
   width: 696px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 235px;
   left: 317px;
@@ -178,12 +200,12 @@ body {
 .des_input {
   width: 920px;
   height: 222px;
-  background: rgba(255,255,255,1);
+  background: rgba(255, 255, 255, 1);
   opacity: 1;
   position: absolute;
   top: 384px;
   left: 317px;
-  border: 2px solid rgba(0,0,0,0.33000001311302185);
+  border: 2px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -194,8 +216,8 @@ body {
 
 .des_text {
   outline: none;
-  margin: 0px; 
-  width: 900px; 
+  margin: 0px;
+  width: 900px;
   height: 230px;
   resize: none;
   font-size: 20px;
@@ -207,7 +229,7 @@ body {
 
 .time {
   width: 661px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 655px;
   left: 317px;
@@ -222,12 +244,12 @@ body {
 #time_box {
   width: 920px;
   height: 58px;
-  background: rgba(255,255,255,1);
+  background: rgba(255, 255, 255, 1);
   opacity: 1;
   position: absolute;
   top: 700px;
   left: 317px;
-  border: 1px solid rgba(0,0,0,0.33000001311302185);
+  border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -237,7 +259,7 @@ body {
 }
 
 .time_input {
-  margin: 15px; 
+  margin: 15px;
   left: 320px;
   top: 750px;
   outline: none;
@@ -257,7 +279,7 @@ input {
 
 .transport {
   width: 902px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 817px;
   left: 317px;
@@ -272,12 +294,12 @@ input {
 .transport_box {
   width: 920px;
   height: 58px;
-  background: rgba(255,255,255,1);
+  background: rgba(255, 255, 255, 1);
   opacity: 1;
   position: absolute;
   top: 867px;
   left: 317px;
-  border: 1px solid rgba(0,0,0,0.33000001311302185);
+  border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -285,7 +307,6 @@ input {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   overflow: hidden;
 }
-
 
 select {
   width: 800px;
@@ -301,7 +322,7 @@ select {
 
 .experience {
   width: 902px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 986px;
   left: 317px;
@@ -316,12 +337,12 @@ select {
 .experience_box {
   width: 920px;
   height: 58px;
-  background: rgba(255,255,255,1);
+  background: rgba(255, 255, 255, 1);
   opacity: 1;
   position: absolute;
   top: 1037px;
   left: 317px;
-  border: 1px solid rgba(0,0,0,0.33000001311302185);
+  border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -331,8 +352,8 @@ select {
 }
 
 .diff_input {
-  margin: 0px; 
-  width: 900px; 
+  margin: 0px;
+  width: 900px;
   height: 60px;
   outline: none;
   resize: none;
@@ -345,7 +366,7 @@ select {
 
 .cost {
   width: 902px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 1145px;
   left: 317px;
@@ -360,12 +381,12 @@ select {
 .cost_box {
   width: 920px;
   height: 58px;
-  background: rgba(255,255,255,1);
+  background: rgba(255, 255, 255, 1);
   opacity: 1;
   position: absolute;
   top: 1197px;
   left: 317px;
-  border: 1px solid rgba(0,0,0,0.33000001311302185);
+  border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -376,7 +397,7 @@ select {
 
 .photos {
   width: 902px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 1294px;
   left: 317px;
@@ -391,12 +412,12 @@ select {
 #photos_box {
   width: 920px;
   height: 417px;
-  background: rgba(255,255,255,1);
+  background: rgba(255, 255, 255, 1);
   opacity: 1;
   position: absolute;
   top: 1344px;
   left: 317px;
-  border: 1px solid rgba(0,0,0,1);
+  border: 1px solid rgba(0, 0, 0, 1);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -405,7 +426,7 @@ select {
 }
 
 .photos_input {
-  margin: 15px; 
+  margin: 15px;
   outline: none;
   resize: none;
   font-size: 25px;
@@ -415,7 +436,7 @@ select {
 
 .tour_name {
   width: 902px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 1810px;
   left: 312px;
@@ -430,12 +451,12 @@ select {
 .tour_name_box {
   width: 920px;
   height: 58px;
-  background: rgba(255,255,255,1);
+  background: rgba(255, 255, 255, 1);
   opacity: 1;
   position: absolute;
   top: 1852px;
   left: 308px;
-  border: 1px solid rgba(0,0,0,0.33000001311302185);
+  border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -444,25 +465,11 @@ select {
   overflow: hidden;
 }
 
-.list {
-  width: 242px;
-  height: 78px;
-  background: rgba(63,163,184,1);
-  opacity: 1;
-  position: absolute;
-  top: 2100px;
-  left: 1000px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-size:30px;
-  color: white;
-  font-family: Ubuntu;
-}
-
-.category {
+.tour_type {
   width: 902px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
-  top: 1950px;
+  top: 1960px;
   left: 312px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
@@ -472,221 +479,34 @@ select {
   text-align: left;
 }
 
-.category_box {
+.tour_type_box {
   width: 920px;
   height: 58px;
+  background: rgba(255, 255, 255, 1);
+  opacity: 1;
   position: absolute;
-  top: 1990px;
+  top: 2000px;
   left: 308px;
+  border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 }
 
-
-.name {
-  color: #fff;
-}
-/* 
-.v97_516 {
-  color: rgba(0,0,0,1);
+.save {
+  width: 242px;
+  height: 78px;
+  background: rgba(63, 163, 184, 1);
+  opacity: 1;
   position: absolute;
-  top: 1024px;
-  left: 920px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  top: 2170px;
+  left: 1133px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 30px;
+  color: white;
   font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
 }
-
-.name {
-  color: #fff;
-}
-
-.v264_121 {
-  width: 192px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 835px;
-  left: 77px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
-.v264_63 {
-  width: 183px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 235px;
-  left: 77px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
-.v264_96 {
-  width: 192px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 742px;
-  left: 73px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
-.name {
-  color: #fff;
-}
-.v151_143 {
-  width: 370px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 353px;
-  left: 75px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
-.v264_85 {
-  width: 192px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 544px;
-  left: 77px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
-.v264_78 {
-  width: 28px;
-  height: 24px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 347px;
-  left: 34px;
-  border-radius: 50%;
-}
-.v264_64 {
-  width: 28px;
-  height: 24px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 347px;
-  left: 34px;
-  border-radius: 50%;
-}
-.v264_86 {
-  width: 28px;
-  height: 24px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 541px;
-  left: 33px;
-  border-radius: 50%;
-}
-.v264_79 {
-  width: 28px;
-  height: 24px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 448px;
-  left: 34px;
-  border-radius: 50%;
-}
-.v264_122 {
-  width: 28px;
-  height: 24px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 847px;
-  left: 33px;
-  border-radius: 50%;
-}
-.v264_92 {
-  width: 28px;
-  height: 24px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 642px;
-  left: 33px;
-  border-radius: 50%;
-}
-.v264_97 {
-  width: 28px;
-  height: 24px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 751px;
-  left: 33px;
-  border-radius: 50%;
-}
-.v264_62 {
-  width: 28px;
-  height: 24px;
-  background: rgba(63,163,184,1);
-  opacity: 1;
-  position: absolute;
-  top: 257px;
-  left: 34px;
-  border-radius: 50%;
-}
-.v264_77 {
-  width: 170px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 449px;
-  left: 75px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
-.v264_93 {
-  width: 192px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 633px;
-  left: 77px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
-
-.v264_128 {
-  width: 234px;
-  color: rgba(255,255,255,1);
-  position: absolute;
-  top: 1972px;
-  left: 1216px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 40px;
-  opacity: 1;
-  text-align: left;
-} */
-
 </style>

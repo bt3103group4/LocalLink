@@ -3,7 +3,7 @@
     <div class="profilePicture"></div>
         <div id="uploadImage">
             <form action="/action_page.php">
-                <label for="img">Select image:</label><br><br>
+                <label for="img" >Select image:</label><br><br>
                 <input type="file" id="img" name="img" accept="image/*"><br><br>
             </form>
         </div>
@@ -88,6 +88,9 @@ hr{
 button{
   cursor: pointer;
 }
+#img{
+  font-size: 16px;
+}
 .profilePicture {
   width: 322px;
   height: 322px;
@@ -138,7 +141,7 @@ button{
 #uploadImage{
   top : 300px;
   width : 200px;
-  position: relative;
+  position: absolute;
   left : 210px;
   align-content: center;
 }
