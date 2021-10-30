@@ -92,7 +92,7 @@
     </form>
   </div>
 
-  <button class="save" @click="save">Save</button>
+  <button class="save" @click="save">List</button>
 
   <head>
     <link
@@ -137,21 +137,23 @@ export default {
           let fbuser = auth.currentUser.email;
           const tour_id = String(fbuser + ", " + this.tour_name)
           if (fbuser) {
-            db.collection("listings").doc(tour_id).set({
-              description: self.description,
-              start_date: self.start_date,
-              end_date: self.end_date,
-              transport: self.transport,
-              experience: self.experience,
-              cost: self.cost,
-              tour_name: self.tour_name,
-              tour_type: self.tour_type,
-              email: fbuser,
-            });
-            alert("Edit successfully saved!");
-            this.$router.push("/tourGuideProfile")
-            // TODO clear the screen
-          } else {
+            if (!(this.description ==""  || this.start_date == ""  || this.end_date == "" || this.transport == ""
+                || this.experience == "" || this.cost == "" || this.tour_name == "" || this.tour_type == "")){
+              db.collection("listings").doc(tour_id).set({
+                description: self.description,
+                start_date: self.start_date,
+                end_date: self.end_date,
+                transport: self.transport,
+                experience: self.experience,
+                cost: self.cost,
+                tour_name: self.tour_name,
+                tour_type: self.tour_type,
+                email: fbuser,
+              });
+              alert("Edit successfully saved!");
+              this.$router.push("/tourGuideProfile")
+            }
+            else alert("Cannot take empty Values. Please enter the values")
             console.log("no such document");
           }
         }
@@ -161,7 +163,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 * {
   box-sizing: border-box;
 }
