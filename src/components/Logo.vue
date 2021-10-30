@@ -32,15 +32,15 @@ export default {
 
 <style>
 .logo {
-  width: 100px;
-  height: 101px;
+  width: 70px;
+  height: 70px;
   background: url("~@/assets/logo.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   opacity: 1;
   position: absolute;
-  top: 22px;
+  top: 0px;
   left: 28px;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;

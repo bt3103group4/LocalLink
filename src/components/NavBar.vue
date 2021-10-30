@@ -1,89 +1,100 @@
 <template>
-  <nav
-    class="navbar navbar-expand-lg navbar-light"
-    style="background-color: #e3f2fd"
-  >
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#news">About</a>
+    <a class="active" href="#home">Contact</a>
+  <a href="#news">Account</a>
+</div>
+    <input class="searchbox" placeholder="Search">
+    <div class="searchicon"></div>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#"
-            >Home <span class="sr-only">(current)</span></a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search
-        </button>
-      </form>
-    </div>
-  </nav>
 </template>
 
 <script>
-// import firebase from '@/firebase.js'
-//import { getAuth, onAuthStateChanged } from "firebase/auth";
+import {ref, onBeforeMount} from 'vue'
+import firebase from 'firebase'
 
 export default {
-  name: "NavBar",
+   setup () {
+            let name = ref("");
 
-  //   data() {
-  //     return {
-  //       user: false,
-  //     };
-  //   },
+            onBeforeMount(() => {
+                const user = firebase.auth().currentUser;
+                if (user) {
+                    name.value = user.email.split('@')[0];
+                }
+                
+            });
 
-  //   mounted() {
-  //     const auth = getAuth();
-  //     onAuthStateChanged(auth, (user) => {
-  //       if (user) {
-  //         this.user = user;
-  //       }
-  //     });
-  //   },
-};
+            const Logout = () => {
+                firebase    
+                    .auth()
+                    .signOut()
+                    .then(() => console.log("Sign Out"))
+                    .catch(err => alert(err.message));
+            }
+
+            return{
+                name,
+                Logout
+            }
+            
+
+        }
+}
 </script>
+
+<style scoped>
+.topnav{
+  background-color: rgba(63,163,184,1);
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  height: 75px;
+  padding-top: 25px ;
+  padding-left: 900px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+a{
+  padding: 20px;
+  font-family: Ubuntu;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+a:hover{
+  cursor: pointer;
+  background-color: grey;
+  height: 75px;
+  top:0px
+}
+.searchbox {
+  width: 416px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 10px;
+  left: 156px;
+  overflow: hidden;
+  padding-left: 50px;
+  border-radius: 15px;
+  font-style: italic;
+}
+.searchicon {
+  width: 27px;
+  height: 27px;
+  background: url("~@/images/v216_71.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.5;
+  position: absolute;
+  top: 22px;
+  left: 170px;
+  overflow: hidden;
+}
+
+</style>

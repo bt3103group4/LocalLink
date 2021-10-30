@@ -1,20 +1,15 @@
 <template>
-<Layout/>
-
   <head>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
-    <link href="./css/main.css" rel="stylesheet" />
-    <title>Document</title>
+    <title>My Profile</title>
     </head>
     <body>
       <div class="page">
         <button class="newReviewBtn" @click="$router.push('/Review')">New Review</button>
-
-
+        <NavBar/>
         <UserInfo/>
         <SettingsButton/>
-    <input class="searchBar" placeholder="Search ">  
-    <Logo/>
+        <Logo/>
 
     <ul class = "tabs">
       <li data-tab-target="#savedListings" class="active tab"> Saved Listings </li>
@@ -31,28 +26,22 @@
       </div>
 
     </div>
-        <div class="searchIcon"></div>
-        <div class="name"></div>
-        <div class="name"></div>
-        <div class="container">
+
   
-  </div>
-        
     </body>
 </template>
 
 <script>
-import Layout from '@/components/Layout.vue'
 import UserInfo from '@/components/UserInfo.vue'
 import Logo from '@/components/Logo.vue'
 import UserListings from '@/components/UserListings.vue'
 import SettingsButton from '@/components/SettingsButton.vue'
-
+import NavBar from '@/components/NavBar.vue'
 
 export default {
     name: "TouristProfile",
 
-    components: { Layout, UserInfo, Logo ,UserListings, SettingsButton},
+    components: { UserInfo, Logo ,UserListings, SettingsButton, NavBar},
 
     mounted(){
       let tabs = document.querySelectorAll('[data-tab-target]')
@@ -88,20 +77,14 @@ export default {
 }
 body {
   font-size: 14px;
-}
-.page {
+  background-color: rgba(242,238,238,1);
   width: 100%;
-  height: 1000px;
-  background: rgba(242,238,238,1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  overflow:visible;
+  height:1500px;
 }
+
 .tabs{
   position: absolute;
-  top: 130px;
+  top: 150px;
   left: 600px;
   display : flex;
   color:rgba(0, 0, 0, 0.75);
@@ -140,8 +123,8 @@ body {
   background: rgba(63,163,184,1);
   opacity: 1;
   position: absolute;
-  top: 46px;
-  left: 1180px;
+  top: 100px;
+  left: 1220px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border:none;
   color: rgba(255,255,255,1);
@@ -155,33 +138,5 @@ body {
 .newReviewBtn:hover{
   background-color: rgba(0,0,0,0.3);
 }
-.searchBar {
-  width: 416px;
-  height: 56px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  position: absolute;
-  top: 42px;
-  left: 156px;
-  overflow: hidden;
-  padding-left: 55px;
-  font-style: italic;
-  font-size: 20px;
-  color: rgba(0,0,0,0.50);
-}
-.searchIcon {
-  width: 29px;
-  height: 31px;
-  background: url("~@/images/search icon.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 56px;
-  left: 177px;
-  overflow: hidden;
-  padding-left: 20px;
-}
+
 </style>
