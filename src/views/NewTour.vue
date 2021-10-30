@@ -149,7 +149,7 @@ export default {
               email: fbuser,
             });
             alert("Edit successfully saved!");
-            this.$router.push("/touristProfile")
+            this.$router.push("/tourGuideProfile")
             // TODO clear the screen
           } else {
             console.log("no such document");
@@ -176,7 +176,7 @@ body {
   width: 724px;
   color: rgba(0, 0, 0, 1);
   position: absolute;
-  top: 70px;
+  top: 120px;
   left: 388px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;

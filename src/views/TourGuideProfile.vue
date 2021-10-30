@@ -34,7 +34,7 @@
         <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/editTourGuideProfile')"> </button>
 
     <div class="name"></div>
-    <button class="uploadbtn">Upload Tour</button>
+    <button class="uploadbtn" v-if="isUserAccount" @click="$router.push('/newtour')">Upload Tour</button>
     <div class="v218_107"></div>
 
     </body>
