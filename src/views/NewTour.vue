@@ -128,23 +128,14 @@ export default {
   },
   methods: {
     save() {
-      console.log( "stuff" + this.description,
-      this.start_date,
-      this.end_date,
-      this.transport,
-      this.experience,
-      this.cost,
-      this.tour_name,
-      this.tour_type,
-      this.saved_list,
-      this.reserved_list)
       const self = this;
       const auth = firebase.auth();
       auth.onAuthStateChanged((user) => {
         if (user) {
           let fbuser = auth.currentUser.email;
+          const tour_id = String(fbuser + ", " + this.tour_name)
           if (fbuser) {
-            db.collection("listings").doc(String(fbuser)).set({
+            db.collection("listings").doc(tour_id).set({
               description: self.description,
               start_date: self.start_date,
               end_date: self.end_date,
@@ -153,9 +144,11 @@ export default {
               cost: self.cost,
               tour_name: self.tour_name,
               tour_type: self.tour_type,
-              // email: fbuser,
+              email: fbuser,
             });
             alert("Edit successfully saved!");
+            this.$router.push("/touristProfile")
+            // TODO clear the screen
           } else {
             console.log("no such document");
           }
