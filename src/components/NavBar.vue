@@ -1,9 +1,9 @@
 <template>
 <div class="topnav">
-  <a class="active" href="#home">Home</a>
+  <router-link to="/listings">Home</router-link>
   <a href="#news">About</a>
     <a class="active" href="#home">Contact</a>
-  <a href="#news">Account</a>
+  <router-link to="/touristProfile">Account</router-link>
 </div>
     <input class="searchbox" placeholder="Search">
     <div class="searchicon"></div>

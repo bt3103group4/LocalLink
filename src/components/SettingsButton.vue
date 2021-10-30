@@ -108,7 +108,7 @@ export default {
   background-size: cover;
   opacity: 1;
   position: absolute;
-  top: 30px;
+  top: 28px;
   right:100px;
   overflow: hidden;
 }
