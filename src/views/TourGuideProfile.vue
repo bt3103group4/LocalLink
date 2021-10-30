@@ -1,5 +1,7 @@
 <template>
-<Layout/>
+    <NavBar/>
+    <Logo/>
+    <SettingsButton/>
     <head><link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
         <link href="./main.css" rel="stylesheet" />
@@ -10,7 +12,6 @@
 
         <div class="v218_77">
         <UserInfo/>
-        <SearchBar/>
         <UserListings/>
 
         <ul class = "tabs">
@@ -32,8 +33,6 @@
 
         <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/editTourGuideProfile')"> </button>
 
-    <Logo/>
-
     <div class="name"></div>
     <button class="uploadbtn">Upload Tour</button>
     <div class="v218_107"></div>
@@ -41,15 +40,15 @@
     </body>
     </template>
 <script>
-import Layout from '@/components/Layout.vue'
 import UserInfo from '@/components/UserInfo.vue'
-import SearchBar from '@/components/UserInfo.vue'
+import SettingsButton from '@/components/SettingsButton.vue'
+import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
 import UserListings from '@/components/UserListings.vue'
 
 export default {
     name: "TouristProfile",
-    components: { Layout , UserInfo, SearchBar, Logo, UserListings},
+    components: { UserInfo,Logo, UserListings, SettingsButton, NavBar},
       mounted(){
       let tabs = document.querySelectorAll('[data-tab-target]')
       let tabContents = document.querySelectorAll('[data-tab-content]')

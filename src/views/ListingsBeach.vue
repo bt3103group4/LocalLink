@@ -1,4 +1,5 @@
 <template>
+
   <head>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -13,12 +14,13 @@
     <title>ListingsBeach</title>
   </head>
   <body>
+    <NavBar/>
+    <Logo/>
+    <SettingsButton/>
     <div class="container" style="display: flex; height: 100px">
       <div style="width: 10%">
-        <Logo />
       </div>
       <div style="flex-grow: 1">
-        <Layout />
       </div>
     </div>
     <br />
@@ -105,14 +107,15 @@
 
 <script>
 //import NavBar from "@/components/NavBar.vue";
-import Logo from "@/components/Logo.vue";
-import Layout from "@/components/Layout.vue";
+import SettingsButton from '@/components/SettingsButton.vue'
+import NavBar from '@/components/NavBar.vue'
+import Logo from '@/components/Logo.vue'
 // import firebase from "firebase";
 import { db } from "../main.js";
 
 export default {
   name: "ListingsBeach",
-  components: { Layout, Logo },
+  components: { NavBar,SettingsButton,Logo },
   data() {
     return {
       tours: []
