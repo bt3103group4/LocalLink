@@ -1,5 +1,6 @@
 
 <template>
+
 <div class="landing-page">
     <div class="centered-container">
       <h1>Landing Page</h1>

@@ -123,7 +123,6 @@ export default {
 
 <style scoped>
 body {
-    background: rgba(63,163,184,1);
     zoom:130%;
 }
 .form-control{

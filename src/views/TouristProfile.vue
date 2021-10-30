@@ -33,10 +33,10 @@
 
 <script>
 import UserInfo from '@/components/UserInfo.vue'
-import Logo from '@/components/Logo.vue'
 import UserListings from '@/components/UserListings.vue'
 import SettingsButton from '@/components/SettingsButton.vue'
 import NavBar from '@/components/NavBar.vue'
+import Logo from '@/components/Logo.vue'
 
 export default {
     name: "TouristProfile",
@@ -84,13 +84,13 @@ body {
 
 .tabs{
   position: absolute;
-  top: 150px;
+  top: 140px;
   left: 600px;
   display : flex;
   color:rgba(0, 0, 0, 0.75);
   list-style-type: none;
   border-bottom: 2px solid black;
-  background-color : rgba(242,238,238,1);
+  background-color : transparent;
   font-size: 23px;
   font-weight: 700;
   width:750px;
@@ -123,7 +123,7 @@ body {
   background: rgba(63,163,184,1);
   opacity: 1;
   position: absolute;
-  top: 100px;
+  top: 150px;
   left: 1220px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border:none;
@@ -137,6 +137,7 @@ body {
 }
 .newReviewBtn:hover{
   background-color: rgba(0,0,0,0.3);
+  cursor: pointer;
 }
 
 </style>

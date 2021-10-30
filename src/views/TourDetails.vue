@@ -1,6 +1,4 @@
 <template>
-  <!DOCTYPE html>
-  <html>
     <head>
       <link
         href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
@@ -14,6 +12,9 @@
       <title>Document</title>
     </head>
     <body>
+    <NavBar/>
+    <Logo/>
+    <SettingsButton/>
       <div class="v198_49">
         <div class="v198_93"></div>
         <div class="v233_57">
@@ -28,17 +29,16 @@
         <div class="name"></div>
       </div>
     </body>
-  </html>
 </template>
 
 <script>
-import { defineComponent } from "@vue/composition-api";
+import SettingsButton from '@/components/SettingsButton.vue'
+import NavBar from '@/components/NavBar.vue'
+import Logo from '@/components/Logo.vue'
 
-export default defineComponent({
-  setup() {
-    //TODO;
-  },
-});
+export default {
+  components: {SettingsButton,NavBar,Logo}
+}
 </script>
 
 <style scoped>

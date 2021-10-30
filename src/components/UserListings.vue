@@ -1,22 +1,73 @@
 <template>
-    <table id="listings">
-        <tr v-for="listing in listings" :key="listing"> {{listing}} </tr>
-        </table>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
+</head>
+        <div class = "grid">
+            <div class="col my-col" v-for="tour in tours" :key="tour.tour_name">
+                  <div class="card-group">
+                    <div class="card">
+                    <img
+                    class="card-img-top"
+                    src="..\images\v225_74.png" 
+                    alt="Card image cap"
+                    />
+                    <div class="card-body">
+                    <h5 class="card-title">{{tour.tourname}}</h5>
+                    <p class="card-text"> Available from: {{tour.start}}</p>
+                    <button class="button-id">Book Now </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-
-let listings = ["listing1" , "listing2","listing3","listings4"]
+import firebase from 'firebase';
+import { db} from "../main.js";
 
 export default {
     name: "UserListings",
     data(){
         return{
-            listings 
+            tours:[]
+        }
+    },
+        mounted(){
+            const self = this;
+            async function display(){
+                const auth = firebase.auth();
+                auth.onAuthStateChanged(user => {
+                if (user){
+                    let fbuser = auth.currentUser.email;
+                    if (fbuser){
+                    console.log(fbuser)
+                    db.collection("listings").where("email","==",fbuser)
+                    .get()
+                    .then(z => {
+                        z.forEach(doc => {
+                        const data = doc.data()
+                        let tour ={
+                            tourname : data["tour_name"],
+                            start : data["start_date"],
+                            image: "image",
+                            review: "4" //to make dynamic too KIV
+                        }
+                        self.tours.push(tour)
+                        console.log(tour);
+                        })
+                    
+                    })}
+                    }
+                })
+                
+            }
+            display();
         }
     }
 
-}
 </script>
 
 
@@ -27,7 +78,7 @@ export default {
   background-size: cover;
   opacity: 1;
   position: absolute;
-  top: 255px;
+  top: 265px;
   left: 664px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -37,5 +88,31 @@ export default {
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   gap:400px
+}
+.card-group:hover{
+    cursor: pointer;
+}
+.button-id{
+    border:none;
+    background-color:rgba(63,163,184,1) ;
+    color:white;
+    padding:5px;
+    padding-left: 10px;
+    padding-right:10px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.button-id:hover{
+    cursor: pointer;
+    background-color: grey;
+}
+.grid{
+    size:50%;
+    position: absolute;
+    top: 250px;
+    right:130px;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:65px
 }
 </style>

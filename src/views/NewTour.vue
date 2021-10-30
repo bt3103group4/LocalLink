@@ -1,6 +1,7 @@
 <template>
-  <Layout />
-  <Logo />
+    <NavBar/>
+    <Logo/>
+    <SettingsButton/>
   <span class="header">Describe your experience</span>
   <div class="description">
     <b>What will you and your guests do?</b>
@@ -104,14 +105,15 @@
 </template>
 
 <script>
-import Layout from "@/components/Layout.vue";
-import Logo from "@/components/Logo.vue";
+import SettingsButton from '@/components/SettingsButton.vue'
+import NavBar from '@/components/NavBar.vue'
+import Logo from '@/components/Logo.vue'
 import firebase from "firebase";
 import { db } from "../main.js";
 
 export default {
   name: "NewTour",
-  components: { Layout, Logo },
+  components: { NavBar,SettingsButton, Logo },
   data() {
     return {
       description: "",
