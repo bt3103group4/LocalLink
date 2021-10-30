@@ -47,7 +47,7 @@ export default {
 <style scoped>
 .topnav{
   background-color: rgba(63,163,184,1);
-  width: 1425px;
+  width: 100%;
   position: absolute;
   top: 0px;
   height: 75px;

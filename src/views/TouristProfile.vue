@@ -123,7 +123,7 @@ body {
   background: rgba(63,163,184,1);
   opacity: 1;
   position: absolute;
-  top: 150px;
+  top: 150px;  
   left: 1220px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border:none;
