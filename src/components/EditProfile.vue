@@ -6,16 +6,35 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"/>
 </head>	
 <body>
-   <div class="container rounded bg-white mt-5 mb-5">
+    <v-layout row class="profilePicture">
+      <v-flex  md6 offset-sm3 >
+       <div>
+         <div >
+           <input type="file" ref="input1"
+            style="display: none"
+            @change="previewImage" accept="image/*" >                
+         </div>
+ 
+       <div v-if="imageData!=null">                     
+          <img class="preview" height="268" width="356" :src="img1">
+       <br>
+       </div>   
+      
+       </div>
+       </v-flex>
+    </v-layout>
+
+   <div class="infodetails">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" src="https://i.imgur.com/O1RmJXT.jpg" width="90"><br>
+                <img class="profilepicture" :src="profilepic" width="90"><br>
                 <span class="font-weight-bold">{{firstname}} {{lastname}}</span>
                 <span class="text-black-50">{{email}}</span>
     </div>
+         <button id="choosephoto" @click="click1">Edit photo</button>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Edit your profile</h4>
@@ -33,7 +52,8 @@
                     <div class="col-md-12"><label class="labels">Biography</label>
                     <input type="text" class="form-control" id="biotextbox" v-model="bio" placeholder="Summarise your interests and hobbies!"></div>
                 </div>
-                <div class="mt-5 text-center"><button @click="saveEdits()" class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                <div class="mt-5 text-center">
+                    <button @click="saveEdits(), $router.push('/TouristProfile')" class="btn btn-primary profile-button" type="button">Save Profile</button></div>
             </div>
         </div>
     </div>
@@ -55,7 +75,8 @@ export default {
         lastname: "",
         bio: "",
         lang:"",
-        email:""
+        email:"",
+        profilepic:""
       }
     },
     mounted(){
@@ -78,6 +99,7 @@ export default {
             self.bio = data["bio"]
             self.lang = data["lang"]
             self.email=data["email"]
+            self.profilepic=data["profilepic"]
             }
             else{
                 console.log("no such document")
@@ -105,7 +127,8 @@ export default {
                 username : self.username,
                 bio : self.bio,
                 lang : self.lang,
-                email : self.email
+                email : self.email,
+                profilepic: self.img1
                 })
             
             }
@@ -115,6 +138,31 @@ export default {
         }
         })
         alert("Edit successfully saved!")
+        },
+      click1() {
+        this.$refs.input1.click()   
+        },
+
+        previewImage(event) {
+        this.uploadValue=0;
+        this.img1=null;
+        this.imageData = event.target.files[0];
+        this.onUpload()
+        },
+
+        onUpload(){
+        this.img1=null;
+        const storageRef=firebase.storage().ref(`${this.imageData.name}`).put(this.imageData);
+        storageRef.on(`state_changed`,snapshot=>{
+        this.uploadValue = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+            }, error=>{console.log(error.message)},
+        ()=>{this.uploadValue=100;
+            storageRef.snapshot.ref.getDownloadURL().then((url)=>{
+                this.img1 =url;
+                console.log(this.img1)
+                });
+            }      
+            );
         }
     }
 }
@@ -123,15 +171,25 @@ export default {
 
 <style scoped>
 body {
-    background: rgba(63,163,184,1);
     zoom:130%;
+}
+.profilepicture{
+    height:300px;
+    width: 300px;
+    border-radius: 1000px;
 }
 .form-control{
     font-size: 12px;
     padding:15px;
-
 }
-
+#choosephoto{
+    position: absolute;
+    top:180px;
+    left:140px
+}
+#choosephoto:hover{
+    cursor: pointer;
+}
 .form-control:focus {
     box-shadow: none;
     border-color: rgba(63,163,184,1);
@@ -152,6 +210,13 @@ body {
 
 #langtextbox{
     width:600px;    
+}
+#uploadImage{
+  top : 300px;
+  width : 200px;
+  position: absolute;
+  left : 210px;
+  align-content: center;
 }
 #biotextbox{
     height: 150px;
@@ -183,7 +248,11 @@ body {
 .labels {
     font-size: 11px
 }
-
+.infodetails{
+    position:absolute;
+    top:100px;
+    left:50px
+}
 .add-experience:hover {
     background: rgba(63,163,184,1);
     color: #fff;

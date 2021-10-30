@@ -1,5 +1,4 @@
 <template>
-  <!DOCTYPE html>
   <html>
     <head>
       <link
@@ -12,6 +11,9 @@
       <title>Document</title>
     </head>
     <body>
+      <NavBar/>
+      <Logo/>
+      <SettingsButton/>
       <div class="v233_56">
         <div class="v233_68"></div>
         <div class="v257_61"></div>
@@ -28,17 +30,16 @@
         <span class="v100_27">Nature</span>
       </div>
     </body>
-  </html>
 </template>
 
 <script>
-import { defineComponent } from "@vue/composition-api";
+import SettingsButton from '@/components/SettingsButton.vue'
+import NavBar from '@/components/NavBar.vue'
+import Logo from '@/components/Logo.vue'
 
-export default defineComponent({
-  setup() {
-    //TODO;
-  },
-});
+export default {
+  components:{SettingsButton,NavBar,Logo}
+}
 </script>
 
 

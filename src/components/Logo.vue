@@ -48,4 +48,7 @@ export default {
   border-bottom-right-radius: 50px;
   overflow: hidden;
 }
+.logo:hover{
+    cursor: pointer;
+}
 </style>

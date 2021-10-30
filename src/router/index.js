@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-// import Layout from '@/components/Layout.vue'
 import Search from "@/views/Search.vue";
 import NewTour from "@/views/NewTour.vue";
 import TouristProfile from "@/views/TouristProfile.vue";
@@ -116,13 +115,7 @@ const routes = [
       path: "/listingsbeach",
       name: "ListingsBeach",
       component: ListingsBeach,
-    },
-    //delete later, for testing
-    // {
-    // path: '/layout',
-    // name: 'Layout',
-    // component: Layout
-    // }
+    }
 ];
 
 const router = createRouter({

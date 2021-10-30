@@ -1,13 +1,9 @@
 <template>
-<body>
-    <div class="profilePicture"></div>
-        <div id="uploadImage">
-            <form action="/action_page.php">
-                <label for="img" >Select image:</label><br><br>
-                <input type="file" id="img" name="img" accept="image/*"><br><br>
-            </form>
-        </div>
-        
+<body>  
+    <div id ="profilepicture1">                     
+        <img id ="profilepicture" class="preview" height="268" width="356" :src="profilepic">
+       <br>
+      </div>  
     <span class="username">@{{username}}</span>
     <div class="detailsbox">
         </div>
@@ -24,7 +20,7 @@
             <span style="color:grey;font-style: italic;" v-else> Nothing here yet :(   Add your bio by clicking on the edit icon! </span><br>
         </div>
 
-        <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/EditUserProfile')"></button>
+        <button id="editprofilebtn" @click="$router.push('/EditUserProfile')"></button>
         </body>
 </template>
 <script>
@@ -40,7 +36,8 @@ export default{
         firstname: "",
         lastname: "",
         bio: "",
-        lang:""
+        lang:"",
+        profilepic:""
       }
     },
     mounted(){
@@ -61,6 +58,7 @@ export default{
           self.username = data["username"]
           self.bio = data["bio"]
           self.lang = data["lang"]
+          self.profilepic = data["profilepic"]
           }
           else{
             console.log("no such document")
@@ -72,25 +70,25 @@ export default{
 }
     display();
     },
-        methods: {
-        isUserAccount() {
-            //TODO: check if users account if they want to edit
-        }
-    }
 }
 </script>
 
 <style scoped>
-
+#profilepicture{
+  position:absolute;
+  top: 125px;
+  left:125px;
+  height:350px;
+  width: 350px;
+  border-radius:1000px;
+}
 hr{
   border: 3px black solid rgba(0, 0, 0.75);
 }
 button{
   cursor: pointer;
 }
-#img{
-  font-size: 16px;
-}
+
 .profilePicture {
   width: 322px;
   height: 322px;
@@ -137,13 +135,6 @@ button{
   font-size: 35px;
   opacity: 1;
   text-align: center;
-}
-#uploadImage{
-  top : 300px;
-  width : 200px;
-  position: absolute;
-  left : 210px;
-  align-content: center;
 }
 #editprofilebtn {
     width: 30px;
