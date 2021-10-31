@@ -18,10 +18,12 @@
         <br>
         </div>
         <input class="login-submit" type="submit" value="Login">
-        <p>Don't have an account yet? <router-link to="/registertourist">Register Here</router-link></p>
+        <span class="login-footer-text"> Don't have an account yet? <router-link to="/registertourist">Register Here as a Tourist</router-link></span>
+        <span class="login-footer-text"> Want to take earn money as a tourguide? Register as a <router-link to="/registertourguide">Tour Guide.</router-link></span>
     </form>
 </div>
 </template>
+
 <script>
 import {ref} from 'vue';
 import firebase from 'firebase';
@@ -33,12 +35,16 @@ export default {
     setup: function() {
         const email = ref("");
         const password = ref("");
+        // const navigator = this;
+        const router = useRouter()
+        // const route = useRoute()
 
-        const Login = () => {
+        const Login = function() {
             firebase
                 .auth()
                 .signInWithEmailAndPassword(email.value, password.value)
                 .then(data => console.log(data))
+                .then(() => router.push('/touristprofile')) 
                 .catch(err => alert(err.message));
         }
         return {
@@ -54,20 +60,31 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
+.logo-and-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-footer-text{
+  font-size: 14px;
+}
 
 .login-text-input {
   width: 100%;
   padding: 12px 20px;
   margin-bottom: 8px;
   box-sizing: border-box;
-  border-radius: HT 10px;
+  border-radius: 12px;
+  border: 1px solid black;
 }
 
 .login-submit {
   width: 50%;
   padding: 12px 20px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   box-sizing: border-box ;
   border-radius: 50px;
   color:white;
@@ -76,11 +93,12 @@ export default {
 
 .login{
   width: 100vw;
+  padding-bottom: 20px;
 }
 
 @media only screen and (min-width: 728px) {
   .login {
-    width: 30vw;
+    width: 35vw;
     border: 2px solid black;
     border-radius: 40px;
   }
