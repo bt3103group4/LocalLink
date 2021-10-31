@@ -1,3 +1,4 @@
+<template>
   <div class="register">
     <div class="logo-and-title">
       <FormLogo/>
@@ -75,11 +76,13 @@
 </template>
 
 <script>
+import FormLogo from '@/components/FormLogo.vue'
 import firebase from "firebase";
 import { ref } from "vue";
 import { db } from "../main.js";
 
 export default {
+  components: { FormLogo },
   setup() {
     const firstname = ref("");
     const lastname = ref("");
@@ -136,6 +139,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 /* input[type=text], input[type=password] */
 
