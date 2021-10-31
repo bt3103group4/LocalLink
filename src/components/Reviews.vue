@@ -1,0 +1,277 @@
+<template>
+<div class="tour_name">Tour Name</div>
+    <div class="tour_name_box">
+        <textarea
+        class="tour_input"
+        v-model.lazy="tourname"
+        placeholder="Tour Name"
+        ></textarea>
+    </div>
+
+    <div class="email">Email</div>
+    <div class="email_box">
+        <textarea
+        class="email_input"
+        v-model.lazy="email"
+        placeholder="Email"
+        ></textarea>
+    </div>
+
+    <div class="ratings">Ratings</div>
+    <div class="ratings_box">
+    <input
+      class="ratings_input"
+      type="number"
+      v-model.lazy="ratings"
+      placeholder="Give a rating out of 5!"
+      min="0" max="5">
+    </div>
+
+    <div class="reviews">Reviews</div>
+    <div class="review_box">
+    <textarea
+      class="review_input"
+      v-model.lazy="reviews"
+      placeholder="Leave your review"
+    ></textarea>
+    </div>
+
+    <button class="save" @click="save">Save</button>
+</template>
+
+<script>
+import firebase from "firebase";
+import { db } from "../main.js";
+export default {
+    name: "Reviews",
+    data() {
+    return {
+      tourname: "",
+      email: "",
+      ratings: "",
+      reviews: "",
+    };
+  },
+  methods: {
+    save() {
+      const self = this;
+      const auth = firebase.auth();
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          let fbuser = auth.currentUser.email;
+          const tour_id = String(this.email + ',' + this.tourname + " reviewed by " + fbuser)
+          if (fbuser) {
+            if (!(this.tourname == ""  || this.email == ""  || this.ratings == "" || this.reviews == "")){
+              db.collection("Reviews").doc(tour_id).set({
+                tourname: self.tourname,
+                email: self.email,
+                ratings: self.ratings,
+                reviews: self.reviews,
+                my_email: fbuser,
+              });
+              alert("Edit successfully saved!");
+              this.$router.push("/touristProfile")
+            }
+            else alert("Cannot take empty Values. Please enter the values")
+            console.log("no such document");
+          }
+        }
+      });
+     },
+  },
+};
+
+
+</script>
+
+<style>
+.tour_name {
+  width: 902px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 235px;
+  left: 317px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Ubuntu;
+  font-weight: Bold;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+
+.tour_name_box {
+  width: 920px;
+  height: 58px;
+  background: rgba(255, 255, 255, 1);
+  opacity: 1;
+  position: absolute;
+  top: 300px;
+  left: 317px;
+  border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.tour_input {
+    margin: 0px;
+    font-size: 20px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    width: 919px;
+    height: 56px;
+    left: 400px;
+    outline: none;
+}
+
+.email {
+  width: 902px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 400px;
+  left: 317px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Ubuntu;
+  font-weight: Bold;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+
+.email_box {
+  width: 920px;
+  height: 58px;
+  background: rgba(255, 255, 255, 1);
+  opacity: 1;
+  position: absolute;
+  top: 465px;
+  left: 317px;
+  border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.email_input {
+    margin: 0px;
+    font-size: 20px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    width: 919px;
+    height: 56px;
+    left: 400px;
+    outline: none;
+}
+
+.ratings {
+  width: 902px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 565px;
+  left: 317px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Ubuntu;
+  font-weight: Bold;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+
+.ratings_box {
+  width: 920px;
+  height: 58px;
+  background: rgba(255, 255, 255, 1);
+  opacity: 1;
+  position: absolute;
+  top: 630px;
+  left: 317px;
+  border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.ratings_input {
+    margin: 0px;
+    font-size: 20px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    width: 919px;
+    height: 56px;
+    left: 400px;
+    outline: none;
+}
+
+.reviews {
+  width: 902px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 730px;
+  left: 317px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Ubuntu;
+  font-weight: Bold;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+
+.review_box {
+  width: 920px;
+  height: 222px;
+  background: rgba(255, 255, 255, 1);
+  opacity: 1;
+  position: absolute;
+  top: 795px;
+  left: 317px;
+  border: 2px solid rgba(0, 0, 0, 0.33000001311302185);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.review_input {
+  outline: none;
+  margin: 0px;
+  width: 900px;
+  height: 230px;
+  resize: none;
+  font-size: 20px;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+}
+
+.save {
+  width: 242px;
+  height: 78px;
+  background: rgba(63, 163, 184, 1);
+  opacity: 1;
+  position: absolute;
+  top: 1100px;
+  left: 1000px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 30px;
+  color: white;
+  font-family: Ubuntu;
+}
+</style>

@@ -4,7 +4,6 @@ import NewTour from "@/views/NewTour.vue";
 import TouristProfile from "@/views/TouristProfile.vue";
 import TourGuideProfile from "@/views/TourGuideProfile.vue";
 import EditTourGuideProfile from "@/views/EditTourGuideProfile.vue";
-import Review from "@/views/Review.vue";
 import Chat from "@/views/Chat.vue";
 import Logout from "@/views/Logout.vue";
 import Listings from "@/views/Listings.vue";
@@ -86,11 +85,6 @@ const routes = [
     path: '/editTourGuideProfile',
     name: 'EditTourGuideProfile',
     component: EditTourGuideProfile
-    },
-    {
-    path: '/review',
-    name: 'Review',
-    component: Review
     },
     {
     path: '/chat',
