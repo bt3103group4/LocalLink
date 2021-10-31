@@ -128,9 +128,9 @@ export default {
                 bio : self.bio,
                 lang : self.lang,
                 email : self.email,
-                profilepic: self.img1
+                profilepic: self.profilepic
                 })
-            
+            console.log(self.firstname)
             }
             else{
                 console.log("no such document")
