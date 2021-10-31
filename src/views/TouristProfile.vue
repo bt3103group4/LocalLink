@@ -5,7 +5,6 @@
     </head>
     <body>
       <div class="page">
-        <button class="newReviewBtn" @click="$router.push('/Review')">New Review</button>
         <NavBar/>
         <UserInfo/>
         <SettingsButton/>
@@ -15,6 +14,7 @@
       <li data-tab-target="#savedListings" class="active tab"> Saved Listings </li>
       <li data-tab-target="#newReview" class="tab"> Reviews </li>
     </ul>
+    <button class="newReviewBtn" @click="$router.push('/Review')">New Review</button>
 
     <div class="tabcontent">
       <div id = "savedListings" data-tab-content class="active">
@@ -131,6 +131,7 @@ body {
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 18px;
+  padding:0px;
   opacity: 1;
   text-align: center;
   cursor: pointer;
