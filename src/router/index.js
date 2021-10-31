@@ -58,14 +58,14 @@ const routes = [
     component: Search
     },
     {
-      path: "/newtour",
-      name: "NewTour",
-      component: NewTour,
+    path: "/newtour",
+    name: "NewTour",
+    component: NewTour,
     },
     {
-      path: "/edittour",
-      name: "EditTour",
-      component: EditTour,
+    path: "/edittour",
+    name: "EditTour",
+    component: EditTour,
     },
     {
     path: '/touristProfile',
@@ -78,24 +78,24 @@ const routes = [
       component: EditUserProfile
       },
     {
-    path: '/tourGuideProfile',
-    name: 'TourGuideProfile',
-    component: TourGuideProfile
+      path: '/tourGuideProfile',
+      name: 'TourGuideProfile',
+      component: TourGuideProfile
     },
     {
-    path: '/editTourGuideProfile',
-    name: 'EditTourGuideProfile',
-    component: EditTourGuideProfile
+      path: '/editTourGuideProfile',
+      name: 'EditTourGuideProfile',
+      component: EditTourGuideProfile
     },
     {
-    path: '/chat',
-    name: 'Chat',
-    component: Chat
+      path: '/chat',
+      name: 'Chat',
+      component: Chat
     },
     {
-    path: '/logout',
-    name: 'Logout',
-    component: Logout
+      path: '/logout',
+      name: 'Logout',
+      component: Logout
     },    
 
     {
