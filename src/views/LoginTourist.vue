@@ -1,8 +1,11 @@
 
 <template>
 <div class="login">
-    <div class="centered-container">
-      <h1>Welcome Back!</h1>
+  <div class="logo-and-title">
+      <FormLogo/>
+      <div class="centered-container">
+        <h1>Welcome Back Tourists!</h1>
+      </div>
     </div>
     <form @submit.prevent="Login" class="centered-container">
         <div class="login-input-container">
@@ -22,8 +25,12 @@
 <script>
 import {ref} from 'vue';
 import firebase from 'firebase';
+import FormLogo from '@/components/FormLogo.vue'
+import { useRouter } from 'vue-router'
+
 export default {
-    setup () {
+  components: { FormLogo },
+    setup: function() {
         const email = ref("");
         const password = ref("");
 
