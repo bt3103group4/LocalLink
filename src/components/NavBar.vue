@@ -66,7 +66,9 @@ a:hover{
   cursor: pointer;
   background-color: grey;
   height: 75px;
-  top:0px
+  top:0px;
+  color: white;
+  font-style: normal;
 }
 .searchbox {
   width: 416px;
