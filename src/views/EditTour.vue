@@ -72,6 +72,10 @@
     </div>
   </div>
 
+  <!-- <div v-show=false> -->
+    <UserListings @tourname="editing($event)"/>
+  <!-- </div> -->
+
   <div class="tour_name">Name your tour</div>
   <div class="tour_name_box">
     <textarea
@@ -108,12 +112,13 @@
 import SettingsButton from '@/components/SettingsButton.vue'
 import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
+import UserListings from '@/components/UserListings.vue'
 import firebase from "firebase";
 import { db } from "../main.js";
 
 export default {
   name: "NewTour",
-  components: { NavBar,SettingsButton, Logo },
+  components: { NavBar,SettingsButton, Logo, UserListings},
   data() {
     return {
       description: "",
@@ -159,6 +164,10 @@ export default {
         }
       });
     },
+    editing(value) {
+      console.log(value)
+      this.tour_name=value
+    }
   },
 };
 </script>

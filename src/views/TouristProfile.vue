@@ -5,7 +5,7 @@
     </head>
     <body>
       <div class="page">
-        <button class="newReviewBtn" @click="$router.push('/Review')">New Review</button>
+        <button class="newReviewBtn" @click="$router.push('/newreviewtourist')">New Review</button>
         <NavBar/>
         <UserInfo/>
         <SettingsButton/>
