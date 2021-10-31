@@ -1,10 +1,11 @@
+
 <template>
 <div class="login">
   <div class="logo-and-title">
       <FormLogo/>
-    <div class="centered-container">
+      <div class="centered-container">
         <h1>Welcome Back Tour Guides!</h1>
-    </div>
+      </div>
     </div>
     <form @submit.prevent="Login" class="centered-container">
         <div class="login-input-container">
@@ -22,8 +23,43 @@
     </form>
 </div>
 </template>
+
+<script>
 import FormLogo from '@/components/FormLogo.vue'
+import {ref} from 'vue';
+import firebase from 'firebase';
+import { useRouter } from 'vue-router'
+
+export default {
     components: { FormLogo },
+    setup () {
+        const email = ref("");
+        const password = ref("");
+        const router = useRouter()
+
+        const Login = () => {
+            firebase
+                .auth()
+                .signInWithEmailAndPassword(email.value, password.value)
+                .then(data => console.log(data))
+                .then(() => router.push('/touristprofile'))
+                .catch(err => alert(err.message));
+        }
+        return {
+            Login,
+            email,
+            password
+        }
+    }
+   
+        
+
+}
+</script>
+
+
+<style scoped>
+
 .logo-and-title {
   display: flex;
   flex-direction: row;
