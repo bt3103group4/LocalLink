@@ -35,6 +35,7 @@
 
     <div class="name"></div>
     <button class="uploadbtn" v-if="isUserAccount" @click="$router.push('/newtour')">Upload Tour</button>
+    <button class="newreview" v-if="isUserAccount" @click="$router.push('/newreviewtourguide')">New Review</button>
     <div class="v218_107"></div>
 
     </body>
@@ -113,6 +114,26 @@ body {
   left: 1180px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
+.newreview {
+  width: 134px;
+  height: 48px;
+  background: rgba(63,163,184,1);
+  opacity: 1;
+  position: absolute;
+  top: 150px;  
+  left: 1220px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border:none;
+  color: rgba(255,255,255,1);
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 18px;
+  opacity: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
 .settingsbtn {
   width: 40px;
   height: 48px;
