@@ -18,6 +18,7 @@ import LoginTourist from '@/views/LoginTourist.vue'
 import RegisterTourGuide from '@/views/RegisterTourGuide.vue'
 import LoginTourGuide from '@/views/LoginTourGuide.vue'
 import Landing from '@/views/Landing.vue'
+import EditTour from '@/views/EditTour.vue'
 
 const routes = [
     {
@@ -59,6 +60,11 @@ const routes = [
       path: "/newtour",
       name: "NewTour",
       component: NewTour,
+    },
+    {
+      path: "/edittour",
+      name: "EditTour",
+      component: EditTour,
     },
     {
     path: '/touristProfile',

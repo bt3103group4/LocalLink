@@ -10,7 +10,8 @@
                     <div class="card">
                     <img class="card-img-top" src="..\images\v225_74.png" alt="Card image cap"/>
                     <div class="card-body">
-                    <h5 class="card-title">{{tour.tourname}}</h5>
+                    <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
+                    <button id="editlisting" v-if="isUserAccount" @click="editing(tour.tourname)"></button>
                     <p class="card-text"> Available from: {{tour.start}}</p>
                     <button class="button-id">Book Now </button>
                     </div>
@@ -26,6 +27,7 @@ import { db} from "../main.js";
 
 export default {
     name: "UserListings",
+    emit: ["tourname"],
     data(){
         return{
             tours:[]
@@ -49,7 +51,7 @@ export default {
                             tourname : data["tour_name"],
                             start : data["start_date"],
                             image: "image",
-                            review: "4" //to make dynamic too KIV
+                            review: "4", //to make dynamic too KIV
                         }
                         self.tours.push(tour)
                         console.log(tour);
@@ -60,9 +62,21 @@ export default {
                 })
                 
             }
-            display();
-        }
+        display();
+    },
+    
+    methods: {
+        isUserAccount() {
+            //TODO: Check this is users account if they want to edit info
+        }, 
+    editing(tour_name) {
+        console.log(tour_name)
+        this.$emit("tourname", tour_name)
+        this.$router.push('/edittour')
     }
+    }
+}
+
 
 </script>
 
@@ -111,4 +125,16 @@ export default {
     grid-template-columns: repeat(2, 1fr);
     gap:65px
 }
+
+#editlisting {
+    width: 20px;
+    height: 20px;
+    background: url("~@/images/edit.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border: none;
+    float: right;
+}
+
 </style>
