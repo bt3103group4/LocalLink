@@ -1,10 +1,13 @@
 <template>
   <div class="register">
-    <div class="centered-container">
-      <h1 class="align-left">
-        Join to unlock the <br />
-        best of <span class="text-blue">Local Link</span>
-      </h1>
+    <div class="logo-and-title">
+    <FormLogo/>
+      <div class="centered-container">
+        <h1 class="align-left">
+          Join to unlock the<br />
+          best of<span class="text-blue"> Local Link</span>
+        </h1>
+      </div>
     </div>
     <form @submit="onFormSubmit" class="centered-container">
       <div class="register-input-container">
@@ -65,7 +68,7 @@
 
       <input class="register-submit" type="submit" value="Join" />
       <p>
-        Already have an account? <router-link to="/">Login instead</router-link>
+        Already have an account? <router-link to="/logintourist">Login instead</router-link>
       </p>
     </form>
   </div>
@@ -75,14 +78,17 @@
 import firebase from "firebase";
 import { ref } from "vue";
 import { db } from "../main.js";
+import FormLogo from '@/components/FormLogo.vue'
 
 export default {
+  components: { FormLogo },
   setup() {
     const firstname = ref("");
     const lastname = ref("");
     const username = ref("");
     const email = ref("");
     const password = ref("");
+    // const user = ref("")
 
     const Register = () => {
       firebase
@@ -99,7 +105,7 @@ export default {
       lastname,
       username,
       email,
-      password
+      password,
     };
   },
   data() {
@@ -112,17 +118,16 @@ export default {
   methods: {
     onFormSubmit(event) {
       event.preventDefault();
-
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.user.email, this.user.password)
         .then(() => {
-          db.collection("users")
-            .doc(this.user.email)
+          db.collection("users").doc(this.user.email)
             .set(this.user)
             .then(() => {
               alert("User successfully created!");
               console.log(this.user);
+              console.log(this.Register);
             })
             .catch((error) => {
               console.log(error);
@@ -136,6 +141,12 @@ export default {
 
 <style>
 /* input[type=text], input[type=password] */
+.logo-and-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 
 .register-text-input {
   width: 100%;
