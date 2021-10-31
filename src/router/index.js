@@ -4,7 +4,6 @@ import NewTour from "@/views/NewTour.vue";
 import TouristProfile from "@/views/TouristProfile.vue";
 import TourGuideProfile from "@/views/TourGuideProfile.vue";
 import EditTourGuideProfile from "@/views/EditTourGuideProfile.vue";
-import Review from "@/views/Review.vue";
 import Chat from "@/views/Chat.vue";
 import Logout from "@/views/Logout.vue";
 import Listings from "@/views/Listings.vue";
@@ -18,6 +17,9 @@ import LoginTourist from '@/views/LoginTourist.vue'
 import RegisterTourGuide from '@/views/RegisterTourGuide.vue'
 import LoginTourGuide from '@/views/LoginTourGuide.vue'
 import Landing from '@/views/Landing.vue'
+import EditTour from '@/views/EditTour.vue'
+import NewReviewTourGuide from '@/views/NewReviewTourGuide.vue'
+import NewReviewTourist from '@/views/NewReviewTourGuide.vue'
 
 const routes = [
     {
@@ -61,6 +63,11 @@ const routes = [
     component: NewTour,
     },
     {
+      path: "/edittour",
+      name: "EditTour",
+      component: EditTour,
+    },
+    {
     path: '/touristProfile',
     name: 'TouristProfile',
     component: TouristProfile
@@ -79,11 +86,6 @@ const routes = [
     path: '/editTourGuideProfile',
     name: 'EditTourGuideProfile',
     component: EditTourGuideProfile
-    },
-    {
-    path: '/review',
-    name: 'Review',
-    component: Review
     },
     {
     path: '/chat',
@@ -115,6 +117,16 @@ const routes = [
       path: "/listingsbeach",
       name: "ListingsBeach",
       component: ListingsBeach,
+    },
+    {
+      path: "/newreviewtourguide",
+      name: "NewReviewTourGuide",
+      component: NewReviewTourGuide,
+    },
+    {
+      path: "/newreviewtourist",
+      name: "NewReviewTourist",
+      component: NewReviewTourist,
     },
     //delete later, for testing
     // {
