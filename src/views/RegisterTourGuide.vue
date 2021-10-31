@@ -74,6 +74,68 @@
   
 </template>
 
+<script>
+import firebase from "firebase";
+import { ref } from "vue";
+import { db } from "../main.js";
+
+export default {
+  setup() {
+    const firstname = ref("");
+    const lastname = ref("");
+    const username = ref("");
+    const email = ref("");
+    const password = ref("");
+    // const user = ref("")
+
+    const Register = () => {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(email.value, password.value)
+        .then((user) => {
+          alert(user);
+        })
+        .catch((err) => alert(err.message));
+    };
+    return {
+      Register,
+      firstname,
+      lastname,
+      username,
+      email,
+      password,
+    };
+  },
+  data() {
+    return {
+      tourguide: {
+    
+      },
+    };
+  },
+  methods: {
+    onFormSubmit(event) {
+      event.preventDefault();
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.tourguide.email, this.tourguide.password)
+        .then(() => {
+          db.collection("tourguides").doc(this.tourguide.email)
+            .set(this.tourguide)
+            .then(() => {
+              alert("User successfully created!");
+              console.log(this.tourguide);
+              console.log(this.Register);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        })
+        .catch((err) => alert(err.message));
+    },
+  },
+};
+</script>
 <style scoped>
 /* input[type=text], input[type=password] */
 
