@@ -56,9 +56,9 @@ const routes = [
     component: Search
     },
     {
-      path: "/newtour",
-      name: "NewTour",
-      component: NewTour,
+    path: "/newtour",
+    name: "NewTour",
+    component: NewTour,
     },
     {
     path: '/touristProfile',
@@ -66,10 +66,10 @@ const routes = [
     component: TouristProfile
     },
     {
-      path: '/editUserProfile',
-      name: 'EditUserProfile',
-      component: EditUserProfile
-      },
+    path: '/editUserProfile',
+    name: 'EditUserProfile',
+    component: EditUserProfile
+    },
     {
     path: '/tourGuideProfile',
     name: 'TourGuideProfile',
@@ -97,9 +97,9 @@ const routes = [
     },    
 
     {
-      path: "/listings",
-      name: "Listings",
-      component: Listings,
+    path: "/listings",
+    name: "Listings",
+    component: Listings,
     },
     {
       path: "/listingsnature",
@@ -115,7 +115,13 @@ const routes = [
       path: "/listingsbeach",
       name: "ListingsBeach",
       component: ListingsBeach,
-    }
+    },
+    //delete later, for testing
+    // {
+    // path: '/layout',
+    // name: 'Layout',
+    // component: Layout
+    // }
 ];
 
 const router = createRouter({
