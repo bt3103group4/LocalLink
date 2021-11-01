@@ -19,7 +19,7 @@ import LoginTourGuide from '@/views/LoginTourGuide.vue'
 import Landing from '@/views/Landing.vue'
 import EditTour from '@/views/EditTour.vue'
 import NewReviewTourGuide from '@/views/NewReviewTourGuide.vue'
-import NewReviewTourist from '@/views/NewReviewTourGuide.vue'
+import NewReviewTourist from '@/views/NewReviewTourist.vue'
 
 const routes = [
     {
