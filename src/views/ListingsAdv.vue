@@ -16,7 +16,7 @@
     <NavBar />
     <Logo />
     <SettingsButton />
-    <SearchBar />
+
     <div class="container" style="display: flex; height: 100px">
       <div style="width: 10%"></div>
       <div style="flex-grow: 1"></div>
@@ -51,7 +51,6 @@
           of the shore.
         </p>
         <a href="#" class="btn btn-primary">Customize my trip now!</a>
-        <div @click="create_tours()">get Tours</div>
       </div>
     </div>
     <div class="grid">
@@ -70,36 +69,6 @@
           <!-- </p> -->
         </div>
       </div>
-      <!-- <div class="card">
-        <img
-          class="card-img-top"
-          src="..\images\v225_106.png"
-          alt="Card image cap"
-        />
-        <div class="card-body">
-          <h5 class="card-title">Crystal Bay</h5>
-          <p class="card-text">description and pdf</p>
-          <a href="#" class="btn btn-primary">See more</a>
-          <p class="card-text">
-            <small class="text-muted">Last booked 5 mins ago</small>
-          </p>
-        </div>
-      </div>
-      <div class="card">
-        <img
-          class="card-img-top"
-          src="..\images\v225_106.png"
-          alt="Card image cap"
-        />
-        <div class="card-body">
-          <h5 class="card-title">Crystal Bay</h5>
-          <p class="card-text">description and pdf</p>
-          <a href="#" class="btn btn-primary">See more</a>
-          <p class="card-text">
-            <small class="text-muted">Last booked 5 mins ago</small>
-          </p>
-        </div>
-      </div> -->
     </div>
   </body>
 </template>
@@ -108,37 +77,43 @@
 import SettingsButton from "@/components/SettingsButton.vue";
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
-import SearchBar from "@/components/SearchBar.vue";
 // import firebase from "firebase";
 import { db } from "../main.js";
 
 export default {
   name: "ListingsAdv",
-  components: { SettingsButton, NavBar, Logo, SearchBar },
+  components: { SettingsButton, NavBar, Logo },
+
   data() {
     return {
       tours: [],
     };
   },
-  // mounted() {
-  methods: {
-    async create_tours() {
-      let z = await db
-        .collection("listings")
-        .where("tour_type", "==", "Adventure")
-        .get();
-      z.forEach((doc) => {
-        const data = doc.data();
-        let tour = {
-          email: data.email,
-          tour_name: data.tour_name,
-          description: data.description,
-        };
-        // console.log(this.tours)
-        // console.log(tour)
-        this.tours.push(tour);
+
+  mounted() {
+    db.collection("listings")
+      .where("tour_type", "==", "Adventure")
+      .get()
+      .then((docs) => {
+        docs.forEach((doc) => {
+          const data = doc.data();
+          let tour = {
+            email: data.email,
+            tour_name: data.tour_name,
+            description: data.description,
+            tour_id: String(data.email + ", " + data.tour_name),
+          };
+          // console.log(this.tours)
+          // console.log(tour)
+          this.tours.push(tour);
+        });
       });
-      console.log(this.tours);
+  },
+  methods: {
+    viewTourInfo(tour_id) {
+      // console.log(tour_id);
+      this.$emit("fetchInfo", tour_id);
+      this.$router.push("/tourInfoNature");
     },
   },
 };
