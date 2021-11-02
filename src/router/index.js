@@ -19,6 +19,7 @@ import Landing from '@/views/Landing.vue'
 import EditTour from '@/views/EditTour.vue'
 import NewReviewTourGuide from '@/views/NewReviewTourGuide.vue'
 import NewReviewTourist from '@/views/NewReviewTourist.vue'
+import TourInfoNature from '@/views/TourInfoNature.vue'
 import ConfirmationPage from '@/views/ConfirmationPage.vue'
 
 const routes = [
@@ -122,7 +123,12 @@ const routes = [
       name: "NewReviewTourist",
       component: NewReviewTourist,
     },
-        {
+    {
+      path: "/tourInfoNature",
+      name: "TourInfoNature",
+      component: TourInfoNature,
+    },
+    {
       path: "/confirmationpage",
       name: "ConfirmationPage",
       component: ConfirmationPage,
