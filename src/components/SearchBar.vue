@@ -25,6 +25,13 @@
   </div>
 </template>
 
+<!-- TO DO 
+  UI not working properly.
+  1. the ui cards are not clickable yet, it wont route to the tour page for those u click on
+  2. try to hide the ui cards before clicking the search bar
+  3. figure out the alignment between the searchbar and ui card (drop down boxes)
+-->
+
 <script>
 import firebase from "firebase";
 import { computed, onBeforeMount, reactive, ref } from "vue";
