@@ -5,14 +5,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
 </head>
         <div class = "grid">
-            <div class="col my-col" v-for="tour in tours" :key="tour.tour_name">
+            <div class="col my-col" v-for="review in reviews" :key="review.tourname">
                   <div class="card-group">
                     <div class="card">
-                    <img class="card-img-top" src="..\images\v225_74.png" alt="Card image cap"/>
                     <div class="card-body">
-                    <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
-                    <button id="editlisting" v-if="isUserAccount" @click="editing(tour.tourname)"></button>
-                    <p class="card-text"> Available from: {{tour.start}}</p>
+                    <h5 class="card-title" style="display: inline;">{{review.tourname}}</h5>
+                    <p class="card-text"> Rating: {{review.rating}} / 5</p>
+                    <p class="card-text"> {{review.reviews}}</p>
+                    <p class="card-text" style="font-style:italic;">  Reviewed by: {{review.reviewer}}</p>
                     </div>
                 </div>
             </div>
@@ -25,11 +25,10 @@ import firebase from 'firebase';
 import { db} from "../main.js";
 
 export default {
-    name: "UserSavedListings",
-    emit: ["tourname"],
+    name: "ReviewList",
     data(){
         return{
-            tours:[]
+            reviews:[]
         }
     },
         mounted(){
@@ -41,19 +40,21 @@ export default {
                     let fbuser = auth.currentUser.email;
                     if (fbuser){
                     console.log(fbuser)
-                    db.collection("listings").where("email","==",fbuser)
+                    db.collection("Reviews").where("email","==",fbuser)
                     .get()
                     .then(z => {
                         z.forEach(doc => {
                         const data = doc.data()
-                        let tour ={
-                            tourname : data["tour_name"],
-                            start : data["start_date"],
-                            image: "image",
-                            review: "4", //to make dynamic too KIV
+                        console.log("below is data")
+                        console.log(data)
+                        let newreview ={
+                            reviewer : data["my_email"],
+                            rating: data["ratings"],
+                            reviews: data["reviews"],
+                            tourname: data["tourname"]
                         }
-                        self.tours.push(tour)
-                        console.log(tour);
+                        self.reviews.push(newreview)
+                        console.log(newreview);
                         })
                     
                     })}
@@ -64,16 +65,6 @@ export default {
         display();
     },
     
-    methods: {
-        isUserAccount() {
-            //TODO: Check this is users account if they want to edit info
-        }, 
-    editing(tour_name) {
-        console.log(tour_name)
-        this.$emit("tourname", tour_name)
-        this.$router.push('/edittour')
-    }
-    }
 }
 
 
@@ -96,44 +87,13 @@ export default {
   overflow: hidden;
   display:grid;
   grid-template-columns: repeat(2, 1fr);
-  gap:400px
-}
-.card-group:hover{
-    cursor: pointer;
-}
-.button-id{
-    border:none;
-    background-color:rgba(63,163,184,1) ;
-    color:white;
-    padding:5px;
-    padding-left: 10px;
-    padding-right:10px;
-    font-weight: bold;
-    border-radius: 10px;
-}
-.button-id:hover{
-    cursor: pointer;
-    background-color: grey;
+  gap:400px;
 }
 .grid{
-    size:50%;
     position: absolute;
     top: 250px;
-    right:130px;
-    display:grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap:65px
-}
-
-#editlisting {
-    width: 20px;
-    height: 20px;
-    background: url("~@/images/edit.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    border: none;
-    float: right;
+    right:80px;
+    width: 770px;
 }
 
 </style>
