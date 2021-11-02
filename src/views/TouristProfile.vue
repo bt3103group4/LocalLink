@@ -1,3 +1,4 @@
+
 <template>
   <head>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
@@ -11,18 +12,22 @@
         <Logo/>
 
     <ul class = "tabs">
-      <li data-tab-target="#savedListings" class="active tab"> Saved Listings </li>
+      <li data-tab-target="#bookedListings" class="active tab"> My Bookings</li>
+      <li data-tab-target="#savedListings" class="tab"> Saved </li>
       <li data-tab-target="#newReview" class="tab"> Reviews </li>
     </ul>
     <button class="newReviewBtn" @click="$router.push('/newreviewtourist')">New Review</button>
 
     <div class="tabcontent">
-      <div id = "savedListings" data-tab-content class="active">
-          <UserListings/>
+      <div id = "savedListings" data-tab-content >
+          <UserSavedListings/>
         </div>
       <div id = "newReview" data-tab-content>
           <h1 id = "reviewContent"> Reviews </h1>
         </div>
+      <div id = "bookedListings" data-tab-content class="active">
+         <UserBookedListings/>
+        </div>        
       </div>
 
     </div>
@@ -33,20 +38,18 @@
 
 <script>
 import UserInfo from '@/components/UserInfo.vue'
-import UserListings from '@/components/UserListings.vue'
+import UserSavedListings from '@/components/UserSavedListings.vue'
 import SettingsButton from '@/components/SettingsButton.vue'
 import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
+import UserBookedListings from '@/components/UserBookedListings.vue'
 
 export default {
     name: "TouristProfile",
-
-    components: { UserInfo, Logo ,UserListings, SettingsButton, NavBar},
-
+    components: { UserInfo, Logo ,UserSavedListings, SettingsButton, NavBar, UserBookedListings},
     mounted(){
       let tabs = document.querySelectorAll('[data-tab-target]')
       let tabContents = document.querySelectorAll('[data-tab-content]')
-
       tabs.forEach(tab => {
         tab.addEventListener('click', ()=> {
           const target = document.querySelector(tab.dataset.tabTarget)
@@ -54,11 +57,9 @@ export default {
           tabs.forEach(tab=> tab.classList.remove('active'))
           target.classList.add('active')
           tab.classList.add('active')
-
         })
       })
     },
-
     methods: {
         getTouristProfile() {
             //TODO: Pull data from database
@@ -81,7 +82,6 @@ body {
   width: 100%;
   height:1500px;
 }
-
 .tabs{
   position: absolute;
   top: 140px;
@@ -94,17 +94,15 @@ body {
   font-size: 23px;
   font-weight: 700;
   width:750px;
-  text-align: left;
+  padding:0px;
 }
 .tab{
   cursor: pointer;
-  padding:20px;
-}
-.tab:hover{
-  background-color: #AAA;
+  padding: 25px;
+  padding-bottom: 10px;
 }
 .tab.active{
-  border-bottom: rgba(63,163,184,1) 5px solid;
+  border-bottom: rgba(63,163,184,1) 5px solid ;
 }
 [data-tab-content]{
   display: none;
@@ -112,7 +110,7 @@ body {
 .active[data-tab-content]{
   display: block;
 }
-#reviewContent{
+#reviewContent, #bookingContent{
   position: absolute;
   top: 250px;
   left: 600px;
@@ -140,5 +138,4 @@ body {
   background-color: rgba(0,0,0,0.3);
   cursor: pointer;
 }
-
 </style>
