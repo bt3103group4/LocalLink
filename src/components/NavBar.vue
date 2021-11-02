@@ -59,7 +59,7 @@ body{
   width: 100%;
   position: absolute;
   top: 0px;
-  height: 60px;
+  height: 75px;
   padding-top: 25px ;
   padding-left: 900px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

@@ -122,3 +122,17 @@ export default {
 };
 </script>
 
+<style scoped>
+body{
+  width:100%;
+}
+.grid {
+  size: 50%;
+  position: absolute;
+  top: 500px;
+  left: 270px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+</style>

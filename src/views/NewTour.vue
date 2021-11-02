@@ -176,6 +176,7 @@ body {
   height: 2500px;
   margin:0px;
   padding:0px;
+  size:100%
 }
 li{
   font-size: 16px;

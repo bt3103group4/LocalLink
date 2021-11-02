@@ -97,12 +97,6 @@ const routes = [
     name: 'Logout',
     component: Logout
     },    
-
-    {
-    path: "/listings",
-    name: "Listings",
-    component: Listings,
-    },
     {
       path: "/listingsnature",
       name: "ListingsNature",
