@@ -17,7 +17,7 @@
     <Logo />
     <SettingsButton />
 
-    <div class="container" style="display: flex; height: 100px">
+    <div class="container">
       <div style="width: 10%"></div>
       <div style="flex-grow: 1"></div>
     </div>
@@ -132,4 +132,5 @@ body{
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
+
 </style>

@@ -12,6 +12,9 @@
     <link href="./css/main.css" rel="stylesheet" />
     <title>Document</title>
   </head>
+  <body>
+    <button class="backNav" @click="$router.push('/TourGuideProfile')"></button>
+  </body>
 </template>
 
 <script>
@@ -50,5 +53,15 @@ body {
   font-size: 45px;
   opacity: 1;
   text-align: left;
+}
+.backNav{
+    position: absolute;
+    top: 150px;
+    left:30px;
+    background: url("~@/images/backicon.png");
+    width: 45px;
+    height:45px;
+    background-size: 100% 100%;
+    border:none;
 }
 </style>
