@@ -1,10 +1,21 @@
 <template>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./css/main.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  
+<body>
     <NavBar/>
     <Logo/>
     <SettingsButton/>
   <span class="header">Describe your experience</span>
   <div class="description">
-    <b>What will you and your guests do?</b>
+    <b>What will you and your guests do?</b><br><br>
     <li>Provide a detailed timeline of the tour from start to finish.</li>
     <li>Describe how your tour stands out from the rest!</li>
   </div>
@@ -62,7 +73,7 @@
     />
   </div>
 
-  <div class="photos">Add photos to describe your tour</div>
+   <div class="photos">Add photos to describe your tour</div>
   <div id="photos_box">
     <div class="photos_input">
       <form>
@@ -71,6 +82,7 @@
       </form>
     </div>
   </div>
+
 
   <div class="tour_name">Name your tour</div>
   <div class="tour_name_box">
@@ -93,15 +105,8 @@
   </div>
 
   <button class="save" @click="save">List</button>
-
-  <head>
-    <link
-      href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
-      rel="stylesheet"
-    />
-    <link href="./css/main.css" rel="stylesheet" />
-    <title>Document</title>
-  </head>
+  
+</body>
 </template>
 
 <script>
@@ -129,58 +134,58 @@ export default {
     };
   },
   methods: {
-    save() {
-      const self = this;
-      const auth = firebase.auth();
-      auth.onAuthStateChanged((user) => {
-        if (user) {
-          let fbuser = auth.currentUser.email;
-          const tour_id = String(fbuser + ", " + this.tour_name)
-          if (fbuser) {
-            if (!(this.description ==""  || this.start_date == ""  || this.end_date == "" || this.transport == ""
-                || this.experience == "" || this.cost == "" || this.tour_name == "" || this.tour_type == "")){
-              db.collection("listings").doc(tour_id).set({
-                description: self.description,
-                start_date: self.start_date,
-                end_date: self.end_date,
-                transport: self.transport,
-                experience: self.experience,
-                cost: self.cost,
-                tour_name: self.tour_name,
-                tour_type: self.tour_type,
-                email: fbuser,
-              });
-              alert("Edit successfully saved!");
-              this.$router.push("/tourGuideProfile")
+        save() {
+          const self = this;
+          const auth = firebase.auth();
+          auth.onAuthStateChanged((user) => {
+            if (user) {
+              let fbuser = auth.currentUser.email;
+              const tour_id = String(fbuser + ", " + this.tour_name)
+              if (fbuser) {
+                if (!(this.description ==""  || this.start_date == ""  || this.end_date == "" || this.transport == ""
+                    || this.experience == "" || this.cost == "" || this.tour_name == "" || this.tour_type == "")){
+                  db.collection("listings").doc(tour_id).set({
+                    description: self.description,
+                    start_date: self.start_date,
+                    end_date: self.end_date,
+                    transport: self.transport,
+                    experience: self.experience,
+                    cost: self.cost,
+                    tour_name: self.tour_name,
+                    tour_type: self.tour_type,
+                    email: fbuser,
+                  });
+                  alert("Edit successfully saved!");
+                  this.$router.push("/tourGuideProfile")
+                }
+                else alert("Cannot take empty Values. Please enter the values")
+                console.log("no such document");
+              }
             }
-            else alert("Cannot take empty Values. Please enter the values")
-            console.log("no such document");
-          }
-        }
-      });
-    },
-  },
-};
+          });
+        },
+      }};
 </script>
 
 <style scoped>
-* {
-  box-sizing: border-box;
-}
+
 body {
   font-size: 14px;
+  color: grey;
+  width:100%;
+  height: 2500px;
+  margin:0px;
+  padding:0px;
 }
-
-.name {
-  color: #fff;
+li{
+  font-size: 16px;
 }
 .header {
   width: 724px;
   color: rgba(0, 0, 0, 1);
   position: absolute;
-  top: 120px;
-  left: 388px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  top: 140px;
+  left: 450px;
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 50px;
@@ -192,9 +197,8 @@ body {
   width: 696px;
   color: rgba(0, 0, 0, 1);
   position: absolute;
-  top: 235px;
+  top: 240px;
   left: 317px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-size: 25px;
   opacity: 1;
@@ -207,7 +211,7 @@ body {
   background: rgba(255, 255, 255, 1);
   opacity: 1;
   position: absolute;
-  top: 384px;
+  top: 350px;
   left: 317px;
   border: 2px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
@@ -229,15 +233,16 @@ body {
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom-style: groove;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding:15px;
 }
 
 .time {
   width: 661px;
   color: rgba(0, 0, 0, 1);
   position: absolute;
-  top: 655px;
+  top: 625px;
   left: 317px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
@@ -251,7 +256,7 @@ body {
   background: rgba(255, 255, 255, 1);
   opacity: 1;
   position: absolute;
-  top: 700px;
+  top: 680px;
   left: 317px;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
@@ -285,9 +290,8 @@ input {
   width: 902px;
   color: rgba(0, 0, 0, 1);
   position: absolute;
-  top: 817px;
+  top: 780px;
   left: 317px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
@@ -301,7 +305,7 @@ input {
   background: rgba(255, 255, 255, 1);
   opacity: 1;
   position: absolute;
-  top: 867px;
+  top: 830px;
   left: 317px;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
@@ -328,9 +332,8 @@ select {
   width: 902px;
   color: rgba(0, 0, 0, 1);
   position: absolute;
-  top: 986px;
+  top: 940px;
   left: 317px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
@@ -344,7 +347,7 @@ select {
   background: rgba(255, 255, 255, 1);
   opacity: 1;
   position: absolute;
-  top: 1037px;
+  top: 990px;
   left: 317px;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
@@ -372,9 +375,8 @@ select {
   width: 902px;
   color: rgba(0, 0, 0, 1);
   position: absolute;
-  top: 1145px;
+  top: 1090px;
   left: 317px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
@@ -388,7 +390,7 @@ select {
   background: rgba(255, 255, 255, 1);
   opacity: 1;
   position: absolute;
-  top: 1197px;
+  top: 1140px;
   left: 317px;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
@@ -400,12 +402,11 @@ select {
 }
 
 .photos {
-  width: 902px;
+  width: 950px;
   color: rgba(0, 0, 0, 1);
   position: absolute;
-  top: 1294px;
+  top: 1250px;
   left: 317px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
@@ -415,12 +416,13 @@ select {
 
 #photos_box {
   width: 920px;
-  height: 417px;
+  height: 500px;
   background: rgba(255, 255, 255, 1);
   opacity: 1;
   position: absolute;
-  top: 1344px;
+  top: 1300px;
   left: 317px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(0, 0, 0, 1);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -444,7 +446,6 @@ select {
   position: absolute;
   top: 1810px;
   left: 312px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
@@ -475,7 +476,6 @@ select {
   position: absolute;
   top: 1960px;
   left: 312px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
@@ -501,16 +501,20 @@ select {
 }
 
 .save {
-  width: 242px;
-  height: 78px;
+  width: 150px;
+  height: 70px;
   background: rgba(63, 163, 184, 1);
   opacity: 1;
   position: absolute;
-  top: 2170px;
+  top: 2100px;
   left: 1133px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 30px;
   color: white;
   font-family: Ubuntu;
+  border:none;
+}
+.save:hover{
+  cursor: pointer;
 }
 </style>
