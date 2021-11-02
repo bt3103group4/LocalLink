@@ -1,18 +1,18 @@
 <template>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
 </head>
         <div class = "grid">
-            <div class="col my-col" v-for="tour in bookedTours" :key="tour.tour_name">
+            <div class="col my-col" v-for="review in reviews" :key="review.tourname">
                   <div class="card-group">
                     <div class="card">
-                    <img class="card-img-top" src="..\images\v225_74.png" alt="Card image cap"/>
                     <div class="card-body">
-                    <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
-                    <p class="card-text"> Review: {{tour.review}}</p>
+                    <h5 class="card-title" style="display: inline;">{{review.tourname}}</h5>
+                    <p class="card-text"> Rating: {{review.rating}} / 5</p>
+                    <p class="card-text"> {{review.reviews}}</p>
+                    <p class="card-text" style="font-style:italic;">  Reviewed by: {{review.reviewer}}</p>
                     </div>
                 </div>
             </div>
@@ -25,11 +25,10 @@ import firebase from 'firebase';
 import { db} from "../main.js";
 
 export default {
-    name: "UserSavedListings",
-    emit: ["tourname"],
+    name: "ReviewList",
     data(){
         return{
-            bookedTours:[]
+            reviews:[]
         }
     },
         mounted(){
@@ -40,26 +39,23 @@ export default {
                 if (user){
                     let fbuser = auth.currentUser.email;
                     if (fbuser){
-                    db.collection("users").doc(fbuser) //to get saved listings in user
+                    console.log(fbuser)
+                    db.collection("Reviews").where("email","==",fbuser)
                     .get()
                     .then(z => {
-                        const data = z.data()
-                        let bookedtour = data["bookings"]
-                        bookedtour.forEach(tour => {
-                            db.collection("listings").doc(tour).get()
-                            .then(tourdata => {
-                                const data = tourdata.data()
-                                let tour = {
-                                    tourname : data["tour_name"],
-                                    review : data["review"]
-                                   // tourimage = data["tour_image"]
-                                }
-                                self.bookedTours.push(tour)
-                            })
-
+                        z.forEach(doc => {
+                        const data = doc.data()
+                        console.log("below is data")
+                        console.log(data)
+                        let newreview ={
+                            reviewer : data["my_email"],
+                            rating: data["ratings"],
+                            reviews: data["reviews"],
+                            tourname: data["tourname"]
+                        }
+                        self.reviews.push(newreview)
+                        console.log(newreview);
                         })
-                       
-              
                     
                     })}
                     }
@@ -69,16 +65,6 @@ export default {
         display();
     },
     
-    methods: {
-        isUserAccount() {
-            //TODO: Check this is users account if they want to edit info
-        }, 
-    editing(tour_name) {
-        console.log(tour_name)
-        this.$emit("tourname", tour_name)
-        this.$router.push('/edittour')
-    }
-    }
 }
 
 
@@ -101,18 +87,13 @@ export default {
   overflow: hidden;
   display:grid;
   grid-template-columns: repeat(2, 1fr);
-  gap:400px
-}
-.card-group:hover{
-    cursor: pointer;
+  gap:400px;
 }
 .grid{
-    size:50%;
     position: absolute;
     top: 250px;
-    right:130px;
-    display:grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap:65px
+    right:80px;
+    width: 770px;
 }
+
 </style>

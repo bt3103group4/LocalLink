@@ -23,7 +23,7 @@
           <UserSavedListings/>
         </div>
       <div id = "newReview" data-tab-content>
-          <h1 id = "reviewContent"> Reviews </h1>
+          <ReviewList/>
         </div>
       <div id = "bookedListings" data-tab-content class="active">
          <UserBookedListings/>
@@ -43,10 +43,11 @@ import SettingsButton from '@/components/SettingsButton.vue'
 import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
 import UserBookedListings from '@/components/UserBookedListings.vue'
+import ReviewList from '@/components/ReviewList.vue'
 
 export default {
     name: "TouristProfile",
-    components: { UserInfo, Logo ,UserSavedListings, SettingsButton, NavBar, UserBookedListings},
+    components: { UserInfo, Logo ,UserSavedListings, SettingsButton, NavBar, UserBookedListings, ReviewList},
     mounted(){
       let tabs = document.querySelectorAll('[data-tab-target]')
       let tabContents = document.querySelectorAll('[data-tab-content]')
