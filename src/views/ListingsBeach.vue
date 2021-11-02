@@ -51,10 +51,11 @@
         <a href="#" class="btn btn-primary">Customize my trip now!</a>
       </div>
     </div>
-    <div class="card-group">
+    <div class="grid">
       <div class="card" v-for="tour in tours" :key="tour.tour_name">
         <img
           class="card-img-top"
+
           src="..\images\v225_106.png"
           alt="Card image cap"
         />
@@ -83,13 +84,16 @@ import { db } from "../main.js";
 
 export default {
   name: "ListingsBeach",
+
   components: { SettingsButton, NavBar, Logo },
   emits: ["fetchInfo"],
+
   data() {
     return {
       tours: [],
     };
   },
+
   mounted() {
     db.collection("listings")
       .where("tour_type", "==", "Beach")
@@ -114,7 +118,20 @@ export default {
       // console.log(tour_id);
       this.$emit("fetchInfo", tour_id);
       this.$router.push("/tourInfoNature");
+
     },
   },
 };
 </script>
+
+<style scoped>
+.grid {
+  size: 50%;
+  position: absolute;
+  top: 500px;
+  right: 130px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+</style>
