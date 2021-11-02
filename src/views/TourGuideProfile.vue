@@ -9,10 +9,8 @@
         <title>Document</title>
     </head>
     <body>
-
         <div class="v218_77">
         <UserInfo/>
-        <UserListings/>
 
         <ul class = "tabs">
           <li data-tab-target="#listings" class="active tab">Listings </li>
@@ -29,14 +27,11 @@
           </div>
             </div>
 
-        <button class="settingsbtn"></button>
-
-        <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/editTourGuideProfile')"> </button>
+        <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/editUserProfile')"> </button>
 
     <div class="name"></div>
-    <button class="uploadbtn" v-if="isUserAccount" @click="$router.push('/newtour')">Upload Tour</button>
-    <button class="newreview" v-if="isUserAccount" @click="$router.push('/newreviewtourguide')">New Review</button>
-    <div class="v218_107"></div>
+    <button class="uploadbtn" v-if="isUserAccount" @click="$router.push('/newtour')">New Tour</button>
+    <button class="newreview" v-if="isUserAccount" @click="$router.push('/newreviewtourguide')">Review</button>
 
     </body>
     </template>
@@ -78,47 +73,27 @@ export default {
 </script>
 
 <style scoped>
-* {
-  box-sizing: border-box;
-}
-body {
-  font-size: 14px;
-  width:100%;
-}
+
 body {
   width: 100%;
   height: 1800px;
   background: rgba(242,238,238,1);
   opacity: 1;
-  position: relative;
-  top: 0px;
-  left: 0px;
-}
-.addPhotoBtn {
-  width: 189px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 315px;
-  left: 216px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 20px;
-  opacity: 1;
-  text-align: left;
 }
 .uploadbtn {
-  width: 134px;
+  width: 120px;
   height: 48px;
   background: rgba(63,163,184,1);
   opacity: 1;
   position: absolute;
-  top: 46px;
-  left: 1180px;
+  top: 150px;
+  left: 1100px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border:none;
+  text-align:left;
 }
-
 .newreview {
-  width: 134px;
+  width: 120px;
   height: 48px;
   background: rgba(63,163,184,1);
   opacity: 1;
@@ -130,21 +105,8 @@ body {
   color: rgba(255,255,255,1);
   font-family: Ubuntu;
   font-weight: Regular;
-  font-size: 18px;
   opacity: 1;
   text-align: center;
-  cursor: pointer;
-}
-
-.settingsbtn {
-  width: 40px;
-  height: 48px;
-  background: rgba(63,163,184,1);
-  opacity: 1;
-  position: absolute;
-  top: 46px;
-  left: 1314px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .v207_66 {
@@ -242,20 +204,6 @@ body {
   font-size: 16px;
   opacity: 1;
   text-align: center;
-}
-
-.v218_107 {
-  width: 17px;
-  height: 17px;
-  background: url("~~@/images/v218_107.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 61px;
-  left: 1325px;
-  overflow: hidden;
 }
 .name {
   color: #fff;
