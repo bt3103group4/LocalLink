@@ -29,9 +29,11 @@ export default {
 <style scoped>
 * {
   box-sizing: border-box;
+  size:100%;
 }
 body {
   font-size: 14px;
+  width:100%
 }
 
 .name {

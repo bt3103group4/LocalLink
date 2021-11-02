@@ -32,6 +32,7 @@ export default {
 }
 body {
   font-size: 14px;
+  width:100%;
 }
 
 .name {
