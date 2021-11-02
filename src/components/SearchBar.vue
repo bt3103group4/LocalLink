@@ -1,12 +1,70 @@
 <template>
-    <input class="searchbox">
-    <div class="searchicon"></div>
+  <div class="uicards" style="margin: 10px">
+    <div class="ui icon input" style="width: 100%">
+      <input
+        class="searchbox"
+        type="text"
+        placeholder="Search Tours"
+        v-model="searchQuery"
+      />
+      <div class="searchicon"></div>
+    </div>
+    <div
+      class="card ui fluid"
+      v-for="listing in searchedListings"
+      :key="listing.id"
+      style="margin: 0"
+      data-live-search="false"
+    >
+      <div class="content">
+        <img class="right floated mini ui image" :src="listing.imageURL" />
+        <div class="header">{{ listing.tour_name }}</div>
+        <div class="meta">{{ listing.email }} | {{ listing.description }}</div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-export default ({
-    name : "SearchBar"
-})
+import firebase from "firebase";
+import { computed, onBeforeMount, reactive, ref } from "vue";
+
+export default {
+  name: "SearchBar",
+
+  setup() {
+    const listings = reactive([]);
+    const searchQuery = ref("");
+    const searchedListings = computed(() => {
+      return listings.filter((listing) => {
+        return (
+          listing.tour_name
+            .toLowerCase()
+            .indexOf(searchQuery.value.toLowerCase()) != -1
+        );
+      });
+    });
+
+    onBeforeMount(async () => {
+      try {
+        const listingsSnap = await firebase
+          .firestore()
+          .collection("listings")
+          .get();
+
+        listingsSnap.forEach((doc) => {
+          let listing = doc.data();
+          listing.id = doc.id;
+          listings.push(listing);
+        });
+      } catch (e) {
+        console.log("Error Loading Listings");
+      }
+    });
+
+    return { searchedListings, searchQuery };
+  },
+};
 </script>
 
 

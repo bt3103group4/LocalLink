@@ -13,14 +13,13 @@
     <title>ListingsAdv</title>
   </head>
   <body>
-    <NavBar/>
-    <Logo/>
-    <SettingsButton/>
+    <NavBar />
+    <Logo />
+    <SettingsButton />
+    <SearchBar />
     <div class="container" style="display: flex; height: 100px">
-      <div style="width: 10%">
-      </div>
-      <div style="flex-grow: 1">
-      </div>
+      <div style="width: 10%"></div>
+      <div style="flex-grow: 1"></div>
     </div>
     <br />
     <br />
@@ -55,7 +54,7 @@
         <div @click="create_tours()">get Tours</div>
       </div>
     </div>
-    <div class="card-group">
+    <div class="grid">
       <div class="card" v-for="tour in tours" :key="tour.tour_name">
         <img
           class="card-img-top"
@@ -106,37 +105,54 @@
 </template>
 
 <script>
-import SettingsButton from '@/components/SettingsButton.vue'
-import NavBar from '@/components/NavBar.vue'
-import Logo from '@/components/Logo.vue'
+import SettingsButton from "@/components/SettingsButton.vue";
+import NavBar from "@/components/NavBar.vue";
+import Logo from "@/components/Logo.vue";
+import SearchBar from "@/components/SearchBar.vue";
 // import firebase from "firebase";
 import { db } from "../main.js";
 
 export default {
   name: "ListingsAdv",
-  components: { SettingsButton,NavBar, Logo },
+  components: { SettingsButton, NavBar, Logo, SearchBar },
   data() {
     return {
-      tours: []
-    }
+      tours: [],
+    };
   },
   // mounted() {
   methods: {
     async create_tours() {
-      let z = await db.collection("listings").where("tour_type","==","Adventure").get()
+      let z = await db
+        .collection("listings")
+        .where("tour_type", "==", "Adventure")
+        .get();
       z.forEach((doc) => {
-        const data = doc.data()
+        const data = doc.data();
         let tour = {
           email: data.email,
           tour_name: data.tour_name,
           description: data.description,
-        }
+        };
         // console.log(this.tours)
         // console.log(tour)
-        this.tours.push(tour)
+        this.tours.push(tour);
       });
-      console.log(this.tours)
-    }
-  }
+      console.log(this.tours);
+    },
+  },
 };
 </script>
+
+
+<style scoped>
+.grid {
+  size: 50%;
+  position: absolute;
+  top: 500px;
+  right: 130px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 65px;
+}
+</style>
