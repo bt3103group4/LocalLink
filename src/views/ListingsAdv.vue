@@ -153,6 +153,6 @@ export default {
   right: 130px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 65px;
+  gap: 20px;
 }
 </style>

@@ -13,14 +13,12 @@
     <title>Listings</title>
   </head>
   <body>
-    <NavBar/>
-    <Logo/>
-    <SettingsButton/>
+    <NavBar />
+    <Logo />
+    <SettingsButton />
     <div class="container" style="display: flex; height: 100px">
-      <div style="width: 10%">
-      </div>
-      <div style="flex-grow: 1">
-      </div>
+      <div style="width: 10%"></div>
+      <div style="flex-grow: 1"></div>
     </div>
     <br />
     <br />
@@ -37,7 +35,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" @click="$router.push('/listingsbeach')"
-              >Beach Clubs</a
+              >Beach</a
             >
           </li>
         </ul>
@@ -49,10 +47,10 @@
           winds long to play with your hair.
         </p>
         <a href="#" class="btn btn-primary">Customize my trip now!</a>
-         <div @click="create_tours()">get Tours</div>
+        <div @click="create_tours()">get Tours</div>
       </div>
     </div>
-    <div class="card-group">
+    <div class="grid">
       <div class="card" v-for="tour in tours" :key="tour.tour_name">
         <img
           class="card-img-top"
@@ -60,11 +58,13 @@
           alt="Card image cap"
         />
         <div class="card-body" id="tour-item">
-          <h5 class="card-title">{{tour.tour_name}}</h5>
-          <p class="card-text">{{tour.description}}</p>
-          <button class="btn btn-primary" @click="$emit('viewTour')">See more</button>
+          <h5 class="card-title">{{ tour.tour_name }}</h5>
+          <p class="card-text">{{ tour.description }}</p>
+          <button class="btn btn-primary" @click="$emit('viewTour')">
+            See more
+          </button>
           <!-- <p class="card-text"> -->
-            <!-- <small class="text-muted">Last booked 5 mins ago</small> -->
+          <!-- <small class="text-muted">Last booked 5 mins ago</small> -->
           <!-- </p> -->
         </div>
       </div>
@@ -104,41 +104,56 @@
 
 <script>
 //import NavBar from "@/components/NavBar.vue";
-import SettingsButton from '@/components/SettingsButton.vue'
-import NavBar from '@/components/NavBar.vue'
-import Logo from '@/components/Logo.vue'
+import SettingsButton from "@/components/SettingsButton.vue";
+import NavBar from "@/components/NavBar.vue";
+import Logo from "@/components/Logo.vue";
 // import firebase from "firebase";
 import { db } from "../main.js";
 
 export default {
   name: "ListingsNature",
-  components: { SettingsButton,NavBar, Logo },
+  components: { SettingsButton, NavBar, Logo },
   data() {
     return {
-      tours: []
-    }
+      tours: [],
+    };
   },
   props: {
-    tour: String
+    tour: String,
   },
   // mounted() {
   methods: {
     async create_tours() {
-      let z = await db.collection("listings").where("tour_type","==","Nature").get()
+      let z = await db
+        .collection("listings")
+        .where("tour_type", "==", "Nature")
+        .get();
       z.forEach((doc) => {
-        const data = doc.data()
+        const data = doc.data();
         let tour = {
           email: data.email,
           tour_name: data.tour_name,
           description: data.description,
           // tour_id: data.email + ", " + data.tour_name,
-        }
+        };
         // console.log(this.tours)
         // console.log(tour)
-        this.tours.push(tour)
+        this.tours.push(tour);
       });
-      console.log(this.tours)
+      console.log(this.tours);
     },
-  }
+  },
 };
 </script>
+
+<style scoped>
+.grid {
+  size: 50%;
+  position: absolute;
+  top: 500px;
+  right: 130px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+</style>
