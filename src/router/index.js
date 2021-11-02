@@ -11,6 +11,7 @@ import ListingsAdv from "@/views/ListingsAdv.vue";
 import ListingsBeach from "@/views/ListingsBeach.vue";
 import EditUserProfile from "@/views/EditUserProfile.vue";
 // import SignUp from '@/views/SignUp.vue'
+<<<<<<< HEAD
 import RegisterTourist from "@/views/RegisterTourist.vue";
 import LoginTourist from "@/views/LoginTourist.vue";
 import RegisterTourGuide from "@/views/RegisterTourGuide.vue";
@@ -19,6 +20,16 @@ import Landing from "@/views/Landing.vue";
 import EditTour from "@/views/EditTour.vue";
 import NewReviewTourGuide from "@/views/NewReviewTourGuide.vue";
 import NewReviewTourist from "@/views/NewReviewTourGuide.vue";
+=======
+import RegisterTourist from '@/views/RegisterTourist.vue'
+import LoginTourist from '@/views/LoginTourist.vue'
+import RegisterTourGuide from '@/views/RegisterTourGuide.vue'
+import LoginTourGuide from '@/views/LoginTourGuide.vue'
+import Landing from '@/views/Landing.vue'
+import EditTour from '@/views/EditTour.vue'
+import NewReviewTourGuide from '@/views/NewReviewTourGuide.vue'
+import NewReviewTourist from '@/views/NewReviewTourist.vue'
+>>>>>>> 9e1d4d358eaff33684e62f8fd72757a80d880389
 
 const routes = [
   {

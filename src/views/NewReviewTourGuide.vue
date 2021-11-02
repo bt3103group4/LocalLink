@@ -21,7 +21,7 @@ import Logo from '@/components/Logo.vue'
 import Reviews from '@/components/Reviews.vue'
 
 export default {
-  name: "NewTour",
+  name: "NewReviewTourGuide",
   components: { NavBar,SettingsButton, Logo, Reviews},
 };
 </script>
