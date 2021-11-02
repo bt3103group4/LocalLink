@@ -83,6 +83,7 @@ export default {
 }
 body {
   font-size: 14px;
+  width:100%;
 }
 body {
   width: 100%;
