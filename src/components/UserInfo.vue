@@ -81,6 +81,7 @@ export default{
   height:350px;
   width: 350px;
   border-radius:1000px;
+  object-fit: cover;
 }
 hr{
   border: 3px black solid rgba(0, 0, 0.75);

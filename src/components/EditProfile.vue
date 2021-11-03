@@ -10,15 +10,11 @@
       <v-flex  md6 offset-sm3 >
        <div>
          <div >
-           <input type="file" ref="input1"
-            style="display: none"
+           <input type="file" ref="input1" style="display: none"
             @change="previewImage" accept="image/*" >                
          </div>
- 
-       <div v-if="imageData!=null">                     
-          <img class="preview" height="268" width="356" :src="img1">
+                    
        <br>
-       </div>   
       
        </div>
        </v-flex>
@@ -145,21 +141,21 @@ export default {
 
         previewImage(event) {
         this.uploadValue=0;
-        this.img1=null;
+        this.profilepic=null;
         this.imageData = event.target.files[0];
         this.onUpload()
         },
 
         onUpload(){
-        this.img1=null;
+        this.profilepic=null;
         const storageRef=firebase.storage().ref(`${this.imageData.name}`).put(this.imageData);
         storageRef.on(`state_changed`,snapshot=>{
         this.uploadValue = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
             }, error=>{console.log(error.message)},
         ()=>{this.uploadValue=100;
             storageRef.snapshot.ref.getDownloadURL().then((url)=>{
-                this.img1 =url;
-                console.log(this.img1)
+                this.profilepic =url;
+               // console.log(this.profilepic)
                 });
             }      
             );
@@ -177,6 +173,7 @@ body {
     height:300px;
     width: 300px;
     border-radius: 1000px;
+    object-fit: cover;
 }
 .form-control{
     font-size: 12px;

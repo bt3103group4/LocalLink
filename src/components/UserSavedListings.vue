@@ -13,7 +13,7 @@
                     <div class="card-body">
                     <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
                     <p class="card-text"> Available from: {{tour.start}}</p>
-                    <button class="button-id">Book Now </button>
+                    <button class="button-id" @click="$router.push('/ConfirmationPage')">Book Now </button>
                     <p class="card-text"> Review: {{tour.review}}</p>
                     </div>
                 </div>

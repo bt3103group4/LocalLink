@@ -1,11 +1,13 @@
 <template>
+<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <NavBar/>
     <Logo/>
     <SettingsButton/>
     <div class="main_message">Congrats! Booking successful! </div>
     <p> Please remember to book this in your calendar! <br> Your tour guide can't wait to see you :) </p>
     <button class="home" @click="home">Return to <br> Main Page</button>
-
+</body>
 </template>
 
 <script>
@@ -20,13 +22,15 @@ export default {
 </script>
 
 <style scoped>
+body{
+  width:100%
+}
 .main_message {
   width: 800px;
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 200px;
   left: center;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 45px;
@@ -40,7 +44,6 @@ p {
   position: absolute;
   top: 250px;
   left: center;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
