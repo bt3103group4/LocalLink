@@ -1,7 +1,9 @@
 <template>
 <body>  
+  <div class="listingComp">
     <div id ="profilepicture1">                     
-        <img id ="profilepicture" class="preview" height="268" width="356" :src="profilepic">
+        <img id ="profilepicture" v-if="$profilepic != null" class="preview" height="268" width="356" :src="profilepic">
+        <img id ="profilepicture" v-else src='~@/images/unknown.jpeg'>
        <br>
       </div>  
     <span class="username">@{{username}}</span>
@@ -11,16 +13,17 @@
         <div class="details">
             <p style="font-weight:900;font-size:22px" class="about">About me</p> <hr>
             <span style="font-weight:700;font-size:15px">Name </span>
-            <h4> {{firstname}} {{lastname}} </h4><br>
+            <p> {{firstname}} {{lastname}} </p>
             <span style="font-weight:700;font-size:15px" >Languages</span>
-            <h4 v-if="$lang != ''"> {{lang}} </h4>
-            <h4 style="color:grey;font-style: italic;" v-else> Add your languages! </h4><br>
+            <p v-if="$lang != null"> {{lang}} </p>
+            <p style="color:grey;font-style: italic;font-size:15px" v-else> Add your languages! </p>
             <span style="font-weight:700;font-size:15px" >Biography</span>
-            <h4 v-if="$bio != ''"> {{bio}} </h4>
-            <h4 style="color:grey;font-style: italic;" v-else> Nothing here yet :(   Add your bio by clicking on the edit icon! </h4><br>
+            <p v-if="$bio != null"> {{bio}} </p>
+            <p style="color:grey;font-style: italic;font-size:15px" v-else> Nothing here yet :(   Add your bio by clicking on the edit icon! </p><br>
         </div>
 
         <button id="editprofilebtn" @click="$router.push('/EditUserProfile')"></button>
+        </div>
         </body>
 </template>
 <script>
@@ -81,9 +84,10 @@ export default{
   height:380px;
   width: 380px;
   border-radius:1000px;
-  object-fit: cover;
+  object-fit:cover;
   border: white 10px solid;
 }
+
 hr{
   border: 3px black solid rgba(0, 0, 0.75);
 }
@@ -98,8 +102,8 @@ button{
   top: 580px;
   left: 105px;
   font-weight: Regular;
-  font-size: 12px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  font-family: Verdana;
   opacity: 1;
   text-align: left;
   padding: 10px;

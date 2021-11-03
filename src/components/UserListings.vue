@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
 </head>
         <div class = "grid">
-            <div class="col my-col" v-for="tour in tours" :key="tour.tour_name">
+            <div v-if="$tours == []"> No Booked Tours yet!</div>
+            <div v-else class="col my-col" v-for="tour in tours" :key="tour.tour_name">
                   <div class="card-group">
                     <div class="card">
                     <img class="card-img-top" src="..\images\v225_74.png" alt="Card image cap"/>

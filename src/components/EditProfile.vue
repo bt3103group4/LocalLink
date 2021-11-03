@@ -24,7 +24,9 @@
     <div class="row">
         <div class="col-md-4">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="profilepicture" :src="profilepic" width="90"><br>
+                <img v-if="profilepic != null" class="profilepicture" :src="profilepic" width="90">
+                <img class="profilepicture" v-else src='~@/images/unknown.jpeg'>
+                <br>
                 <span class="font-weight-bold">{{firstname}} {{lastname}}</span>
                 <span class="text-black-50">{{email}}</span>
     </div>
