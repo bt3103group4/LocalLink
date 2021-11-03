@@ -125,6 +125,6 @@ export default {
     left:20px;
     display:grid;
     grid-template-columns: repeat(2, 1fr);
-    gap:65px
+    gap:40px
 }
 </style>

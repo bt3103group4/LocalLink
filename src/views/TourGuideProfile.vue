@@ -71,18 +71,17 @@ export default {
 </script>
 
 <style scoped>
-.listingsComp{
+.listingComp{
   position:absolute;
   top:100px;
   right:40px;
-  height:10px;
-  width:10px;
-  border:10px solid black;
-  border-radius: 10px;
+  height:830px;
+  width:800px;
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.25);
 }
 body {
   width: 100%;
-  height: 1800px;
+  height: 1100px;
   background: rgba(242,238,238,1);
   opacity: 1;
 }
@@ -93,7 +92,7 @@ body {
   opacity: 1;
   position: absolute;
   top: 150px;
-  left: 1100px;
+  left: 1130px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border:none;
   text-align:left;
@@ -104,8 +103,8 @@ body {
   background: rgba(63,163,184,1);
   opacity: 1;
   position: absolute;
-  top: 150px;  
-  left: 1220px;
+  top: 130px;  
+  left: 1250px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border:none;
   color: rgba(255,255,255,1);
@@ -205,6 +204,7 @@ body {
 .uploadbtn {
   color: rgba(255,255,255,1);
   position: absolute;
+  top:130px;
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 16px;
@@ -230,8 +230,8 @@ body {
 }
 .tabs{
   position: absolute;
-  top: 130px;
-  left: 600px;
+  top: 10px;
+  left: 20px;
   display : flex;
   color:rgba(0, 0, 0, 0.75);
   list-style-type: none;
@@ -244,7 +244,8 @@ body {
 }
 .tab{
   cursor: pointer;
-  padding:20px;
+  padding: 25px;
+  padding-bottom: 10px;
 }
 .tab:hover{
   background-color: #AAA;

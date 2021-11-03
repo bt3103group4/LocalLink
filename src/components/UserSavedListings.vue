@@ -135,12 +135,12 @@ export default {
 }
 .grid{
     size:50%;
-    position:absolute;
+    position: absolute;
     top: 120px;
-    left:20px;
+    left:30px;
     display:grid;
     grid-template-columns: repeat(2, 1fr);
-    gap:65px
+    gap:40px
 }
 
 </style>

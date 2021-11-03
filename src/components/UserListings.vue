@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
 </head>
         <div class = "grid">
-            <div v-if="tours == []"> No Booked Tours yet!</div>
+            <div v-if="tours == []"> You have no tours yet!</div>
             <div v-else class="col my-col" v-for="tour in tours" :key="tour.tour_name">
                   <div class="card-group">
                     <div class="card">
@@ -90,7 +90,7 @@ export default {
   background-size: cover;
   opacity: 1;
   position: absolute;
-  top: 275px;
+  top: 200px;
   left: 664px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -121,11 +121,11 @@ export default {
 .grid{
     size:50%;
     position: absolute;
-    top: 250px;
-    right:130px;
+    top: 120px;
+    left:30px;
     display:grid;
     grid-template-columns: repeat(2, 1fr);
-    gap:65px
+    gap:40px
 }
 
 #editlisting {

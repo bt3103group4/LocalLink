@@ -32,14 +32,6 @@ export default {
 </script>
 
 <style scoped>
-* {
-  box-sizing: border-box;
-  size: 80%;
-}
-body {
-  font-size: 14px;
-  width:100%;
-}
 
 .name {
   color: #fff;
@@ -48,9 +40,9 @@ body {
   width: 800px;
   color: rgba(0, 0, 0, 1);
   position: absolute;
-  top: 120px;
+  top: 140px;
   left: 388px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 45px;

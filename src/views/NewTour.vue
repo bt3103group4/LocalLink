@@ -60,7 +60,7 @@
       class="diff_input"
       type="number"
       v-model.lazy="experience"
-      placeholder="Input the number of years in numbers."
+      placeholder="  Input the number of years in numbers."
     />
   </div>
 
@@ -70,7 +70,7 @@
       class="diff_input"
       type="number"
       v-model.lazy="cost"
-      placeholder="Price of tour"
+      placeholder="  Price of tour"
     />
   </div>
 
@@ -179,6 +179,12 @@ body {
   margin:0px;
   padding:0px;
   size:100%
+}
+
+textarea{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-top:15px;
+  padding-left:10px
 }
 li{
   font-size: 16px;
@@ -425,7 +431,6 @@ select {
   position: absolute;
   top: 1300px;
   left: 317px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(0, 0, 0, 1);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -438,8 +443,8 @@ select {
   margin: 15px;
   outline: none;
   resize: none;
-  font-size: 25px;
-  font-family: Ubuntu;
+  font-size: 20px;
+  font-family: verdana;
   font-weight: Regular;
 }
 
