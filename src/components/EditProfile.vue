@@ -123,6 +123,7 @@ export default {
         auth.onAuthStateChanged(user => {
         if (user){
             let fbuser = auth.currentUser.email;
+            console.log(fbuser)
             if (fbuser){
             db.collection("users").doc(String(fbuser))
             .update({
