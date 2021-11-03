@@ -4,6 +4,7 @@
     <SettingsButton/>
   <span class="header">Leave a Review for your Tourist!</span>
   <Reviews/>
+  <Back/>
   <head>
     <link
       href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
@@ -22,10 +23,11 @@ import SettingsButton from '@/components/SettingsButton.vue'
 import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
 import Reviews from '@/components/Reviews.vue'
+import Back from '@/components/Back.vue'
 
 export default {
   name: "NewReviewTourGuide",
-  components: { NavBar,SettingsButton, Logo, Reviews},
+  components: { NavBar,SettingsButton, Logo, Reviews, Back},
 };
 </script>
 

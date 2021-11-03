@@ -13,6 +13,7 @@
     <NavBar/>
     <Logo/>
     <SettingsButton/>
+    <Back/>
   <span class="header">Describe your experience</span>
   <div class="description">
     <b>What will you and your guests do?</b><br><br>
@@ -113,12 +114,13 @@
 import SettingsButton from '@/components/SettingsButton.vue'
 import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
+import Back from '@/components/Back.vue'
 import firebase from "firebase";
 import { db } from "../main.js";
 
 export default {
   name: "NewTour",
-  components: { NavBar,SettingsButton, Logo },
+  components: { NavBar,SettingsButton, Logo ,Back},
   data() {
     return {
       description: "",

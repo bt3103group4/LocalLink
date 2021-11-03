@@ -1,12 +1,9 @@
 <template>
     <NavBar/>
     <body>
-
     <Logo/>
     <SettingsButton/>
     <EditProfile/>
-
-    <button class="backNav" @click="$router.push('/TouristProfile')"></button>
 </body>
 </template>
 
@@ -26,15 +23,5 @@ export default {
 <style scoped>
 body{
     width:100%;
-}
-.backNav{
-    position: absolute;
-    top: 90px;
-    left:30px;
-    background: url("~@/images/backicon.png");
-    width: 45px;
-    height:45px;
-    background-size: 100% 100%;
-    border:none;
 }
 </style>

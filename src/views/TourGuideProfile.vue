@@ -9,9 +9,8 @@
         <title>Document</title>
     </head>
     <body>
-        <div class="v218_77">
         <UserInfo/>
-
+      <div class="listingComp">
         <ul class = "tabs">
           <li data-tab-target="#listings" class="active tab">Listings </li>
           <li data-tab-target="#newReview" class="tab"> Reviews </li>
@@ -25,14 +24,13 @@
               <ReviewList/>
             </div>
           </div>
-            </div>
+        </div>
 
         <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/editUserProfile')"> </button>
 
     <div class="name"></div>
     <button class="uploadbtn" v-if="isUserAccount" @click="$router.push('/newtour')">New Tour</button>
     <button class="newreview" v-if="isUserAccount" @click="$router.push('/newreviewtourguide')">Review</button>
-
     </body>
     </template>
 <script>
@@ -73,7 +71,15 @@ export default {
 </script>
 
 <style scoped>
-
+.listingsComp{
+  position:absolute;
+  top:100px;
+  right:40px;
+  height:10px;
+  width:10px;
+  border:10px solid black;
+  border-radius: 10px;
+}
 body {
   width: 100%;
   height: 1800px;
