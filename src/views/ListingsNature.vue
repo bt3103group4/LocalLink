@@ -22,6 +22,7 @@
       <div style="flex-grow: 1">
         <!-- <Layout /> -->
       </div>
+
     </div>
     <br />
     <br />
@@ -38,7 +39,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" @click="$router.push('/listingsbeach')"
-              >Beach Clubs</a
+              >Beach</a
             >
           </li>
         </ul>
@@ -52,7 +53,7 @@
         <a href="#" class="btn btn-primary">Customize my trip now!</a>
       </div>
     </div>
-    <div class="card-group">
+    <div class="grid">
       <div class="card" v-for="tour in tours" :key="tour.tour_name">
         <img
           class="card-img-top"
@@ -115,6 +116,7 @@ export default {
       // console.log(tour_id);
       // this.$router.push("/tourInfoNature");
       this.$emit("fetchInfo", tour_id);
+      // this.$router.push("/tourInfoNature");
     },
   },
 };

@@ -6,7 +6,6 @@ import TourGuideProfile from "@/views/TourGuideProfile.vue";
 import EditTourGuideProfile from "@/views/EditTourGuideProfile.vue";
 import Chat from "@/views/Chat.vue";
 import Logout from "@/views/Logout.vue";
-import Listings from "@/views/Listings.vue";
 import ListingsNature from "@/views/ListingsNature.vue";
 import ListingsAdv from "@/views/ListingsAdv.vue";
 import ListingsBeach from "@/views/ListingsBeach.vue";
@@ -21,7 +20,7 @@ import EditTour from '@/views/EditTour.vue'
 import NewReviewTourGuide from '@/views/NewReviewTourGuide.vue'
 import NewReviewTourist from '@/views/NewReviewTourist.vue'
 import TourInfoNature from '@/views/TourInfoNature.vue'
-
+import ConfirmationPage from '@/views/ConfirmationPage.vue'
 
 const routes = [
     {
@@ -99,12 +98,6 @@ const routes = [
     name: 'Logout',
     component: Logout
     },    
-
-    {
-    path: "/listings",
-    name: "Listings",
-    component: Listings,
-    },
     {
       path: "/listingsnature",
       name: "ListingsNature",
@@ -134,6 +127,11 @@ const routes = [
       path: "/tourInfoNature",
       name: "TourInfoNature",
       component: TourInfoNature,
+    },
+    {
+      path: "/confirmationpage",
+      name: "ConfirmationPage",
+      component: ConfirmationPage,
     },
     //delete later, for testing
     // {

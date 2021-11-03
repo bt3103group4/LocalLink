@@ -16,6 +16,7 @@
     <NavBar />
     <Logo />
     <SettingsButton />
+
     <div class="container" style="display: flex; height: 100px">
       <div style="width: 10%"></div>
       <div style="flex-grow: 1"></div>
@@ -52,7 +53,7 @@
         <a href="#" class="btn btn-primary">Customize my trip now!</a>
       </div>
     </div>
-    <div class="card-group">
+    <div class="grid">
       <div class="card" v-for="tour in tours" :key="tour.tour_name">
         <img
           class="card-img-top"
@@ -82,11 +83,13 @@ import { db } from "../main.js";
 export default {
   name: "ListingsAdv",
   components: { SettingsButton, NavBar, Logo },
+
   data() {
     return {
       tours: [],
     };
   },
+
   mounted() {
     db.collection("listings")
       .where("tour_type", "==", "Adventure")
@@ -115,3 +118,16 @@ export default {
   },
 };
 </script>
+
+
+<style scoped>
+.grid {
+  size: 50%;
+  position: absolute;
+  top: 500px;
+  right: 130px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+</style>
