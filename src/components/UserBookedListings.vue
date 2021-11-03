@@ -109,8 +109,8 @@ export default {
 .grid{
     size:50%;
     position: absolute;
-    top: 250px;
-    right:130px;
+    top: 120px;
+    left:20px;
     display:grid;
     grid-template-columns: repeat(2, 1fr);
     gap:65px

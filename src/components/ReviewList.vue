@@ -79,7 +79,7 @@ export default {
   opacity: 1;
   position: absolute;
   top: 275px;
-  left: 664px;
+  left: 700px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -91,8 +91,8 @@ export default {
 }
 .grid{
     position: absolute;
-    top: 250px;
-    right:80px;
+    top: 120px;
+    right:20px;
     width: 770px;
 }
 

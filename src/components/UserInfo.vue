@@ -9,15 +9,15 @@
         </div>
 
         <div class="details">
-            <h3 class="about">About</h3> <hr>
-            <h4>Name </h4>
-            <span> {{firstname}} {{lastname}} </span>
-            <h4>Languages</h4>
-            <span v-if="$lang != ''"> {{lang}} </span>
-            <span style="color:grey;font-style: italic;" v-else> Add your languages! </span>
-            <h4>Biography</h4>
-            <span v-if="$bio != ''"> {{bio}} </span>
-            <span style="color:grey;font-style: italic;" v-else> Nothing here yet :(   Add your bio by clicking on the edit icon! </span><br>
+            <p style="font-weight:900;font-size:22px" class="about">About me</p> <hr>
+            <span style="font-weight:700;font-size:15px">Name </span>
+            <h4> {{firstname}} {{lastname}} </h4><br>
+            <span style="font-weight:700;font-size:15px" >Languages</span>
+            <h4 v-if="$lang != ''"> {{lang}} </h4>
+            <h4 style="color:grey;font-style: italic;" v-else> Add your languages! </h4><br>
+            <span style="font-weight:700;font-size:15px" >Biography</span>
+            <h4 v-if="$bio != ''"> {{bio}} </h4>
+            <h4 style="color:grey;font-style: italic;" v-else> Nothing here yet :(   Add your bio by clicking on the edit icon! </h4><br>
         </div>
 
         <button id="editprofilebtn" @click="$router.push('/EditUserProfile')"></button>
@@ -76,30 +76,19 @@ export default{
 <style scoped>
 #profilepicture{
   position:absolute;
-  top: 125px;
+  top: 110px;
   left:125px;
-  height:350px;
-  width: 350px;
+  height:380px;
+  width: 380px;
   border-radius:1000px;
   object-fit: cover;
+  border: white 10px solid;
 }
 hr{
   border: 3px black solid rgba(0, 0, 0.75);
 }
 button{
   cursor: pointer;
-}
-
-.profilePicture {
-  width: 322px;
-  height: 322px;
-  background: rgba(255,251,251,1);
-  opacity: 1;
-  position: absolute;
-  top: 170px;
-  left: 147px;
-  border-radius: 50%;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .details {
   width: 400px;
@@ -108,9 +97,9 @@ button{
   position: absolute;
   top: 580px;
   left: 105px;
-  font-family: Ubuntu;
   font-weight: Regular;
-  font-size: 15px;
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   opacity: 1;
   text-align: left;
   padding: 10px;
