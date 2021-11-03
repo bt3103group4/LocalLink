@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img v-if="profilepic != null" class="profilepicture" :src="profilepic" width="90">
+                <img v-if="profilepic != ''" class="profilepicture" :src="profilepic" width="90">
                 <img class="profilepicture" v-else src='~@/images/unknown.jpeg'>
                 <br>
                 <span class="font-weight-bold">{{firstname}} {{lastname}}</span>
@@ -93,11 +93,17 @@ export default {
             self.firstname = data["firstname"]
             self.lastname = data["lastname"]
             self.username = data["username"]
-            self.about = data["about"]
-            self.bio = data["bio"]
-            self.lang = data["lang"]
             self.email=data["email"]
-            self.profilepic=data["profilepic"]
+
+            if(data["bio"] != null){
+                self.bio = data["bio"]
+            }
+            if(data["lang"] != null){
+                self.lang = data["lang"]
+            }
+            if(data["profilepic"] != null){
+                self.profilepic=data["profilepic"]
+            }
             }
             else{
                 console.log("no such document")
@@ -128,7 +134,7 @@ export default {
                 email : self.email,
                 profilepic: self.profilepic
                 })
-            console.log(self.firstname)
+            console.log(self.profilepic)
             }
             else{
                 console.log("no such document")
@@ -149,15 +155,17 @@ export default {
         },
 
         onUpload(){
-        this.profilepic=null;
+        let self=this
+        self.profilepic=null;
         const storageRef=firebase.storage().ref(`${this.imageData.name}`).put(this.imageData);
         storageRef.on(`state_changed`,snapshot=>{
         this.uploadValue = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
             }, error=>{console.log(error.message)},
         ()=>{this.uploadValue=100;
             storageRef.snapshot.ref.getDownloadURL().then((url)=>{
-                this.profilepic =url;
-               // console.log(this.profilepic)
+                self.profilepic =url;
+                console.log("Picture")
+              console.log(this.profilepic)
                 });
             }      
             );

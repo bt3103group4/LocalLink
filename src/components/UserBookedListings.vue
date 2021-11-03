@@ -5,9 +5,8 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
 </head>
-        <div class = "grid">
-            <p id="noListings" v-if="$bookedTours == null"> No bookings yet! </p>
-            <div class="col my-col" v-else v-for="tour in bookedTours" :key="tour.tour_name">
+        <div v-if="bookedTours.length != 0" class = "grid">
+            <div class="col my-col" v-for="tour in bookedTours" :key="tour.tour_name">
                   <div class="card-group">
                     <div class="card">
                     <img class="card-img-top" src="..\images\v225_74.png" alt="Card image cap"/>
@@ -19,6 +18,7 @@
             </div>
         </div>
     </div>
+    <p id="noListings" v-else> No bookings yet! </p>
 </template>
 
 <script>
@@ -46,6 +46,7 @@ export default {
                     .then(z => {
                         const data = z.data()
                         let bookedtour = data["bookings"]
+                        if (bookedtour != null){
                         bookedtour.forEach(tour => {
                             db.collection("listings").doc(tour).get()
                             .then(tourdata => {
@@ -57,9 +58,8 @@ export default {
                                 }
                                 self.bookedTours.push(tour)
                             })
-
                         })
-
+                        }
                     })
                     .catch(error => {
                         console.log(" No bookings yet")
@@ -94,6 +94,9 @@ export default {
     font-weight:700;
     font-style: italic;
     color: grey;
+    position:absolute;
+    top:100px;
+    left:20px;
 }
 #listings{
   background-repeat: no-repeat;

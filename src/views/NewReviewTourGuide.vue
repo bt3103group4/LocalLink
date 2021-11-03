@@ -34,6 +34,7 @@ export default {
 <style scoped>
 * {
   box-sizing: border-box;
+  size: 80%;
 }
 body {
   font-size: 14px;
@@ -55,15 +56,5 @@ body {
   font-size: 45px;
   opacity: 1;
   text-align: left;
-}
-.backNav{
-    position: absolute;
-    top: 150px;
-    left:30px;
-    background: url("~@/images/backicon.png");
-    width: 45px;
-    height:45px;
-    background-size: 100% 100%;
-    border:none;
 }
 </style>

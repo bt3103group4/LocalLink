@@ -4,9 +4,8 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
 </head>
-        <div class = "grid">
-            <div id="noListings" v-if="$reviews == null"> No reviews yet!</div>
-            <div class="col my-col" v-else v-for="review in reviews" :key="review.tourname">
+        <div class = "grid" v-if="reviews.length != 0" >
+            <div class="col my-col" v-for="review in reviews" :key="review.tourname">
                   <div class="card-group">
                     <div class="card">
                     <div class="card-body">
@@ -19,6 +18,7 @@
             </div>
         </div>
     </div>
+    <h1 id="noListings" v-else> No reviews yet!</h1>
 </template>
 
 <script>
@@ -78,7 +78,9 @@ export default {
     font-weight:700;
     font-style: italic;
     color: grey;
-    padding-left: 10px;
+    position:absolute;
+    top:105px;
+    left:20px;
 }
 #listings{
   background-repeat: no-repeat;

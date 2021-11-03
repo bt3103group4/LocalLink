@@ -2,7 +2,7 @@
 <body>  
   <div class="listingComp">
     <div id ="profilepicture1">                     
-        <img id ="profilepicture" v-if="$profilepic != null" class="preview" height="268" width="356" :src="profilepic">
+        <img id ="profilepicture" v-if="profilepic != ''" class="preview" height="268" width="356" :src="profilepic">
         <img id ="profilepicture" v-else src='~@/images/unknown.jpeg'>
        <br>
       </div>  
@@ -15,10 +15,10 @@
             <span style="font-weight:700;font-size:15px">Name </span>
             <p> {{firstname}} {{lastname}} </p>
             <span style="font-weight:700;font-size:15px" >Languages</span>
-            <p v-if="$lang != null"> {{lang}} </p>
-            <p style="color:grey;font-style: italic;font-size:15px" v-else> Add your languages! </p>
+            <p v-if="lang != ''"> {{lang}} </p>
+            <p style="color:grey;font-style: italic;font-size:15px" v-else> Nothing here yet :(   Add your languages by clicking on the edit icon! </p>
             <span style="font-weight:700;font-size:15px" >Biography</span>
-            <p v-if="$bio != null"> {{bio}} </p>
+            <p v-if="bio != ''"> {{bio}} </p>
             <p style="color:grey;font-style: italic;font-size:15px" v-else> Nothing here yet :(   Add your bio by clicking on the edit icon! </p><br>
         </div>
 
@@ -40,7 +40,7 @@ export default{
         lastname: "",
         bio: "",
         lang:"",
-        profilepic:""
+        profilepic:''
       }
     },
     mounted(){
@@ -59,9 +59,15 @@ export default{
           self.firstname = data["firstname"] 
           self.lastname = data["lastname"]
           self.username = data["username"]
-          self.bio = data["bio"]
-          self.lang = data["lang"]
-          self.profilepic = data["profilepic"]
+            if(data["bio"] != null){
+                self.bio = data["bio"]
+            }
+            if(data["lang"] != null){
+                self.lang = data["lang"]
+            }
+            if(data["profilepic"] != null){
+                self.profilepic=data["profilepic"]
+            }
           }
           else{
             console.log("no such document")

@@ -91,7 +91,7 @@ body {
   font-size: 14px;
   background-color: rgba(242,238,238,1);
   width: 100%;
-  height:1500px;
+  height:1100px;
 }
 .tabs{
   position: absolute;

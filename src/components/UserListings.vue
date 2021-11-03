@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
 </head>
         <div class = "grid">
-            <div v-if="$tours == []"> No Booked Tours yet!</div>
+            <div v-if="tours == []"> No Booked Tours yet!</div>
             <div v-else class="col my-col" v-for="tour in tours" :key="tour.tour_name">
                   <div class="card-group">
                     <div class="card">
@@ -47,15 +47,17 @@ export default {
                     .then(z => {
                         z.forEach(doc => {
                         const data = doc.data()
-                        let tour ={
-                            tourname : data["tour_name"],
-                            start : data["start_date"],
-                            image: "image",
-                            review: "4", //to make dynamic too KIV
-                        }
-                        self.tours.push(tour)
-                        console.log(tour);
-                        })
+                        if (!(data["tour_name"]== null || data["start_date"] == null)){
+                            let tour = {
+                                tourname : data["tour_name"],
+                                start : data["start_date"],
+                                image: "image",
+                                review: "4", //to make dynamic too KIV
+                            }
+                            self.tours.push(tour)
+                            console.log(tour);
+                            }
+                            })
                     
                     })}
                     }

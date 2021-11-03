@@ -10,11 +10,11 @@ export default {
 <style scoped>
 .backNav{
     position: absolute;
-    top: 90px;
-    left:30px;
-    background: url("~@/images/backicon.png");
+    top: 100px;
+    left:25px;
+    background: url("~@/images/back-button.png");
     width: 45px;
-    height:45px;
+    height:30px;
     background-size: 100% 100%;
     border:none;
 }
