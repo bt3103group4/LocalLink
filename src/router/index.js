@@ -20,44 +20,45 @@ import EditTour from '@/views/EditTour.vue'
 import NewReviewTourGuide from '@/views/NewReviewTourGuide.vue'
 import NewReviewTourist from '@/views/NewReviewTourist.vue'
 import TourInfoNature from '@/views/TourInfoNature.vue'
+import ConfirmationPage from '@/views/ConfirmationPage.vue'
 
 const routes = [
-  {
-    path: "/",
-    name: "Landing",
-    component: Landing,
-  },
-  {
-    path: "/logintourguide",
-    name: "LoginTourGuide",
-    component: LoginTourGuide,
-  },
-  {
-    path: "/registertourguide",
-    name: "RegisterTourGuide",
-    component: RegisterTourGuide,
-  },
-  {
-    path: "/logintourist",
-    name: "LoginTourist",
-    component: LoginTourist,
-  },
-  {
-    path: "/registertourist",
-    name: "RegisterTourist",
-    component: RegisterTourist,
-  },
-  // {
-  // path: '/signup',
-  // name: 'SignUp',
-  // component: SignUp
-  // },
-  {
-    path: "/search",
-    name: "Search",
-    component: Search,
-  },
-  {
+    {
+    path: '/',
+    name: 'Landing',
+    component: Landing
+    },
+    {
+    path: '/logintourguide',
+    name: 'LoginTourGuide',
+    component: LoginTourGuide
+    },
+    {
+    path: '/registertourguide',
+    name: 'RegisterTourGuide',
+    component: RegisterTourGuide
+    },
+    {
+    path: '/logintourist',
+    name: 'LoginTourist',
+    component: LoginTourist
+    },
+    {
+    path: '/registertourist',
+    name: 'RegisterTourist',
+    component: RegisterTourist
+    },
+    // {
+    // path: '/signup',
+    // name: 'SignUp',
+    // component: SignUp
+    // },
+    {
+    path: '/search',
+    name: 'Search',
+    component: Search
+    },
+    {
     path: "/newtour",
     name: "NewTour",
     component: NewTour,
@@ -127,13 +128,17 @@ const routes = [
       name: "TourInfoNature",
       component: TourInfoNature,
     },
+    {
+      path: "/confirmationpage",
+      name: "ConfirmationPage",
+      component: ConfirmationPage,
+    },
     //delete later, for testing
     // {
     // path: '/layout',
     // name: 'Layout',
     // component: Layout
     // }
-
 ];
 
 const router = createRouter({
