@@ -4,8 +4,6 @@
     <SettingsButton/>
     <Back/>
   <span class="header">Describe your experience</span>
-  <!-- <h1> {{tour_id}} hihi</h1>
-  <h1> {{id}} hihi</h1> -->
   <div class="description">
     <b>What will you and your guests do?</b>
     <li>Provide a detailed timeline of the tour from start to finish.</li>

@@ -73,9 +73,6 @@ export default {
             //TODO: Check this is users account if they want to edit info
         }, 
     editing(tour_id) {
-        console.log(tour_id)
-        this.$emit("tourid", tour_id)
-        // this.$router.push('/edittour')
         this.$router.push({
             name: 'EditTour',
             params:{
