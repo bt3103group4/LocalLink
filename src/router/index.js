@@ -66,6 +66,7 @@ const routes = [
       path: "/edittour",
       name: "EditTour",
       component: EditTour,
+      props: true,
     },
     {
     path: '/touristProfile',

@@ -30,7 +30,7 @@
                         <h3>LocalLink</h3>
                         <p> Get a personalised tour from a local tour guide at LocalLink.
                          Your next tour is a click away! A BT3103 Project by Group 4 -
-                         Pang Hui Yi Charlene, add your names
+                         Pang Hui Yi Charlene, Lim Zi Hui, add your names
                         </p>
                     </div>
                 

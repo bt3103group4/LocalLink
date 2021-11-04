@@ -12,7 +12,7 @@
                     <img class="card-img-top" src="..\images\v225_74.png" alt="Card image cap"/>
                     <div class="card-body">
                     <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
-                    <button id="editlisting" v-if="isUserAccount" @click="editing(tour.tourname)"></button>
+                    <button id="editlisting" v-if="isUserAccount" @click="editing(tour.tour_id)"></button>
                     <p class="card-text"> Available from: {{tour.start}}</p>
                     </div>
                 </div>
@@ -53,6 +53,7 @@ export default {
                                 start : data["start_date"],
                                 image: "image",
                                 review: "4", //to make dynamic too KIV
+                                tour_id: String(data.email + ", " + data.tour_name)
                             }
                             self.tours.push(tour)
                             console.log(tour);
@@ -71,10 +72,14 @@ export default {
         isUserAccount() {
             //TODO: Check this is users account if they want to edit info
         }, 
-    editing(tour_name) {
-        console.log(tour_name)
-        this.$emit("tourname", tour_name)
-        this.$router.push('/edittour')
+    editing(tour_id) {
+        this.$router.push({
+            name: 'EditTour',
+            params:{
+                tour_id: tour_id
+            }
+        })
+        
     }
     }
 }
