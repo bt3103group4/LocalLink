@@ -20,7 +20,7 @@
         <SettingsButton />
       </div>
       <div style="flex-grow: 1">
-        <Layout />
+        <!-- <Layout /> -->
       </div>
 
     </div>
@@ -114,9 +114,9 @@ export default {
   methods: {
     viewTourInfo(tour_id) {
       // console.log(tour_id);
+      // this.$router.push("/tourInfoNature");
       this.$emit("fetchInfo", tour_id);
-      this.$router.push("/tourInfoNature");
-
+      // this.$router.push("/tourInfoNature");
     },
   },
 };
