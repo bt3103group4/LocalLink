@@ -13,6 +13,7 @@
     <NavBar/>
     <Logo/>
     <SettingsButton/>
+    <Back/>
   <span class="header">Describe your experience</span>
   <div class="description">
     <b>What will you and your guests do?</b><br><br>
@@ -59,7 +60,7 @@
       class="diff_input"
       type="number"
       v-model.lazy="experience"
-      placeholder="Input the number of years in numbers."
+      placeholder="  Input the number of years in numbers."
     />
   </div>
 
@@ -69,7 +70,7 @@
       class="diff_input"
       type="number"
       v-model.lazy="cost"
-      placeholder="Price of tour"
+      placeholder="  Price of tour"
     />
   </div>
 
@@ -113,12 +114,13 @@
 import SettingsButton from '@/components/SettingsButton.vue'
 import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
+import Back from '@/components/Back.vue'
 import firebase from "firebase";
 import { db } from "../main.js";
 
 export default {
   name: "NewTour",
-  components: { NavBar,SettingsButton, Logo },
+  components: { NavBar,SettingsButton, Logo ,Back},
   data() {
     return {
       description: "",
@@ -176,6 +178,13 @@ body {
   height: 2500px;
   margin:0px;
   padding:0px;
+  size:100%
+}
+
+textarea{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-top:15px;
+  padding-left:10px
 }
 li{
   font-size: 16px;
@@ -422,7 +431,6 @@ select {
   position: absolute;
   top: 1300px;
   left: 317px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(0, 0, 0, 1);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -435,8 +443,8 @@ select {
   margin: 15px;
   outline: none;
   resize: none;
-  font-size: 25px;
-  font-family: Ubuntu;
+  font-size: 20px;
+  font-family: verdana;
   font-weight: Regular;
 }
 

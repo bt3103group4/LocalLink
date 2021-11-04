@@ -9,11 +9,8 @@
         <title>Document</title>
     </head>
     <body>
-
-        <div class="v218_77">
         <UserInfo/>
-        <UserListings/>
-
+      <div class="listingComp">
         <ul class = "tabs">
           <li data-tab-target="#listings" class="active tab">Listings </li>
           <li data-tab-target="#newReview" class="tab"> Reviews </li>
@@ -27,17 +24,13 @@
               <ReviewList/>
             </div>
           </div>
-            </div>
+        </div>
 
-        <button class="settingsbtn"></button>
-
-        <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/editTourGuideProfile')"> </button>
+        <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/editUserProfile')"> </button>
 
     <div class="name"></div>
-    <button class="uploadbtn" v-if="isUserAccount" @click="$router.push('/newtour')">Upload Tour</button>
-    <button class="newreview" v-if="isUserAccount" @click="$router.push('/newreviewtourguide')">New Review</button>
-    <div class="v218_107"></div>
-
+    <button class="uploadbtn" v-if="isUserAccount" @click="$router.push('/newtour')">New Tour</button>
+    <button class="newreview" v-if="isUserAccount" @click="$router.push('/newreviewtourguide')">Review</button>
     </body>
     </template>
 <script>
@@ -78,72 +71,47 @@ export default {
 </script>
 
 <style scoped>
-* {
-  box-sizing: border-box;
-}
-body {
-  font-size: 14px;
+.listingComp{
+  position:absolute;
+  top:100px;
+  right:40px;
+  height:830px;
+  width:800px;
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.25);
 }
 body {
   width: 100%;
-  height: 1800px;
+  height: 1100px;
   background: rgba(242,238,238,1);
   opacity: 1;
-  position: relative;
-  top: 0px;
-  left: 0px;
-}
-.addPhotoBtn {
-  width: 189px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 315px;
-  left: 216px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 20px;
-  opacity: 1;
-  text-align: left;
 }
 .uploadbtn {
-  width: 134px;
+  width: 120px;
   height: 48px;
   background: rgba(63,163,184,1);
   opacity: 1;
   position: absolute;
-  top: 46px;
-  left: 1180px;
+  top: 150px;
+  left: 1130px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border:none;
+  text-align:left;
 }
-
 .newreview {
-  width: 134px;
+  width: 120px;
   height: 48px;
   background: rgba(63,163,184,1);
   opacity: 1;
   position: absolute;
-  top: 150px;  
-  left: 1220px;
+  top: 130px;  
+  left: 1250px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border:none;
   color: rgba(255,255,255,1);
   font-family: Ubuntu;
   font-weight: Regular;
-  font-size: 18px;
   opacity: 1;
   text-align: center;
-  cursor: pointer;
-}
-
-.settingsbtn {
-  width: 40px;
-  height: 48px;
-  background: rgba(63,163,184,1);
-  opacity: 1;
-  position: absolute;
-  top: 46px;
-  left: 1314px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .v207_66 {
@@ -236,25 +204,12 @@ body {
 .uploadbtn {
   color: rgba(255,255,255,1);
   position: absolute;
+  top:130px;
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 16px;
   opacity: 1;
   text-align: center;
-}
-
-.v218_107 {
-  width: 17px;
-  height: 17px;
-  background: url("~~@/images/v218_107.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 61px;
-  left: 1325px;
-  overflow: hidden;
 }
 .name {
   color: #fff;
@@ -275,8 +230,8 @@ body {
 }
 .tabs{
   position: absolute;
-  top: 130px;
-  left: 600px;
+  top: 10px;
+  left: 20px;
   display : flex;
   color:rgba(0, 0, 0, 0.75);
   list-style-type: none;
@@ -289,7 +244,8 @@ body {
 }
 .tab{
   cursor: pointer;
-  padding:20px;
+  padding: 25px;
+  padding-bottom: 10px;
 }
 .tab:hover{
   background-color: #AAA;

@@ -4,7 +4,7 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
 </head>
-        <div class = "grid">
+        <div class = "grid" v-if="reviews.length != 0" >
             <div class="col my-col" v-for="review in reviews" :key="review.tourname">
                   <div class="card-group">
                     <div class="card">
@@ -18,6 +18,7 @@
             </div>
         </div>
     </div>
+    <h1 id="noListings" v-else> No reviews yet!</h1>
 </template>
 
 <script>
@@ -72,6 +73,15 @@ export default {
 
 
 <style scoped>
+#noListings{
+    font-size: 30px;
+    font-weight:700;
+    font-style: italic;
+    color: grey;
+    position:absolute;
+    top:105px;
+    left:20px;
+}
 #listings{
   background-repeat: no-repeat;
   background-position: center center;
@@ -79,7 +89,7 @@ export default {
   opacity: 1;
   position: absolute;
   top: 275px;
-  left: 664px;
+  left: 700px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -91,8 +101,8 @@ export default {
 }
 .grid{
     position: absolute;
-    top: 250px;
-    right:80px;
+    top: 120px;
+    right:20px;
     width: 770px;
 }
 

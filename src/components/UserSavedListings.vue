@@ -5,7 +5,7 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
 </head>
-        <div class = "grid">
+        <div v-if="savedTours.length != 0"  class = "grid">
             <div class="col my-col" v-for="tour in savedTours" :key="tour.tour_name">
                   <div class="card-group">
                     <div class="card">
@@ -13,13 +13,14 @@
                     <div class="card-body">
                     <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
                     <p class="card-text"> Available from: {{tour.start}}</p>
-                    <button class="button-id">Book Now </button>
+                    <button class="button-id" @click="$router.push('/ConfirmationPage')">Book Now </button>
                     <p class="card-text"> Review: {{tour.review}}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <p id="noListings" v-else> No saved bookings yet! </p>
 </template>
 
 <script>
@@ -46,8 +47,9 @@ export default {
                     .get()
                     .then(z => {
                         const data = z.data()
-                        let bookedtour = data["saved_listings"]
-                        bookedtour.forEach(tour => {
+                        let savedtour = data["saved_listings"]
+                       if (savedtour != null){
+                            savedtour.forEach(tour => {
                             db.collection("listings").doc(tour).get()
                             .then(tourdata => {
                                 const data = tourdata.data()
@@ -61,8 +63,7 @@ export default {
                             })
 
                         })
-                       
-              
+                       }
                     
                     })}
                     }
@@ -89,6 +90,15 @@ export default {
 
 
 <style scoped>
+#noListings{
+    font-size: 30px;
+    font-weight:700;
+    font-style: italic;
+    color: grey;
+    position:absolute;
+    top:100px;
+    left:20px;
+}
 #listings{
   background-repeat: no-repeat;
   background-position: center center;
@@ -126,11 +136,11 @@ export default {
 .grid{
     size:50%;
     position: absolute;
-    top: 250px;
-    right:130px;
+    top: 120px;
+    left:30px;
     display:grid;
     grid-template-columns: repeat(2, 1fr);
-    gap:65px
+    gap:40px
 }
 
 </style>

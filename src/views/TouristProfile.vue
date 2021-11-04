@@ -11,6 +11,7 @@
         <SettingsButton/>
         <Logo/>
 
+  <div class="listingsComp">
     <ul class = "tabs">
       <li data-tab-target="#bookedListings" class="active tab"> My Bookings</li>
       <li data-tab-target="#savedListings" class="tab"> Saved </li>
@@ -31,8 +32,8 @@
       </div>
 
     </div>
-
-  
+</div>
+  <DefaultFooter/>
     </body>
 </template>
 
@@ -44,10 +45,11 @@ import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
 import UserBookedListings from '@/components/UserBookedListings.vue'
 import ReviewList from '@/components/ReviewList.vue'
+import DefaultFooter from '@/components/DefaultFooter.vue'
 
 export default {
     name: "TouristProfile",
-    components: { UserInfo, Logo ,UserSavedListings, SettingsButton, NavBar, UserBookedListings, ReviewList},
+    components: { UserInfo, Logo ,UserSavedListings, SettingsButton, NavBar, UserBookedListings, ReviewList, DefaultFooter},
     mounted(){
       let tabs = document.querySelectorAll('[data-tab-target]')
       let tabContents = document.querySelectorAll('[data-tab-content]')
@@ -77,16 +79,25 @@ export default {
 * {
   box-sizing: border-box;
 }
+.listingsComp{
+  position:absolute;
+  top:100px;
+  right:40px;
+  height:830px;
+  width:800px;
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
 body {
   font-size: 14px;
   background-color: rgba(242,238,238,1);
   width: 100%;
-  height:1500px;
+  height:1200px;
 }
 .tabs{
   position: absolute;
-  top: 140px;
-  left: 600px;
+  top: 10px;
+  left: 20px;
   display : flex;
   color:rgba(0, 0, 0, 0.75);
   list-style-type: none;
@@ -104,6 +115,7 @@ body {
 }
 .tab.active{
   border-bottom: rgba(63,163,184,1) 5px solid ;
+  color:rgba(63,163,184,1);
 }
 [data-tab-content]{
   display: none;
@@ -113,8 +125,8 @@ body {
 }
 #reviewContent, #bookingContent{
   position: absolute;
-  top: 250px;
-  left: 600px;
+  top: 150px;
+  left: 800px;
 }
 .newReviewBtn{
   width: 134px;
@@ -122,8 +134,8 @@ body {
   background: rgba(63,163,184,1);
   opacity: 1;
   position: absolute;
-  top: 150px;  
-  left: 1220px;
+  top: 20px;  
+  left: 630px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border:none;
   color: rgba(255,255,255,1);

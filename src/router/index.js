@@ -3,7 +3,6 @@ import Search from "@/views/Search.vue";
 import NewTour from "@/views/NewTour.vue";
 import TouristProfile from "@/views/TouristProfile.vue";
 import TourGuideProfile from "@/views/TourGuideProfile.vue";
-import EditTourGuideProfile from "@/views/EditTourGuideProfile.vue";
 import Chat from "@/views/Chat.vue";
 import Logout from "@/views/Logout.vue";
 import ListingsNature from "@/views/ListingsNature.vue";
@@ -82,11 +81,6 @@ const routes = [
     path: '/tourGuideProfile',
     name: 'TourGuideProfile',
     component: TourGuideProfile
-    },
-    {
-    path: '/editTourGuideProfile',
-    name: 'EditTourGuideProfile',
-    component: EditTourGuideProfile
     },
     {
     path: '/chat',
