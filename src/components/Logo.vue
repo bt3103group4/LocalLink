@@ -23,8 +23,7 @@ export default {
 
     methods: {
         homepage() {
-            // have to check the name
-            this.$router.push({name: 'Listing'}) 
+            this.$router.push('/ListingsNature') 
         }
     }
 }

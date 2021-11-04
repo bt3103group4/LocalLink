@@ -33,7 +33,7 @@
 
     </div>
 </div>
-  
+  <DefaultFooter/>
     </body>
 </template>
 
@@ -45,10 +45,11 @@ import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
 import UserBookedListings from '@/components/UserBookedListings.vue'
 import ReviewList from '@/components/ReviewList.vue'
+import DefaultFooter from '@/components/DefaultFooter.vue'
 
 export default {
     name: "TouristProfile",
-    components: { UserInfo, Logo ,UserSavedListings, SettingsButton, NavBar, UserBookedListings, ReviewList},
+    components: { UserInfo, Logo ,UserSavedListings, SettingsButton, NavBar, UserBookedListings, ReviewList, DefaultFooter},
     mounted(){
       let tabs = document.querySelectorAll('[data-tab-target]')
       let tabContents = document.querySelectorAll('[data-tab-content]')
