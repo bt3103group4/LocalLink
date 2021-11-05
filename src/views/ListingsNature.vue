@@ -13,16 +13,13 @@
     <title>Listings</title>
   </head>
   <body>
-    <div class="container" style="display: flex; height: 100px">
-      <div style="width: 10%">
-        <NavBar />
-        <Logo />
-        <SettingsButton />
-      </div>
-      <div style="flex-grow: 1">
-        <!-- <Layout /> -->
-      </div>
-
+    <NavBar />
+    <Logo />
+    <SettingsButton />
+    <DefaultFooter/>
+    <div class="container">
+      <div style="width: 10%"></div>
+      <div style="flex-grow: 1"></div>
     </div>
     <br />
     <br />
@@ -80,12 +77,13 @@
 import SettingsButton from "@/components/SettingsButton.vue";
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
+import DefaultFooter from "@/components/DefaultFooter.vue"
 // import firebase from "firebase";
 import { db } from "../main.js";
 
 export default {
   name: "ListingsNature",
-  components: { SettingsButton, NavBar, Logo },
+  components: { SettingsButton, NavBar, Logo, DefaultFooter},
   data() {
     return {
       tours: [],

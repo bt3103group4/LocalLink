@@ -48,8 +48,7 @@
       <div class="card-body">
         <h2 class="card-title">Wildly Adventurous</h2>
         <p class="card-text">
-          Man cannot discover new oceans unless he has the courage to lose sight
-          of the shore.
+          Man cannot discover new oceans unless he has the courage to lose sight of the shore.
         </p>
         <a href="#" class="btn btn-primary">Customize my trip now!</a>
       </div>
