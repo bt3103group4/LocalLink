@@ -27,7 +27,6 @@ import { db} from "../main.js";
 
 export default {
     name: "UserSavedListings",
-    emit: ["tourname"],
     data(){
         return{
             tours:[]

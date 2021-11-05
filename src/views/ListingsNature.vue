@@ -13,17 +13,13 @@
     <title>Listings</title>
   </head>
   <body>
+    <NavBar />
+    <Logo />
+    <SettingsButton />
     <DefaultFooter/>
-    <div class="container" style="display: flex; height: 100px">
-      <div style="width: 10%">
-        <NavBar />
-        <Logo />
-        <SettingsButton />
-      </div>
-      <div style="flex-grow: 1">
-        <!-- <Layout /> -->
-      </div>
-
+    <div class="container">
+      <div style="width: 10%"></div>
+      <div style="flex-grow: 1"></div>
     </div>
     <br />
     <br />
@@ -51,7 +47,7 @@
           Forget not that the earth delights to feel your bare feet and the
           winds long to play with your hair.
         </p>
-        <a href="#" class="btn btn-primary">Customize my trip now!</a>
+        <a href="#" class="btn customise">Customize my trip now!</a>
       </div>
     </div>
     <div class="grid">
@@ -107,18 +103,18 @@ export default {
             description: data.description,
             tour_id: String(data.email + ", " + data.tour_name),
           };
-          // console.log(this.tours)
-          // console.log(tour)
           this.tours.push(tour);
         });
       });
   },
   methods: {
     viewTourInfo(tour_id) {
-      // console.log(tour_id);
-      // this.$router.push("/tourInfoNature");
-      this.$emit("fetchInfo", tour_id);
-      // this.$router.push("/tourInfoNature");
+      this.$router.push({
+        name: 'TourInfo',
+        params: {
+          tour_id: tour_id
+        }
+      })
     },
   },
 };
@@ -131,10 +127,35 @@ body{
 .grid {
   size: 50%;
   position: absolute;
-  top: 500px;
+  top: 400px;
   left: 270px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+}
+
+.btn-primary {
+  width: 120px;
+  height: 48px;
+  background: rgba(63,163,184,1);
+  opacity: 1;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border:none;
+  color: rgba(255,255,255,1);
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 18px;
+  padding:0px;
+  opacity: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.customise {
+  background: rgba(63,163,184,1);
+  color: rgba(255,255,255,1);
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 18px;
 }
 </style>
