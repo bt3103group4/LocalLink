@@ -64,7 +64,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ tour.tour_name }}</h5>
           <p class="card-text">{{ tour.description }}</p>
-          <a href="#" class="btn btn-primary">See more</a>
+          <a href="#" class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">See more</a>
           <!-- <p class="card-text"> -->
           <!-- <small class="text-muted">Last booked 5 mins ago</small> -->
           <!-- </p> -->
@@ -113,9 +113,12 @@ export default {
   },
   methods: {
     viewTourInfo(tour_id) {
-      // console.log(tour_id);
-      this.$emit("fetchInfo", tour_id);
-      this.$router.push("/tourInfoNature");
+      this.$router.push({
+        name: 'TourInfo',
+        params: {
+          tour_id: tour_id
+        }
+      })
     },
   },
 };

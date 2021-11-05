@@ -86,7 +86,6 @@ export default {
   name: "ListingsBeach",
 
   components: { SettingsButton, NavBar, Logo },
-  emits: ["fetchInfo"],
 
   data() {
     return {
@@ -115,10 +114,12 @@ export default {
   },
   methods: {
     viewTourInfo(tour_id) {
-      // console.log(tour_id);
-      this.$emit("fetchInfo", tour_id);
-      this.$router.push("/tourInfoNature");
-
+      this.$router.push({
+        name: 'TourInfo',
+        params: {
+          tour_id: tour_id
+        }
+      })
     },
   },
 };
