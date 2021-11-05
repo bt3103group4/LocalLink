@@ -13,6 +13,7 @@
     <title>Listings</title>
   </head>
   <body>
+    <DefaultFooter/>
     <div class="container" style="display: flex; height: 100px">
       <div style="width: 10%">
         <NavBar />
@@ -80,12 +81,13 @@
 import SettingsButton from "@/components/SettingsButton.vue";
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
+import DefaultFooter from "@/components/DefaultFooter.vue"
 // import firebase from "firebase";
 import { db } from "../main.js";
 
 export default {
   name: "ListingsNature",
-  components: { SettingsButton, NavBar, Logo },
+  components: { SettingsButton, NavBar, Logo , DefaultFooter},
   emits: ["fetchInfo"],
   data() {
     return {

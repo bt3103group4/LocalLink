@@ -1,7 +1,7 @@
 <template>
 <body>
 <div class="topnav">
-  <a href="#news">About</a>
+    <a href="#home">About</a>
     <a class="active" href="#home">Contact</a>
   <router-link to="/touristProfile">Account</router-link>
 </div>
