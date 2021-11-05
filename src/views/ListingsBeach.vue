@@ -125,6 +125,11 @@ export default {
 </script>
 
 <style scoped>
+
+body{
+  width:100%;
+}
+
 .grid {
   size: 50%;
   position: absolute;

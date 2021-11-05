@@ -10,15 +10,11 @@
       <v-flex  md6 offset-sm3 >
        <div>
          <div >
-           <input type="file" ref="input1"
-            style="display: none"
+           <input type="file" ref="input1" style="display: none"
             @change="previewImage" accept="image/*" >                
          </div>
- 
-       <div v-if="imageData!=null">                     
-          <img class="preview" height="268" width="356" :src="img1">
+                    
        <br>
-       </div>   
       
        </div>
        </v-flex>
@@ -28,7 +24,9 @@
     <div class="row">
         <div class="col-md-4">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="profilepicture" :src="profilepic" width="90"><br>
+                <img v-if="profilepic != ''" class="profilepicture" :src="profilepic" width="90">
+                <img class="profilepicture" v-else src='~@/images/unknown.jpeg'>
+                <br>
                 <span class="font-weight-bold">{{firstname}} {{lastname}}</span>
                 <span class="text-black-50">{{email}}</span>
     </div>
@@ -95,11 +93,17 @@ export default {
             self.firstname = data["firstname"]
             self.lastname = data["lastname"]
             self.username = data["username"]
-            self.about = data["about"]
-            self.bio = data["bio"]
-            self.lang = data["lang"]
             self.email=data["email"]
-            self.profilepic=data["profilepic"]
+
+            if(data["bio"] != null){
+                self.bio = data["bio"]
+            }
+            if(data["lang"] != null){
+                self.lang = data["lang"]
+            }
+            if(data["profilepic"] != null){
+                self.profilepic=data["profilepic"]
+            }
             }
             else{
                 console.log("no such document")
@@ -119,6 +123,7 @@ export default {
         auth.onAuthStateChanged(user => {
         if (user){
             let fbuser = auth.currentUser.email;
+            console.log(fbuser)
             if (fbuser){
             db.collection("users").doc(String(fbuser))
             .update({
@@ -130,7 +135,7 @@ export default {
                 email : self.email,
                 profilepic: self.profilepic
                 })
-            console.log(self.firstname)
+            console.log(self.profilepic)
             }
             else{
                 console.log("no such document")
@@ -145,21 +150,23 @@ export default {
 
         previewImage(event) {
         this.uploadValue=0;
-        this.img1=null;
+        this.profilepic=null;
         this.imageData = event.target.files[0];
         this.onUpload()
         },
 
         onUpload(){
-        this.img1=null;
+        let self=this
+        self.profilepic=null;
         const storageRef=firebase.storage().ref(`${this.imageData.name}`).put(this.imageData);
         storageRef.on(`state_changed`,snapshot=>{
         this.uploadValue = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
             }, error=>{console.log(error.message)},
         ()=>{this.uploadValue=100;
             storageRef.snapshot.ref.getDownloadURL().then((url)=>{
-                this.img1 =url;
-                console.log(this.img1)
+                self.profilepic =url;
+                console.log("Picture")
+              console.log(this.profilepic)
                 });
             }      
             );
@@ -177,6 +184,7 @@ body {
     height:300px;
     width: 300px;
     border-radius: 1000px;
+    object-fit: cover;
 }
 .form-control{
     font-size: 12px;

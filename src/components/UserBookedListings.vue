@@ -1,24 +1,24 @@
 <template>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
 </head>
-        <div class = "grid">
-            <div v-if="tours == []"> You have no tours yet!</div>
-            <div v-else class="col my-col" v-for="tour in tours" :key="tour.tour_name">
+        <div v-if="bookedTours.length != 0" class = "grid">
+            <div class="col my-col" v-for="tour in bookedTours" :key="tour.tour_name">
                   <div class="card-group">
                     <div class="card">
                     <img class="card-img-top" src="..\images\v225_74.png" alt="Card image cap"/>
                     <div class="card-body">
                     <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
-                    <button id="editlisting" v-if="isUserAccount" @click="editing(tour.tour_id)"></button>
-                    <p class="card-text"> Available from: {{tour.start}}</p>
+                    <p class="card-text"> Review: {{tour.review}}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <p id="noListings" v-else> No bookings yet! </p>
 </template>
 
 <script>
@@ -30,7 +30,7 @@ export default {
     emit: ["tourname"],
     data(){
         return{
-            tours:[]
+            bookedTours:[]
         }
     },
         mounted(){
@@ -41,25 +41,29 @@ export default {
                 if (user){
                     let fbuser = auth.currentUser.email;
                     if (fbuser){
-                    console.log(fbuser)
-                    db.collection("listings").where("email","==",fbuser)
+                    db.collection("users").doc(fbuser) //to get saved listings in user
                     .get()
                     .then(z => {
-                        z.forEach(doc => {
-                        const data = doc.data()
-                        if (!(data["tour_name"]== null || data["start_date"] == null)){
-                            let tour = {
-                                tourname : data["tour_name"],
-                                start : data["start_date"],
-                                image: "image",
-                                review: "4", //to make dynamic too KIV
-                                tour_id: String(data.email + ", " + data.tour_name)
-                            }
-                            self.tours.push(tour)
-                            console.log(tour);
-                            }
+                        const data = z.data()
+                        let bookedtour = data["bookings"]
+                        if (bookedtour != null){
+                        bookedtour.forEach(tour => {
+                            db.collection("listings").doc(tour).get()
+                            .then(tourdata => {
+                                const data = tourdata.data()
+                                let tour = {
+                                    tourname : data["tour_name"],
+                                    review : data["review"]
+                                   // tourimage = data["tour_image"]
+                                }
+                                self.bookedTours.push(tour)
                             })
-                    
+                        })
+                        }
+                    })
+                    .catch(error => {
+                        console.log(" No bookings yet")
+                        console.log(error)
                     })}
                     }
                 })
@@ -72,14 +76,10 @@ export default {
         isUserAccount() {
             //TODO: Check this is users account if they want to edit info
         }, 
-    editing(tour_id) {
-        this.$router.push({
-            name: 'EditTour',
-            params:{
-                tour_id: tour_id
-            }
-        })
-        
+    editing(tour_name) {
+        console.log(tour_name)
+        this.$emit("tourname", tour_name)
+        this.$router.push('/edittour')
     }
     }
 }
@@ -89,13 +89,22 @@ export default {
 
 
 <style scoped>
+#noListings{
+    font-size: 30px;
+    font-weight:700;
+    font-style: italic;
+    color: grey;
+    position:absolute;
+    top:100px;
+    left:20px;
+}
 #listings{
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   opacity: 1;
   position: absolute;
-  top: 200px;
+  top: 275px;
   left: 664px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -109,39 +118,13 @@ export default {
 .card-group:hover{
     cursor: pointer;
 }
-.button-id{
-    border:none;
-    background-color:rgba(63,163,184,1) ;
-    color:white;
-    padding:5px;
-    padding-left: 10px;
-    padding-right:10px;
-    font-weight: bold;
-    border-radius: 10px;
-}
-.button-id:hover{
-    cursor: pointer;
-    background-color: grey;
-}
 .grid{
     size:50%;
     position: absolute;
     top: 120px;
-    left:30px;
+    left:20px;
     display:grid;
     grid-template-columns: repeat(2, 1fr);
     gap:40px
 }
-
-#editlisting {
-    width: 20px;
-    height: 20px;
-    background: url("~@/images/edit.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    border: none;
-    float: right;
-}
-
 </style>

@@ -1,7 +1,9 @@
 <template>
 <body>  
+  <div class="listingComp">
     <div id ="profilepicture1">                     
-        <img id ="profilepicture" class="preview" height="268" width="356" :src="profilepic">
+        <img id ="profilepicture" v-if="profilepic != ''" class="preview" height="268" width="356" :src="profilepic">
+        <img id ="profilepicture" v-else src='~@/images/unknown.jpeg'>
        <br>
       </div>  
     <span class="username">@{{username}}</span>
@@ -9,18 +11,19 @@
         </div>
 
         <div class="details">
-            <h3 class="about">About</h3> <hr>
-            <h4>Name </h4>
-            <span> {{firstname}} {{lastname}} </span>
-            <h4>Languages</h4>
-            <span v-if="$lang != ''"> {{lang}} </span>
-            <span style="color:grey;font-style: italic;" v-else> Add your languages! </span>
-            <h4>Biography</h4>
-            <span v-if="$bio != ''"> {{bio}} </span>
-            <span style="color:grey;font-style: italic;" v-else> Nothing here yet :(   Add your bio by clicking on the edit icon! </span><br>
+            <p style="font-weight:900;font-size:22px" class="about">About me</p> <hr>
+            <span style="font-weight:700;font-size:15px">Name </span>
+            <p> {{firstname}} {{lastname}} </p>
+            <span style="font-weight:700;font-size:15px" >Languages</span>
+            <p v-if="lang != ''"> {{lang}} </p>
+            <p style="color:grey;font-style: italic;font-size:15px" v-else> Nothing here yet :(   Add your languages by clicking on the edit icon! </p>
+            <span style="font-weight:700;font-size:15px" >Biography</span>
+            <p v-if="bio != ''"> {{bio}} </p>
+            <p style="color:grey;font-style: italic;font-size:15px" v-else> Nothing here yet :(   Add your bio by clicking on the edit icon! </p><br>
         </div>
 
         <button id="editprofilebtn" @click="$router.push('/EditUserProfile')"></button>
+        </div>
         </body>
 </template>
 <script>
@@ -37,7 +40,7 @@ export default{
         lastname: "",
         bio: "",
         lang:"",
-        profilepic:""
+        profilepic:''
       }
     },
     mounted(){
@@ -56,9 +59,15 @@ export default{
           self.firstname = data["firstname"] 
           self.lastname = data["lastname"]
           self.username = data["username"]
-          self.bio = data["bio"]
-          self.lang = data["lang"]
-          self.profilepic = data["profilepic"]
+            if(data["bio"] != null){
+                self.bio = data["bio"]
+            }
+            if(data["lang"] != null){
+                self.lang = data["lang"]
+            }
+            if(data["profilepic"] != null){
+                self.profilepic=data["profilepic"]
+            }
           }
           else{
             console.log("no such document")
@@ -76,29 +85,20 @@ export default{
 <style scoped>
 #profilepicture{
   position:absolute;
-  top: 125px;
+  top: 110px;
   left:125px;
-  height:350px;
-  width: 350px;
+  height:380px;
+  width: 380px;
   border-radius:1000px;
+  object-fit:cover;
+  border: white 10px solid;
 }
+
 hr{
   border: 3px black solid rgba(0, 0, 0.75);
 }
 button{
   cursor: pointer;
-}
-
-.profilePicture {
-  width: 322px;
-  height: 322px;
-  background: rgba(255,251,251,1);
-  opacity: 1;
-  position: absolute;
-  top: 170px;
-  left: 147px;
-  border-radius: 50%;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .details {
   width: 400px;
@@ -107,9 +107,9 @@ button{
   position: absolute;
   top: 580px;
   left: 105px;
-  font-family: Ubuntu;
   font-weight: Regular;
-  font-size: 15px;
+  font-size: 20px;
+  font-family: Verdana;
   opacity: 1;
   text-align: left;
   padding: 10px;

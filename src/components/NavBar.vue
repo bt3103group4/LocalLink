@@ -1,6 +1,6 @@
 <template>
+<body>
 <div class="topnav">
-  <router-link to="/listings">Home</router-link>
   <a href="#news">About</a>
     <a class="active" href="#home">Contact</a>
   <router-link to="/touristProfile">Account</router-link>
@@ -8,6 +8,7 @@
     <input class="searchbox" placeholder="Search">
     <div class="searchicon"></div>
 
+</body>
 </template>
 
 <script>
@@ -45,6 +46,13 @@ export default {
 </script>
 
 <style scoped>
+body{
+  margin:0px;
+  padding:0px;
+  position: absolute;
+  top: 0px;
+  left:0px;
+}
 .topnav{
   background-color: rgba(63,163,184,1);
   width: 100%;
@@ -52,7 +60,7 @@ export default {
   top: 0px;
   height: 75px;
   padding-top: 25px ;
-  padding-left: 900px;
+  padding-left: 1000px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 a{

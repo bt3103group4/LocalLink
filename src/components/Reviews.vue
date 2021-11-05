@@ -1,10 +1,11 @@
 <template>
-<div class="tour_name">Tour Name</div>
+<body>
+  <div class="tour_name">Tour Name</div>
     <div class="tour_name_box">
         <textarea
         class="tour_input"
         v-model.lazy="tourname"
-        placeholder="Tour Name"
+        placeholder="Name of tour you hosted for your tourist"
         ></textarea>
     </div>
 
@@ -13,7 +14,7 @@
         <textarea
         class="email_input"
         v-model.lazy="email"
-        placeholder="Email"
+        placeholder="Enter your tourist's email"
         ></textarea>
     </div>
 
@@ -23,7 +24,7 @@
       class="ratings_input"
       type="number"
       v-model.lazy="ratings"
-      placeholder="Give a rating out of 5!"
+      placeholder=" Give a rating out of 5!"
       min="0" max="5">
     </div>
 
@@ -32,11 +33,13 @@
     <textarea
       class="review_input"
       v-model.lazy="reviews"
-      placeholder="Leave your review"
+      placeholder="Describe your experience with your tourist!"
     ></textarea>
     </div>
 
     <button class="save" @click="save">Save</button>
+</body>
+
 </template>
 
 <script>
@@ -85,6 +88,7 @@ export default {
 </script>
 
 <style>
+
 .tour_name {
   width: 902px;
   color: rgba(0, 0, 0, 1);
@@ -99,6 +103,11 @@ export default {
   text-align: left;
 }
 
+textarea{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-top:15px;
+  padding-left:10px
+}
 .tour_name_box {
   width: 920px;
   height: 58px;

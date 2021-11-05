@@ -1,7 +1,9 @@
 <template>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <NavBar/>
     <Logo/>
     <SettingsButton/>
+    <Back/>
   <span class="header">Describe your experience</span>
   <div class="description">
     <b>What will you and your guests do?</b>
@@ -72,10 +74,6 @@
     </div>
   </div>
 
-  <!-- <div v-show=false> -->
-    <UserListings @tourname="editing($event)"/>
-  <!-- </div> -->
-
   <div class="tour_name">Name your tour</div>
   <div class="tour_name_box">
     <textarea
@@ -112,15 +110,17 @@
 import SettingsButton from '@/components/SettingsButton.vue'
 import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
-import UserListings from '@/components/UserListings.vue'
+import Back from '@/components/Back.vue'
 import firebase from "firebase";
 import { db } from "../main.js";
 
 export default {
   name: "NewTour",
-  components: { NavBar,SettingsButton, Logo, UserListings},
+  components: { NavBar,SettingsButton, Logo,Back},
+  props: ['tour_id'],
   data() {
     return {
+      id: this.tour_id,
       description: "",
       start_date: "",
       end_date: "",
@@ -133,6 +133,27 @@ export default {
       reserved_list: "",
     };
   },
+  mounted() {
+    db.collection("listings")
+      .doc(this.id)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          const data = doc.data();
+            (this.description = data.description),
+            (this.start_date = data.start_date),
+            (this.end_date = data.end_date),
+            (this.transport = data.transport),
+            (this.experience = data.experience),
+            (this.cost = data.cost),
+            (this.tour_name = data.tour_name),
+            (this.tour_type = data.tour_type),
+            (this.email = data.email);
+        } else {
+          console.log("no such document");
+        }
+      });
+    },
   methods: {
     save() {
       const self = this;

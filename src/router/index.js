@@ -3,7 +3,6 @@ import Search from "@/views/Search.vue";
 import NewTour from "@/views/NewTour.vue";
 import TouristProfile from "@/views/TouristProfile.vue";
 import TourGuideProfile from "@/views/TourGuideProfile.vue";
-import EditTourGuideProfile from "@/views/EditTourGuideProfile.vue";
 import Chat from "@/views/Chat.vue";
 import Logout from "@/views/Logout.vue";
 import ListingsNature from "@/views/ListingsNature.vue";
@@ -20,44 +19,45 @@ import EditTour from '@/views/EditTour.vue'
 import NewReviewTourGuide from '@/views/NewReviewTourGuide.vue'
 import NewReviewTourist from '@/views/NewReviewTourist.vue'
 import TourInfoNature from '@/views/TourInfoNature.vue'
+import ConfirmationPage from '@/views/ConfirmationPage.vue'
 
 const routes = [
-  {
-    path: "/",
-    name: "Landing",
-    component: Landing,
-  },
-  {
-    path: "/logintourguide",
-    name: "LoginTourGuide",
-    component: LoginTourGuide,
-  },
-  {
-    path: "/registertourguide",
-    name: "RegisterTourGuide",
-    component: RegisterTourGuide,
-  },
-  {
-    path: "/logintourist",
-    name: "LoginTourist",
-    component: LoginTourist,
-  },
-  {
-    path: "/registertourist",
-    name: "RegisterTourist",
-    component: RegisterTourist,
-  },
-  // {
-  // path: '/signup',
-  // name: 'SignUp',
-  // component: SignUp
-  // },
-  {
-    path: "/search",
-    name: "Search",
-    component: Search,
-  },
-  {
+    {
+    path: '/',
+    name: 'Landing',
+    component: Landing
+    },
+    {
+    path: '/logintourguide',
+    name: 'LoginTourGuide',
+    component: LoginTourGuide
+    },
+    {
+    path: '/registertourguide',
+    name: 'RegisterTourGuide',
+    component: RegisterTourGuide
+    },
+    {
+    path: '/logintourist',
+    name: 'LoginTourist',
+    component: LoginTourist
+    },
+    {
+    path: '/registertourist',
+    name: 'RegisterTourist',
+    component: RegisterTourist
+    },
+    // {
+    // path: '/signup',
+    // name: 'SignUp',
+    // component: SignUp
+    // },
+    {
+    path: '/search',
+    name: 'Search',
+    component: Search
+    },
+    {
     path: "/newtour",
     name: "NewTour",
     component: NewTour,
@@ -66,6 +66,7 @@ const routes = [
       path: "/edittour",
       name: "EditTour",
       component: EditTour,
+      props: true,
     },
     {
     path: '/touristProfile',
@@ -83,11 +84,6 @@ const routes = [
     component: TourGuideProfile
     },
     {
-    path: '/editTourGuideProfile',
-    name: 'EditTourGuideProfile',
-    component: EditTourGuideProfile
-    },
-    {
     path: '/chat',
     name: 'Chat',
     component: Chat
@@ -97,12 +93,6 @@ const routes = [
     name: 'Logout',
     component: Logout
     },    
-
-    {
-    path: "/listings",
-    name: "Listings",
-    component: Listings,
-    },
     {
       path: "/listingsnature",
       name: "ListingsNature",
@@ -133,13 +123,17 @@ const routes = [
       name: "TourInfoNature",
       component: TourInfoNature,
     },
+    {
+      path: "/confirmationpage",
+      name: "ConfirmationPage",
+      component: ConfirmationPage,
+    },
     //delete later, for testing
     // {
     // path: '/layout',
     // name: 'Layout',
     // component: Layout
     // }
-
 ];
 
 const router = createRouter({
