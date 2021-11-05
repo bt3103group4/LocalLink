@@ -50,7 +50,7 @@
         <p class="card-text">
           Soft sand, rolling waves and endless sunshine. What's not to love?
         </p>
-        <a href="#" class="btn btn-primary">Customize my trip now!</a>
+        <a href="#" class="btn customise">Customize my trip now!</a>
       </div>
     </div>
     <div class="grid">
@@ -135,10 +135,35 @@ body{
 .grid {
   size: 50%;
   position: absolute;
-  top: 500px;
+  top: 400px;
   right: 130px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+}
+
+.btn-primary {
+  width: 120px;
+  height: 48px;
+  background: rgba(63,163,184,1);
+  opacity: 1;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border:none;
+  color: rgba(255,255,255,1);
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 18px;
+  padding:0px;
+  opacity: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.customise {
+  background: rgba(63,163,184,1);
+  color: rgba(255,255,255,1);
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 18px;
 }
 </style>
