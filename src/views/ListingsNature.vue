@@ -86,7 +86,6 @@ import { db } from "../main.js";
 export default {
   name: "ListingsNature",
   components: { SettingsButton, NavBar, Logo },
-  emits: ["fetchInfo"],
   data() {
     return {
       tours: [],
@@ -105,18 +104,18 @@ export default {
             description: data.description,
             tour_id: String(data.email + ", " + data.tour_name),
           };
-          // console.log(this.tours)
-          // console.log(tour)
           this.tours.push(tour);
         });
       });
   },
   methods: {
     viewTourInfo(tour_id) {
-      // console.log(tour_id);
-      // this.$router.push("/tourInfoNature");
-      this.$emit("fetchInfo", tour_id);
-      // this.$router.push("/tourInfoNature");
+      this.$router.push({
+        name: 'TourInfo',
+        params: {
+          tour_id: tour_id
+        }
+      })
     },
   },
 };

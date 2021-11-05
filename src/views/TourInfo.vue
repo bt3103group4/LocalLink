@@ -1,9 +1,5 @@
 <template>
-  <ListingsNature
-    v-if="hideListings === false"
-    @fetchInfo="fetchInfo($event)"
-  ></ListingsNature>
-  <div v-if="hideInfo === false">
+  <div>
     <link
       href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
       rel="stylesheet"
@@ -59,12 +55,14 @@
 
 <script>
 import { db } from "../main.js";
-import ListingsNature from "@/views/ListingsNature.vue";
 
 export default {
   name: "TourInfo",
+  components: { },
+  props: ['tour_id'],
   data() {
     return {
+      id: this.tour_id,
       description: "",
       start_date: "",
       end_date: "",
@@ -79,40 +77,28 @@ export default {
       hideInfo: false,
     };
   },
-  components: { ListingsNature },
-  mounted() {
-    // console.log("before", this.hideListings);
-    this.hideListings = false;
-    this.hideInfo = true;
-    // console.log(this.hideListings);
-  },
 
-  methods: {
-    fetchInfo(tour_id) {
-      this.hideListings = true;
-      this.hideInfo = false;
-      // console.log("running Load Info", tour_id);
-      db.collection("listings")
-        .doc(tour_id)
-        .get()
-        .then((doc) => {
-          if (doc.exists) {
-            const data = doc.data();
-            (this.description = data.description),
-              (this.start_date = data.start_date),
-              (this.end_date = data.end_date),
-              (this.transport = data.transport),
-              (this.experience = data.experience),
-              (this.cost = data.cost),
-              (this.tour_name = data.tour_name),
-              (this.tour_type = data.tour_type),
-              (this.email = data.email);
-          } else {
-            console.log("no such document");
-          }
-        });
+  mounted() {
+    db.collection("listings")
+      .doc(this.id)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          const data = doc.data();
+          (this.description = data.description),
+            (this.start_date = data.start_date),
+            (this.end_date = data.end_date),
+            (this.transport = data.transport),
+            (this.experience = data.experience),
+            (this.cost = data.cost),
+            (this.tour_name = data.tour_name),
+            (this.tour_type = data.tour_type),
+            (this.email = data.email);
+        } else {
+          console.log("no such document");
+        }
+      });
     },
-  },
 };
 </script>
 
