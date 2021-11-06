@@ -58,7 +58,7 @@
       <div class="card" v-for="tour in tours" :key="tour.tour_name">
         <img
           class="card-img-top"
-          src="..\images\v225_74.png"
+          src="tour.tour_photo"
           alt="Card image cap"
         />
         <div class="card-body">
@@ -103,6 +103,7 @@ export default {
             email: data.email,
             tour_name: data.tour_name,
             description: data.description,
+            tour_photo: data.tour_photo,
             tour_id: String(data.email + ", " + data.tour_name),
           };
           // console.log(this.tours)

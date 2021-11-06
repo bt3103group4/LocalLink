@@ -56,7 +56,7 @@
         <img
           class="card-img-top"
 
-          src="..\images\v225_106.png"
+          src="tour.tour_photo"
           alt="Card image cap"
         />
         <div class="card-body" id="tour-item">
@@ -105,6 +105,7 @@ export default {
             email: data.email,
             tour_name: data.tour_name,
             description: data.description,
+            tour_photo: data.tour_photo,
             tour_id: String(data.email + ", " + data.tour_name),
           };
           // console.log(this.tours)
