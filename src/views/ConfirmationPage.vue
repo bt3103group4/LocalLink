@@ -43,7 +43,7 @@ body{
   width:150px;
   position:absolute;
   top:225px;
-  left: 625px;
+  left: 650px;
   z-index:10;
 }
 #wrapper{
@@ -52,7 +52,7 @@ body{
   height: 500px;
   position: absolute;
   top: 200px;
-  left: 350px;
+  left: 380px;
   border-radius: 20px;
 }
 .main_message {
@@ -60,7 +60,6 @@ body{
   color: rgba(0, 0, 0, 1);
   position: relative;
   top: 200px;
-  left: -50px;
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 45px;
@@ -73,7 +72,6 @@ p {
   color: rgba(0, 0, 0, 1);
   position: relative;
   top: 225px;
-  left: -100px;
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
@@ -93,7 +91,7 @@ p {
   opacity: 1;
   position: relative;
   top: 250px;
-  left: 270px;
+  left: 240px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border:none;
   color: rgba(255,255,255,1);
