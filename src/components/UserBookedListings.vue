@@ -9,7 +9,7 @@
             <div class="col my-col" v-for="tour in bookedTours" :key="tour.tour_name">
                   <div class="card-group">
                     <div class="card">
-                    <img class="card-img-top" src="..\images\v225_74.png" alt="Card image cap"/>
+                    <img class="card-img-top" :src="tour.image" alt="Card image cap"/>
                     <div class="card-body">
                     <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
                     <p class="card-text"> Review: {{tour.review}}</p>
@@ -53,8 +53,8 @@ export default {
                                 const data = tourdata.data()
                                 let tour = {
                                     tourname : data["tour_name"],
-                                    review : data["review"]
-                                   // tourimage = data["tour_image"]
+                                    review : data["review"],
+                                    image : data["tour_photo"]
                                 }
                                 self.bookedTours.push(tour)
                             })
