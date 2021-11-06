@@ -165,4 +165,17 @@ body{
   font-size: 18px;
 }
 
+a.nav-link.active {
+  background: rgba(63,163,184,1);
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 18px;
+}
+
+a.nav-link {
+  color: rgba(63,163,184,1);
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 18px;
+}
 </style>
