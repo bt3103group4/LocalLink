@@ -5,8 +5,6 @@
     <a class="active" href="#home">Contact</a>
   <router-link to="/touristProfile">Account</router-link>
 </div>
-    <input class="searchbox" placeholder="Search">
-    <div class="searchicon"></div>
         <SearchBar/>
 </body>
 </template>

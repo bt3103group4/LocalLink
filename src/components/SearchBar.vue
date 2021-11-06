@@ -3,14 +3,13 @@
     <div class="ui icon input" style="width: 100%">
       <input
         class="searchbox"
-        @input= "onClickShow"
         type="text"
         placeholder="Search Tours"
         v-model="searchQuery"
       />
       <div class="searchicon"></div>
     </div>
-    <div class = "wrapper">
+    <div class="wrapper">
     <div
       class="card-ui-fluid"
       v-for="listing in searchedListings"
@@ -21,10 +20,9 @@
       <div class="content">
         <img class="right floated mini ui image" :src="listing.imageURL" />
         <p>{{ listing.tour_name }}</p><br><br>
-        <p>{{ listing.email }} | {{ listing.description }}</p>
       </div>
     </div>
-    </div>
+  </div>
   </div>
 </template>
 
@@ -40,15 +38,6 @@ import { computed, onBeforeMount, reactive, ref } from "vue";
 
 export default {
   name: "SearchBar",
-
-  methods:{
-      onClickShow() {
-      var popup = document.getElementsByClassName("wrapper");
-      console.log(popup)
-      popup.classList.toggle("show");
-}
-  }
-    ,
 
   setup() {
     const listings = reactive([]);
@@ -95,7 +84,7 @@ export default {
   background-size: cover;
   opacity: 1;
   position: absolute;
-  top: 42px;
+  top: 16px;
   left: 156px;
   overflow: hidden;
   padding-left: 50px;
@@ -110,27 +99,33 @@ export default {
   background-size: cover;
   opacity: 0.5;
   position: absolute;
-  top: 55px;
+  top: 30px;
   left: 170px;
   overflow: hidden;
 }
-.wrapper{
-  visibility: hidden;
-  border-left:solid red 3px;
-  border-right:solid red 3px;
-  border-bottom:solid red 3px;
+.card-ui-fluid{
+  display:none;
   width: 410px;
   position:relative;
   height: 50px;
-  top: 80px;
-  left: 150px;
+  top: 45px;
+  left:5px;
   z-index:10;
+  border-top: 1px black;
 }
-.wrapper.show{
-  visibility: visible;
-  position:relative;
+.content{
+  background-color: white;
+  padding: 15px;
+}
+.wrapper{
+  position:absolute;
+  top: 42px;
+  left: 156px;
+  width: 416px;
   height: 50px;
-  top: 80px;
-  z-index:10;
+}
+
+.wrapper:hover .card-ui-fluid{
+  display:block;
 }
 </style>
