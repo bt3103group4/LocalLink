@@ -7,15 +7,17 @@
 </div>
     <input class="searchbox" placeholder="Search">
     <div class="searchicon"></div>
-
+        <SearchBar/>
 </body>
 </template>
 
 <script>
 import {ref, onBeforeMount} from 'vue'
 import firebase from 'firebase'
+import SearchBar from './SearchBar.vue'
 
 export default {
+  components : {SearchBar},
    setup () {
             let name = ref("");
 

@@ -3,14 +3,16 @@
     <div class="ui icon input" style="width: 100%">
       <input
         class="searchbox"
+        @input= "onClickShow"
         type="text"
         placeholder="Search Tours"
         v-model="searchQuery"
       />
       <div class="searchicon"></div>
     </div>
+    <div class = "wrapper">
     <div
-      class="card ui fluid"
+      class="card-ui-fluid"
       v-for="listing in searchedListings"
       :key="listing.id"
       style="margin: 0"
@@ -18,9 +20,10 @@
     >
       <div class="content">
         <img class="right floated mini ui image" :src="listing.imageURL" />
-        <div class="header">{{ listing.tour_name }}</div>
-        <div class="meta">{{ listing.email }} | {{ listing.description }}</div>
+        <p>{{ listing.tour_name }}</p><br><br>
+        <p>{{ listing.email }} | {{ listing.description }}</p>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -29,7 +32,6 @@
   UI not working properly.
   1. the ui cards are not clickable yet, it wont route to the tour page for those u click on
   2. try to hide the ui cards before clicking the search bar
-  3. figure out the alignment between the searchbar and ui card (drop down boxes)
 -->
 
 <script>
@@ -38,6 +40,15 @@ import { computed, onBeforeMount, reactive, ref } from "vue";
 
 export default {
   name: "SearchBar",
+
+  methods:{
+      onClickShow() {
+      var popup = document.getElementsByClassName("wrapper");
+      console.log(popup)
+      popup.classList.toggle("show");
+}
+  }
+    ,
 
   setup() {
     const listings = reactive([]);
@@ -102,5 +113,24 @@ export default {
   top: 55px;
   left: 170px;
   overflow: hidden;
+}
+.wrapper{
+  visibility: hidden;
+  border-left:solid red 3px;
+  border-right:solid red 3px;
+  border-bottom:solid red 3px;
+  width: 410px;
+  position:relative;
+  height: 50px;
+  top: 80px;
+  left: 150px;
+  z-index:10;
+}
+.wrapper.show{
+  visibility: visible;
+  position:relative;
+  height: 50px;
+  top: 80px;
+  z-index:10;
 }
 </style>
