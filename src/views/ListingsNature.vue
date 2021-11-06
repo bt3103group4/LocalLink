@@ -130,10 +130,13 @@ body{
   size: 50%;
   position: absolute;
   top: 400px;
-  left: 270px;
+  left: 130px;
+  right: 130px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  justify-content: center;
+  align-content: center;
 }
 
 .btn-primary {
