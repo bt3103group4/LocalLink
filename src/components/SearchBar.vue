@@ -19,7 +19,7 @@
     >
       <div class="content">
         <img class="right floated mini ui image" :src="listing.imageURL" />
-        <p>{{ listing.tour_name }}</p><br><br>
+        <button>{{ listing.tour_name }}</button><br><br>
       </div>
     </div>
   </div>
@@ -100,12 +100,13 @@ export default {
 }
 .card-ui-fluid{
   display:none;
-  width: 410px;
+  width: 415px;
   position:relative;
   height: 47px;
-  top:5px;
+  top:1px;
   left:0px;
   z-index:10;
+  border-radius: 200px;
   border-top: 1px black;
 }
 .content{
