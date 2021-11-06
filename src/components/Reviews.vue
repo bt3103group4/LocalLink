@@ -9,7 +9,7 @@
         ></textarea>
     </div>
 
-    <div class="email">Email</div>
+  <p class="email_title">Email</p>
     <div class="email_box">
         <textarea
         class="email_input"
@@ -88,6 +88,9 @@ export default {
 </script>
 
 <style>
+body{
+  height: 1200px;
+}
 
 .tour_name {
   width: 902px;
@@ -106,7 +109,7 @@ export default {
 textarea{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding-top:15px;
-  padding-left:10px
+  padding-left:10px;
 }
 .tour_name_box {
   width: 920px;
@@ -138,18 +141,14 @@ textarea{
     outline: none;
 }
 
-.email {
-  width: 902px;
-  color: rgba(0, 0, 0, 1);
+.email_title{
   position: absolute;
   top: 400px;
   left: 317px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Ubuntu;
-  font-weight: Bold;
   font-size: 25px;
-  opacity: 1;
-  text-align: left;
+  font-weight: Bold;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  
 }
 
 .email_box {
@@ -271,16 +270,20 @@ textarea{
 }
 
 .save {
-  width: 242px;
-  height: 78px;
+  width: 100px;
+  height: 50px;
   background: rgba(63, 163, 184, 1);
   opacity: 1;
   position: absolute;
   top: 1100px;
-  left: 1000px;
+  left: 650px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 30px;
   color: white;
   font-family: Ubuntu;
+  font-size: 22px;
+}
+.save:hover{
+  cursor: pointer;
 }
 </style>

@@ -92,6 +92,7 @@ export default{
   border-radius:1000px;
   object-fit:cover;
   border: white 10px solid;
+  z-index:5;
 }
 
 hr{

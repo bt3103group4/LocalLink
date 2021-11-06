@@ -55,7 +55,7 @@ export default {
   color:#f0f9ff;
   background-color:#282d32;
   position:absolute;
-  top:1100px;
+  top:1400px;
   width: 100%;
 }
 .contactCol{
