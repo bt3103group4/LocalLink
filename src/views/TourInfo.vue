@@ -1,14 +1,16 @@
 <template>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <NavBar />
   <Logo />
   <SettingsButton />
   <DefaultFooter/>
+  <button class="backNav" @click="this.$router.push('/ListingsNature')"></button>
   <div>
     <link
       href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
       rel="stylesheet"
     />
-    <div class="v429_58">
+    <div class="whole">
       <div class="tour_photo_div">
         <!-- tour photo div  -->
         <img
@@ -41,13 +43,6 @@
         <span class="name">Tour Guide's Name: {{ tour_name }}</span>
         <div class="email">Tour Guide's email: {{ email }}</div>
       </div>
-    
-      <button
-        class="back"
-        @click= "this.$router.go(-1)"
-      >
-        Back
-      </button>
     </div>
   </div>
 </template>
@@ -105,7 +100,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 * {
   box-sizing: border-box;
 }
@@ -265,13 +260,41 @@ body {
   overflow: hidden;
 }
 
-.v429_58 {
+.backNav{
+    position: absolute;
+    top: 100px;
+    left:25px;
+    background: url("~@/images/back-button.png");
+    width: 45px;
+    height:30px;
+    background-size: 100% 100%;
+    border:none;
+}
+
+.backNav:hover{
+    cursor: pointer;
+}
+
+.tour_photo_div {
+  width: 1000px;
+  height: 348px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 20px;
+  left: 100px;
+  overflow: hidden;
+}
+
+.whole {
   width: 100%;
-  height: 800px;
+  height: 1000px;
   background: rgba(255, 255, 255, 1);
   opacity: 1;
   position: absolute;
-  top: 0px;
+  top: 140px;
   left: 0px;
   overflow: hidden;
 }
@@ -289,18 +312,6 @@ body {
   text-align: left;
 }
 
-.tour_photo_div {
-  width: 100%;
-  height: 348px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 82px;
-  left: 14px;
-  overflow: hidden;
-}
 .v198_104 {
   width: 295px;
   height: 168px;
@@ -486,48 +497,6 @@ body {
   border-bottom-right-radius: 20px;
   overflow: hidden;
 }
-.v228_68 {
-  width: 144px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 5px;
-  left: 14px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 20px;
-  opacity: 1;
-  text-align: left;
-}
 
-.v228_73 {
-  width: 634px;
-  height: 154px;
-  background: rgba(255, 255, 255, 1);
-  opacity: 1;
-  position: absolute;
-  top: 560px;
-  left: 29px;
-  border: 1px solid rgba(167, 160, 160, 1);
-  overflow: hidden;
-}
 
-.v257_66 {
-  width: 53px;
-  height: 42px;
-  background: rgba(255, 255, 255, 1);
-  opacity: 0.699999988079071;
-  position: absolute;
-  top: 4px;
-  left: 0px;
-  overflow: hidden;
-}
-.back {
-  width: 15px;
-  height: 24px;
-  background: rgba(0, 0, 0, 1);
-  opacity: 1;
-  position: absolute;
-  top: 8px;
-  left: 18px;
-}
 </style>
