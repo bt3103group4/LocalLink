@@ -19,7 +19,7 @@
     >
       <div class="content">
         <img class="right floated mini ui image" :src="listing.imageURL" />
-        <p>{{ listing.tour_name }}</p><br><br>
+        <button>{{ listing.tour_name }}</button><br><br>
       </div>
     </div>
   </div>
