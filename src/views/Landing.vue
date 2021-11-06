@@ -169,6 +169,74 @@
         </div>
       </div>
     </div>
+    <div class="home-section-separator"></div>
+    <div class="home-team">
+      <div class="home-heading-container">
+        <h1 class="section-heading home-text">Meet the Team</h1>
+        <span class="section-text home-text">
+          Lorme ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
+        </span>
+      </div>
+      <div class="home-cards-container">
+        <div class="home-team-card">
+          <div class="home-avatar-container">
+            <svg viewBox="0 0 1024 1024" class="home-icon">
+              <path
+                d="M576 706.612v-52.78c70.498-39.728 128-138.772 128-237.832 0-159.058 0-288-192-288s-192 128.942-192 288c0 99.060 57.502 198.104 128 237.832v52.78c-217.102 17.748-384 124.42-384 253.388h896c0-128.968-166.898-235.64-384-253.388z"
+              ></path>
+            </svg>
+          </div>
+          <span class="card-heading home-name">Rhea</span>
+          <!-- <span class="card-text home-position">Position</span> -->
+        </div>
+        <div class="home-team-card">
+          <div class="home-avatar-container">
+            <svg viewBox="0 0 1024 1024" class="home-icon">
+              <path
+                d="M576 706.612v-52.78c70.498-39.728 128-138.772 128-237.832 0-159.058 0-288-192-288s-192 128.942-192 288c0 99.060 57.502 198.104 128 237.832v52.78c-217.102 17.748-384 124.42-384 253.388h896c0-128.968-166.898-235.64-384-253.388z"
+              ></path>
+            </svg>
+          </div>
+          <span class="card-heading home-name">Jialu</span>
+          <!-- <span class="card-text home-position">Position</span> -->
+        </div>
+        <div class="home-team-card">
+          <div class="home-avatar-container">
+            <svg viewBox="0 0 1024 1024" class="home-icon">
+              <path
+                d="M576 706.612v-52.78c70.498-39.728 128-138.772 128-237.832 0-159.058 0-288-192-288s-192 128.942-192 288c0 99.060 57.502 198.104 128 237.832v52.78c-217.102 17.748-384 124.42-384 253.388h896c0-128.968-166.898-235.64-384-253.388z"
+              ></path>
+            </svg>
+          </div>
+          <span class="card-heading home-name">Charlene</span>
+          <!-- <span class="card-text home-position">Position</span> -->
+        </div>
+        <div class="home-team-card3">
+          <div class="home-avatar-container3">
+            <svg viewBox="0 0 1024 1024" class="home-icon">
+              <path
+                d="M576 706.612v-52.78c70.498-39.728 128-138.772 128-237.832 0-159.058 0-288-192-288s-192 128.942-192 288c0 99.060 57.502 198.104 128 237.832v52.78c-217.102 17.748-384 124.42-384 253.388h896c0-128.968-166.898-235.64-384-253.388z"
+              ></path>
+            </svg>
+          </div>
+          <span class="card-heading home-name">Amanda</span>
+          <!-- <span class="card-text home-position">Position</span> -->
+        </div>
+        <div class="home-team-card">
+          <div class="home-avatar-container">
+            <svg viewBox="0 0 1024 1024" class="home-icon">
+              <path
+                d="M576 706.612v-52.78c70.498-39.728 128-138.772 128-237.832 0-159.058 0-288-192-288s-192 128.942-192 288c0 99.060 57.502 198.104 128 237.832v52.78c-217.102 17.748-384 124.42-384 253.388h896c0-128.968-166.898-235.64-384-253.388z"
+              ></path>
+            </svg>
+          </div>
+          <span class="card-heading home-name">Zi Hui</span>
+          <!-- <span class="card-text home-position">Position</span> -->
+        </div>
+      </div>
+    </div>
+
+
     
   </div>
 </template>
