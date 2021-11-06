@@ -3,6 +3,8 @@
     <div class="landing-navbar-container">
     </div>
     <div class="landing-content-container">
+      <button class="landing-button"><router-link to="/logintourist">Tourist</router-link></button>
+      <button class="landing-button"><router-link to="/logintourguide" >TourGuide</router-link></button>
     </div>
     
   </div>

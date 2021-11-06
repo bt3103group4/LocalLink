@@ -18,8 +18,8 @@
         <br>
         </div>
         <input class="login-submit" type="submit" value="Login as Tourist">
-        <span class="login-footer-text"> Don't have an account yet? <router-link class="nav-link" to="/registertourist">Register Here as a Tourist</router-link></span>
-        <span class="login-footer-text"> Want to take earn money as a tourguide? Register as a <router-link class="nav-link" to="/registertourguide">Tour Guide.</router-link></span>
+        <span class="login-footer-text"> Don't have an account yet? <router-link class="nav-link" to="/registertourist">Register as a Tourist</router-link></span>
+        <span class="login-footer-text"> Want to take earn money as a Tour Guide? <router-link class="nav-link" to="/registertourguide">Register as a Tour Guide.</router-link></span>
     </form>
 </div>
 </template>
