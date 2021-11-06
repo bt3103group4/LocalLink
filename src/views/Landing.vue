@@ -6,14 +6,14 @@
           <span class="logo"></span>
           <div class="landing-left-side">
             <div class="landing-links-container">
-              <a href="#resources" class="anchor landing-link landing-link"
+              <a href="#about" class="anchor landing-link"
                 >About Us</a
               >
-              <a href="#inspiration" class="anchor landing-link landing-link01"
+              <a href="#values" class="anchor landing-link"
                 >Our Values</a
               >
-              <a href="#process" class="anchor landing-link landing-link02">Meet the team</a>
-              <a href="#ourstory" class="anchor landing-link landing-link03"
+              <a href="#team" class="anchor landing-link">Meet the team</a>
+              <a href="#contact" class="anchor landing-link landing-link-last"
                 >Contact Us</a
               >
             </div>
@@ -172,17 +172,7 @@ export default {
   text-decoration: none;
 }
 
-.landing-link01 {
-  margin-right: var(--landing-space-space-tripleunit);
-  text-decoration: none;
-}
-
-.landing-link02 {
-  margin-right: var(--landing-space-space-tripleunit);
-  text-decoration: none;
-}
-
-.landing-link03 {
+.landing-link-last {
   text-decoration: none;
 }
 
