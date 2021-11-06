@@ -19,7 +19,7 @@
     >
       <div class="content">
         <img class="right floated mini ui image" :src="listing.imageURL" />
-        <button>{{ listing.tour_name }}</button><br><br>
+        <p>{{ listing.tour_name }}</p><br><br>
       </div>
     </div>
   </div>
@@ -34,10 +34,8 @@
 <script>
 import firebase from "firebase";
 import { computed, onBeforeMount, reactive, ref } from "vue";
-
 export default {
   name: "SearchBar",
-
   setup() {
     const listings = reactive([]);
     const searchQuery = ref("");
@@ -50,14 +48,12 @@ export default {
         );
       });
     });
-
     onBeforeMount(async () => {
       try {
         const listingsSnap = await firebase
           .firestore()
           .collection("listings")
           .get();
-
         listingsSnap.forEach((doc) => {
           let listing = doc.data();
           listing.id = doc.id;
@@ -67,7 +63,6 @@ export default {
         console.log("Error Loading Listings");
       }
     });
-
     return { searchedListings, searchQuery };
   },
 };
