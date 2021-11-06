@@ -80,6 +80,7 @@ export default {
   },
 
   mounted() {
+    console.log(this.id)
     db.collection("listings")
       .doc(this.id)
       .get()

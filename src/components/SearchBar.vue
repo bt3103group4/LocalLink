@@ -19,7 +19,7 @@
     >
       <div class="content">
         <img class="right floated mini ui image" :src="listing.imageURL" />
-        <button @click="viewTourInfo(tour.tour_id)">{{ listing.tour_name }}</button><br><br>
+        <button @click="viewTourInfo(listing.id)">{{ listing.tour_name }}</button><br><br>
       </div>
     </div>
   </div>
@@ -67,11 +67,11 @@ export default {
   },
 
   methods: {
-    viewTourInfo(tour_id) {
+    viewTourInfo(id) {
       this.$router.push({
         name: 'TourInfo',
         params: {
-          tour_id: tour_id
+          tour_id: id,
         }
       })
     },
