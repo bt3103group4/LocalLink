@@ -19,7 +19,7 @@
     >
       <div class="content">
         <img class="right floated mini ui image" :src="listing.imageURL" />
-        <p>{{ listing.tour_name }}</p><br><br>
+        <button @click="viewTourInfo(tour.tour_id)">{{ listing.tour_name }}</button><br><br>
       </div>
     </div>
   </div>
@@ -64,6 +64,17 @@ export default {
       }
     });
     return { searchedListings, searchQuery };
+  },
+
+  methods: {
+    viewTourInfo(tour_id) {
+      this.$router.push({
+        name: 'TourInfo',
+        params: {
+          tour_id: tour_id
+        }
+      })
+    },
   },
 };
 </script>

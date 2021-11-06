@@ -1,4 +1,8 @@
 <template>
+  <NavBar />
+  <Logo />
+  <SettingsButton />
+  <DefaultFooter/>
   <div>
     <link
       href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
@@ -15,10 +19,9 @@
       <div class="v257_63">
         <div class="right_info_box">
           <!-- <div class="v232_103"></div> -->
-          <!-- <div class="v232_110"></div> -->
           <div class="v228_57">
-            <div class="v228_58"></div>
-            <span class="v228_59">Duration Offered:</span>
+            <div class="duration_box"></div>
+            <span class="duration">Duration Offered:</span>
           </div>
           <span class="v228_72">{{ start_date }} to {{ end_date }}</span>
         </div>
@@ -27,17 +30,16 @@
           ><span class="v228_84">4.97</span
           ><span class="v228_90">From ${{ cost }} / person</span>
         </div>
-        <span class="v232_114">You won’t be charged yet</span>
-        <button class="v232_110">Reserve</button>
+        <span class="no_charge">You won’t be charged yet</span>
+        <button class="reserve_btn">Reserve</button>
       </div>
       <div>
-        <span class="v228_70">Description</span>
         <div class="description">Description: {{ description }}</div>
         <div class="transport">Mode of transport: {{ transport }}</div>
         <div class="experience">Years of experience: {{ experience }}</div>
         <div class="tour-type">Tour type: {{ tour_type }}</div>
+        <span class="name">Tour Guide's Name: {{ tour_name }}</span>
         <div class="email">Tour Guide's email: {{ email }}</div>
-        <span class="v232_115">{{ tour_name }}</span>
       </div>
     
       <button
@@ -51,11 +53,15 @@
 </template>
 
 <script>
+import SettingsButton from "@/components/SettingsButton.vue";
+import NavBar from "@/components/NavBar.vue";
+import Logo from "@/components/Logo.vue";
+import DefaultFooter from "@/components/DefaultFooter.vue"
 import { db } from "../main.js";
 
 export default {
   name: "TourInfo",
-  components: { },
+  components: { SettingsButton, NavBar, Logo, DefaultFooter},
   props: ['tour_id'],
   data() {
     return {
@@ -105,6 +111,159 @@ export default {
 body {
   font-size: 14px;
 }
+
+.description {
+  width: 590px;
+  color: rgba(78, 78, 78, 1);
+  position: absolute;
+  top: 560px;
+  left: 50px;
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+
+.transport {
+  width: 590px;
+  color: rgba(78, 78, 78, 1);
+  position: absolute;
+  top: 600px;
+  left: 49px;
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+
+.experience {
+  width: 590px;
+  color: rgba(78, 78, 78, 1);
+  position: absolute;
+  top: 640px;
+  left: 49px;
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+
+.tour-type {
+  width: 590px;
+  color: rgba(78, 78, 78, 1);
+  position: absolute;
+  top: 680px;
+  left: 49px;
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+
+.email {
+  width: 590px;
+  color: rgba(78, 78, 78, 1);
+  position: absolute;
+  top: 720px;
+  left: 49px;
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+
+.name {
+  width: 590px;
+  color: rgba(78, 78, 78, 1);
+  position: absolute;
+  top: 760px;
+  left: 49px;
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+
+.duration_box {
+  width: 380px;
+  height: 52px;
+  background: rgba(255, 255, 255, 1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 212px;
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+.duration {
+  width: 400px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+.reserve_btn {
+  width: 600px;
+  height: 67px;
+  background: rgba(63, 163, 184, 1);
+  opacity: 1;
+  position: absolute;
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  color: rgba(255, 255, 255, 1);
+  position: absolute;
+  top: 170px;
+  left: 60px;
+  font-family: Ubuntu;
+  font-weight: Medium;
+  font-size: 26px;
+  opacity: 1;
+  text-align: center;
+}
+
+.no_charge {
+  width: 233px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 250px;
+  left: 250px;
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+}
+
+.right_info_box {
+  width: 731px;
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+
 .v429_58 {
   width: 100%;
   height: 800px;
@@ -115,6 +274,7 @@ body {
   left: 0px;
   overflow: hidden;
 }
+
 .v257_57 {
   width: 374px;
   color: rgba(255, 255, 255, 1);
@@ -127,6 +287,7 @@ body {
   opacity: 1;
   text-align: left;
 }
+
 .tour_photo_div {
   width: 100%;
   height: 348px;
@@ -204,19 +365,8 @@ body {
   left: 690px;
   overflow: hidden;
 }
-.right_info_box {
-  width: 731px;
-  height: 305px;
-  /* background: url("../images/v228_56.png"); */
-  /* background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1; */
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
-}
+
+
 /* .v232_103 {
   width: 731px;
   height: 305px;
@@ -233,31 +383,7 @@ body {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   overflow: hidden;
 } */
-/* .v232_110 {
-  width: 628px;
-  height: 67px;
-  background: rgba(63, 163, 184, 1);
-  opacity: 1;
-  position: absolute;
-  top: 177px;
-  left: 58px;
-  border-top-left-radius: 45px;
-  border-top-right-radius: 45px;
-  border-bottom-left-radius: 45px;
-  border-bottom-right-radius: 45px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-  width: 118px;
-  color: rgba(255, 255, 255, 1);
-  position: absolute;
-  top: 194px;
-  left: 306px;
-  font-family: Ubuntu;
-  font-weight: Medium;
-  font-size: 30px;
-  opacity: 1;
-  text-align: left;
-} */
+
 .v228_57 {
   width: 618px;
   height: 52px;
@@ -271,28 +397,7 @@ body {
   left: 58px;
   overflow: hidden;
 }
-.v228_58 {
-  width: 407px;
-  height: 52px;
-  background: rgba(255, 255, 255, 1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 212px;
-  border: 1px solid rgba(0, 0, 0, 1);
-}
-.v228_59 {
-  width: 211px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 6px;
-  left: 0px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
+
 .v228_72 {
   width: 297px;
   color: rgba(0, 0, 0, 1);
@@ -365,18 +470,7 @@ body {
   left: 260px;
   overflow: hidden;
 }
-.v232_114 {
-  width: 233px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 223px;
-  left: 0px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 20px;
-  opacity: 1;
-  text-align: left;
-}
+
 .v228_66 {
   width: 170px;
   height: 34px;
@@ -403,18 +497,7 @@ body {
   opacity: 1;
   text-align: left;
 }
-.v228_70 {
-  width: 318px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 501px;
-  left: 29px;
-  font-family: Ubuntu;
-  font-weight: Medium;
-  font-size: 35px;
-  opacity: 1;
-  text-align: left;
-}
+
 .v228_73 {
   width: 634px;
   height: 154px;
@@ -426,78 +509,7 @@ body {
   border: 1px solid rgba(167, 160, 160, 1);
   overflow: hidden;
 }
-.description {
-  width: 590px;
-  color: rgba(78, 78, 78, 1);
-  position: absolute;
-  top: 569px;
-  left: 49px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
-.transport {
-  width: 590px;
-  color: rgba(78, 78, 78, 1);
-  position: absolute;
-  top: 620px;
-  left: 49px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
-.experience {
-  width: 590px;
-  color: rgba(78, 78, 78, 1);
-  position: absolute;
-  top: 660px;
-  left: 49px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
-.tour-type {
-  width: 590px;
-  color: rgba(78, 78, 78, 1);
-  position: absolute;
-  top: 700px;
-  left: 49px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
-.email {
-  width: 590px;
-  color: rgba(78, 78, 78, 1);
-  position: absolute;
-  top: 730px;
-  left: 49px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
-.v232_115 {
-  width: 510px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 0px;
-  left: 53px;
-  font-family: Ubuntu;
-  font-weight: Medium;
-  font-size: 40px;
-  opacity: 1;
-  text-align: left;
-}
+
 .v257_66 {
   width: 53px;
   height: 42px;
