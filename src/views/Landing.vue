@@ -18,14 +18,26 @@
               >
             </div>
           </div>
-          <div class="landing-right-side">
-            <button class="anchor landing-cta-btn"><router-link to="/logintourist"> Login as Tourist</router-link></button>
-            <button class="anchor landing-cta-btn"><router-link to="/logintourguide" > Login as TourGuide</router-link></button>
-          </div>
         </div>
       </div>
     </div>
-    <div class="landing-content-container">
+    <div id="resources" class="landing-hero">
+      <div class="landing-content-container">
+        <div class="landing-hero-text">
+          <h1 class="section-heading landing-heading">
+            Find your <span class="grey-title"> LocalLink </span> today!
+          </h1>
+          <span class="section-text landing-text">
+            LocalLink is the best way for tourists to connect with their travel destination and its people. 
+            It is also the perfect match for locals who wish to make hosting and guiding tourists around their
+            locality a reality.
+          </span>
+          <div class="landing-btn-container">
+            <button class="anchor landing-cta-btn"><router-link to="/logintourist"> Login as Tourist</router-link></button>
+            <button class="anchor landing-cta-btn"><router-link to="/logintourguide" > Login as Tour Guide</router-link></button>
+          </div>
+        </div>
+      </div>
     </div>
     
   </div>
@@ -189,6 +201,87 @@ export default {
   flex-direction: row;
   padding-bottom: var(--landing-space-space-tenunits);
   justify-content: center;
+}
+
+
+.section-heading {
+  font-size: 48px;
+  font-family: Montserrat;
+  font-weight: 700;
+  line-height: 1.22;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.section-text {
+  font-size: 18px;
+  font-family: Raleway;
+  font-weight: 400;
+  line-height: 1.55;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.landing-hero {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: var(--landing-space-space-tenunits);
+  margin-bottom: var(--landing-space-space-fiveunits);
+  flex-direction: row;
+  padding-bottom: var(--landing-space-space-tenunits);
+  justify-content: center;
+  color: white;
+  background: url("~@/assets/landing-hero-banner.jpg") left center;
+  background-size: cover;
+}
+
+.landing-hero-text {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.landing-heading {
+  text-align: center;
+  margin-bottom: var(--landing-space-space-fiveunits);
+}
+
+.landing-text {
+  color: grey;
+  text-align: center;
+  margin-bottom: var(--landing-space-space-fiveunits);
+}
+
+/* .landing-button {
+  color: var(--landing-color-gray-black);
+  padding: 5px 10px;
+  border-color: var(--landing-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--landing-color-gray-white);
+}
+
+.landing-cta-btn1 {
+  color: var(--landing-color-gray-white);
+  text-align: center;
+  padding-top: var(--landing-space-space-doubleunit);
+  padding-left: var(--landing-space-space-tenunits);
+  border-radius: 30px;
+  padding-right: var(--landing-space-space-tenunits);
+  padding-bottom: var(--landing-space-space-doubleunit);
+  background-color: var(--landing-color-gray-black);
+} */
+
+.landing-btn-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.grey-title {
+  color: rgb(49, 59, 69);
+  text-shadow: 0px 1px 30px white;
 }
 
 </style>

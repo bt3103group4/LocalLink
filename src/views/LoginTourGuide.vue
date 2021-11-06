@@ -75,6 +75,10 @@ export default {
   justify-content: center;
 }
 
+.logo-and-title > * {
+  margin: 8px;
+}
+
 .login-footer-text{
   font-size: 14px;
 }
