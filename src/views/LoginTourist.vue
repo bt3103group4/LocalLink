@@ -17,9 +17,9 @@
           <input class="login-text-input" type="password" placeholder="Enter your password" v-model="password" />
         <br>
         </div>
-        <input class="login-submit" type="submit" value="Login">
-        <span class="login-footer-text"> Don't have an account yet? <router-link to="/registertourist">Register Here as a Tourist</router-link></span>
-        <span class="login-footer-text"> Want to take earn money as a tourguide? Register as a <router-link to="/registertourguide">Tour Guide.</router-link></span>
+        <input class="login-submit" type="submit" value="Login as Tourist">
+        <span class="login-footer-text"> Don't have an account yet? <router-link class="nav-link" to="/registertourist">Register Here as a Tourist</router-link></span>
+        <span class="login-footer-text"> Want to take earn money as a tourguide? Register as a <router-link class="nav-link" to="/registertourguide">Tour Guide.</router-link></span>
     </form>
 </div>
 </template>
@@ -61,6 +61,15 @@ export default {
 
 
 <style scoped>
+
+.nav-link {
+  color: #40a3b9;
+}
+
+.nav-link:hover {
+  color: #337e8f;
+}
+
 .logo-and-title {
   display: flex;
   flex-direction: row;
@@ -93,7 +102,8 @@ export default {
 
 .login{
   width: 100vw;
-  padding-bottom: 20px;
+  margin-top: 60px;
+  padding: 20px 20px;
 }
 
 @media only screen and (min-width: 728px) {
