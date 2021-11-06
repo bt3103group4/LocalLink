@@ -5,7 +5,7 @@
     <a class="active" href="#home">Contact</a>
   <router-link to="/touristProfile">Account</router-link>
 </div>
-        <SearchBar/>
+    <SearchBar/>
 </body>
 </template>
 

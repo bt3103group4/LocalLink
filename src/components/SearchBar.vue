@@ -1,15 +1,16 @@
 <template>
   <div class="uicards" style="margin: 10px">
     <div class="ui icon input" style="width: 100%">
+    </div>
+    <div class="wrapper">
       <input
         class="searchbox"
         type="text"
         placeholder="Search Tours"
+        @click="show"
         v-model="searchQuery"
       />
       <div class="searchicon"></div>
-    </div>
-    <div class="wrapper">
     <div
       class="card-ui-fluid"
       v-for="listing in searchedListings"
@@ -29,7 +30,6 @@
 <!-- TO DO 
   UI not working properly.
   1. the ui cards are not clickable yet, it wont route to the tour page for those u click on
-  2. try to hide the ui cards before clicking the search bar
 -->
 
 <script>
@@ -83,12 +83,13 @@ export default {
   background-position: center center;
   background-size: cover;
   opacity: 1;
-  position: absolute;
-  top: 16px;
-  left: 156px;
+  position: relative;
   overflow: hidden;
   padding-left: 50px;
   border-radius: 15px;
+}
+.wrapper:hover{
+  cursor: pointer;
 }
 .searchicon {
   width: 27px;
@@ -99,17 +100,17 @@ export default {
   background-size: cover;
   opacity: 0.5;
   position: absolute;
-  top: 30px;
-  left: 170px;
+  top: 10px;
+  left:10px;
   overflow: hidden;
 }
 .card-ui-fluid{
   display:none;
   width: 410px;
   position:relative;
-  height: 50px;
-  top: 45px;
-  left:5px;
+  height: 47px;
+  top:5px;
+  left:0px;
   z-index:10;
   border-top: 1px black;
 }
@@ -119,13 +120,13 @@ export default {
 }
 .wrapper{
   position:absolute;
-  top: 42px;
+  top: 12px;
   left: 156px;
   width: 416px;
   height: 50px;
 }
-
 .wrapper:hover .card-ui-fluid{
   display:block;
+  cursor: pointer;
 }
 </style>
