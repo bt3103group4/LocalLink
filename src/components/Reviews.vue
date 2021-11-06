@@ -88,6 +88,9 @@ export default {
 </script>
 
 <style>
+body{
+  height: 1200px;
+}
 
 .tour_name {
   width: 902px;
@@ -106,7 +109,7 @@ export default {
 textarea{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding-top:15px;
-  padding-left:10px
+  padding-left:10px;
 }
 .tour_name_box {
   width: 920px;
@@ -267,16 +270,20 @@ textarea{
 }
 
 .save {
-  width: 242px;
-  height: 78px;
+  width: 100px;
+  height: 50px;
   background: rgba(63, 163, 184, 1);
   opacity: 1;
   position: absolute;
   top: 1100px;
-  left: 1000px;
+  left: 650px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 30px;
   color: white;
   font-family: Ubuntu;
+  font-size: 22px;
+}
+.save:hover{
+  cursor: pointer;
 }
 </style>
