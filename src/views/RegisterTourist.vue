@@ -156,6 +156,10 @@ export default {
   justify-content: center;
 }
 
+.logo-and-title > * {
+  margin: 8px;
+}
+
 .register-text-input {
   width: 100%;
   padding: 12px 20px;
