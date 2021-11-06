@@ -171,6 +171,14 @@ body{
   font-size: 18px;
 }
 
+a:hover {
+  color: rgba(255,255,255,1);
+}
+
+button:hover {
+  background: rgba(63,163,184,1);
+}
+
 a.nav-link.active {
   background: rgba(63,163,184,1);
   font-family: Ubuntu;
