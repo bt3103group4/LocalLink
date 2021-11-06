@@ -228,7 +228,7 @@
                   d="M854 342v-86l-342 214-342-214v86l342 212zM854 170q34 0 59 26t25 60v512q0 34-25 60t-59 26h-684q-34 0-59-26t-25-60v-512q0-34 25-60t59-26h684z"
                 ></path>
               </svg>
-              <span class="section-text">rheasharma.nus@gmail.com</span>
+              <span class="section-text">bt3103group4@gmail.com</span>
             </div>
             <div class="landing-address">
               <svg viewBox="0 0 804.5714285714286 1024" class="landing-address-icon">
@@ -542,6 +542,7 @@ export default {};
   text-transform: none;
   text-decoration: none;
 }
+
 .big-card-heading {
   font-size: 36px;
   font-style: normal;
@@ -551,6 +552,7 @@ export default {};
   text-transform: none;
   text-decoration: none;
 }
+
 .card-heading {
   font-size: 24px;
   font-style: normal;
@@ -592,6 +594,7 @@ export default {};
   flex-direction: column;
   background-color: var(--landing-color-gray-900);
 }
+
 .landing-team {
   width: 100%;
   display: flex;
@@ -619,18 +622,19 @@ export default {};
 
 .landing-team-card {
   display: flex;
-  padding: var(--dl-space-space-fourunits);
+  padding: var(--landing-space-space-fourunits);
   align-items: center;
   flex-direction: column;
 }
+
 .landing-avatar-container {
   display: flex;
   width: 80px;
   height: 80px;
-  padding: var(--dl-space-space-fourunits);
+  padding: var(--landing-space-space-fourunits);
   align-items: center;
   border-radius: 10px;
-  margin-bottom: var(--dl-space-space-tripleunit);
+  margin-bottom: var(--landing-space-space-tripleunit);
   flex-direction: column;
 }
 
@@ -680,7 +684,167 @@ export default {};
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-color: var(--dl-color-gray-white);
+  background-color: var(--landing-color-gray-white);
+}
+
+.landing-text-input {
+  color: var(--landing-color-gray-black);
+  border-color: var(--landing-color-gray-black);
+  border-width: 1px;
+  border-radius: 2px;
+  background-color: var(--landing-color-gray-white);
+}
+
+.landing-number-input {
+  color: var(--landing-color-gray-black);
+  border-color: var(--landing-color-gray-black);
+  border-width: 1px;
+  border-radius: 2px;
+  background-color: var(--landing-color-gray-white);
+}
+
+.landing-text-area {
+  color: var(--landing-color-gray-black);
+  border-color: var(--landing-color-gray-black);
+  border-width: 1px;
+  border-radius: 2px;
+  background-color: var(--landing-color-gray-white);
+}
+
+.landing-button {
+  color: var(--landing-color-gray-black);
+  padding: 5px 10px;
+  border-color: var(--landing-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--landing-color-gray-white);
+}
+
+.landing-get-in-touch {
+  width: 100%;
+  display: flex;
+  margin-top: var(--landing-space-space-fiveunits);
+  align-items: center;
+  padding-top: var(--landing-space-space-fiveunits);
+  padding-left: var(--landing-space-space-tripleunit);
+  padding-right: var(--landing-space-space-tripleunit);
+  flex-direction: column;
+  padding-bottom: var(--landing-space-space-fiveunits);
+  justify-content: flex-start;
+}
+
+.landing-text36 {
+  text-align: center;
+  margin-bottom: var(--landing-space-space-fourunits);
+}
+
+.landing-content-container6 {
+  width: 100%;
+  display: flex;
+  align-self: stretch;
+  margin-top: var(--landing-space-space-fiveunits);
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.landing-form-container {
+  width: 40%;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  padding-top: var(--landing-space-space-fiveunits);
+  margin-right: var(--landing-space-space-fiveunits);
+  padding-left: var(--landing-space-space-tenunits);
+  border-radius: var(--landing-radius-radius-radius8);
+  padding-right: var(--landing-space-space-tenunits);
+  flex-direction: column;
+  padding-bottom: var(--landing-space-space-fiveunits);
+  background-color: var(--landing-color-gray-900);
+}
+
+.landing-heading08 {
+  margin-bottom: var(--landing-space-space-fourunits);
+}
+
+.landing-name5 {
+  width: 100%;
+  border: none;
+  padding-top: var(--landing-space-space-doubleunit);
+  padding-left: var(--landing-space-space-tripleunit);
+  border-radius: var(--landing-radius-radius-radius8);
+  margin-bottom: var(--landing-space-space-doubleunit);
+  padding-right: var(--landing-space-space-tripleunit);
+  padding-bottom: var(--landing-space-space-doubleunit);
+}
+
+.landing-email {
+  width: 100%;
+  border: none;
+  padding-top: var(--landing-space-space-doubleunit);
+  padding-left: var(--landing-space-space-tripleunit);
+  border-radius: var(--landing-radius-radius-radius8);
+  margin-bottom: var(--landing-space-space-doubleunit);
+  padding-right: var(--landing-space-space-tripleunit);
+  padding-bottom: var(--landing-space-space-doubleunit);
+}
+
+.landing-message {
+  width: 100%;
+  border: none;
+  height: 140px;
+  padding-top: var(--landing-space-space-doubleunit);
+  padding-left: var(--landing-space-space-tripleunit);
+  border-radius: var(--landing-radius-radius-radius8);
+  margin-bottom: var(--landing-space-space-fourunits);
+  padding-right: var(--landing-space-space-tripleunit);
+  padding-bottom: var(--landing-space-space-doubleunit);
+}
+
+.landing-cta-btn2 {
+  color: var(--landing-color-gray-white);
+  text-align: center;
+  padding-top: var(--landing-space-space-unit);
+  padding-left: var(--landing-space-space-tenunits);
+  border-radius: var(--landing-radius-radius-radius24);
+  padding-right: var(--landing-space-space-tenunits);
+  padding-bottom: var(--landing-space-space-unit);
+  background-color: var(--landing-color-gray-black);
+}
+
+.landing-locations-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--landing-space-space-fiveunits);
+  flex-direction: column;
+}
+
+.landing-location {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--landing-space-space-tripleunit);
+  flex-direction: column;
+}
+
+.landing-address-heading {
+  font-size: 24px;
+  font-style: normal;
+  font-family: Roboto;
+  font-weight: 700;
+  margin-bottom: var(--landing-space-space-doubleunit);
+}
+
+.landing-address {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--landing-space-space-doubleunit);
+  flex-direction: row;
+}
+
+.landing-address-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: var(--landing-space-space-doubleunit);
 }
 
 </style>
