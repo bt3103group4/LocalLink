@@ -1,27 +1,27 @@
 <template>
   <div class="landing-container">
     <div class="landing-navbar-container">
-        <div class="landing-navbar">
-          <span class="logo"></span>
-          <div class="landing-left-side">
-            <div class="landing-links-container">
-              <a href="#about" class="anchor landing-link"
-                >About Us</a
-              >
+      <div class="landing-navbar">
+        <span class="logo"></span>
+        <div class="landing-left-side">
+          <div class="landing-links-container">
+            <a href="#about" class="anchor landing-link"
+              >About Us</a
+            >
             <a href="#features" class="anchor landing-link"
               >Features</a
             >            
-              <a href="#values" class="anchor landing-link"
-                >Our Values</a
-              >
-              <a href="#team" class="anchor landing-link">Meet the team</a>
-              <a href="#contact" class="anchor landing-link landing-link-last"
-                >Contact Us</a
-              >
-            </div>
+            <a href="#values" class="anchor landing-link"
+              >Our Values</a
+            >
+            <a href="#team" class="anchor landing-link">Meet the team</a>
+            <a href="#contact" class="anchor landing-link landing-link-last"
+              >Contact Us</a
+            >
           </div>
         </div>
       </div>
+    </div>
     <div id="about" class="landing-hero">
       <div class="landing-content-container">
         <div class="landing-hero-text">
@@ -257,14 +257,15 @@ export default {
 .landing-container {
   width: 100%;
   height: auto;
-  display: flex;
+  /* display: flex; */
   min-height: 100vh;
   align-items: center;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
 .landing-navbar-container {
   top: 0;
+  height: 80px;
   width: 100%;
   display: flex;
   z-index: 100;
@@ -375,7 +376,7 @@ export default {
 
 .landing-heading {
   text-align: center;
-  margin-bottom: var(--landing-space-space-fiveunits);
+  margin-bottom: 2px;
 }
 
 .landing-text {
@@ -383,26 +384,6 @@ export default {
   text-align: center;
   margin-bottom: var(--landing-space-space-fiveunits);
 }
-
-/* .landing-button {
-  color: var(--landing-color-gray-black);
-  padding: 5px 10px;
-  border-color: var(--landing-color-gray-black);
-  border-width: 1px;
-  border-radius: 4px;
-  background-color: var(--landing-color-gray-white);
-}
-
-.landing-cta-btn1 {
-  color: var(--landing-color-gray-white);
-  text-align: center;
-  padding-top: var(--landing-space-space-doubleunit);
-  padding-left: var(--landing-space-space-tenunits);
-  border-radius: 30px;
-  padding-right: var(--landing-space-space-tenunits);
-  padding-bottom: var(--landing-space-space-doubleunit);
-  background-color: var(--landing-color-gray-black);
-} */
 
 .landing-btn-container {
   display: flex;
