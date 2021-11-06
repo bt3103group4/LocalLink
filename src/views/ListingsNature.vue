@@ -53,9 +53,9 @@
     <div class="grid">
       <div class="card" v-for="tour in tours" :key="tour.tour_name">
         <img
-          class="card-img-top"
-          src="..\images\v225_106.png"
-          alt="Card image cap"
+          class= "card-img-top"
+          :src= "tour.tour_photo"
+          alt= "Card image cap"
         />
         <div class="card-body" id="tour-item">
           <h5 class="card-title">{{ tour.tour_name }}</h5>
@@ -100,7 +100,9 @@ export default {
             email: data.email,
             tour_name: data.tour_name,
             description: data.description,
+            tour_photo: data.tour_photo,
             tour_id: String(data.email + ", " + data.tour_name),
+
           };
           this.tours.push(tour);
         });
