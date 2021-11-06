@@ -10,7 +10,7 @@
     <div id="wrapper">
       <div class="main_message">Your booking has been confirmed! </div>
       <p> Please remember to book this in your calendar! <br> Your tour guide can't wait to see you :) </p>
-      <button class="home" @click="home">Return to <br> Main Page</button>
+      <button class="home" @click="this.$router.push('/touristProfile')">Return to <br> Main Page</button>
     </div>
     <img class="success" src="../images/tick.png">
 </body>
