@@ -18,6 +18,10 @@
               >
             </div>
           </div>
+          <div class="landing-right-side">
+            <button class="anchor landing-cta-btn"><router-link to="/logintourist"> Login as Tourist</router-link></button>
+            <button class="anchor landing-cta-btn"><router-link to="/logintourguide" > Login as TourGuide</router-link></button>
+          </div>
         </div>
       </div>
     </div>
@@ -94,6 +98,18 @@ export default {
 
 .landing-link {
   text-decoration: underline;
+}
+
+.landing-cta-btn {
+  color: var(--landing-color-gray-white);
+  padding-top: var(--landing-space-space-unit);
+  padding-left: var(--landing-space-space-fiveunits);
+  margin-left: var(--landing-space-space-fiveunits);
+  border-radius: var(--landing-radius-radius-radius24);
+  padding-right: var(--landing-space-space-fiveunits);
+  padding-bottom: var(--landing-space-space-unit);
+  background-color: var(--landing-color-theme-blue);
+  box-shadow: 1px 0.5px 5px 0px #b9b9b9;
 }
 
 .landing-container {
