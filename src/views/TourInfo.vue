@@ -106,6 +106,7 @@ export default {
 }
 body {
   font-size: 14px;
+  width:100%;
 }
 
 .description {
@@ -266,7 +267,9 @@ body {
   opacity: 1;
   text-align: center;
 }
-
+.reserve_btn:hover{
+  cursor: pointer;
+}
 .no_charge {
   width: 233px;
   color: rgba(0, 0, 0, 1);
