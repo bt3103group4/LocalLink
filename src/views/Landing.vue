@@ -59,11 +59,12 @@
             </svg>
           </div>
           <div class="landing-text-container">
-            <span class="card-heading landing-heading">Feature One</span>
+            <span class="card-heading landing-heading">Safety</span>
             <span class="card-text landing-feature-desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              nec odio. Praesent libero. Sed cursus ante dapibus diam.c Sed
-              nisi. Nulla quis sem at nibh elementum imperdiet.
+              We ensure your safety by doing identity checks on our users. 
+              All tour guides have proper documentation and have provided 
+              past reviews from customers. There is chat functionality that 
+              allows tourists and tour guides to interact and discuss pricing.
             </span>
           </div>
         </div>
@@ -79,11 +80,11 @@
             </svg>
           </div>
           <div class="landing-text-container">
-            <span class="card-heading landing-heading">Feature Two</span>
+            <span class="card-heading landing-heading">Reviews</span>
             <span class="card-text landing-feature-desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              nec odio. Praesent libero. Sed cursus ante dapibus diam.c Sed
-              nisi. Nulla quis sem at nibh elementum imperdiet.
+              We allow tourists to rate tour guides based on their experience 
+              and also allow tour guides to review tourists. This will ensure 
+              smooth operations, allowing users to find the best local to link with.
             </span>
           </div>
         </div>
@@ -99,11 +100,10 @@
             </svg>
           </div>
           <div class="landing-text-container">
-            <span class="card-heading landing-heading">Feature Three</span>
+            <span class="card-heading landing-heading">Customisation</span>
             <span class="card-text landing-feature-desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              nec odio. Praesent libero. Sed cursus ante dapibus diam.c Sed
-              nisi. Nulla quis sem at nibh elementum imperdiet.
+              Our suggested tours use machine learning techniques to offer 
+              personalised tour suggestions based on your interests and price range.
             </span>
           </div>
         </div>
@@ -141,7 +141,7 @@
       </div>
     </div>
     <div class="landing-section-separator"></div>
-    <div class="landing-get-in-touch">
+    <div id="contact" class="landing-get-in-touch">
       <h2 class="section-heading landing-features-text">Get in touch</h2>
       <div class="landing-content-container6">
         <div class="landing-form-container">
@@ -595,7 +595,7 @@ export default {};
 }
 
 .jialu-photo {
-  background: url("~@/assets/team/rhea.jpg")  no-repeat center;
+  background: url("~@/assets/team/jialu.jpg")  no-repeat center;
   background-size: contain;
 }
 

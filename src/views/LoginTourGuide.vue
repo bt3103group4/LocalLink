@@ -42,7 +42,7 @@ export default {
                 .auth()
                 .signInWithEmailAndPassword(email.value, password.value)
                 .then(data => console.log(data))
-                .then(() => router.push('/touristprofile'))
+                .then(() => router.push('/tourguideprofile'))
                 .catch(err => alert(err.message));
         }
         return {
