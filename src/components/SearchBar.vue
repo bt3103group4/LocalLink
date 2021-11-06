@@ -19,7 +19,7 @@
     >
       <div class="content">
         <img class="right floated mini ui image" :src="listing.imageURL" />
-        <button>{{ listing.tour_name }}</button><br><br>
+        <button @click="method(listing.id)">{{listing.tour_name }}</button><br><br>
       </div>
     </div>
   </div>
@@ -36,6 +36,17 @@ import firebase from "firebase";
 import { computed, onBeforeMount, reactive, ref } from "vue";
 export default {
   name: "SearchBar",
+  data(){
+    return{
+      data:""
+  }
+  },
+  methods:{
+    print(id){
+      console.log(id)
+    }
+
+  },
   setup() {
     const listings = reactive([]);
     const searchQuery = ref("");
@@ -98,6 +109,9 @@ export default {
   left:10px;
   overflow: hidden;
 }
+.button{
+  border: 10px black solid;
+}
 .card-ui-fluid{
   display:none;
   width: 415px;
@@ -123,5 +137,8 @@ export default {
 .wrapper:hover .card-ui-fluid{
   display:block;
   cursor: pointer;
+}
+button{
+  cursor:pointer;
 }
 </style>
