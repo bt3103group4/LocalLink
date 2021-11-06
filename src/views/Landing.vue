@@ -1,26 +1,39 @@
 <template>
   <div class="landing-container">
     <div class="landing-navbar-container">
+      <div class="landing-navbar-container">
+        <div class="landing-navbar">
+          <div class="landing-left-side">
+            <div class="landing-links-container">
+              <a href="#resources" class="anchor landing-link landing-link"
+                >About Us</a
+              >
+              <a href="#inspiration" class="anchor landing-link landing-link01"
+                >Our Values</a
+              >
+              <a href="#process" class="anchor landing-link landing-link02">Meet the team</a>
+              <a href="#ourstory" class="anchor landing-link landing-link03"
+                >Contact Us</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="landing-content-container">
-      <button class="landing-button"><router-link to="/logintourist">Tourist</router-link></button>
-      <button class="landing-button"><router-link to="/logintourguide" >TourGuide</router-link></button>
     </div>
     
   </div>
 </template>
 
 <script>
-// import FormLogo from '@/components/FormLogo.vue'
 export default {
-    // components: { FormLogo },
 }
 </script>
 
 
 <style scoped>
-
-:root {
+* {
   --landing-color-gray-500: #595959;
   --landing-color-gray-700: #999999;
   --landing-color-gray-900: #d9d9d9;
@@ -30,6 +43,7 @@ export default {
   --landing-color-gray-black: #000000;
   --landing-color-gray-white: #ffffff;
   --landing-space-space-unit: 8px;
+  --landing-color-theme-blue: #40a3b9;
   --landing-color-primary-100: #3f68b5ff;
   --landing-color-primary-300: #0074f0;
   --landing-color-primary-500: #14a9ff;
@@ -51,6 +65,20 @@ export default {
   --landing-space-space-tripleunit: 24px;
 }
 
+.anchor {
+  font-size: 18px;
+  font-style: normal;
+  font-family: Raleway;
+  font-weight: 700;
+  line-height: 1.55;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.landing-link {
+  text-decoration: underline;
+}
+
 .landing-container {
   width: 100%;
   height: auto;
@@ -66,25 +94,77 @@ export default {
   display: flex;
   z-index: 100;
   position: sticky;
-  box-shadow: 5px 5px 10px 0px #b9b9b9;
+  box-shadow: 1px 1px 5px 0px #b9b9b9;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   background-color: #ffffff;
 }
 
+.landing-navbar {
+  width: 100%;
+  display: flex;
+  max-width: var(--landing-size-size-maxcontent);
+  align-items: center;
+  padding-top: var(--landing-space-space-doubleunit);
+  padding-left: var(--landing-space-space-tripleunit);
+  padding-right: var(--landing-space-space-tripleunit);
+  flex-direction: row;
+  padding-bottom: var(--landing-space-space-doubleunit);
+  justify-content: space-between;
+}
+
+.landing-left-side {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 140px;
+}
+
+.landing-burger-menu {
+  display: none;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.landing-links-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.landing-link {
+  margin-right: var(--landing-space-space-tripleunit);
+  text-decoration: none;
+}
+
+.landing-link01 {
+  margin-right: var(--landing-space-space-tripleunit);
+  text-decoration: none;
+}
+
+.landing-link02 {
+  margin-right: var(--landing-space-space-tripleunit);
+  text-decoration: none;
+}
+
+.landing-link03 {
+  text-decoration: none;
+}
+
 .landing-content-container {
   width: 100%;
   display: flex;
-  max-width: var(--dl-size-size-maxcontent);
-  margin-top: var(--dl-space-space-fiveunits);
+  max-width: var(--landing-size-size-maxcontent);
+  margin-top: var(--landing-space-space-fiveunits);
   align-items: center;
-  padding-top: var(--dl-space-space-tenunits);
-  padding-left: var(--dl-space-space-tripleunit);
-  margin-bottom: var(--dl-space-space-fiveunits);
-  padding-right: var(--dl-space-space-tripleunit);
+  padding-top: var(--landing-space-space-tenunits);
+  padding-left: var(--landing-space-space-tripleunit);
+  margin-bottom: var(--landing-space-space-fiveunits);
+  padding-right: var(--landing-space-space-tripleunit);
   flex-direction: row;
-  padding-bottom: var(--dl-space-space-tenunits);
+  padding-bottom: var(--landing-space-space-tenunits);
   justify-content: center;
 }
 
