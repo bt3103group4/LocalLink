@@ -28,13 +28,9 @@
             Find your <span class="grey-title"> LocalLink </span> today!
           </h1>
           <span class="section-text landing-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
-            odio. Praesent libero. Sed cursus ante dapibus diam.c Sed nisi.
-            Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
-            Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris
-            massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti
-            sociosqu ad litora torquent per conubia nostra, per inceptos
-            himenaeos.
+            LocalLink is the best way for tourists to connect with their travel destination and its people. 
+            It is also the perfect match for locals who wish to make hosting and guiding tourists around their
+            locality a reality.
           </span>
           <div class="landing-btn-container">
             <button class="anchor landing-cta-btn"><router-link to="/logintourist"> Login as Tourist</router-link></button>
@@ -235,8 +231,8 @@ export default {
   flex-direction: row;
   padding-bottom: var(--landing-space-space-tenunits);
   justify-content: center;
-  background-color: var(--landing-color-gray-900);
   color: white;
+  background: url("~@/assets/landing-hero-banner.jpg") left center;
   background-size: cover;
 }
 
@@ -258,7 +254,7 @@ export default {
   margin-bottom: var(--landing-space-space-fiveunits);
 }
 
-.landing-button {
+/* .landing-button {
   color: var(--landing-color-gray-black);
   padding: 5px 10px;
   border-color: var(--landing-color-gray-black);
@@ -276,7 +272,7 @@ export default {
   padding-right: var(--landing-space-space-tenunits);
   padding-bottom: var(--landing-space-space-doubleunit);
   background-color: var(--landing-color-gray-black);
-}
+} */
 
 .landing-btn-container {
   display: flex;
