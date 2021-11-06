@@ -66,9 +66,9 @@
         <br />
       </div>
 
-      <input class="register-submit" type="submit" value="Join" />
+      <input class="register-submit" type="submit" value="Join as Tour Guide" />
       <p>
-        Already have an account? <router-link to="/logintourguide">Login instead</router-link>
+        Already have an account? <router-link class="nav-link" to="/logintourguide">Login instead</router-link>
       </p>
     </form>
   </div>
@@ -141,7 +141,14 @@ export default {
 </script>
 
 <style scoped>
-/* input[type=text], input[type=password] */
+
+.nav-link {
+  color: #40a3b9;
+}
+
+.nav-link:hover {
+  color: #337e8f;
+}
 
 .logo-and-title {
   display: flex;
@@ -160,6 +167,7 @@ export default {
   margin-bottom: 8px;
   box-sizing: border-box;
   border-radius: 10px;
+  border: 1px solid black;
 }
 
 .register-submit {
@@ -174,6 +182,8 @@ export default {
 
 .register {
   width: 100vw;
+  margin-top: 60px;
+  padding: 20px 20px;
 }
 
 @media only screen and (min-width: 728px) {
