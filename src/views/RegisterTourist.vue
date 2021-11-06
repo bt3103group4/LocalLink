@@ -181,7 +181,7 @@ export default {
 
 .register {
   width: 100vw;
-  padding: 20px 20px;
+  padding: 20px 0px;
 }
 
 @media only screen and (min-width: 728px) {

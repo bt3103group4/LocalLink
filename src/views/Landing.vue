@@ -200,6 +200,22 @@
         </div>
       </div>
     </div>
+    <div id="team" class="landing-section-separator"></div>
+    <div class="landing-footer-container">
+      <div class="landing-footer">
+        <div class="landing-social-links">
+        </div>
+        <div class="landing-copyright-container">
+          <svg viewBox="0 0 1024 1024" class="landing-footer-icon">
+            <path
+              d="M512 854q140 0 241-101t101-241-101-241-241-101-241 101-101 241 101 241 241 101zM512 86q176 0 301 125t125 301-125 301-301 125-301-125-125-301 125-301 301-125zM506 390q-80 0-80 116v12q0 116 80 116 30 0 50-17t20-43h76q0 50-44 88-42 36-102 36-80 0-122-48t-42-132v-12q0-82 40-128 48-54 124-54 66 0 104 38 42 42 42 98h-76q0-14-6-26-10-20-14-24-20-20-50-20z"
+            ></path>
+          </svg>
+          <span class="anchor">Copyright, 2021</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -599,6 +615,30 @@ export default {};
 .charlene-photo {
   background: url("~@/assets/team/rhea.jpg")  no-repeat center;
   background-size: contain;
+}
+
+
+
+.landing-footer-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+.landing-copyright-container {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.landing-footer-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--dl-color-gray-white);
 }
 
 </style>
