@@ -17,9 +17,6 @@ export default {
   background-position: center center;
   background-size: cover;
   opacity: 1;
-  /* position: absolute; */
-  /* top: 22px; */
-  /* left: 28px; */
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
   border-bottom-left-radius: 50px;
