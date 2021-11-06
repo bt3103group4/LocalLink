@@ -5,17 +5,17 @@
       rel="stylesheet"
     />
     <div class="v429_58">
-      <!-- these are pics -->
-      <div class="v257_62">
-        <div class="v198_104"></div>
-        <div class="v198_83"></div>
-        <div class="v198_103"></div>
-        <div class="v198_105"></div>
+      <div class="tour_photo_div">
+        <!-- tour photo div  -->
+        <img
+          :src= "tour_photo"
+          alt= "Card image cap"
+        />
       </div>
       <div class="v257_63">
-        <div class="v228_56">
-          <div class="v232_103"></div>
-          <div class="v232_110"></div>
+        <div class="right_info_box">
+          <!-- <div class="v232_103"></div> -->
+          <!-- <div class="v232_110"></div> -->
           <div class="v228_57">
             <div class="v228_58"></div>
             <span class="v228_59">Duration Offered:</span>
@@ -30,22 +30,19 @@
         <span class="v232_114">You won’t be charged yet</span>
         <button class="v232_110">Reserve</button>
       </div>
-      <div class="v228_66">
-        <span class="v228_68">Show all photos</span>
+      <div>
+        <span class="v228_70">Description</span>
+        <div class="description">Description: {{ description }}</div>
+        <div class="transport">Mode of transport: {{ transport }}</div>
+        <div class="experience">Years of experience: {{ experience }}</div>
+        <div class="tour-type">Tour type: {{ tour_type }}</div>
+        <div class="email">Tour Guide's email: {{ email }}</div>
+        <span class="v232_115">{{ tour_name }}</span>
       </div>
-      <span class="v228_70">Description</span>
-      <div class="description">Description: {{ description }}</div>
-      <div class="transport">Mode of transport: {{ transport }}</div>
-      <div class="experience">Years of experience: {{ experience }}</div>
-      <div class="tour-type">Tour type: {{ tour_type }}</div>
-      <div class="email">Tour Guide's email: {{ email }}</div>
-      <span class="v232_115">{{ tour_name }}</span>
+    
       <button
         class="back"
-        @click="
-          hideListings = false;
-          hideInfo = true;
-        "
+        @click= "this.$router.go(-1)"
       >
         Back
       </button>
@@ -72,9 +69,7 @@ export default {
       tour_name: "",
       tour_type: "",
       email: "",
-
-      hideListings: false,
-      hideInfo: false,
+      tour_photo: "",
     };
   },
 
@@ -94,6 +89,7 @@ export default {
             (this.tour_name = data.tour_name),
             (this.tour_type = data.tour_type),
             (this.email = data.email);
+            (this.tour_photo = data.tour_photo)
         } else {
           console.log("no such document");
         }
@@ -111,7 +107,7 @@ body {
 }
 .v429_58 {
   width: 100%;
-  height: 877px;
+  height: 800px;
   background: rgba(255, 255, 255, 1);
   opacity: 1;
   position: absolute;
@@ -131,10 +127,9 @@ body {
   opacity: 1;
   text-align: left;
 }
-.v257_62 {
+.tour_photo_div {
   width: 100%;
   height: 348px;
-  /* background: url("../images/v257_62.png"); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -209,20 +204,20 @@ body {
   left: 690px;
   overflow: hidden;
 }
-.v228_56 {
+.right_info_box {
   width: 731px;
   height: 305px;
   /* background: url("../images/v228_56.png"); */
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  opacity: 1;
+  opacity: 1; */
   position: absolute;
   top: 0px;
   left: 0px;
   overflow: hidden;
 }
-.v232_103 {
+/* .v232_103 {
   width: 731px;
   height: 305px;
   background: rgba(242, 235, 235, 1);
@@ -237,8 +232,8 @@ body {
   border-bottom-right-radius: 34px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   overflow: hidden;
-}
-.v232_110 {
+} */
+/* .v232_110 {
   width: 628px;
   height: 67px;
   background: rgba(63, 163, 184, 1);
@@ -262,7 +257,7 @@ body {
   font-size: 30px;
   opacity: 1;
   text-align: left;
-}
+} */
 .v228_57 {
   width: 618px;
   height: 52px;
