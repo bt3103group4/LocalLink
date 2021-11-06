@@ -19,7 +19,7 @@
     >
       <div class="content">
         <img class="right floated mini ui image" :src="listing.imageURL" />
-        <button @click="method(listing.id)">{{listing.tour_name }}</button><br><br>
+        <button @click="viewTourInfo(listing.id)">{{ listing.tour_name }}</button><br><br>
       </div>
     </div>
   </div>
@@ -40,12 +40,6 @@ export default {
     return{
       data:""
   }
-  },
-  methods:{
-    print(id){
-      console.log(id)
-    }
-
   },
   setup() {
     const listings = reactive([]);
@@ -75,6 +69,17 @@ export default {
       }
     });
     return { searchedListings, searchQuery };
+  },
+
+  methods: {
+    viewTourInfo(id) {
+      this.$router.push({
+        name: 'TourInfo',
+        params: {
+          tour_id: id,
+        }
+      })
+    },
   },
 };
 </script>

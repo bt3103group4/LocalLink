@@ -24,24 +24,17 @@
     </div>
     <br />
     <br />
-    <div class="card text-center">
+    <div class="card text-center" style="top: 40px">
       <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
           <li class="nav-item">
-            <a
-              class="nav-link"
-              href="#"
-              @click="$router.push('/listingsnature')"
-              >Nature</a
-            >
+            <a class="nav-link" href="#" @click="$router.push('/listingsnature')">Nature</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="#">Adventure</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" @click="$router.push('/listingsbeach')"
-              >Beach</a
-            >
+            <a class="nav-link" href="#" @click="$router.push('/listingsbeach')">Beach</a>
           </li>
         </ul>
       </div>
@@ -134,10 +127,13 @@ body{
   size: 50%;
   position: absolute;
   top: 400px;
+  left: 130px;
   right: 130px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  justify-content: center;
+  align-content: center;
 }
 
 .btn-primary {
@@ -165,4 +161,25 @@ body{
   font-size: 18px;
 }
 
+a:hover {
+  color: rgba(255,255,255,1);
+}
+
+button:hover {
+  background: rgba(63,163,184,1);
+}
+
+a.nav-link.active {
+  background: rgba(63,163,184,1);
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 18px;
+}
+
+a.nav-link {
+  color: rgba(63,163,184,1);
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 18px;
+}
 </style>

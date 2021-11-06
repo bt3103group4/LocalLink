@@ -10,7 +10,7 @@
     <div id="wrapper">
       <div class="main_message">Your booking has been confirmed! </div>
       <p> Please remember to book this in your calendar! <br> Your tour guide can't wait to see you :) </p>
-      <button class="home" @click="this.$router.push('/touristProfile')">Return to <br> Main Page</button>
+      <button class="home" @click="this.$router.push('/ListingsNature')">Return to <br> Main Page</button>
     </div>
     <img class="success" src="../images/tick.png">
 </body>
@@ -56,7 +56,7 @@ body{
   border-radius: 20px;
 }
 .main_message {
-  width: 800px;
+  width: 100%;
   color: rgba(0, 0, 0, 1);
   position: relative;
   top: 200px;
@@ -69,7 +69,7 @@ body{
 }
 
 p {
-  width: 902px;
+  width: 100%;
   color: rgba(0, 0, 0, 1);
   position: relative;
   top: 225px;
@@ -81,9 +81,14 @@ p {
   text-align: center;
 }
 
+.home_btn {
+  text-align: center;
+}
+
 .home {
-  width: 134px;
+  width: 200px;
   height: 48px;
+  margin:auto;
   background: rgba(63,163,184,1);
   opacity: 1;
   position: relative;
@@ -98,5 +103,6 @@ p {
   opacity: 1;
   text-align: center;
   cursor: pointer;
+  overflow: hidden;
 }
 </style>
