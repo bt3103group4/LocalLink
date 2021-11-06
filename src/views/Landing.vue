@@ -414,4 +414,98 @@ export default {
   text-shadow: 0px 1px 30px white;
 }
 
+.landing-features {
+  width: 100%;
+  display: flex;
+  max-width: var(--landing-size-size-maxcontent);
+  align-items: center;
+  padding-top: var(--landing-space-space-tenunits);
+  padding-left: var(--landing-space-space-tripleunit);
+  padding-right: var(--landing-space-space-tripleunit);
+  flex-direction: column;
+  padding-bottom: var(--landing-space-space-fiveunits);
+}
+
+.landing-features-card {
+  width: 30%;
+  display: flex;
+  align-items: flex-start;
+  padding-top: var(--landing-space-space-doubleunit);
+  padding-left: var(--landing-space-space-doubleunit);
+  margin-bottom: var(--landing-space-space-fourunits);
+  padding-right: var(--landing-space-space-doubleunit);
+  flex-direction: row;
+  padding-bottom: var(--landing-space-space-doubleunit);
+}
+
+.landing-features-text {
+  text-align: center;
+  margin-bottom: var(--landing-space-space-fourunits);
+}
+
+.landing-cards-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.landing-icon-container {
+  display: flex;
+  padding: var(--landing-space-space-unit);
+  align-items: center;
+  margin-right: var(--landing-space-space-tripleunit);
+  border-radius: var(--landing-radius-radius-round);
+  flex-direction: column;
+  background-color: var(--landing-color-gray-900);
+}
+
+.landing-feature-desc{
+  font-size: 16px;
+  font-style: normal;
+  font-family: Raleway;
+  font-weight: 400;
+  line-height: 1.55;
+  text-transform: none;
+  text-decoration: none;
+}
+.big-card-heading {
+  font-size: 36px;
+  font-style: normal;
+  font-family: Montserrat;
+  font-weight: 700;
+  line-height: 1.55;
+  text-transform: none;
+  text-decoration: none;
+}
+.card-heading {
+  font-size: 24px;
+  font-style: normal;
+  font-family: Raleway;
+  font-weight: 700;
+  line-height: 1.55;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.landing-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+}
+
+.landing-text-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.landing-feature-desc {
+  color: var(--dl-color-gray-700);
+  text-align: left;
+}
+
 </style>
