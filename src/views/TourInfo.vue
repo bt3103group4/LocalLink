@@ -33,7 +33,7 @@
           ><span class="cost">From ${{ cost }} / person</span>
         </div>
         <span class="no_charge">You won’t be charged yet</span>
-        <button class="reserve_btn">Reserve</button>
+        <button class="reserve_btn" @click="this.$router.push('/confirmationpage')">Reserve</button>
       </div>
       <div class = "info">
         <div class="description">Description: {{ description }}</div>
