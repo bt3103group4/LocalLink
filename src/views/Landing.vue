@@ -3,6 +3,7 @@
     <div class="landing-navbar-container">
       <div class="landing-navbar-container">
         <div class="landing-navbar">
+          <span class="logo"></span>
           <div class="landing-left-side">
             <div class="landing-links-container">
               <a href="#resources" class="anchor landing-link landing-link"
@@ -63,6 +64,22 @@ export default {
   --landing-radius-radius-radius24: 24px;
   --landing-space-space-doubleunit: 16px;
   --landing-space-space-tripleunit: 24px;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  background: url("~@/assets/logo.png");
+  box-shadow: 1px 4px 5px 0px #b9b9b9;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  overflow: hidden;
 }
 
 .anchor {
