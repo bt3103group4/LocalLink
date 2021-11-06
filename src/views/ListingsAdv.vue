@@ -48,10 +48,9 @@
       <div class="card-body">
         <h2 class="card-title">Wildly Adventurous</h2>
         <p class="card-text">
-          Man cannot discover new oceans unless he has the courage to lose sight
-          of the shore.
+          Man cannot discover new oceans unless he has the courage to lose sight of the shore.
         </p>
-        <a href="#" class="btn btn-primary">Customize my trip now!</a>
+        <a href="#" class="btn customise">Customize my trip now!</a>
       </div>
     </div>
     <div class="grid">
@@ -64,7 +63,9 @@
         <div class="card-body">
           <h5 class="card-title">{{ tour.tour_name }}</h5>
           <p class="card-text">{{ tour.description }}</p>
-          <a href="#" class="btn btn-primary">See more</a>
+          <button class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">
+            See more
+          </button>
           <!-- <p class="card-text"> -->
           <!-- <small class="text-muted">Last booked 5 mins ago</small> -->
           <!-- </p> -->
@@ -114,9 +115,12 @@ export default {
   },
   methods: {
     viewTourInfo(tour_id) {
-      // console.log(tour_id);
-      this.$emit("fetchInfo", tour_id);
-      this.$router.push("/tourInfoNature");
+      this.$router.push({
+        name: 'TourInfo',
+        params: {
+          tour_id: tour_id
+        }
+      })
     },
   },
 };
@@ -129,11 +133,36 @@ body{
 .grid {
   size: 50%;
   position: absolute;
-  top: 500px;
+  top: 400px;
   right: 130px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+}
+
+.btn-primary {
+  width: 120px;
+  height: 48px;
+  background: rgba(63,163,184,1);
+  opacity: 1;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border:none;
+  color: rgba(255,255,255,1);
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 18px;
+  padding:0px;
+  opacity: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.customise {
+  background: rgba(63,163,184,1);
+  color: rgba(255,255,255,1);
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 18px;
 }
 
 </style>

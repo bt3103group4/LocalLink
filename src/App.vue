@@ -39,7 +39,6 @@ export default {
   flex-direction: column;
   align-items: center;
   color: #2c3e50;
-  margin-top: 60px;
   height: 100vh;
 }
 
