@@ -7,7 +7,6 @@
         class="searchbox"
         type="text"
         placeholder="Search Tours"
-        @click="show"
         v-model="searchQuery"
       />
       <div class="searchicon"></div>

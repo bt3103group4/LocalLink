@@ -15,7 +15,7 @@
     <Back />
     <span class="header">Describe your experience</span>
     <div class="description">
-      <b>What will you and your guests do?</b><br /><br />
+      <b>What will you and your guests do?</b><br/>
       <li>Provide a detailed timeline of the tour from start to finish.</li>
       <li>Describe how your tour stands out from the rest!</li>
     </div>
@@ -76,11 +76,13 @@
       />
     </div>
 
-    <div class="tour_photo_div">
-      <div class="tour_photo_description">Add a photo of your tour</div>
-        <div class="tour_photo_box">
-          <div>
-            <input
+    <div class="tour_photo_description">Add a photo of your tour</div>
+    <div class="tour_photo_box">
+    <button id="choosephoto" @click="click1">Choose photo</button>
+    <p v-if="uploaded == false" > Please wait while your image loads... </p>
+    <div class="tour_photo_div" >
+          <div class="listing_photo">
+            <input 
               type="file"
               ref="input1"
               style="display: none"
@@ -90,7 +92,6 @@
             />
           </div>
           <br />
-          <button id="choosephoto" @click="click1">Choose photo</button>
         </div>
         <img 
               v-if="tour_photo != ''"
@@ -149,6 +150,7 @@ export default {
       saved_list: "",
       reserved_list: "",
       tour_photo: "",
+      uploaded : true
     };
   },
   methods: {
@@ -200,6 +202,7 @@ export default {
     previewImage(event) {
       this.uploadValue = 0;
       this.tour_photo = null;
+      this.uploaded=false;
       this.imageData = event.target.files[0];
       this.onUpload();
     },
@@ -226,9 +229,11 @@ export default {
             self.tour_photo = url;
             console.log("Picture");
             console.log(this.tour_photo);
+            self.uploaded=true;
           });
         }
       );
+      
     },
   },
 };
@@ -588,5 +593,17 @@ select {
 }
 .save:hover {
   cursor: pointer;
+}
+.tour_photo_div{
+  top:1000px;
+  border: 10px solid red;
+  position:relative;
+  top: 1250px;
+  left: 317px;
+  z-index: 5;
+  
+}
+.listingphoto{
+  border:black 10px solid;
 }
 </style>

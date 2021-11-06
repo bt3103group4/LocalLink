@@ -331,4 +331,7 @@ body {
   cursor: pointer;
   border: solid 1px rgba(63, 163, 184, 1);
 }
+.profilepicture{
+    border:10px solid red;
+}
 </style>
