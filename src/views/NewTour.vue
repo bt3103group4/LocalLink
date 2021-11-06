@@ -79,7 +79,7 @@
     <div class="tour_photo_description">Add a photo of your tour</div>
     <div class="tour_photo_box">
     <button id="choosephoto" @click="click1">Choose photo</button>
-    <p v-if="uploaded == false" > Please wait while your image loads... </p>
+    <p id="loading" v-if="uploaded == false" >Please wait while your image loads... </p>
     <div class="tour_photo_div" >
           <div class="listing_photo">
             <input 
@@ -504,6 +504,8 @@ select {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   box-shadow: 0px 4px 4px rgba(194, 148, 148, 0.25);
+  padding-top: 20px;
+  padding-left: 30px;
   overflow: hidden;
 }
 #choosephoto {
@@ -595,15 +597,12 @@ select {
   cursor: pointer;
 }
 .tour_photo_div{
-  top:1000px;
   border: 10px solid red;
   position:relative;
   top: 1250px;
   left: 317px;
   z-index: 5;
-  
 }
-.listingphoto{
-  border:black 10px solid;
-}
+
+
 </style>
