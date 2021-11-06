@@ -23,7 +23,7 @@
     </div>
     <br />
     <br />
-    <div class="card text-center">
+    <div class="card text-center" style="top: 40px">
       <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
           <li class="nav-item">
