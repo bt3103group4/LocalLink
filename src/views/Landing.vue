@@ -5,15 +5,8 @@
         <span class="logo"></span>
         <div class="landing-left-side">
           <div class="landing-links-container">
-            <a href="#about" class="anchor landing-link"
-              >About Us</a
-            >
-            <a href="#features" class="anchor landing-link"
-              >Features</a
-            >            
-            <a href="#values" class="anchor landing-link"
-              >Our Values</a
-            >
+            <a href="#about" class="anchor landing-link">About Us</a>
+            <a href="#features" class="anchor landing-link">Features</a>
             <a href="#team" class="anchor landing-link">Meet the team</a>
             <a href="#contact" class="anchor landing-link landing-link-last"
               >Contact Us</a
@@ -29,18 +22,25 @@
             Find your <span class="grey-title"> LocalLink </span> today!
           </h1>
           <span class="section-text landing-text">
-            LocalLink is the best way for tourists to connect with their travel destination and its people. 
-            It is also the perfect match for locals who wish to make hosting and guiding tourists around their
-            locality a reality.
+            LocalLink is the best way for tourists to connect with their travel
+            destination and its people. It is also the perfect match for locals
+            who wish to make hosting and guiding tourists around their locality
+            a reality.
           </span>
           <div class="landing-btn-container">
-            <button class="anchor landing-cta-btn"><router-link to="/logintourist"> Login as Tourist</router-link></button>
-            <button class="anchor landing-cta-btn"><router-link to="/logintourguide" > Login as Tour Guide</router-link></button>
+            <button class="anchor landing-cta-btn">
+              <router-link to="/logintourist"> Login as Tourist</router-link>
+            </button>
+            <button class="anchor landing-cta-btn">
+              <router-link to="/logintourguide">
+                Login as Tour Guide</router-link
+              >
+            </button>
           </div>
         </div>
       </div>
     </div>
-        <div id="features" class="landing-features">
+    <div id="features" class="landing-features">
       <div class="landing-heading-container">
         <h2 class="section-heading landing-features-text">
           Which are the greatest things about it?
@@ -169,13 +169,42 @@
         </div>
       </div>
     </div>
-    
+    <div id="team" class="landing-section-separator"></div>
+    <div class="landing-team">
+      <div class="landing-heading-container">
+        <h1 class="section-heading landing-features-text">Meet the Team</h1>
+        <span class="section-text landing-text">
+          We are the developers behind LocalLink. We built it as a part of BT3103, our Web Development class at NUS
+        </span>
+      </div>
+      <div class="landing-cards-container">
+        <div class="landing-team-card">
+          <div class="landing-avatar-container rhea-photo"></div>
+          <span class="card-heading landing-name">Rhea</span>
+        </div>
+        <div class="landing-team-card">
+          <div class="landing-avatar-container jialu-photo"></div>
+          <span class="card-heading landing-name">Jialu</span>
+        </div>
+        <div class="landing-team-card">
+          <div class="landing-avatar-container charlene-photo"></div>
+          <span class="card-heading landing-name">Charlene</span>
+        </div>
+        <div class="landing-team-card">
+          <div class="landing-avatar-container amanda-photo"></div>
+          <span class="card-heading landing-name">Amanda</span>
+        </div>
+        <div class="landing-team-card">
+          <div class="landing-avatar-container zihui-photo"></div>
+          <span class="card-heading landing-name">Zi Hui</span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-}
+export default {};
 </script>
 
 
@@ -256,10 +285,13 @@ export default {
 
 .landing-container {
   width: 100%;
-  height: auto;
+  /* height: auto; */
   /* display: flex; */
-  min-height: 100vh;
-  align-items: center;
+  /* display: inline-block; */
+  /* text-align: center; */
+  /* margin: auto; */
+  /* min-height: 100vh; */
+  /* align-items: center; */
   /* flex-direction: column; */
 }
 
@@ -334,7 +366,6 @@ export default {
   justify-content: center;
 }
 
-
 .section-heading {
   font-size: 48px;
   font-family: Montserrat;
@@ -398,11 +429,11 @@ export default {
 .landing-features {
   width: 100%;
   display: flex;
-  max-width: var(--landing-size-size-maxcontent);
+  /* max-width: var(--landing-size-size-maxcontent); */
   align-items: center;
   padding-top: var(--landing-space-space-tenunits);
-  padding-left: var(--landing-space-space-tripleunit);
-  padding-right: var(--landing-space-space-tripleunit);
+  padding-left: 100px;
+  padding-right: 100px;
   flex-direction: column;
   padding-bottom: var(--landing-space-space-fiveunits);
 }
@@ -426,6 +457,7 @@ export default {
 
 .landing-cards-container {
   width: 100%;
+  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -443,7 +475,7 @@ export default {
   background-color: var(--landing-color-gray-900);
 }
 
-.landing-feature-desc{
+.landing-feature-desc {
   font-size: 16px;
   font-style: normal;
   font-family: Raleway;
@@ -478,6 +510,11 @@ export default {
   min-height: 36px;
 }
 
+.landing-avatar-icon {
+  width: 48px;
+  height: 48px;
+}
+
 .landing-text-container {
   display: flex;
   align-items: flex-start;
@@ -485,8 +522,83 @@ export default {
 }
 
 .landing-feature-desc {
-  color: var(--dl-color-gray-700);
+  color: var(--landing-color-gray-700);
   text-align: left;
+}
+
+.landing-section-separator {
+  width: 100%;
+  height: 1px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: var(--landing-color-gray-900);
+}
+.landing-team {
+  width: 100%;
+  display: flex;
+  /* max-width: var(--landing-size-size-maxcontent); */
+  margin-top: var(--landing-space-space-fiveunits);
+  align-items: center;
+  padding-top: var(--landing-space-space-tenunits);
+  padding-left: 100px;
+  margin-bottom: var(--landing-space-space-fiveunits);
+  padding-right: 100px;
+  flex-direction: column;
+  padding-bottom: var(--landing-space-space-fiveunits);
+}
+
+.landing-name {
+  width: 100%;
+  border: none;
+  padding-top: var(--landing-space-space-doubleunit);
+  padding-left: var(--landing-space-space-tripleunit);
+  border-radius: var(--landing-radius-radius-radius8);
+  margin-bottom: var(--landing-space-space-doubleunit);
+  padding-right: var(--landing-space-space-tripleunit);
+  padding-bottom: var(--landing-space-space-doubleunit);
+}
+
+.landing-team-card {
+  display: flex;
+  padding: var(--dl-space-space-fourunits);
+  align-items: center;
+  flex-direction: column;
+}
+.landing-avatar-container {
+  display: flex;
+  width: 80px;
+  height: 80px;
+  padding: var(--dl-space-space-fourunits);
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: var(--dl-space-space-tripleunit);
+  flex-direction: column;
+}
+
+.rhea-photo {
+  background: url("~@/assets/team/rhea.jpg")  no-repeat center;
+  background-size: contain;
+}
+
+.amanda-photo {
+  background: url("~@/assets/team/amanda.jpg")  no-repeat center;
+  background-size: contain;
+}
+
+.zihui-photo {
+  background: url("~@/assets/team/zihui.jpg")  no-repeat center;
+  background-size: contain;
+}
+
+.jialu-photo {
+  background: url("~@/assets/team/rhea.jpg")  no-repeat center;
+  background-size: contain;
+}
+
+.charlene-photo {
+  background: url("~@/assets/team/rhea.jpg")  no-repeat center;
+  background-size: contain;
 }
 
 </style>
