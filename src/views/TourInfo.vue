@@ -25,17 +25,17 @@
             <div class="duration_box"></div>
             <span class="duration">Duration Offered:</span>
           </div>
-          <span class="v228_72">{{ start_date }} to {{ end_date }}</span>
+          <span class="date">{{ start_date }} to {{ end_date }}</span>
         </div>
-        <div class="v257_64">
+        <div class="top_info">
           <span class="v228_85">(120 reviews)</span
           ><span class="v228_84">4.97</span
-          ><span class="v228_90">From ${{ cost }} / person</span>
+          ><span class="cost">From ${{ cost }} / person</span>
         </div>
         <span class="no_charge">You won’t be charged yet</span>
         <button class="reserve_btn">Reserve</button>
       </div>
-      <div>
+      <div class = "info">
         <div class="description">Description: {{ description }}</div>
         <div class="transport">Mode of transport: {{ transport }}</div>
         <div class="experience">Years of experience: {{ experience }}</div>
@@ -112,7 +112,7 @@ body {
   width: 590px;
   color: rgba(78, 78, 78, 1);
   position: absolute;
-  top: 560px;
+  top: 710px;
   left: 50px;
   font-family: Ubuntu;
   font-weight: Regular;
@@ -125,7 +125,7 @@ body {
   width: 590px;
   color: rgba(78, 78, 78, 1);
   position: absolute;
-  top: 600px;
+  top: 750px;
   left: 49px;
   font-family: Ubuntu;
   font-weight: Regular;
@@ -138,7 +138,7 @@ body {
   width: 590px;
   color: rgba(78, 78, 78, 1);
   position: absolute;
-  top: 640px;
+  top: 790px;
   left: 49px;
   font-family: Ubuntu;
   font-weight: Regular;
@@ -151,7 +151,7 @@ body {
   width: 590px;
   color: rgba(78, 78, 78, 1);
   position: absolute;
-  top: 680px;
+  top: 830px;
   left: 49px;
   font-family: Ubuntu;
   font-weight: Regular;
@@ -164,7 +164,7 @@ body {
   width: 590px;
   color: rgba(78, 78, 78, 1);
   position: absolute;
-  top: 720px;
+  top: 870px;
   left: 49px;
   font-family: Ubuntu;
   font-weight: Regular;
@@ -177,11 +177,35 @@ body {
   width: 590px;
   color: rgba(78, 78, 78, 1);
   position: absolute;
-  top: 760px;
+  top: 910px;
   left: 49px;
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+
+.top_info {
+  width: 648px;
+  height: 38px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 230px;
+  left: 47px;
+  overflow: hidden;
+}
+
+.cost {
+  width: 415px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   opacity: 1;
   text-align: left;
 }
@@ -208,6 +232,18 @@ body {
   opacity: 1;
   text-align: left;
 }
+.date {
+  width: 297px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 112px;
+  left: 303px;
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
 .reserve_btn {
   width: 600px;
   height: 67px;
@@ -222,7 +258,7 @@ body {
   overflow: hidden;
   color: rgba(255, 255, 255, 1);
   position: absolute;
-  top: 170px;
+  top: 370px;
   left: 60px;
   font-family: Ubuntu;
   font-weight: Medium;
@@ -235,7 +271,7 @@ body {
   width: 233px;
   color: rgba(0, 0, 0, 1);
   position: absolute;
-  top: 250px;
+  top: 450px;
   left: 250px;
   font-family: Ubuntu;
   font-weight: Regular;
@@ -255,7 +291,7 @@ body {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   position: absolute;
-  top: 0px;
+  top: 200px;
   left: 0px;
   overflow: hidden;
 }
@@ -276,8 +312,8 @@ body {
 }
 
 .tour_photo_div {
-  width: 1000px;
-  height: 348px;
+  width: 1250px;
+  height: 600px;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -366,8 +402,7 @@ body {
 }
 .v257_63 {
   width: 731px;
-  height: 305px;
-  /* background: url("../images/v257_63.png"); */
+  height: 600px;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -410,31 +445,6 @@ body {
   overflow: hidden;
 }
 
-.v228_72 {
-  width: 297px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 112px;
-  left: 303px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
-.v257_64 {
-  width: 648px;
-  height: 38px;
-  /* background: url("../images/v257_64.png"); */
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 35px;
-  left: 47px;
-  overflow: hidden;
-}
 .v228_85 {
   width: 154px;
   color: rgba(123, 123, 123, 1);
@@ -459,16 +469,7 @@ body {
   opacity: 1;
   text-align: left;
 }
-.v228_90 {
-  width: 415px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  opacity: 1;
-  text-align: left;
-}
+
 .v228_78 {
   width: 268px;
   height: 245px;
