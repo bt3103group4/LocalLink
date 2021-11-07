@@ -53,6 +53,7 @@
         >
           Reserve
         </button>
+        <img id="bookmark" src="../images/bookmark.png">
       </div>
     </div>
   </div>
@@ -139,7 +140,12 @@ body {
   font-size: 14px;
   width: 100%;
 }
-
+#bookmark{
+  position:relative;
+  width:130px;
+  top:10px;
+  left:650px;
+}
 .inner {
   position: relative;
 }
@@ -406,7 +412,7 @@ body {
   color: rgba(123, 123, 123, 1);
   position: absolute;
   top: 5px;
-  left: 494px;
+  left: 460px;
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 25px;
