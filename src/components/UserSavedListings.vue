@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
 </head>
         <div v-if="savedTours.length != 0"  class = "grid">
-            <div class="col my-col" v-for="tour in savedTours" :key="tour.tour_name">
+            <div class="col my-col" v-for="tour in savedTours" :key="tour.tourname">
                   <div class="card-group">
                     <div class="card">
                     <img class="card-img-top" :src="tour.image" alt="Card image cap"/>
                     <div class="card-body">
                     <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
                     <p class="card-text"> Available from: {{tour.start}}</p>
-                    <button class="button-id" @click="$router.push('/ConfirmationPage')">Book Now </button>
+                    <button class="button-id" @click="$router.push('/ConfirmationPage');saveToBookedListings(tour.tourname,tour.email)">Book Now </button>
                     <p class="card-text"> Review: {{tour.review}}</p>
                     </div>
                 </div>
@@ -57,7 +57,8 @@ export default {
                                     tourname : data["tour_name"],
                                     review : data["review"],
                                     start : data["start_date"],
-                                    image: data["tour_image"]
+                                    image : data["tour_photo"],
+                                    email:data["email"]
                                 }
                                 self.savedTours.push(tour)
                             })
@@ -74,6 +75,21 @@ export default {
     },
     
     methods: {
+        saveToBookedListings(tour_name,email){
+            const auth = firebase.auth();
+            auth.onAuthStateChanged(user => {
+            if (user){
+                let fbuser = auth.currentUser.email;
+                if (fbuser){
+                    db.collection("users").doc(fbuser) 
+                    .update({
+                        bookings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
+                    }) 
+                }
+            }
+            })
+  
+    }   ,
         isUserAccount() {
             //TODO: Check this is users account if they want to edit info
         }, 

@@ -49,10 +49,11 @@
         <span class="no_charge">You won’t be charged yet</span>
         <button
           class="reserve_btn"
-          @click="this.$router.push('/confirmationpage')"
+          @click="this.$router.push('/confirmationpage');saveToDB(this.tour_name,this.email)"
         >
           Reserve
         </button>
+        <img id="bookmark" @click="saveToSavedListings(this.tour_name,this.email)" src="../images/bookmark.png">
       </div>
     </div>
   </div>
@@ -64,6 +65,7 @@ import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
 import DefaultFooter from "@/components/DefaultFooter.vue";
 import { db } from "../main.js";
+import firebase from 'firebase';
 
 export default {
   name: "TourInfo",
@@ -83,6 +85,38 @@ export default {
       email: "",
       tour_photo: "",
     };
+  },
+  methods:{
+        saveToDB(tour_name,email){
+            const auth = firebase.auth();
+            auth.onAuthStateChanged(user => {
+            if (user){
+                let fbuser = auth.currentUser.email;
+                if (fbuser){
+                    db.collection("users").doc(fbuser) 
+                    .update({
+                        bookings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
+                    }) 
+                }
+            }
+            })
+    } ,
+            saveToSavedListings(tour_name,email){
+              alert("Listing saved!")
+            const auth = firebase.auth();
+            auth.onAuthStateChanged(user => {
+            if (user){
+                let fbuser = auth.currentUser.email;
+                if (fbuser){
+                    db.collection("users").doc(fbuser) 
+                    .update({
+                        saved_listings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
+                    }) 
+                }
+            }
+            })
+  
+    }      
   },
 
   mounted() {
@@ -119,7 +153,15 @@ body {
   font-size: 14px;
   width: 100%;
 }
-
+#bookmark{
+  position:relative;
+  width:130px;
+  top:10px;
+  left:650px;
+}
+#bookmark:hover{
+  cursor: pointer;
+}
 .inner {
   position: relative;
 }
@@ -386,7 +428,7 @@ body {
   color: rgba(123, 123, 123, 1);
   position: absolute;
   top: 5px;
-  left: 494px;
+  left: 460px;
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 25px;
