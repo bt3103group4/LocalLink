@@ -4,7 +4,6 @@
     <Logo/>
     <SettingsButton/>
   <span class="header">Leave a Review for your Tourist!</span>
-  <Reviews/>
   <Back/>
   <head>
     <link
@@ -16,6 +15,7 @@
   </head>
   <body>
     <button class="backNav" @click="$router.push('/TourGuideProfile')"></button>
+    <Reviews/>
   </body>
 </template>
 
@@ -33,6 +33,9 @@ export default {
 </script>
 
 <style scoped>
+body{
+  width:100%;
+}
 
 .name {
   color: #fff;

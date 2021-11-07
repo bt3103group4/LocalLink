@@ -1,5 +1,6 @@
 
 <template>
+<img class="background" src="../images/bali-beach.jpg">
 <div class="login">
   <div class="logo-and-title">
       <FormLogo/>
@@ -19,7 +20,7 @@
         </div>
         <input class="login-submit" type="submit" value="Login as Tourist">
         <span class="login-footer-text"> Don't have an account yet? <router-link class="nav-link" to="/registertourist">Register as a Tourist</router-link></span>
-        <span class="login-footer-text"> Want to take earn money as a Tour Guide? <router-link class="nav-link" to="/registertourguide">Register as a Tour Guide.</router-link></span>
+        <span class="login-footer-text"> Want to sign up as a Tour Guide? <router-link class="nav-link" to="/registertourguide">Register as a Tour Guide.</router-link></span>
     </form>
 </div>
 </template>
@@ -61,6 +62,16 @@ export default {
 
 
 <style scoped>
+.background{
+  opacity: 0.7;
+  z-index: 1;
+}
+.login{
+  z-index: 5;
+  position: absolute;
+  background-color: white;
+  top:100px;
+}
 
 .nav-link {
   color: #40a3b9;
@@ -103,7 +114,9 @@ export default {
   color:white;
   background-color: black
 }
-
+.login-submit:hover{
+  cursor: pointer;
+}
 .login{
   width: 100vw;
   margin-top: 60px;
