@@ -2,19 +2,31 @@
 <body>
   <div class="tour_name">Tour Name</div>
     <div class="tour_name_box">
-        <textarea
+        <textarea v-if="this.type === 'tour-guide'"
         class="tour_input"
         v-model.lazy="tourname"
         placeholder="Name of tour you hosted for your tourist"
+        ></textarea>
+
+        <textarea v-else
+        class="tour_input"
+        v-model.lazy="tourname"
+        placeholder="Name of tour you hosted for your tour guide"
         ></textarea>
     </div>
 
   <p class="email_title">Email</p>
     <div class="email_box">
-        <textarea
+        <textarea v-if="this.type === 'tour-guide'"
         class="email_input"
         v-model.lazy="email"
         placeholder="Enter your tourist's email"
+        ></textarea>
+
+        <textarea v-else
+        class="email_input"
+        v-model.lazy="email"
+        placeholder="Enter your tour guide's email"
         ></textarea>
     </div>
 
@@ -30,11 +42,18 @@
 
     <div class="reviews">Reviews</div>
     <div class="review_box">
-    <textarea
+    <textarea v-if="this.type === 'tour-guide'"
       class="review_input"
       v-model.lazy="reviews"
       placeholder="Describe your experience with your tourist!"
     ></textarea>
+
+    <textarea v-else
+      class="review_input"
+      v-model.lazy="reviews"
+      placeholder="Describe your experience with your tour guide!"
+    ></textarea>
+
     </div>
 
     <button class="save" @click="save">Save</button>
@@ -53,8 +72,31 @@ export default {
       email: "",
       ratings: "",
       reviews: "",
+      type:"",
     };
   },
+  mounted() {
+    const auth = firebase.auth();
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        let fbuser = auth.currentUser.email;
+        if (fbuser) {
+          db.collection("users").doc(String(fbuser))
+          .get()
+          .then(doc => {
+            if (doc.exists){
+              const data = doc.data()
+              this.type = data["type"]
+              console.log(this.type)
+            } else {
+              console.log("no such document")
+            }
+          })
+        }
+      }
+    })
+  },
+            
   methods: {
     save() {
       const self = this;
