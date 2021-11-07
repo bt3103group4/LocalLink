@@ -30,7 +30,7 @@
 
     <div class="name"></div>
     <button class="uploadbtn" v-if="isUserAccount" @click="$router.push('/newtour')">New Tour</button>
-    <button class="newreview" v-if="isUserAccount" @click="$router.push('/newreviewtourguide')">Review</button>
+    <button class="newreview" v-if="isUserAccount" @click="$router.push('/newreview')">Review</button>
     </body>
     </template>
 <script>

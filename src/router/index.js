@@ -16,8 +16,7 @@ import RegisterTourGuide from '@/views/RegisterTourGuide.vue'
 import LoginTourGuide from '@/views/LoginTourGuide.vue'
 import Landing from '@/views/Landing.vue'
 import EditTour from '@/views/EditTour.vue'
-import NewReviewTourGuide from '@/views/NewReviewTourGuide.vue'
-import NewReviewTourist from '@/views/NewReviewTourist.vue'
+import NewReview from '@/views/NewReview.vue'
 import TourInfo from '@/views/TourInfo.vue'
 import ConfirmationPage from '@/views/ConfirmationPage.vue'
 
@@ -109,14 +108,9 @@ const routes = [
       component: ListingsBeach,
     },
     {
-      path: "/newreviewtourguide",
-      name: "NewReviewTourGuide",
-      component: NewReviewTourGuide,
-    },
-    {
-      path: "/newreviewtourist",
-      name: "NewReviewTourist",
-      component: NewReviewTourist,
+      path: "/newreview",
+      name: "NewReview",
+      component: NewReview,
     },
     {
       path: "/tourInfo",

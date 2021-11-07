@@ -18,7 +18,7 @@
       <li data-tab-target="#savedListings" class="tab"> Saved </li>
       <li data-tab-target="#newReview" class="tab"> Reviews </li>
     </ul>
-    <button class="newReviewBtn" @click="$router.push('/newreviewtourist')">New Review</button>
+    <button class="newReviewBtn" @click="$router.push('/newreview')">New Review</button>
 
     <div class="tabcontent">
       <div id = "savedListings" data-tab-content >
