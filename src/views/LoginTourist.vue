@@ -63,7 +63,7 @@ export default {
 
 <style scoped>
 .background{
-  opacity: 0.7;
+  opacity: 0.85;
   z-index: 1;
 }
 .login{

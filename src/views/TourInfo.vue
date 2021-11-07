@@ -49,7 +49,7 @@
         <span class="no_charge">You won’t be charged yet</span>
         <button
           class="reserve_btn"
-          @click="this.$router.push('/confirmationpage')"
+          @click="this.$router.push('/confirmationpage');saveToDB(this.tour_name,this.email)"
         >
           Reserve
         </button>
@@ -64,6 +64,7 @@ import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
 import DefaultFooter from "@/components/DefaultFooter.vue";
 import { db } from "../main.js";
+import firebase from 'firebase';
 
 export default {
   name: "TourInfo",
@@ -83,6 +84,25 @@ export default {
       email: "",
       tour_photo: "",
     };
+  },
+  methods:{
+        saveToDB(tour_name,email){
+            const auth = firebase.auth();
+            auth.onAuthStateChanged(user => {
+            if (user){
+                let fbuser = auth.currentUser.email;
+                console.log("tourname")
+                console.log(tour_name)
+                if (fbuser){
+                    db.collection("users").doc(fbuser) 
+                    .update({
+                        bookings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
+                    }) 
+                }
+            }
+            })
+
+    }    
   },
 
   mounted() {

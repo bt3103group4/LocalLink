@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
 </head>
         <div v-if="savedTours.length != 0"  class = "grid">
-            <div class="col my-col" v-for="tour in savedTours" :key="tour.tour_name">
+            <div class="col my-col" v-for="tour in savedTours" :key="tour.tourname">
                   <div class="card-group">
                     <div class="card">
                     <img class="card-img-top" :src="tour.image" alt="Card image cap"/>
