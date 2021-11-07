@@ -122,6 +122,7 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(this.user.email, this.user.password)
         .then(() => {
+          this.user.type = "tourist"
           db.collection("users").doc(this.user.email)
             .set(this.user)
             .then(() => {
@@ -129,6 +130,10 @@ export default {
               console.log(this.user);
               console.log(this.Register);
             })
+            .then(() => {
+              console.log(this.$router);
+              this.$router.push('/touristprofile')
+            }) 
             .catch((error) => {
               console.log(error);
             });

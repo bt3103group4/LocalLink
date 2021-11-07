@@ -5,7 +5,7 @@
       <div class="centered-container">
         <h1 class="align-left">
           Join to unlock the <br />
-          best of <span class="text-blue">Local Link (TG)</span>
+          best of <span class="text-blue">Local Link</span>
         </h1>
       </div>
     </div>
@@ -80,6 +80,7 @@ import FormLogo from '@/components/FormLogo.vue'
 import firebase from "firebase";
 import { ref } from "vue";
 import { db } from "../main.js";
+// import { useRouter } from 'vue-router'
 
 export default {
   components: { FormLogo },
@@ -90,6 +91,7 @@ export default {
     const email = ref("");
     const password = ref("");
     // const user = ref("")
+    
 
     const Register = () => {
       firebase
@@ -117,19 +119,25 @@ export default {
     };
   },
   methods: {
+    
     onFormSubmit(event) {
       event.preventDefault();
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.tourguide.email, this.tourguide.password)
         .then(() => {
-          db.collection("tourguides").doc(this.tourguide.email)
+          this.tourguide.type = "tour-guide"
+          db.collection("users").doc(this.tourguide.email)
             .set(this.tourguide)
             .then(() => {
               alert("User successfully created!");
               console.log(this.tourguide);
               console.log(this.Register);
             })
+            .then(() => {
+              console.log(this.$router);
+              this.$router.push('/tourguideprofile')
+            }) 
             .catch((error) => {
               console.log(error);
             });
