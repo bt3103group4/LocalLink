@@ -621,7 +621,7 @@ export default {};
 }
 
 .charlene-photo {
-  background: url("~@/assets/team/rhea.jpg") no-repeat center;
+  background: url("~@/assets/team/charlene.jpg") no-repeat center;
   background-size: contain;
 }
 
