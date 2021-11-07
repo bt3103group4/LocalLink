@@ -13,20 +13,17 @@
     <title>Listings</title>
   </head>
   <body>
-    <div class="container" style="display: flex; height: 100px">
-      <div style="width: 10%">
-        <NavBar />
-        <Logo />
-        <SettingsButton />
-      </div>
-      <div style="flex-grow: 1">
-        <!-- <Layout /> -->
-      </div>
-
+    <NavBar />
+    <Logo />
+    <SettingsButton />
+    <DefaultFooter/>
+    <div class="container">
+      <div style="width: 10%"></div>
+      <div style="flex-grow: 1"></div>
     </div>
     <br />
     <br />
-    <div class="card text-center">
+    <div class="card text-center" style="top: 40px">
       <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
           <li class="nav-item">
@@ -50,15 +47,15 @@
           Forget not that the earth delights to feel your bare feet and the
           winds long to play with your hair.
         </p>
-        <a href="#" class="btn btn-primary">Customize my trip now!</a>
+        <a href="#" class="btn customise">Customize my trip now!</a>
       </div>
     </div>
     <div class="grid">
       <div class="card" v-for="tour in tours" :key="tour.tour_name">
         <img
-          class="card-img-top"
-          src="..\images\v225_106.png"
-          alt="Card image cap"
+          class= "card-img-top"
+          :src= "tour.tour_photo"
+          alt= "Card image cap"
         />
         <div class="card-body" id="tour-item">
           <h5 class="card-title">{{ tour.tour_name }}</h5>
@@ -80,12 +77,13 @@
 import SettingsButton from "@/components/SettingsButton.vue";
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
+import DefaultFooter from "@/components/DefaultFooter.vue"
 // import firebase from "firebase";
 import { db } from "../main.js";
 
 export default {
   name: "ListingsNature",
-  components: { SettingsButton, NavBar, Logo },
+  components: { SettingsButton, NavBar, Logo , DefaultFooter},
   emits: ["fetchInfo"],
   data() {
     return {
@@ -103,20 +101,22 @@ export default {
             email: data.email,
             tour_name: data.tour_name,
             description: data.description,
+            tour_photo: data.tour_photo,
             tour_id: String(data.email + ", " + data.tour_name),
+
           };
-          // console.log(this.tours)
-          // console.log(tour)
           this.tours.push(tour);
         });
       });
   },
   methods: {
     viewTourInfo(tour_id) {
-      // console.log(tour_id);
-      // this.$router.push("/tourInfoNature");
-      this.$emit("fetchInfo", tour_id);
-      // this.$router.push("/tourInfoNature");
+      this.$router.push({
+        name: 'TourInfo',
+        params: {
+          tour_id: tour_id
+        }
+      })
     },
   },
 };
@@ -129,10 +129,60 @@ body{
 .grid {
   size: 50%;
   position: absolute;
-  top: 500px;
-  left: 270px;
+  top: 400px;
+  left: 130px;
+  right: 130px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  justify-content: center;
+  align-content: center;
+}
+
+.btn-primary {
+  width: 120px;
+  height: 48px;
+  background: rgba(63,163,184,1);
+  opacity: 1;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border:none;
+  color: rgba(255,255,255,1);
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 18px;
+  padding:0px;
+  opacity: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.customise {
+  background: rgba(63,163,184,1);
+  color: rgba(255,255,255,1);
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 18px;
+}
+
+a:hover {
+  color: rgba(255,255,255,1);
+}
+
+button:hover {
+  background: rgba(63,163,184,1);
+}
+
+a.nav-link.active {
+  background: rgba(63,163,184,1);
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 18px;
+}
+
+a.nav-link {
+  color: rgba(63,163,184,1);
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 18px;
 }
 </style>

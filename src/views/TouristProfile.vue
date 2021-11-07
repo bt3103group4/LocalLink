@@ -11,6 +11,7 @@
         <SettingsButton/>
         <Logo/>
 
+
   <div class="listingsComp">
     <ul class = "tabs">
       <li data-tab-target="#bookedListings" class="active tab"> My Bookings</li>
@@ -92,7 +93,7 @@ body {
   font-size: 14px;
   background-color: rgba(242,238,238,1);
   width: 100%;
-  height:1200px;
+  height:1500px;
 }
 .tabs{
   position: absolute;

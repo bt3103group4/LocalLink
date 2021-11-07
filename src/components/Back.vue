@@ -1,5 +1,5 @@
 <template>
-    <button class="backNav" @click="$router.push('/TouristProfile')"></button>
+    <button class="backNav" @click="$router.go(-1)"></button>
 </template>
 
 <script>

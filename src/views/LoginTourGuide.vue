@@ -17,9 +17,9 @@
           <input class="login-text-input" type="password" placeholder="Enter your password" v-model="password" />
         <br>
         </div>
-        <input class="login-submit" type="submit" value="Login">
-        <span class="login-footer-text">Don't have an account yet? <router-link to="/registertourguide">Register Here as a Tour Guide</router-link></span>
-        <span class="login-footer-text">Not a Tour Guide? Start travelling as a <router-link to="/registertourist">Tourist</router-link>.</span>
+        <input class="login-submit" type="submit" value="Login as Tour Guide">
+        <span class="login-footer-text">Don't have an account yet? <router-link class="nav-link" to="/registertourguide">Register Here as a Tour Guide</router-link></span>
+        <span class="login-footer-text">Not a Tour Guide? Start travelling as a <router-link class="nav-link" to="/registertourist">Tourist</router-link>.</span>
     </form>
 </div>
 </template>
@@ -42,7 +42,7 @@ export default {
                 .auth()
                 .signInWithEmailAndPassword(email.value, password.value)
                 .then(data => console.log(data))
-                .then(() => router.push('/touristprofile'))
+                .then(() => router.push('/tourguideprofile'))
                 .catch(err => alert(err.message));
         }
         return {
@@ -60,11 +60,23 @@ export default {
 
 <style scoped>
 
+.nav-link {
+  color: #40a3b9;
+}
+
+.nav-link:hover {
+  color: #337e8f;
+}
+
 .logo-and-title {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.logo-and-title > * {
+  margin: 8px;
 }
 
 .login-footer-text{
@@ -92,7 +104,8 @@ export default {
 
 .login{
   width: 100vw;
-  padding-bottom: 20px;
+  margin-top: 60px;
+  padding: 20px 20px;
 }
 
 @media only screen and (min-width: 728px) {

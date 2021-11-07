@@ -6,7 +6,9 @@
     <SettingsButton/>
     <div class="main_message">Congrats! Booking successful! </div>
     <p> Please remember to book this in your calendar! <br> Your tour guide can't wait to see you :) </p>
-    <button class="home" @click="home">Return to <br> Main Page</button>
+    <div class ="home_btn">
+      <button class="home" @click="this.$router.push('/ListingsNature')">Return to <br> Main Page</button>
+    </div>
 </body>
 </template>
 
@@ -26,10 +28,10 @@ body{
   width:100%
 }
 .main_message {
-  width: 800px;
+  width: 100%;
   color: rgba(0, 0, 0, 1);
   position: absolute;
-  top: 200px;
+  top: 100px;
   left: center;
   font-family: Ubuntu;
   font-weight: Bold;
@@ -39,11 +41,11 @@ body{
 }
 
 p {
-  width: 902px;
+  width: 100%;
   color: rgba(0, 0, 0, 1);
   position: absolute;
-  top: 250px;
-  left: center;
+  top: 200px;
+
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
@@ -51,14 +53,22 @@ p {
   text-align: center;
 }
 
+.home_btn {
+  text-align: center;
+}
+
 .home {
-  width: 134px;
+  width: 200px;
   height: 48px;
+  margin:auto;
   background: rgba(63,163,184,1);
   opacity: 1;
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
   position: absolute;
-  top: 380px;  
-  left: center;
+  top: 50%; 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border:none;
   color: rgba(255,255,255,1);
@@ -68,5 +78,6 @@ p {
   opacity: 1;
   text-align: center;
   cursor: pointer;
+  overflow: hidden;
 }
 </style>

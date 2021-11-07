@@ -5,7 +5,7 @@
       <div class="centered-container">
         <h1 class="align-left">
           Join to unlock the <br />
-          best of <span class="text-blue">Local Link (TG)</span>
+          best of <span class="text-blue">Local Link</span>
         </h1>
       </div>
     </div>
@@ -66,9 +66,9 @@
         <br />
       </div>
 
-      <input class="register-submit" type="submit" value="Join" />
+      <input class="register-submit" type="submit" value="Join as Tour Guide" />
       <p>
-        Already have an account? <router-link to="/logintourguide">Login instead</router-link>
+        Already have an account? <router-link class="nav-link" to="/logintourguide">Login instead</router-link>
       </p>
     </form>
   </div>
@@ -80,6 +80,7 @@ import FormLogo from '@/components/FormLogo.vue'
 import firebase from "firebase";
 import { ref } from "vue";
 import { db } from "../main.js";
+// import { useRouter } from 'vue-router'
 
 export default {
   components: { FormLogo },
@@ -90,6 +91,7 @@ export default {
     const email = ref("");
     const password = ref("");
     // const user = ref("")
+    
 
     const Register = () => {
       firebase
@@ -117,19 +119,25 @@ export default {
     };
   },
   methods: {
+    
     onFormSubmit(event) {
       event.preventDefault();
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.tourguide.email, this.tourguide.password)
         .then(() => {
-          db.collection("tourguides").doc(this.tourguide.email)
+          this.tourguide.type = "tour-guide"
+          db.collection("users").doc(this.tourguide.email)
             .set(this.tourguide)
             .then(() => {
               alert("User successfully created!");
               console.log(this.tourguide);
               console.log(this.Register);
             })
+            .then(() => {
+              console.log(this.$router);
+              this.$router.push('/tourguideprofile')
+            }) 
             .catch((error) => {
               console.log(error);
             });
@@ -141,7 +149,14 @@ export default {
 </script>
 
 <style scoped>
-/* input[type=text], input[type=password] */
+
+.nav-link {
+  color: #40a3b9;
+}
+
+.nav-link:hover {
+  color: #337e8f;
+}
 
 .logo-and-title {
   display: flex;
@@ -160,6 +175,7 @@ export default {
   margin-bottom: 8px;
   box-sizing: border-box;
   border-radius: 10px;
+  border: 1px solid black;
 }
 
 .register-submit {
@@ -174,6 +190,8 @@ export default {
 
 .register {
   width: 100vw;
+  margin-top: 60px;
+  padding: 20px 20px;
 }
 
 @media only screen and (min-width: 728px) {
