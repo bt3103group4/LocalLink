@@ -3,7 +3,8 @@
     <NavBar/>
     <Logo/>
     <SettingsButton/>
-  <span class="header">Leave a Review for your Tourist!</span>
+  <span v-if="this.type === 'tour-guide'" class="header">Leave a Review for your Tourist!</span>
+  <span v-else class="header">Leave a Review for your Tourist!</span>
   <Back/>
   <head>
     <link
@@ -25,10 +26,40 @@ import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
 import Reviews from '@/components/Reviews.vue'
 import Back from '@/components/Back.vue'
+import firebase from "firebase";
+import { db } from "../main.js";
 
 export default {
-  name: "NewReviewTourGuide",
+  name: "NewReview",
   components: { NavBar,SettingsButton, Logo, Reviews, Back},
+  data() {
+    return {
+      type:"",
+    }
+  },
+
+  mounted() {
+    const auth = firebase.auth();
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        let fbuser = auth.currentUser.email;
+        if (fbuser) {
+          db.collection("users").doc(String(fbuser))
+          .get()
+          .then(doc => {
+            if (doc.exists){
+              const data = doc.data()
+              this.type = data["type"]
+              console.log(this.type)
+            } else {
+              console.log("no such document")
+            }
+          })
+        }
+      }
+    })
+  },
+
 };
 </script>
 
@@ -46,7 +77,7 @@ body{
   position: absolute;
   top: 140px;
   left: 388px;
-
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 45px;
