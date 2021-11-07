@@ -580,22 +580,23 @@ select {
 }
 
 .save {
-  width: 150px;
-  height: 70px;
+  width: 100px;
+  height: 50px;
   background: rgba(63, 163, 184, 1);
   opacity: 1;
   position: absolute;
   top: 2100px;
-  left: 1133px;
+  left: 650px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 30px;
   color: white;
   font-family: Ubuntu;
-  border: none;
+  font-size: 22px;
 }
-.save:hover {
+.save:hover{
   cursor: pointer;
 }
+
 .tour_photo_div{
   border: 10px solid red;
   position:relative;
