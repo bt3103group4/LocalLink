@@ -57,7 +57,7 @@ export default {
                                     tourname : data["tour_name"],
                                     review : data["review"],
                                     start : data["start_date"],
-                                    image: data["tour_image"],
+                                    image : data["tour_photo"],
                                     email:data["email"]
                                 }
                                 self.savedTours.push(tour)
