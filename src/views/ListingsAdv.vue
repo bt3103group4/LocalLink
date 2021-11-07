@@ -46,10 +46,12 @@
         </ul>
       </div>
       <div class="card-body">
-        <h2 class="card-title">Wildly Adventurous</h2>
+        <h1 class="card-title">Wildly Adventurous</h1>
         <p class="card-text">
-          Man cannot discover new oceans unless he has the courage to lose sight
-          of the shore.
+          <i>
+            Man cannot discover new oceans unless he has the courage to lose
+            sight of the shore.</i
+          >
         </p>
       </div>
     </div>

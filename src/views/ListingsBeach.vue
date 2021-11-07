@@ -46,9 +46,12 @@
         </ul>
       </div>
       <div class="card-body">
-        <h2 class="card-title">Sandy Beach</h2>
+        <h1 class="card-title">Sandy Beach</h1>
         <p class="card-text">
-          Soft sand, rolling waves and endless sunshine. What's not to love?
+          <i>
+            Soft sand, rolling waves and endless sunshine. What's not to
+            love?</i
+          >
         </p>
       </div>
     </div>
