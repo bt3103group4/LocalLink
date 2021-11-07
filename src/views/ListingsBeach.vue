@@ -16,7 +16,7 @@
     <NavBar />
     <Logo />
     <SettingsButton />
-    <DefaultFooter/>
+    <DefaultFooter />
 
     <div class="container">
       <div style="width: 10%"></div>
@@ -50,16 +50,11 @@
         <p class="card-text">
           Soft sand, rolling waves and endless sunshine. What's not to love?
         </p>
-        <a href="#" class="btn customise">Customize my trip now!</a>
       </div>
     </div>
     <div class="grid">
       <div class="card" v-for="tour in tours" :key="tour.tour_name">
-        <img
-          class="card-img-top"
-          src="tour.tour_photo"
-          alt="Card image cap"
-        />
+        <img class="card-img-top" :src="tour.tour_photo" alt="Card image cap" />
         <div class="card-body" id="tour-item">
           <h5 class="card-title">{{ tour.tour_name }}</h5>
           <p class="card-text">{{ tour.description }}</p>
@@ -79,14 +74,14 @@
 import SettingsButton from "@/components/SettingsButton.vue";
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
-import DefaultFooter from "@/components/DefaultFooter.vue"
+import DefaultFooter from "@/components/DefaultFooter.vue";
 // import firebase from "firebase";
 import { db } from "../main.js";
 
 export default {
   name: "ListingsBeach",
 
-  components: { SettingsButton, NavBar, Logo, DefaultFooter},
+  components: { SettingsButton, NavBar, Logo, DefaultFooter },
 
   data() {
     return {
@@ -117,20 +112,19 @@ export default {
   methods: {
     viewTourInfo(tour_id) {
       this.$router.push({
-        name: 'TourInfo',
+        name: "TourInfo",
         params: {
-          tour_id: tour_id
-        }
-      })
+          tour_id: tour_id,
+        },
+      });
     },
   },
 };
 </script>
 
 <style scoped>
-
-body{
-  width:100%;
+body {
+  width: 100%;
 }
 
 .grid {
@@ -149,45 +143,45 @@ body{
 .btn-primary {
   width: 120px;
   height: 48px;
-  background: rgba(63,163,184,1);
+  background: rgba(63, 163, 184, 1);
   opacity: 1;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border:none;
-  color: rgba(255,255,255,1);
+  border: none;
+  color: rgba(255, 255, 255, 1);
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 18px;
-  padding:0px;
+  padding: 0px;
   opacity: 1;
   text-align: center;
   cursor: pointer;
 }
 
 .customise {
-  background: rgba(63,163,184,1);
-  color: rgba(255,255,255,1);
+  background: rgba(63, 163, 184, 1);
+  color: rgba(255, 255, 255, 1);
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 18px;
 }
 
 a:hover {
-  color: rgba(255,255,255,1);
+  color: rgba(255, 255, 255, 1);
 }
 
 button:hover {
-  background: rgba(63,163,184,1);
+  background: rgba(63, 163, 184, 1);
 }
 
 a.nav-link.active {
-  background: rgba(63,163,184,1);
+  background: rgba(63, 163, 184, 1);
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 18px;
 }
 
 a.nav-link {
-  color: rgba(63,163,184,1);
+  color: rgba(63, 163, 184, 1);
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 18px;
