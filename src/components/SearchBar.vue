@@ -1,7 +1,6 @@
 <template>
   <div class="uicards" style="margin: 10px">
-    <div class="ui icon input" style="width: 100%">
-    </div>
+    <div class="ui icon input" style="width: 100%"></div>
     <div class="wrapper">
       <input
         class="searchbox"
@@ -10,19 +9,20 @@
         v-model="searchQuery"
       />
       <div class="searchicon"></div>
-    <div
-      class="card-ui-fluid"
-      v-for="listing in searchedListings"
-      :key="listing.id"
-      style="margin: 0"
-      data-live-search="false"
-    >
-      <div class="content">
-        <img class="right floated mini ui image" :src="listing.imageURL" />
-        <button @click="viewTourInfo(listing.id)">{{ listing.tour_name }}</button><br><br>
+      <div
+        class="card-ui-fluid"
+        v-for="listing in searchedListings"
+        :key="listing.id"
+        style="margin: 0"
+      >
+        <div class="content">
+          <img class="right floated mini ui image" :src="listing.imageURL" />
+          <button @click="viewTourInfo(listing.id)">
+            {{ listing.tour_name }}</button
+          ><br /><br />
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -36,10 +36,10 @@ import firebase from "firebase";
 import { computed, onBeforeMount, reactive, ref } from "vue";
 export default {
   name: "SearchBar",
-  data(){
-    return{
-      data:""
-  }
+  data() {
+    return {
+      data: "",
+    };
   },
   setup() {
     const listings = reactive([]);
@@ -74,11 +74,11 @@ export default {
   methods: {
     viewTourInfo(id) {
       this.$router.push({
-        name: 'TourInfo',
+        name: "TourInfo",
         params: {
           tour_id: id,
-        }
-      })
+        },
+      });
     },
   },
 };
@@ -98,7 +98,7 @@ export default {
   padding-left: 50px;
   border-radius: 15px;
 }
-.wrapper:hover{
+.wrapper:hover {
   cursor: pointer;
 }
 .searchicon {
@@ -111,39 +111,39 @@ export default {
   opacity: 0.5;
   position: absolute;
   top: 10px;
-  left:10px;
+  left: 10px;
   overflow: hidden;
 }
-.button{
+.button {
   border: 10px black solid;
 }
-.card-ui-fluid{
-  display:none;
+.card-ui-fluid {
+  display: none;
   width: 415px;
-  position:relative;
+  position: relative;
   height: 47px;
-  top:1px;
-  left:0px;
-  z-index:10;
+  top: 1px;
+  left: 0px;
+  z-index: 10;
   border-radius: 200px;
   border-top: 1px black;
 }
-.content{
+.content {
   background-color: white;
   padding: 15px;
 }
-.wrapper{
-  position:absolute;
+.wrapper {
+  position: absolute;
   top: 12px;
   left: 156px;
   width: 416px;
   height: 50px;
 }
-.wrapper:hover .card-ui-fluid{
-  display:block;
+.wrapper:hover .card-ui-fluid {
+  display: block;
   cursor: pointer;
 }
-button{
-  cursor:pointer;
+button {
+  cursor: pointer;
 }
 </style>

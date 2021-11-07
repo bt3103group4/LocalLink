@@ -61,10 +61,10 @@
           <div class="landing-text-container">
             <span class="card-heading landing-heading">Safety</span>
             <span class="card-text landing-feature-desc">
-              We ensure your safety by doing identity checks on our users. 
-              All tour guides have proper documentation and have provided 
-              past reviews from customers. There is chat functionality that 
-              allows tourists and tour guides to interact and discuss pricing.
+              We ensure your safety by doing identity checks on our users. All
+              tour guides have proper documentation and have provided past
+              reviews from customers. There is chat functionality that allows
+              tourists and tour guides to interact and discuss pricing.
             </span>
           </div>
         </div>
@@ -82,9 +82,10 @@
           <div class="landing-text-container">
             <span class="card-heading landing-heading">Reviews</span>
             <span class="card-text landing-feature-desc">
-              We allow tourists to rate tour guides based on their experience 
-              and also allow tour guides to review tourists. This will ensure 
-              smooth operations, allowing users to find the best local to link with.
+              We allow tourists to rate tour guides based on their experience
+              and also allow tour guides to review tourists. This will ensure
+              smooth operations, allowing users to find the best local to link
+              with.
             </span>
           </div>
         </div>
@@ -102,8 +103,9 @@
           <div class="landing-text-container">
             <span class="card-heading landing-heading">Customisation</span>
             <span class="card-text landing-feature-desc">
-              Our suggested tours use machine learning techniques to offer 
-              personalised tour suggestions based on your interests and price range.
+              Our suggested tours use machine learning techniques to offer
+              personalised tour suggestions based on your interests and price
+              range.
             </span>
           </div>
         </div>
@@ -114,7 +116,8 @@
       <div class="landing-heading-container">
         <h1 class="section-heading landing-features-text">Meet the Team</h1>
         <span class="section-text landing-text">
-          We are the developers behind LocalLink. We built it as a part of BT3103, our Web Development class at NUS
+          We are the developers behind LocalLink. We built it as a part of
+          BT3103, our Web Development class at NUS
         </span>
       </div>
       <div class="landing-cards-container">
@@ -145,10 +148,25 @@
       <h2 class="section-heading landing-features-text">Get in touch</h2>
       <div class="landing-content-container6">
         <div class="landing-form-container">
-          <span class="big-card-heading landing-heading">Send us a message</span>
-          <input type="text" required="true" placeholder="Name" class="landing-text-input landing-name5" />
-          <input type="text" required="true" placeholder="E-mail" class="landing-text-input landing-email" />
-          <textarea placeholder="Your Message" class="landing-text-area landing-message"></textarea>
+          <span class="big-card-heading landing-heading"
+            >Send us a message</span
+          >
+          <input
+            type="text"
+            required="true"
+            placeholder="Name"
+            class="landing-text-input landing-name5"
+          />
+          <input
+            type="text"
+            required="true"
+            placeholder="E-mail"
+            class="landing-text-input landing-email"
+          />
+          <textarea
+            placeholder="Your Message"
+            class="landing-text-area landing-message"
+          ></textarea>
           <button class="anchor landing-button landing-cta-btn2">SEND</button>
         </div>
         <div class="landing-locations-container">
@@ -160,7 +178,9 @@
                   d="M512 0c-176.732 0-320 143.268-320 320 0 320 320 704 320 704s320-384 320-704c0-176.732-143.27-320-320-320zM512 512c-106.040 0-192-85.96-192-192s85.96-192 192-192 192 85.96 192 192-85.96 192-192 192z"
                 ></path>
               </svg>
-              <span class="section-text">13, Computing Drive, COM1, 117417</span>
+              <span class="section-text"
+                >13, Computing Drive, COM1, 117417</span
+              >
             </div>
             <div class="landing-address">
               <svg viewBox="0 0 1024 1024" class="landing-address-icon">
@@ -171,7 +191,10 @@
               <span class="section-text">bt3103group4@gmail.com</span>
             </div>
             <div class="landing-address">
-              <svg viewBox="0 0 804.5714285714286 1024" class="landing-address-icon">
+              <svg
+                viewBox="0 0 804.5714285714286 1024"
+                class="landing-address-icon"
+              >
                 <path
                   d="M804.571 708.571c0 20.571-9.143 60.571-17.714 79.429-12 28-44 46.286-69.714 60.571-33.714 18.286-68 29.143-106.286 29.143-53.143 0-101.143-21.714-149.714-39.429-34.857-12.571-68.571-28-100-47.429-97.143-60-214.286-177.143-274.286-274.286-19.429-31.429-34.857-65.143-47.429-100-17.714-48.571-39.429-96.571-39.429-149.714 0-38.286 10.857-72.571 29.143-106.286 14.286-25.714 32.571-57.714 60.571-69.714 18.857-8.571 58.857-17.714 79.429-17.714 4 0 8 0 12 1.714 12 4 24.571 32 30.286 43.429 18.286 32.571 36 65.714 54.857 97.714 9.143 14.857 26.286 33.143 26.286 50.857 0 34.857-103.429 85.714-103.429 116.571 0 15.429 14.286 35.429 22.286 49.143 57.714 104 129.714 176 233.714 233.714 13.714 8 33.714 22.286 49.143 22.286 30.857 0 81.714-103.429 116.571-103.429 17.714 0 36 17.143 50.857 26.286 32 18.857 65.143 36.571 97.714 54.857 11.429 5.714 39.429 18.286 43.429 30.286 1.714 4 1.714 8 1.714 12z"
                 ></path>
@@ -185,8 +208,7 @@
     <div id="team" class="landing-section-separator"></div>
     <div class="landing-footer-container">
       <div class="landing-footer">
-        <div class="landing-social-links">
-        </div>
+        <div class="landing-social-links"></div>
         <div class="landing-copyright-container">
           <svg viewBox="0 0 1024 1024" class="landing-footer-icon">
             <path
@@ -197,7 +219,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -392,7 +413,7 @@ export default {};
   padding-bottom: var(--landing-space-space-tenunits);
   justify-content: center;
   color: white;
-  background: url("~@/assets/landing-hero-banner.jpg") left center;
+  background: url("~@/assets/hakone.jpg") left center;
   background-size: cover;
 }
 
@@ -580,31 +601,29 @@ export default {};
 }
 
 .rhea-photo {
-  background: url("~@/assets/team/rhea.jpg")  no-repeat center;
+  background: url("~@/assets/team/rhea.jpg") no-repeat center;
   background-size: contain;
 }
 
 .amanda-photo {
-  background: url("~@/assets/team/amanda.jpg")  no-repeat center;
+  background: url("~@/assets/team/amanda.jpg") no-repeat center;
   background-size: contain;
 }
 
 .zihui-photo {
-  background: url("~@/assets/team/zihui.jpg")  no-repeat center;
+  background: url("~@/assets/team/zihui.jpg") no-repeat center;
   background-size: contain;
 }
 
 .jialu-photo {
-  background: url("~@/assets/team/jialu.jpg")  no-repeat center;
+  background: url("~@/assets/team/jialu.jpg") no-repeat center;
   background-size: contain;
 }
 
 .charlene-photo {
-  background: url("~@/assets/team/rhea.jpg")  no-repeat center;
+  background: url("~@/assets/team/rhea.jpg") no-repeat center;
   background-size: contain;
 }
-
-
 
 .landing-footer-icon {
   width: 18px;
@@ -787,5 +806,4 @@ export default {};
   height: 24px;
   margin-right: var(--landing-space-space-doubleunit);
 }
-
 </style>

@@ -1,80 +1,77 @@
 <template>
-<body>
-<div class="topnav">
-    <a href="#home">About</a>
-    <a class="active" href="#home">Contact</a>
-  <router-link to="/touristProfile">Account</router-link>
-</div>
-    <SearchBar/>
-</body>
+  <body>
+    <div class="topnav">
+      <a href="#home">About</a>
+      <a class="active" href="#home">Contact</a>
+      <router-link to="/touristProfile">Account</router-link>
+    </div>
+    <SearchBar />
+  </body>
 </template>
 
 <script>
-import {ref, onBeforeMount} from 'vue'
-import firebase from 'firebase'
-import SearchBar from './SearchBar.vue'
+import { ref, onBeforeMount } from "vue";
+import firebase from "firebase";
+import SearchBar from "./SearchBar.vue";
 
 export default {
-  components : {SearchBar},
-   setup () {
-            let name = ref("");
+  components: { SearchBar },
+  setup() {
+    let name = ref("");
 
-            onBeforeMount(() => {
-                const user = firebase.auth().currentUser;
-                if (user) {
-                    name.value = user.email.split('@')[0];
-                }
-                
-            });
+    onBeforeMount(() => {
+      const user = firebase.auth().currentUser;
+      if (user) {
+        name.value = user.email.split("@")[0];
+      }
+    });
 
-            const Logout = () => {
-                firebase    
-                    .auth()
-                    .signOut()
-                    .then(() => console.log("Sign Out"))
-                    .catch(err => alert(err.message));
-            }
+    const Logout = () => {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => console.log("Sign Out"))
+        .catch((err) => alert(err.message));
+    };
 
-            return{
-                name,
-                Logout
-            }
-            
-
-        }
-}
+    return {
+      name,
+      Logout,
+    };
+  },
+};
 </script>
 
 <style scoped>
-body{
-  margin:0px;
-  padding:0px;
+body {
+  margin: 0px;
+  padding: 0px;
   position: absolute;
   top: 0px;
-  left:0px;
+  left: 0px;
 }
-.topnav{
-  background-color: rgba(63,163,184,1);
+.topnav {
+  background-color: rgba(63, 163, 184, 1);
   width: 100%;
   position: absolute;
   top: 0px;
   height: 75px;
-  padding-top: 25px ;
+  padding-top: 25px;
   padding-left: 1000px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-a{
+a {
   padding: 20px;
   font-family: Ubuntu;
   color: white;
   text-decoration: none;
   font-size: 18px;
 }
-a:hover{
+a:hover {
   cursor: pointer;
   background-color: grey;
   height: 75px;
-  top:0px;
+  top: 0px;
   color: white;
   font-style: normal;
 }
@@ -106,5 +103,4 @@ a:hover{
   left: 170px;
   overflow: hidden;
 }
-
 </style>
