@@ -9,7 +9,7 @@
             <div v-else class="col my-col" v-for="tour in tours" :key="tour.tour_name">
                   <div class="card-group">
                     <div class="card">
-                    <img class="card-img-top" src="..\images\v225_74.png" alt="Card image cap"/>
+                    <img class="card-img-top" :src="tour.image" alt="Card image cap"/>
                     <div class="card-body">
                     <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
                     <button id="editlisting" v-if="isUserAccount" @click="editing(tour.tour_id)"></button>
@@ -27,7 +27,6 @@ import { db} from "../main.js";
 
 export default {
     name: "UserSavedListings",
-    emit: ["tourname"],
     data(){
         return{
             tours:[]
@@ -51,7 +50,7 @@ export default {
                             let tour = {
                                 tourname : data["tour_name"],
                                 start : data["start_date"],
-                                image: "image",
+                                image: data["tour_photo"],
                                 review: "4", //to make dynamic too KIV
                                 tour_id: String(data.email + ", " + data.tour_name)
                             }

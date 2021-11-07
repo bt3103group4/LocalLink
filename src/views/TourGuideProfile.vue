@@ -81,7 +81,7 @@ export default {
 }
 body {
   width: 100%;
-  height: 1100px;
+  height:1500px;
   background: rgba(242,238,238,1);
   opacity: 1;
 }
