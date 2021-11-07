@@ -102,6 +102,7 @@ export default {
             })
     } ,
             saveToSavedListings(tour_name,email){
+              alert("Listing saved!")
             const auth = firebase.auth();
             auth.onAuthStateChanged(user => {
             if (user){
@@ -114,7 +115,7 @@ export default {
                 }
             }
             })
-            console.log("saved")
+  
     }      
   },
 
