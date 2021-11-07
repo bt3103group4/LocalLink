@@ -53,7 +53,7 @@
         >
           Reserve
         </button>
-        <img id="bookmark" src="../images/bookmark.png">
+        <img id="bookmark" @click="saveToSavedListings(this.tour_name,this.email)" src="../images/bookmark.png">
       </div>
     </div>
   </div>
@@ -92,8 +92,6 @@ export default {
             auth.onAuthStateChanged(user => {
             if (user){
                 let fbuser = auth.currentUser.email;
-                console.log("tourname")
-                console.log(tour_name)
                 if (fbuser){
                     db.collection("users").doc(fbuser) 
                     .update({
@@ -102,8 +100,22 @@ export default {
                 }
             }
             })
-
-    }    
+    } ,
+            saveToSavedListings(tour_name,email){
+            const auth = firebase.auth();
+            auth.onAuthStateChanged(user => {
+            if (user){
+                let fbuser = auth.currentUser.email;
+                if (fbuser){
+                    db.collection("users").doc(fbuser) 
+                    .update({
+                        saved_listings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
+                    }) 
+                }
+            }
+            })
+            console.log("saved")
+    }      
   },
 
   mounted() {
@@ -145,6 +157,9 @@ body {
   width:130px;
   top:10px;
   left:650px;
+}
+#bookmark:hover{
+  cursor: pointer;
 }
 .inner {
   position: relative;
