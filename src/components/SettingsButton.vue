@@ -64,6 +64,7 @@ export default {
     margin:0px;
     padding:0px;
     cursor: pointer;
+    z-index:10;
 }
 .dropdown-content {
   display: none;
@@ -111,5 +112,6 @@ export default {
   top: 28px;
   right:100px;
   overflow: hidden;
+  z-index:1;
 }
 </style>

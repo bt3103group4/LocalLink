@@ -40,6 +40,7 @@
           <div
             class="d-flex flex-column align-items-center text-center p-3 py-5"
           >
+            <p id="loading" v-if="uploaded == false" >Please wait while your image loads... </p>
             <img
               v-if="profilepic != ''"
               class="profilepicture"
@@ -132,6 +133,7 @@ export default {
       lang: "",
       email: "",
       profilepic: "",
+      uploaded:true
     };
   },
   mounted() {
@@ -206,6 +208,7 @@ export default {
     previewImage(event) {
       this.uploadValue = 0;
       this.profilepic = null;
+      this.uploaded=false;
       this.imageData = event.target.files[0];
       this.onUpload();
     },
@@ -232,6 +235,7 @@ export default {
             self.profilepic = url;
             console.log("Picture");
             console.log(this.profilepic);
+            self.uploaded=true;
           });
         }
       );
@@ -266,7 +270,14 @@ body {
   box-shadow: none;
   border-color: rgba(63, 163, 184, 1);
 }
+#loading{
+  position: absolute;
+  top:220px;
+  left:90px;
+  font-size: 12px;
+  font-style: italic;
 
+}
 .profile-button {
   background: rgba(63, 163, 184, 1);
   box-shadow: none;
@@ -331,7 +342,5 @@ body {
   cursor: pointer;
   border: solid 1px rgba(63, 163, 184, 1);
 }
-.profilepicture{
-    border:10px solid red;
-}
+
 </style>
