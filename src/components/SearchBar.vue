@@ -36,10 +36,10 @@ import firebase from "firebase";
 import { computed, onBeforeMount, reactive, ref } from "vue";
 export default {
   name: "SearchBar",
-  data(){
-    return{
-      data:""
-  }
+  data() {
+    return {
+      data: "",
+    };
   },
   setup() {
     const listings = reactive([]);
@@ -114,29 +114,18 @@ export default {
   left: 10px;
   overflow: hidden;
 }
-<<<<<<< HEAD
-.card-ui-fluid {
-  display: none;
-  width: 410px;
-  position: relative;
-  height: 47px;
-  top: 5px;
-  left: 0px;
-  z-index: 10;
-=======
-.button{
+.button {
   border: 10px black solid;
 }
-.card-ui-fluid{
-  display:none;
+.card-ui-fluid {
+  display: none;
   width: 415px;
-  position:relative;
+  position: relative;
   height: 47px;
-  top:1px;
-  left:0px;
-  z-index:10;
+  top: 1px;
+  left: 0px;
+  z-index: 10;
   border-radius: 200px;
->>>>>>> 114d8b7e07ef4c9a52807e5cc50da2a8a843cc0c
   border-top: 1px black;
 }
 .content {
@@ -154,7 +143,7 @@ export default {
   display: block;
   cursor: pointer;
 }
-button{
-  cursor:pointer;
+button {
+  cursor: pointer;
 }
 </style>
