@@ -9,12 +9,15 @@
       />
       <div class="searchicon"></div>
     </div>
+    <br />
+    <br />
+    <br />
+    <br />
     <div
       class="card ui fluid"
       v-for="listing in searchedListings"
       :key="listing.id"
       style="margin: 0"
-      data-live-search="false"
     >
       <div class="content">
         <img class="right floated mini ui image" :src="listing.imageURL" />
