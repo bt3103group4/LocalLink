@@ -16,7 +16,6 @@
     <NavBar />
     <Logo />
     <SettingsButton />
-    <DefaultFooter />
 
     <div class="container">
       <div style="width: 10%"></div>
@@ -71,6 +70,7 @@
       </div>
     </div>
   </body>
+      <DefaultFooter />
 </template>
 
 <script>
