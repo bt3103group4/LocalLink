@@ -4,10 +4,7 @@
   <Logo />
   <SettingsButton />
   <DefaultFooter />
-  <button
-    class="backNav"
-    @click="this.$router.push('/ListingsNature')"
-  ></button>
+  <Back/>
   <div>
     <link
       href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
@@ -64,12 +61,13 @@ import SettingsButton from "@/components/SettingsButton.vue";
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
 import DefaultFooter from "@/components/DefaultFooter.vue";
+import Back from "@/components/Back.vue"
 import { db } from "../main.js";
 import firebase from 'firebase';
 
 export default {
   name: "TourInfo",
-  components: { SettingsButton, NavBar, Logo, DefaultFooter },
+  components: { SettingsButton, NavBar, Logo, DefaultFooter , Back},
   props: ["tour_id"],
   data() {
     return {
