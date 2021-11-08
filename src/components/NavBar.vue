@@ -2,7 +2,7 @@
   <body>
     <div class="topnav">
       <a href="#home">About</a>
-      <a class="active" href="#home">Contact</a>
+      <a class="active" href="#home">Chat</a>
       <router-link to="/touristProfile">Account</router-link>
     </div>
     <SearchBar />
