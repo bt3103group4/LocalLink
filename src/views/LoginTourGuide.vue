@@ -60,17 +60,11 @@ export default {
 
 
 <style scoped>
-<<<<<<< HEAD
 
 .background{
   opacity: 0.85;
   z-index: 1;
   width:100%;
-=======
-.background{
-  opacity: 0.85;
-  z-index: 1;
->>>>>>> 63e30fe062efe492ebf931861c8cd10da31b4c08
 }
 .login{
   z-index: 5;
