@@ -43,7 +43,7 @@
     <div id="features" class="landing-features">
       <div class="landing-heading-container">
         <h2 class="section-heading landing-features-text">
-          Which are the greatest things about it?
+          What are the greatest things about us?
         </h2>
       </div>
       <div class="landing-cards-container">

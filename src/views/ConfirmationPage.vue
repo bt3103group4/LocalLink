@@ -60,7 +60,7 @@ body{
   color: rgba(0, 0, 0, 1);
   position: relative;
   top: 200px;
-  font-family: Ubuntu;
+  font-family:ubuntu;
   font-weight: Bold;
   font-size: 45px;
   opacity: 1;
@@ -72,7 +72,7 @@ p {
   color: rgba(0, 0, 0, 1);
   position: relative;
   top: 225px;
-  font-family: Ubuntu;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: Bold;
   font-size: 25px;
   opacity: 1;
