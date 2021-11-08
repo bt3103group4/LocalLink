@@ -1,6 +1,6 @@
 
 <template>
-<img class="background" src="../images/bali-beach.jpg">
+<img class="background" src="../images/La-Plancha-Sunset-Bar-on-Seminyak-Beach-Bali-Indonesia.jpg">
 <div class="login">
   <div class="logo-and-title">
       <FormLogo/>
@@ -43,7 +43,7 @@ export default {
                 .auth()
                 .signInWithEmailAndPassword(email.value, password.value)
                 .then(data => console.log(data))
-                .then(() => router.push('/listingsnature'))
+                .then(() => router.push('/tourGuideProfile'))
                 .catch(err => alert(err.message));
         }
         return {
@@ -60,9 +60,11 @@ export default {
 
 
 <style scoped>
+
 .background{
   opacity: 0.85;
   z-index: 1;
+  width:100%;
 }
 .login{
   z-index: 5;

@@ -4,10 +4,7 @@
   <Logo />
   <SettingsButton />
   <DefaultFooter />
-  <button
-    class="backNav"
-    @click="this.$router.push('/ListingsNature')"
-  ></button>
+  <Back/>
   <div>
     <link
       href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
@@ -34,13 +31,11 @@
       </div>
       <div class="inner">
         <div class="right_info_box">
-          <!-- <div class="v232_103"></div> -->
           <div class="v228_57">
             <div class="duration_box"></div>
             <span class="duration">Duration Offered:</span>
           </div>
           <span class="date">{{ start_date }} to {{ end_date }}</span>
-        </div>
         <div class="top_info">
           <span class="v228_85">(120 reviews)</span
           ><span class="v228_84">4.97</span
@@ -55,6 +50,7 @@
         </button>
         <img id="bookmark" @click="saveToSavedListings(this.tour_name,this.email)" src="../images/bookmark.png">
       </div>
+      </div>
     </div>
   </div>
 </template>
@@ -64,12 +60,13 @@ import SettingsButton from "@/components/SettingsButton.vue";
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
 import DefaultFooter from "@/components/DefaultFooter.vue";
+import Back from "@/components/Back.vue"
 import { db } from "../main.js";
 import firebase from 'firebase';
 
 export default {
   name: "TourInfo",
-  components: { SettingsButton, NavBar, Logo, DefaultFooter },
+  components: { SettingsButton, NavBar, Logo, DefaultFooter , Back},
   props: ["tour_id"],
   data() {
     return {
@@ -156,9 +153,9 @@ body {
 #bookmark{
   position:relative;
   width:130px;
-  top:10px;
-  left:650px;
+  left:635px;
 }
+
 #bookmark:hover{
   cursor: pointer;
 }
@@ -188,7 +185,6 @@ body {
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 0px;
-  left: 30px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   opacity: 1;
   text-align: left;
@@ -247,7 +243,7 @@ body {
   overflow: hidden;
   color: rgba(255, 255, 255, 1);
   position: absolute;
-  top: 200px;
+  top: 180px;
   left: 180px;
   font-family: Ubuntu;
   font-weight: Medium;
@@ -262,7 +258,7 @@ body {
   width: 250px;
   color: rgba(0, 0, 0, 1);
   position: absolute;
-  top: 280px;
+  top: 260px;
   left: 250px;
   font-family: Ubuntu;
   font-weight: Regular;
@@ -283,7 +279,7 @@ body {
   overflow: hidden;
   position: absolute;
   top: 20px;
-  left: 20px;
+  left: 360px;
   overflow: hidden;
 }
 

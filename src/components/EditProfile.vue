@@ -104,7 +104,7 @@
             </div>
             <div class="mt-5 text-center">
               <button
-                @click="saveEdits(), $router.push('/TouristProfile')"
+                @click="saveEdits(), $router.go(-1)"
                 class="btn btn-primary profile-button"
                 type="button"
               >

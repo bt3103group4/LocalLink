@@ -59,10 +59,11 @@
       <div class="card" v-for="tour in tours" :key="tour.tour_name">
         <img class="card-img-top" :src="tour.tour_photo" alt="Card image cap" />
         <div class="card-body">
-          <br>
-          <button class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">See more</button> <br> <br>
           <h5 class="card-title">{{ tour.tour_name }}</h5>
           <p class="card-text">{{ tour.description }}</p>
+          <button class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">
+            See more
+          </button>
           <!-- <p class="card-text"> -->
           <!-- <small class="text-muted">Last booked 5 mins ago</small> -->
           <!-- </p> -->
@@ -155,10 +156,6 @@ body {
   opacity: 1;
   text-align: center;
   cursor: pointer;
-  margin: 0;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .customise {
@@ -167,12 +164,6 @@ body {
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 18px;
-}
-
-.card-img-top {
-  float: left;
-  height: 250px;
-  object-fit: cover;
 }
 
 a:hover {
