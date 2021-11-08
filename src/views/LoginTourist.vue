@@ -54,9 +54,6 @@ export default {
             password
         }
     }
-   
-        
-
 }
 </script>
 
