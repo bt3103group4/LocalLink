@@ -11,7 +11,7 @@
         <textarea v-else
         class="tour_input"
         v-model.lazy="tourname"
-        placeholder="Name of tour you hosted for your tour guide"
+        placeholder="Name of tour you attended"
         ></textarea>
     </div>
 
