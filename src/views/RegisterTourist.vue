@@ -132,7 +132,7 @@ export default {
             })
             .then(() => {
               console.log(this.$router);
-              this.$router.push('/touristprofile')
+              this.$router.push('/listingsnature')
             }) 
             .catch((error) => {
               console.log(error);
