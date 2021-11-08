@@ -3,7 +3,8 @@
     <div class="topnav">
       <a href="#home">About</a>
       <a class="active" href="#home">Chat</a>
-      <router-link to="/touristProfile">Account</router-link>
+      <router-link v-if="this.type === 'tour-guide'" to="/TourGuideProfile" >Account</router-link>
+      <router-link v-else to="/TouristProfile" >Account</router-link>
     </div>
     <SearchBar />
   </body>
@@ -13,6 +14,7 @@
 import { ref, onBeforeMount } from "vue";
 import firebase from "firebase";
 import SearchBar from "./SearchBar.vue";
+import { db } from "../main.js";
 
 export default {
   components: { SearchBar },
@@ -39,6 +41,27 @@ export default {
       Logout,
     };
   },
+    mounted() {
+    const auth = firebase.auth();
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        let fbuser = auth.currentUser.email;
+        if (fbuser) {
+          db.collection("users").doc(String(fbuser))
+          .get()
+          .then(doc => {
+            if (doc.exists){
+              const data = doc.data()
+              this.type = data["type"]
+              console.log(this.type)
+            } else {
+              console.log("no such document")
+            }
+          })
+        }
+      }
+    })
+  }
 };
 </script>
 
