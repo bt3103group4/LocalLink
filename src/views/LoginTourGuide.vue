@@ -1,5 +1,6 @@
 
 <template>
+<img class="background" src="../images/bali-beach.jpg">
 <div class="login">
   <div class="logo-and-title">
       <FormLogo/>
@@ -59,7 +60,16 @@ export default {
 
 
 <style scoped>
-
+.background{
+  opacity: 0.85;
+  z-index: 1;
+}
+.login{
+  z-index: 5;
+  position: absolute;
+  background-color: white;
+  top:100px;
+}
 .nav-link {
   color: #40a3b9;
 }
