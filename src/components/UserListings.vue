@@ -66,7 +66,6 @@ export default {
             }
         display();
     },
-    
     methods: {
         isUserAccount() {
             //TODO: Check this is users account if they want to edit info
