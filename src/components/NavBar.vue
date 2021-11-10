@@ -20,6 +20,11 @@ import { db } from "../main.js";
 
 export default {
   components: { SearchBar },
+  data(){
+    return{
+      type: ""
+    }
+  },
   setup() {
     let name = ref("");
 

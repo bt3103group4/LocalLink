@@ -20,12 +20,17 @@ import NewReview from '@/views/NewReview.vue'
 import TourInfo from '@/views/TourInfo.vue'
 import ConfirmationPage from '@/views/ConfirmationPage.vue'
 import TourGuideView from '@/views/TourGuideView.vue'
-
+import Tips from '@/views/Tips.vue'
 const routes = [
     {
     path: '/',
     name: 'Landing',
     component: Landing
+    },
+    {
+    path: '/tips',
+    name: 'Tips',
+    component : Tips
     },
     {
     path: '/logintourguide',
