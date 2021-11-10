@@ -84,7 +84,7 @@ body{
 h1{
     position: relative;
     top:-30px;
-    font-size: 40px;
+    font-size: 50px;
 }
 .credits{
     position: absolute;

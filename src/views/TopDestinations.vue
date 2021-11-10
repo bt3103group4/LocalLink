@@ -4,8 +4,13 @@
     <SettingsButton/>
     <Back/>
     <body>
+    <div class="credits">
+        <img id ="authorimg" src="../images/author2.png" alt="author" /><br>
+        <h4> Adapted from Forbes</h4>
+        <h5> Authored by Laura Begley Bloom</h5>
+    </div>         
         <div class="article-text">
-        <h1> Bucket List Travel: The Top 10 Places In The World</h1><br>
+        <h1 id="title"> Bucket List Travel: The Top 10 Places In The World</h1><br>
         <p> What's on your travel bucket list? If you're like most people, the more you travel, 
             the more places you add to your bucket list. So when the editors of the website Big 7
              Travel announced the list of the world's top 10 bucket list destinations, we stopped 
@@ -87,3 +92,32 @@ export default ({
     components: {NavBar,Logo,SettingsButton,Back}
 })
 </script>
+
+<style scoped>
+body{
+    width:100%;
+}
+.article-text{
+    width:1050px;
+    position:relative;
+    top:10px;
+    left:100px;
+    padding-right:100px;
+    padding-bottom: 100px;
+    border-right:2px black solid;
+}
+
+.credits{
+    position: absolute;
+    top:150px;
+    right:10px;
+}
+#authorimg{
+    width:200px;
+    border-radius: 100px;
+    border: 5px solid lightgrey;
+}
+#title{
+    font-size:50px;
+}
+</style>
