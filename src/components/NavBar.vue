@@ -1,10 +1,12 @@
 <template>
   <body>
     <div class="topnav">
-      <a href="#home">About</a>
-      <a class="active" href="#home">Chat</a>
-      <router-link v-if="this.type === 'tour-guide'" to="/TourGuideProfile" >Account</router-link>
-      <router-link v-else to="/TouristProfile" >Account</router-link>
+      <div class="navcontents">
+        <a href="#home">About</a>
+        <a class="active" href="#home">Chat</a>
+        <router-link v-if="this.type === 'tour-guide'" to="/TourGuideProfile" >Account</router-link>
+        <router-link v-else to="/TouristProfile" >Account</router-link>
+        </div>
     </div>
     <SearchBar />
   </body>
@@ -66,22 +68,20 @@ export default {
 </script>
 
 <style scoped>
-body {
-  margin: 0px;
-  padding: 0px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}
+
 .topnav {
   background-color: rgba(63, 163, 184, 1);
   width: 100%;
-  position: absolute;
+  position: relative;
   top: 0px;
   height: 75px;
-  padding-top: 25px;
-  padding-left: 1000px;
+  padding-left: 80%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.navcontents{
+  position: relative;
+  right:5%;
+  top: 35%;
 }
 a {
   padding: 20px;
