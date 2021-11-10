@@ -45,11 +45,14 @@
     </div>
 
     <div class ="travel-update">
-    <h1 > Latest Travel Updates on Covid-19 </h1>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/WuoY7_6O3pc" 
+    <iframe id="video1" width="560" height="315" src="https://www.youtube.com/embed/WuoY7_6O3pc" 
     title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
     clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+
+    <iframe id="video2" width="560" height="315" src="https://www.youtube.com/embed/qsZ5ea7wvkI" 
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+    encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     <div class="grid">
       <div @click="$router.push('/tips-for-travelling-with-covid')"  class="card">
@@ -151,13 +154,13 @@ body {
 }
 #top1{
     position: absolute;
-    top:800px;
+    top:700px;
     width:100%;
 }
 .grid {
   size: 50%;
   position: absolute;
-  top: 1000px;
+  top: 900px;
   left: 130px;
   right: 130px;
   display: grid;
@@ -173,11 +176,17 @@ body {
     position:absolute;
     top:50px;
 }
-.travel-update{
+
+#video1{
     position: absolute;
     top:300px;
-    left:400px;
-    border: red 10px solid;
+    left:100px;
+}
+
+#video2{
+    position: absolute;
+    top:300px;
+    left:750px;
 }
 .btn-primary {
   width: 120px;
