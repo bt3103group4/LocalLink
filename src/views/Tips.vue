@@ -24,7 +24,7 @@
     </div>
     <br />
     <br />
-    <div class="card text-center" id ="top">
+    <div class="card text-center" id ="top1">
       <div class="card-body">
         <h1 class="card-title">Travel Tips For Your Next Adventure</h1>
         <p class="card-text">
@@ -34,6 +34,23 @@
         </p>
       </div>
     </div>
+    <div class="card text-center" id ="top">
+      <div class="card-body">
+        <h1 class="card-title">News Updates</h1>
+        <p class="card-text">
+          <i>
+            Watch the latest travel news before planning your trip! </i>
+        </p>
+      </div>
+    </div>
+
+    <div class ="travel-update">
+    <h1 > Latest Travel Updates on Covid-19 </h1>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/WuoY7_6O3pc" 
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+    clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
     <div class="grid">
       <div @click="$router.push('/tips-for-travelling-with-covid')"  class="card">
         <img class="card-img-top" src="../images/travel1.jpg" alt="Card image cap" />
@@ -122,9 +139,7 @@ export default {
 body {
   width: 100%;
 }
-.cardheader{
-  border: 10px red solid;
-}
+
 #sec-img{
     width:377px;
     height:285px;
@@ -134,10 +149,15 @@ body {
     top:100px;
     width:100%;
 }
+#top1{
+    position: absolute;
+    top:800px;
+    width:100%;
+}
 .grid {
   size: 50%;
   position: absolute;
-  top: 300px;
+  top: 1000px;
   left: 130px;
   right: 130px;
   display: grid;
@@ -152,6 +172,12 @@ body {
 .container{
     position:absolute;
     top:50px;
+}
+.travel-update{
+    position: absolute;
+    top:300px;
+    left:400px;
+    border: red 10px solid;
 }
 .btn-primary {
   width: 120px;
