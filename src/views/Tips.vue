@@ -47,7 +47,7 @@
        <div @click="$router.push('/top-destinations-you-should-visit')" class="card">
         <img class="card-img-top" id="sec-img" src="../images/travel2.jpg" alt="Card image cap" />
         <div class="card-body">
-          <h5 class="card-title">Top 15 destinations you should visit in 2021</h5>
+          <h5 class="card-title">Top 10 destinations you should visit in 2021</h5>
           <p class="card-text"> What's on your travel bucket list? If you need a getaway
               but don't know where to go, we list 15 destinations you should check out!
           </p>
