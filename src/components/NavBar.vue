@@ -3,7 +3,7 @@
     <div class="topnav">
       <a href="#home">About</a>
       <a class="active" href="#home">Chat</a>
-      <router-link v-if="this.type == 'tour-guide'" to="/TourGuideProfile" >Account</router-link>
+      <router-link v-if="this.type === 'tour-guide'" to="/TourGuideProfile" >Account</router-link>
       <router-link v-else to="/TouristProfile" >Account</router-link>
     </div>
     <SearchBar />

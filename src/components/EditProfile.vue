@@ -59,7 +59,7 @@
             <div class="d-flex justify-content-between align-items-center mb-3">
               <h4 class="text-right">Edit your profile</h4>
             </div>
-            <div class="row mt-2">
+            <div class="name">
               <div class="col-md-6">
                 <label class="labels">First Name</label>
                 <input
@@ -69,12 +69,11 @@
                   placeholder="First name"
                   v-model="firstname"
                 />
-              </div>
-              <div class="lastname">
-                <label class="labels">Last Name</label>
+                <label id ="lastname" class="labels">Last Name</label>
                 <input
                   type="text"
                   class="form-control"
+                  id ="lastname" 
                   placeholder="Last name"
                   v-model="lastname"
                 />
@@ -283,14 +282,19 @@ body {
   box-shadow: none;
   border: none;
 }
-.lastname {
-  position: absolute;
-  top: 101px;
-  right: 0px;
-  left: 340px;
-  width: 290px;
+.name{
+  position: relative;
+  left:-15px;
+  width:600px;
+  height:50px;
 }
+#lastname{
+  position: relative;
+  top: -62px;
+  width:300px;
 
+  left:300px;
+}
 #langtextbox {
   width: 600px;
 }
