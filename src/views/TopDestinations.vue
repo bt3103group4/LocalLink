@@ -11,6 +11,7 @@
     </div>         
         <div class="article-text">
         <h1 id="title"> Bucket List Travel: The Top 10 Places In The World</h1><br>
+        <img id ="img" src="../images/travel2.jpg" alt="travelling with covid" /><br><br>
         <p> What's on your travel bucket list? If you're like most people, the more you travel, 
             the more places you add to your bucket list. So when the editors of the website Big 7
              Travel announced the list of the world's top 10 bucket list destinations, we stopped 
@@ -29,7 +30,7 @@
              and world-famous landmarks came out on top: 22% of the destinations on the list have white sandy beaches,
               while 52% are iconic cities.</p> <br>
 
-        <h1> These are the people's top 10 destinations. </h1>     
+        <h1> These are the people's top 10 destinations. </h1>  <br>   
 
         <h2>1. Bali, Indonesia </h2>
         <p> You’ll find beaches, volcanoes, Komodo dragons and jungles sheltering elephants, orangutans and tigers. 
@@ -106,7 +107,11 @@ body{
     padding-bottom: 100px;
     border-right:2px black solid;
 }
-
+#img{
+    width:700px;
+    position: relative;
+    left:100px;
+}
 .credits{
     position: absolute;
     top:150px;
