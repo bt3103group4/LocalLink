@@ -30,46 +30,36 @@
         <p class="card-text">
           <i>
             Not sure what to prepare for your upcoming trip?  Here are some tips
-            to prepare you for an amazing experience! </i
-          >
+            to prepare you for an amazing experience! </i>
         </p>
       </div>
     </div>
     <div class="grid">
-      <div class="card">
+      <div @click="$router.push('/tips-for-travelling-with-covid')"  class="card">
         <img class="card-img-top" src="../images/travel1.jpg" alt="Card image cap" />
         <div class="card-body">
           <h5 class="card-title">5 Expert Tips for Travelling with Covid</h5>
           <p class="card-text"> The Vaccinated Travel Lanes (VTL) are finally open! Here are
               some expert tips on travelling with covid to help you plan your itinerary.
           </p>
-          <button class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">
-            See more
-          </button>
         </div>
       </div>
-       <div class="card">
+       <div @click="$router.push('/top-destinations-you-should-visit')" class="card">
         <img class="card-img-top" id="sec-img" src="../images/travel2.jpg" alt="Card image cap" />
         <div class="card-body">
           <h5 class="card-title">Top 15 destinations you should visit in 2021</h5>
           <p class="card-text"> What's on your travel bucket list? If you need a getaway
               but don't know where to go, we list 15 destinations you should check out!
           </p>
-          <button class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">
-            See more
-          </button>
         </div>
         </div>
-        <div class="card">
+        <div @click="$router.push('/tips-for-your-next-solo-trip')" class="card">
         <img class="card-img-top" id="sec-img" src="../images/travel3.jpg" alt="Card image cap" />
         <div class="card-body">
           <h5 class="card-title">12 Essential Tips for your Next Solo Trip</h5>
           <p class="card-text"> Your first solo trip will feel extremely intimidating. 
               Check out these useful tips to prepare you for an experience of a lifetime.
           </p>
-          <button class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">
-            See more
-          </button>
         </div>
       </div>
     </div>
@@ -143,7 +133,6 @@ body {
     position: absolute;
     top:100px;
     width:100%;
-
 }
 .grid {
   size: 50%;
@@ -156,6 +145,9 @@ body {
   gap: 20px;
   justify-content: center;
   align-content: center;
+}
+.card:hover{
+    cursor: pointer;
 }
 .container{
     position:absolute;

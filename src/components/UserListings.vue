@@ -76,13 +76,7 @@ export default {
                     .get()
                     .then(doc => {
                         const data = doc.data()
-                        console.log("from view")
-                        if(data["type"] == "tour-guide"){
-                            return data["type"] == "tour-guide"
-                        }
-                        else{
-                            return false
-                        }
+                        return data["type"] == "tour-guide"
                     })
                 }
             }
