@@ -2,7 +2,7 @@
   <body>
     <div class="topnav">
       <div class="navcontents">
-        <a href="#home">About</a>
+        <router-link to="/Tips">Explore</router-link>
         <a class="active" href="#home">Chat</a>
         <router-link v-if="this.type === 'tour-guide'" to="/TourGuideProfile" >Account</router-link>
         <router-link v-else to="/TouristProfile" >Account</router-link>
