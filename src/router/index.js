@@ -23,6 +23,8 @@ import TourGuideView from '@/views/TourGuideView.vue'
 import Tips from '@/views/Tips.vue'
 import TipsCovid from '@/views/TipsCovid.vue'
 import TopDestinations from '@/views/TopDestinations.vue'
+import SoloTrip from '@/views/SoloTrip.vue'
+
 const routes = [
     {
     path: '/',
@@ -48,6 +50,11 @@ const routes = [
       path: '/top-destinations-you-should-visit',
       name: 'TopDestinations',
       component: TopDestinations
+    },
+    {
+      path: '/tips-for-your-next-solo-trip',
+      name: 'SoloTrip',
+      component: SoloTrip
     },
     {
     path: '/registertourguide',

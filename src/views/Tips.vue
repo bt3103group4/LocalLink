@@ -56,7 +56,7 @@
         <div @click="$router.push('/tips-for-your-next-solo-trip')" class="card">
         <img class="card-img-top" id="sec-img" src="../images/travel3.jpg" alt="Card image cap" />
         <div class="card-body">
-          <h5 class="card-title">12 Essential Tips for your Next Solo Trip</h5>
+          <h5 class="card-title">7 Essential Tips for your Next Solo Trip</h5>
           <p class="card-text"> Your first solo trip will feel extremely intimidating. 
               Check out these useful tips to prepare you for an experience of a lifetime.
           </p>
