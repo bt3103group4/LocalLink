@@ -75,12 +75,12 @@
              having fun during the day, but the world seems to get quieter at nighttime. If you want to meet people, 
              go out, and be in a social setting, then consider booking a hostel or private room in an Airbnb. Hostels aren’t for everyone,
               but they’re the easiest way to meet people as a solo traveler. Hostels usually host day tours, pub crawls, family dinners, 
-              and other events to keep up a social atmosphere!  Check reviews on Hostel World! </p>
+              and other events to keep up a social atmosphere!  Check reviews on Hostel World! </p><br>
 
         <h2> 6. Choose Your Location Wisely</h2>
         <p> It's crucial that you choose the right location for YOU. You're more likely to be pleased if you visit a 
             location that suits your interests. Avoid beaches if you find yourself bored after a few days of lounging in the sand. 
-            Avoid big cities if crowds overwhelm you.</p> 
+            Avoid big cities if crowds overwhelm you.</p> <br>
 
         <h2> 7. Let Go Of Expectations</h2>
         <p> Like I said somewhere above, anything could go down during your first solo trip. ANYTHING!
