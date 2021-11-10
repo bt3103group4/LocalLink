@@ -128,6 +128,9 @@ export default {
 body {
   width: 100%;
 }
+.cardheader{
+  border: 10px red solid;
+}
 .grid {
   size: 50%;
   position: absolute;

@@ -80,7 +80,7 @@ export default {
 }
 .navcontents{
   position: relative;
-  right:5%;
+  right:40%;
   top: 35%;
 }
 a {
@@ -92,7 +92,6 @@ a {
 }
 a:hover {
   cursor: pointer;
-  background-color: grey;
   height: 75px;
   top: 0px;
   color: white;
@@ -126,4 +125,5 @@ a:hover {
   left: 170px;
   overflow: hidden;
 }
+
 </style>

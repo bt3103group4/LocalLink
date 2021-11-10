@@ -21,8 +21,6 @@
             <p v-if="bio != ''"> {{bio}} </p>
             <p style="color:grey;font-style: italic;font-size:15px" v-else> Nothing here yet :(   Add your bio by clicking on the edit icon! </p><br>
         </div>
-
-        <button id="editprofilebtn" @click="$router.push('/EditUserProfile')"></button>
         </div>
         </body>
 </template>
@@ -137,17 +135,5 @@ button{
   opacity: 1;
   text-align: center;
 }
-#editprofilebtn {
-    width: 30px;
-    height: 30px;
-    position : absolute;
-    left: 440px;
-    top : 565px;
-    margin: 30px;
-    background: url("~@/images/edit.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    border: none;
-}
+
 </style>

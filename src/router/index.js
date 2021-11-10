@@ -19,6 +19,7 @@ import EditTour from '@/views/EditTour.vue'
 import NewReview from '@/views/NewReview.vue'
 import TourInfo from '@/views/TourInfo.vue'
 import ConfirmationPage from '@/views/ConfirmationPage.vue'
+import TourGuideView from '@/views/TourGuideView.vue'
 
 const routes = [
     {
@@ -81,6 +82,11 @@ const routes = [
     path: '/tourGuideProfile',
     name: 'TourGuideProfile',
     component: TourGuideProfile
+    },
+    {
+    path: '/tourGuideView',
+    name: 'TourGuideView',
+    component: TourGuideView
     },
     {
     path: '/chat',
