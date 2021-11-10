@@ -11,7 +11,7 @@
     </div>         
         <div class="article-text">
         <h1 id="title"> Bucket List Travel: The Top 10 Places In The World</h1><br>
-        <img id ="img" src="../images/travel2.jpg" alt="travelling with covid" /><br><br>
+        <img id ="img" src="../images/travel2.jpg" alt="top destinations" /><br><br>
         <p> What's on your travel bucket list? If you're like most people, the more you travel, 
             the more places you add to your bucket list. So when the editors of the website Big 7
              Travel announced the list of the world's top 10 bucket list destinations, we stopped 

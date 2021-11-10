@@ -1,5 +1,6 @@
 <template>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -10,13 +11,12 @@
       href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
       rel="stylesheet"
     />
-    <title>ListingsAdv</title>
+    <title>Explore</title>
   </head>
   <body>
     <NavBar />
     <Logo />
     <SettingsButton />
-    <DefaultFooter />
 
     <div class="container">
       <div style="width: 10%"></div>
@@ -41,6 +41,14 @@
           <i>
             Watch the latest travel news before planning your trip! </i>
         </p>
+      </div>
+    </div>
+
+    <div class="card text-center" id ="top3">
+      <div class="card-body">
+        <h1 class="card-title">Just For You</h1>
+           <i>
+             We think you might like these tours. Curated just for you!</i>
       </div>
     </div>
 
@@ -83,6 +91,20 @@
         </div>
       </div>
     </div>
+    <div class="grid2">
+      <div class="card" v-for="tour in tours" :key="tour.tour_name">
+        <img class="card-img-top" :src="tour.tour_photo" alt="Card image cap" />
+        <div class="card-body">
+          <br>
+          <button class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">See more</button> <br> <br>
+          <h5 class="card-title">{{ tour.tour_name }}</h5>
+          <p class="card-text">{{ tour.description }}</p>
+          <!-- <p class="card-text"> -->
+          <!-- <small class="text-muted">Last booked 5 mins ago</small> -->
+          <!-- </p> -->
+        </div>
+      </div>
+    </div>
   </body>
 </template>
 
@@ -91,39 +113,35 @@
 import SettingsButton from "@/components/SettingsButton.vue";
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
-import DefaultFooter from "@/components/DefaultFooter.vue";
 // import firebase from "firebase";
 import { db } from "../main.js";
 
 export default {
-  name: "Tips",
-  components: { SettingsButton, NavBar, Logo, DefaultFooter },
-
-  data() {
-    return {
+  name: "Explore",
+  data(){
+    return{
       tours: [],
-    };
+      tourName:["jialu98@hotmail.com, Churito Pagoda","jialu98@hotmail.com, Hakone Day Trip","jialu98@hotmail.com, Tibumana Waterfalls"]
+    }
   },
+  components: { SettingsButton, NavBar, Logo},
 
   mounted() {
-    db.collection("listings")
-      .where("tour_type", "==", "Adventure")
+    this.tourName.forEach((tourid)=>{
+      db.collection("listings").doc(tourid)
       .get()
       .then((docs) => {
-        docs.forEach((doc) => {
-          const data = doc.data();
-          let tour = {
+        const data = docs.data();
+            let tour = {
             email: data.email,
             tour_name: data.tour_name,
             description: data.description,
             tour_photo: data.tour_photo,
             tour_id: String(data.email + ", " + data.tour_name),
           };
-          // console.log(this.tours)
-          // console.log(tour)
           this.tours.push(tour);
-        });
-      });
+      })
+    })
   },
   methods: {
     viewTourInfo(tour_id) {
@@ -141,6 +159,7 @@ export default {
 <style scoped>
 body {
   width: 100%;
+  padding-bottom: 100px;
 }
 
 #sec-img{
@@ -157,10 +176,27 @@ body {
     top:700px;
     width:100%;
 }
+#top3{
+    position: absolute;
+    top:1400px;
+    width:100%;
+}
 .grid {
   size: 50%;
   position: absolute;
   top: 900px;
+  left: 130px;
+  right: 130px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-content: center;
+}
+.grid2 {
+  size: 50%;
+  position: absolute;
+  top: 1600px;
   left: 130px;
   right: 130px;
   display: grid;

@@ -20,7 +20,7 @@ import NewReview from '@/views/NewReview.vue'
 import TourInfo from '@/views/TourInfo.vue'
 import ConfirmationPage from '@/views/ConfirmationPage.vue'
 import TourGuideView from '@/views/TourGuideView.vue'
-import Tips from '@/views/Tips.vue'
+import Explore from '@/views/Explore.vue'
 import TipsCovid from '@/views/TipsCovid.vue'
 import TopDestinations from '@/views/TopDestinations.vue'
 import SoloTrip from '@/views/SoloTrip.vue'
@@ -32,9 +32,9 @@ const routes = [
     component: Landing
     },
     {
-    path: '/tips',
-    name: 'Tips',
-    component : Tips
+    path: '/Explore',
+    name: 'Explore',
+    component : Explore
     },
     {
     path: '/logintourguide',
