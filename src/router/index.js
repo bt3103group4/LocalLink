@@ -21,6 +21,7 @@ import TourInfo from '@/views/TourInfo.vue'
 import ConfirmationPage from '@/views/ConfirmationPage.vue'
 import TourGuideView from '@/views/TourGuideView.vue'
 import Tips from '@/views/Tips.vue'
+import TipsCovid from '@/views/TipsCovid.vue'
 const routes = [
     {
     path: '/',
@@ -36,6 +37,11 @@ const routes = [
     path: '/logintourguide',
     name: 'LoginTourGuide',
     component: LoginTourGuide
+    },
+    {
+      path: '/tips-for-travelling-with-covid',
+      name: 'TipsCovid',
+      component: TipsCovid
     },
     {
     path: '/registertourguide',
