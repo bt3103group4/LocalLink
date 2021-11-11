@@ -29,6 +29,9 @@
           <h5 class="card-text">Contact tour guide @ {{ email }}</h5>
         </div>
       </div>
+
+
+
       <div class="inner">
         <div class="right_info_box">
           <div class="container">
@@ -40,8 +43,8 @@
           </div>
           <span class="date">{{ start_date }} to {{ end_date }}</span>
         <div class="top_info">
-          <span class="v228_85">(120 reviews)</span>
-          <span class="v228_84">4.97</span>
+          <span class="num_review">(120 reviews)</span>
+          <span class="review">4.97</span>
           <span class="cost">From ${{ cost }} / person</span>
         </div>
         <span class="no_charge">You won’t be charged yet</span>
@@ -50,8 +53,19 @@
           @click="this.$router.push('/confirmationpage');saveToDB(this.tour_name,this.email)">
           Reserve
         </button>
+        </div>
       </div>
+
+      <div class = "info">
+        <span class="name">Tour's Name: {{ tour_name }}</span>
+        <div class="transport">Mode of transport: {{ transport }}</div>
+        <div class="experience">Years of experience: {{ experience }}</div>
+        <div class="tour-type">Tour type: {{ tour_type }}</div>
+        <div class="email">Tour Guide's email: {{ email }}</div>
+        <div class="description">Description: {{ description }}</div>
       </div>
+
+
     </div>
   </div>
 </template>
@@ -412,7 +426,7 @@ body {
   overflow: hidden;
 }
 
-.v228_85 {
+.num_review {
   width: 154px;
   color: rgba(123, 123, 123, 1);
   position: absolute;
@@ -424,7 +438,7 @@ body {
   opacity: 1;
   text-align: left;
 }
-.v228_84 {
+.review {
   width: 78px;
   color: rgba(0, 0, 0, 1);
   position: absolute;
@@ -435,20 +449,6 @@ body {
   font-size: 25px;
   opacity: 1;
   text-align: left;
-}
-
-.v228_78 {
-  width: 268px;
-  height: 245px;
-  /* background: url("../images/v228_78.png"); */
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 45px;
-  left: 260px;
-  overflow: hidden;
 }
 
 .v228_66 {
@@ -523,4 +523,80 @@ input:checked:before{
     border-left-color: rgba(63, 163, 184, 1);
     transition: 0.1s 0.3s border;
 }
+
+.name {
+  width: 590px;
+  color: rgba(78, 78, 78, 1);
+  position: absolute;
+  top: 710px;
+  left: 49px;
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+
+.transport {
+  width: 590px;
+  color: rgba(78, 78, 78, 1);
+  position: absolute;
+  top: 750px;
+  left: 49px;
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+.experience {
+  width: 590px;
+  color: rgba(78, 78, 78, 1);
+  position: absolute;
+  top: 790px;
+  left: 49px;
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+.tour-type {
+  width: 590px;
+  color: rgba(78, 78, 78, 1);
+  position: absolute;
+  top: 830px;
+  left: 49px;
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+.email {
+  width: 590px;
+  color: rgba(78, 78, 78, 1);
+  position: absolute;
+  top: 870px;
+  left: 49px;
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+
+.description {
+  width: 590px;
+  color: rgba(78, 78, 78, 1);
+  position: absolute;
+  top: 910px;
+  left: 50px;
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+
 </style>
