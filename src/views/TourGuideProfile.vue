@@ -32,6 +32,7 @@
     <button class="uploadbtn" v-if="isUserAccount" @click="$router.push('/newtour')">New Tour</button>
     <button class="newreview" v-if="isUserAccount" @click="$router.push('/newreview')">Review</button>
     </body>
+    <button id="editprofilebtn" @click="$router.push('/EditUserProfile')"></button>
     </template>
 <script>
 import UserInfo from '@/components/UserInfo.vue'
@@ -42,7 +43,7 @@ import UserListings from '@/components/UserListings.vue'
 import ReviewList from '../components/ReviewList.vue'
 
 export default {
-    name: "TouristProfile",
+    name: "TourGuideProfile",
     components: { UserInfo,Logo, UserListings, SettingsButton, NavBar,ReviewList},
       mounted(){
       let tabs = document.querySelectorAll('[data-tab-target]')
@@ -96,6 +97,19 @@ body {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border:none;
   text-align:left;
+}
+#editprofilebtn {
+    width: 30px;
+    height: 30px;
+    position : absolute;
+    left: 440px;
+    top : 565px;
+    margin: 30px;
+    background: url("~@/images/edit.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border: none;
 }
 .newreview {
   width: 120px;

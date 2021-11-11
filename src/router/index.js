@@ -19,6 +19,11 @@ import EditTour from '@/views/EditTour.vue'
 import NewReview from '@/views/NewReview.vue'
 import TourInfo from '@/views/TourInfo.vue'
 import ConfirmationPage from '@/views/ConfirmationPage.vue'
+import TourGuideView from '@/views/TourGuideView.vue'
+import Explore from '@/views/Explore.vue'
+import TipsCovid from '@/views/TipsCovid.vue'
+import TopDestinations from '@/views/TopDestinations.vue'
+import SoloTrip from '@/views/SoloTrip.vue'
 
 const routes = [
     {
@@ -27,9 +32,29 @@ const routes = [
     component: Landing
     },
     {
+    path: '/Explore',
+    name: 'Explore',
+    component : Explore
+    },
+    {
     path: '/logintourguide',
     name: 'LoginTourGuide',
     component: LoginTourGuide
+    },
+    {
+      path: '/tips-for-travelling-with-covid',
+      name: 'TipsCovid',
+      component: TipsCovid
+    },
+    {
+      path: '/top-destinations-you-should-visit',
+      name: 'TopDestinations',
+      component: TopDestinations
+    },
+    {
+      path: '/tips-for-your-next-solo-trip',
+      name: 'SoloTrip',
+      component: SoloTrip
     },
     {
     path: '/registertourguide',
@@ -81,6 +106,11 @@ const routes = [
     path: '/tourGuideProfile',
     name: 'TourGuideProfile',
     component: TourGuideProfile
+    },
+    {
+    path: '/tourGuideView',
+    name: 'TourGuideView',
+    component: TourGuideView
     },
     {
     path: '/chat',

@@ -12,7 +12,8 @@
                     <img class="card-img-top" :src="tour.image" alt="Card image cap"/>
                     <div class="card-body">
                     <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
-                    <button id="editlisting" v-if="isUserAccount" @click="editing(tour.tour_id)"></button>
+                    <button id="editlisting" v-if="isTourGuide()" @click="editing(tour.tour_id)"></button>
+                    <p v-else> fail </p>
                     <p class="card-text"> Available from: {{tour.start}}</p>
                     </div>
                 </div>
@@ -40,7 +41,6 @@ export default {
                 if (user){
                     let fbuser = auth.currentUser.email;
                     if (fbuser){
-                    console.log(fbuser)
                     db.collection("listings").where("email","==",fbuser)
                     .get()
                     .then(z => {
@@ -55,7 +55,6 @@ export default {
                                 tour_id: String(data.email + ", " + data.tour_name)
                             }
                             self.tours.push(tour)
-                            console.log(tour);
                             }
                             })
                     
@@ -67,9 +66,23 @@ export default {
         display();
     },
     methods: {
-        isUserAccount() {
-            //TODO: Check this is users account if they want to edit info
-        }, 
+        isTourGuide() {
+            const auth = firebase.auth();
+            auth.onAuthStateChanged(user => {
+            if (user){
+                let fbuser = auth.currentUser.email;
+                if (fbuser){
+                    db.collection("users").doc(fbuser)
+                    .get()
+                    .then(doc => {
+                        const data = doc.data()
+                        return data["type"] == "tour-guide"
+                    })
+                }
+            }
+        })
+        
+    }, 
     editing(tour_id) {
         this.$router.push({
             name: 'EditTour',
