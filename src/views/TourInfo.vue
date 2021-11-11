@@ -32,7 +32,7 @@
       <div class="inner">
         <div class="right_info_box">
           <div class="container">
-            <input type="checkbox" @click="saveToSavedListings(this.tour_name,this.email)">
+            <input type="checkbox" @click="saveToSavedListings(this.tour_name,this.email)" v-model="selected">
           </div>
           <div class="v228_57">
             <div class="duration_box"></div>
@@ -82,6 +82,7 @@ export default {
       tour_type: "",
       email: "",
       tour_photo: "",
+      selected: "",
     };
   },
   methods:{
@@ -100,19 +101,35 @@ export default {
             })
     } ,
             saveToSavedListings(tour_name,email){
+              if (this.selected == "") {
                 alert("Listing saved!")
-            const auth = firebase.auth();
-            auth.onAuthStateChanged(user => {
-            if (user){
-                let fbuser = auth.currentUser.email;
-                if (fbuser){
-                    db.collection("users").doc(fbuser) 
-                    .update({
-                        saved_listings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
-                    }) 
+                const auth = firebase.auth();
+                auth.onAuthStateChanged(user => {
+                if (user){
+                    let fbuser = auth.currentUser.email;
+                    if (fbuser){
+                        db.collection("users").doc(fbuser) 
+                        .update({
+                            saved_listings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
+                        }) 
+                    }
                 }
-            }
-            })
+                })
+              } else {
+                alert("Removing saved listing!")
+                const auth = firebase.auth();
+                auth.onAuthStateChanged(user => {
+                if (user){
+                    let fbuser = auth.currentUser.email;
+                    if (fbuser){
+                        db.collection("users").doc(fbuser) 
+                        .update({
+                            saved_listings: firebase.firestore.FieldValue.arrayRemove(email +", " + tour_name )
+                        }) 
+                    }
+                }
+                })
+              }
   
     }      
   },
