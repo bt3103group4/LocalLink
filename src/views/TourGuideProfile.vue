@@ -118,8 +118,6 @@ export default {
     components: { UserInfo,Logo,SettingsButton, NavBar,ReviewList},
     methods:{
        editing(tour_id) {
-         console.log("edit")
-         console.log(tour_id)
         this.$router.push({
             name: 'EditTour',
             params:{

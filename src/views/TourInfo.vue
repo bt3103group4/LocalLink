@@ -205,6 +205,7 @@ body {
 #tourGuideBtn{
   position: relative;
   top:30px;
+  left:550px;
 
 }
 .duration_box {

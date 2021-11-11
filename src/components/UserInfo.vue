@@ -31,8 +31,10 @@ import { db} from "../main.js";
 
 export default{
     name : "UserProfile",
+    props:['gEmail'],
     data(){
       return{
+        guideEmail: this.gEmail,
         username: "",
         firstname: "",
         lastname: "",
@@ -48,15 +50,15 @@ export default{
       auth.onAuthStateChanged(user => {
       if (user){
         let fbuser = auth.currentUser.email;
-        if (fbuser){
+        if (self.guideEmail == null){
           db.collection("users").doc(String(fbuser))
           .get()
           .then(doc => {
           if (doc.exists){
-          const data = doc.data()
-          self.firstname = data["firstname"] 
-          self.lastname = data["lastname"]
-          self.username = data["username"]
+            const data = doc.data()
+            self.firstname = data["firstname"] 
+            self.lastname = data["lastname"]
+            self.username = data["username"]
             if(data["bio"] != null){
                 self.bio = data["bio"]
             }
@@ -72,11 +74,35 @@ export default{
           }
         })
       } 
+      else{
+        db.collection("users").doc(self.guideEmail)
+          .get()
+          .then(doc => {
+          if (doc.exists){
+            const data = doc.data()
+            self.firstname = data["firstname"] 
+            self.lastname = data["lastname"]
+            self.username = data["username"]
+            if(data["bio"] != null){
+                self.bio = data["bio"]
+            }
+            if(data["lang"] != null){
+                self.lang = data["lang"]
+            }
+            if(data["profilepic"] != null){
+                self.profilepic=data["profilepic"]
+            }
+          }
+          else{
+            console.log("no such document")
+          }
+        })
+      }
     }
   })
 }
     display();
-    },
+    }
 }
 </script>
 

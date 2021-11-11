@@ -9,7 +9,7 @@
         <title>Document</title>
     </head>
     <body>
-        <UserInfo/>
+        <UserInfo :gEmail=this.gEmail />
       <div class="listingComp">
         <ul class = "tabs">
           <li data-tab-target="#listings" class="active tab">Listings </li>
@@ -91,10 +91,8 @@ export default {
         auth.onAuthStateChanged(user => {
         if (user){
           let fbuser = auth.currentUser.email;
-          self.currentUser=fbuser
-          if (fbuser){
           self.currentUser = fbuser
-          db.collection("listings").where("email","==",fbuser)
+          db.collection("listings").where("email","==",self.gEmail)
           .get()
           .then(z => {
               z.forEach(doc => {
@@ -113,8 +111,7 @@ export default {
           
         })}
         }
-      })
-          
+      )
       }
     display();
   }, 
