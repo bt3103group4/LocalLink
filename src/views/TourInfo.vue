@@ -31,24 +31,25 @@
       </div>
       <div class="inner">
         <div class="right_info_box">
+          <div class="container">
+            <input type="checkbox" @click="saveToSavedListings(this.tour_name,this.email)" v-model="selected">
+          </div>
           <div class="v228_57">
             <div class="duration_box"></div>
             <span class="duration">Duration Offered:</span>
           </div>
           <span class="date">{{ start_date }} to {{ end_date }}</span>
         <div class="top_info">
-          <span class="v228_85">(120 reviews)</span
-          ><span class="v228_84">4.97</span
-          ><span class="cost">From ${{ cost }} / person</span>
+          <span class="v228_85">(120 reviews)</span>
+          <span class="v228_84">4.97</span>
+          <span class="cost">From ${{ cost }} / person</span>
         </div>
         <span class="no_charge">You won’t be charged yet</span>
         <button
           class="reserve_btn"
-          @click="this.$router.push('/confirmationpage');saveToDB(this.tour_name,this.email)"
-        >
+          @click="this.$router.push('/confirmationpage');saveToDB(this.tour_name,this.email)">
           Reserve
         </button>
-        <img id="bookmark" @click="saveToSavedListings(this.tour_name,this.email)" src="../images/bookmark.png">
       </div>
       </div>
     </div>
@@ -81,6 +82,7 @@ export default {
       tour_type: "",
       email: "",
       tour_photo: "",
+      selected: "",
     };
   },
   methods:{
@@ -99,19 +101,35 @@ export default {
             })
     } ,
             saveToSavedListings(tour_name,email){
-              alert("Listing saved!")
-            const auth = firebase.auth();
-            auth.onAuthStateChanged(user => {
-            if (user){
-                let fbuser = auth.currentUser.email;
-                if (fbuser){
-                    db.collection("users").doc(fbuser) 
-                    .update({
-                        saved_listings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
-                    }) 
+              if (this.selected == "") {
+                alert("Listing saved!")
+                const auth = firebase.auth();
+                auth.onAuthStateChanged(user => {
+                if (user){
+                    let fbuser = auth.currentUser.email;
+                    if (fbuser){
+                        db.collection("users").doc(fbuser) 
+                        .update({
+                            saved_listings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
+                        }) 
+                    }
                 }
-            }
-            })
+                })
+              } else {
+                alert("Removing saved listing!")
+                const auth = firebase.auth();
+                auth.onAuthStateChanged(user => {
+                if (user){
+                    let fbuser = auth.currentUser.email;
+                    if (fbuser){
+                        db.collection("users").doc(fbuser) 
+                        .update({
+                            saved_listings: firebase.firestore.FieldValue.arrayRemove(email +", " + tour_name )
+                        }) 
+                    }
+                }
+                })
+              }
   
     }      
   },
@@ -150,15 +168,7 @@ body {
   font-size: 14px;
   width: 100%;
 }
-#bookmark{
-  position:relative;
-  width:130px;
-  left:635px;
-}
 
-#bookmark:hover{
-  cursor: pointer;
-}
 .inner {
   position: relative;
 }
@@ -388,23 +398,6 @@ body {
   overflow: hidden;
 }
 
-/* .v232_103 {
-  width: 731px;
-  height: 305px;
-  background: rgba(242, 235, 235, 1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  border: 1px solid rgba(234, 224, 224, 1);
-  border-top-left-radius: 34px;
-  border-top-right-radius: 34px;
-  border-bottom-left-radius: 34px;
-  border-bottom-right-radius: 34px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-} */
-
 .v228_57 {
   width: 618px;
   height: 52px;
@@ -471,5 +464,63 @@ body {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   overflow: hidden;
+}
+
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 50vh;
+    background: linear-gradient(
+        rgba(63, 163, 184, 1),
+        white
+    );
+}
+.container{
+    height: 130px;
+    width: 130px;
+    background-color: white;
+    position:relative;
+    left: 290px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+}
+input{
+    -webkit-appearance: none;
+    appearance: none;
+    height: 45px;
+    border-right: 40px solid lightgray;
+    border-bottom: 40px solid transparent;
+    position: relative;
+    left: 40px;
+    outline: none;
+    cursor: pointer;
+}
+input:before{
+    content: "";
+    position: absolute;
+    left: 0px;
+    height: 45px;
+    border-left: 40px solid lightgray;
+    border-bottom: 40px solid transparent;
+}
+input:checked{
+    border-right-color: rgba(63, 163, 184, 1);
+    animation: scale 0.4s;
+    transition: 0.1s 0.3s border;
+}
+@keyframes scale{
+    80%{
+        transform: scale(0.8);
+    }    
+}
+input:checked:before{
+    border-left-color: rgba(63, 163, 184, 1);
+    transition: 0.1s 0.3s border;
 }
 </style>
