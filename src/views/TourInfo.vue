@@ -10,64 +10,43 @@
       href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
       rel="stylesheet"
     />
-    <br />
-    <br />
-    <br />
-    <br />
-    <!-- <div class="outer">
-      <div class="inner bg-dark text-white">
-        <img class="card-img" :src="tour_photo" alt="Card image" />
-        <div class="card-img-overlay">
-          <h1 class="card-title">
-            <b>{{ tour_name }}</b>
-          </h1>
-          <h5 class="card-text">{{ description }}</h5>
-          <h5 class="card-text">Get there by {{ transport }}</h5>
-          <h5 class="card-text">
-            Host has {{ experience }} years of experience
-          </h5>
-          <h5 class="card-text">Contact tour guide @ {{ email }}</h5>
-        </div>
-      </div> -->
 
-      <div class="picture">
-          <img :src="tour_photo">
+    <img :src="tour_photo"> <br/> <br/>
+
+    <div class="right_info_box">
+      <div class="container">
+        <input type="checkbox" @click="saveToSavedListings(this.tour_name,this.email)" v-model="selected">
       </div>
-
-
-
-      <div class="right_info_box">
-        <div class="container">
-          <input type="checkbox" @click="saveToSavedListings(this.tour_name,this.email)" v-model="selected">
-        </div>
-        <div class="v228_57">
-          <div class="duration_box"></div>
-          <span class="duration">Duration Offered:</span>
-        </div>
-        <span class="date">{{ start_date }} to {{ end_date }}</span>
-        <div class="top_info">
-          <span class="num_review">(120 reviews)</span>
-          <span class="review">4.97</span>
-          <span class="cost">From ${{ cost }} / person</span>
-        </div>
-        <span class="no_charge">You won’t be charged yet</span>
-        <button
-          class="reserve_btn"
-          @click="this.$router.push('/confirmationpage');saveToDB(this.tour_name,this.email)">
-          Reserve
-        </button>
+      <div class="v228_57">
+        <div class="duration_box"></div>
+        <span class="duration">Duration Offered:</span>
       </div>
+      <span class="date">{{ start_date }} to {{ end_date }}</span>
+      <div class="top_info">
+        <span class="num_review">(120 reviews)</span>
+        <span class="review">4.97</span>
+        <span class="cost">From ${{ cost }} / person</span>
+      </div>
+      <span class="no_charge">You won’t be charged yet</span>
+      <button
+        class="reserve_btn"
+        @click="this.$router.push('/confirmationpage');saveToDB(this.tour_name,this.email)">
+        Reserve
+      </button>
+    </div>
 
+    <div class="left_info_box">
       <p class="name"> <b>Tour's Name:</b> {{ tour_name }} <br/>
       <b> Mode of transport:</b> {{ transport }} <br/>
       <b> Years of experience: </b> {{ experience }}<br/>
       <b> Tour type: </b> {{ tour_type }}<br/>
       <b> Tour Guide's email: </b> {{ email }}<br/><br/>
       <b> Description: </b> <br/> {{ description }}</p>
-
-
     </div>
-  <!-- </div> -->
+
+
+  </div>
+
 </template>
 
 <script>
@@ -179,6 +158,7 @@ export default {
   box-sizing: border-box;
 }
 body {
+  height:150px;
   font-size: 14px;
   width: 100%;
 }
@@ -288,23 +268,6 @@ body {
   text-align: center;
 }
 
-.right_info_box {
-  width: 731px;
-  height: 300px;
-  border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-  position: absolute;
-  top: 600px;
-  right: 100px;
-  /* left: 560px; */
-  overflow: hidden;
-}
-
 .backNav {
   position: absolute;
   top: 100px;
@@ -330,17 +293,6 @@ body {
   position: absolute;
   top: 20px;
   left: 100px;
-  overflow: hidden;
-}
-
-.whole {
-  width: 100%;
-  height: 1000px;
-  background: rgba(255, 255, 255, 1);
-  opacity: 1;
-  position: absolute;
-  top: 140px;
-  left: 0px;
   overflow: hidden;
 }
 
@@ -510,29 +462,47 @@ input:checked:before{
     transition: 0.1s 0.3s border;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    height: 600px;
+    width: 1000px;
+}
+
+.right_info_box {
+  width: 731px;
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  position: absolute;
+  /* top: 800px; */
+  right: 200px;
+}
+
+.left_info_box {
+  width: 731px;
+  height: 300px;
+  overflow: hidden;
+  position: absolute;
+  /* top: 800px; */
+  left: 200px;
+}
+
 .name {
   width: 590px;
   color: rgba(78, 78, 78, 1);
-  position: absolute;
-  top:620px;
-  left: 49px;
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 20px;
   opacity: 1;
   text-align: left;
 }
-
-img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.picture {
-  top: 10px;
-  height: 900px;
-  width: 900px;
-}
-
 
 </style>
