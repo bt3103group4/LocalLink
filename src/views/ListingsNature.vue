@@ -16,14 +16,13 @@
     <NavBar />
     <Logo />
     <SettingsButton />
-    <DefaultFooter />
     <div class="container">
       <div style="width: 10%"></div>
       <div style="flex-grow: 1"></div>
     </div>
     <br />
     <br />
-    <div class="card text-center" style="top: 40px">
+    <div id="nav" class="card text-center">
       <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
           <li class="nav-item">
@@ -66,6 +65,7 @@
       </div>
     </div>
   </body>
+      <DefaultFooter />
 </template>
 
 <script>
@@ -124,7 +124,7 @@ body {
 .grid {
   size: 50%;
   position: absolute;
-  top: 320px;
+  top: 300px;
   left: 130px;
   right: 130px;
   display: grid;
@@ -133,7 +133,11 @@ body {
   justify-content: center;
   align-content: center;
 }
-
+#nav{
+  position:absolute;
+  width:100%;
+  top:80px;
+}
 .btn-primary {
   width: 120px;
   height: 48px;

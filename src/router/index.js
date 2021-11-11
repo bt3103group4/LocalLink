@@ -1,9 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Search from "@/views/Search.vue";
 import NewTour from "@/views/NewTour.vue";
 import TouristProfile from "@/views/TouristProfile.vue";
 import TourGuideProfile from "@/views/TourGuideProfile.vue";
-import Chat from "@/views/Chat.vue";
 import Logout from "@/views/Logout.vue";
 import ListingsNature from "@/views/ListingsNature.vue";
 import ListingsAdv from "@/views/ListingsAdv.vue";
@@ -24,12 +22,18 @@ import Explore from '@/views/Explore.vue'
 import TipsCovid from '@/views/TipsCovid.vue'
 import TopDestinations from '@/views/TopDestinations.vue'
 import SoloTrip from '@/views/SoloTrip.vue'
+import Chat from '@/views/Chat.vue'
 
 const routes = [
     {
     path: '/',
     name: 'Landing',
     component: Landing
+    },
+    {
+      path: '/chat',
+      name: 'chat',
+      component: Chat
     },
     {
     path: '/Explore',
@@ -77,11 +81,6 @@ const routes = [
     // component: SignUp
     // },
     {
-    path: '/search',
-    name: 'Search',
-    component: Search
-    },
-    {
     path: "/newtour",
     name: "NewTour",
     component: NewTour,
@@ -111,11 +110,6 @@ const routes = [
     path: '/tourGuideView',
     name: 'TourGuideView',
     component: TourGuideView
-    },
-    {
-    path: '/chat',
-    name: 'Chat',
-    component: Chat
     },
     {
     path: '/logout',
@@ -153,12 +147,6 @@ const routes = [
       name: "ConfirmationPage",
       component: ConfirmationPage,
     },
-    //delete later, for testing
-    // {
-    // path: '/layout',
-    // name: 'Layout',
-    // component: Layout
-    // }
 ];
 
 const router = createRouter({

@@ -24,7 +24,7 @@
     </div>
     <br />
     <br />
-    <div class="card text-center" style="top: 40px">
+    <div id="nav" class="card text-center">
       <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
           <li class="nav-item">
@@ -133,7 +133,7 @@ body {
 .grid {
   size: 50%;
   position: absolute;
-  top: 400px;
+  top: 300px;
   left: 130px;
   right: 130px;
   display: grid;
@@ -141,6 +141,11 @@ body {
   gap: 20px;
   justify-content: center;
   align-content: center;
+}
+#nav{
+  position:absolute;
+  width:100%;
+  top:80px;
 }
 
 .btn-primary {
