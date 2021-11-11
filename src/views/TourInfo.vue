@@ -53,6 +53,10 @@
       </div>
     </div>
   </div>
+
+      <div class="container">
+        <input type="checkbox">
+    </div>
 </template>
 
 <script>
@@ -471,5 +475,67 @@ body {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   overflow: hidden;
+}
+
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    background: linear-gradient(
+        rgba(63, 163, 184, 1),
+        white
+    );
+}
+.container{
+    height: 320px;
+    width: 320px;
+    background-color: white;
+    position: absolute;
+    margin: auto;
+    top: 3000;
+    bottom: 0;
+    left: 100;
+    right: 0;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+}
+input{
+    -webkit-appearance: none;
+    appearance: none;
+    height: 120px;
+    border-right: 40px solid lightgray;
+    border-bottom: 40px solid transparent;
+    position: relative;
+    left: 20px;
+    outline: none;
+    cursor: pointer;
+}
+input:before{
+    content: "";
+    position: absolute;
+    left: -39.5px;
+    height: 120px;
+    border-left: 40px solid lightgray;
+    border-bottom: 40px solid transparent;
+}
+input:checked{
+    border-right-color: rgba(63, 163, 184, 1);
+    animation: scale 0.4s;
+    transition: 0.1s 0.3s border;
+}
+@keyframes scale{
+    80%{
+        transform: scale(0.8);
+    }    
+}
+input:checked:before{
+    border-left-color: rgba(63, 163, 184, 1);
+    transition: 0.1s 0.3s border;
 }
 </style>
