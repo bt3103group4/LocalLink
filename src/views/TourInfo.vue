@@ -207,7 +207,6 @@ body {
   top:30px;
   left:550px;
 
-}
 .duration_box {
   width: 380px;
   height: 52px;
@@ -260,7 +259,7 @@ body {
   overflow: hidden;
   color: rgba(255, 255, 255, 1);
   position: absolute;
-  top: 180px;
+  top: 260px;
   left: 180px;
   font-family: Ubuntu;
   font-weight: Medium;
@@ -268,6 +267,30 @@ body {
   opacity: 1;
   text-align: center;
 }
+
+#tourGuideBtn {
+  width: 320px;
+  height: 60px;
+  background: rgba(63, 163, 184, 1);
+  opacity: 1;
+  position: absolute;
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  color: rgba(255, 255, 255, 1);
+  position: absolute;
+  top: 180px;
+  left: 220px;
+  font-family: Ubuntu;
+  font-weight: Medium;
+  font-size: 26px;
+  opacity: 1;
+  text-align: center;
+}
+
 .reserve_btn:hover {
   cursor: pointer;
 }
@@ -275,7 +298,7 @@ body {
   width: 250px;
   color: rgba(0, 0, 0, 1);
   position: absolute;
-  top: 260px;
+  top: 350px;
   left: 250px;
   font-family: Ubuntu;
   font-weight: Regular;
@@ -483,13 +506,14 @@ img {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
-    height: 600px;
-    width: 1000px;
+    height: 1000px;
+    width: 1400px;
 }
 
 .right_info_box {
-  width: 731px;
-  height: 300px;
+  min-width: 731px;
+  /* width: 16%; */
+  height: 400px;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -499,26 +523,28 @@ img {
   overflow: hidden;
   position: absolute;
   /* top: 800px; */
-  right: 200px;
+  right: 100px;
 }
 
 .left_info_box {
-  width: 731px;
-  height: 300px;
+  max-width: calc(100% - 1000px);
   overflow: hidden;
   position: absolute;
   /* top: 800px; */
-  left: 200px;
+  float: left;
+  left: 100px;
+
 }
 
 .name {
-  width: 590px;
+  /* width: 731px; */
   color: rgba(78, 78, 78, 1);
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 20px;
   opacity: 1;
   text-align: left;
+  /* display: inline-block; */
 }
 
 </style>
