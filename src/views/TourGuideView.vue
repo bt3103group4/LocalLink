@@ -10,7 +10,7 @@
     </head>
     <body>
         <UserInfo :gEmail=this.gEmail />
-      <div class="listingComp">
+      <div class="listingComp" style="height:100%;">
         <ul class = "tabs">
           <li data-tab-target="#listings" class="active tab">Listings </li>
           <li data-tab-target="#newReview" class="tab"> Reviews </li>
@@ -186,10 +186,9 @@ export default {
     float: right;
 }
 .listingComp{
-  position:absolute;
-  top:100px;
-  right:40px;
-  height:830px;
+  position:relative;
+  top:-1475px;
+  right:-600px;
   width:800px;
   box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.25);
 }
