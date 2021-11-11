@@ -483,8 +483,8 @@ img {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
-    height: 600px;
-    width: 1000px;
+    height: 900px;
+    width: 1400px;
 }
 
 .right_info_box {
