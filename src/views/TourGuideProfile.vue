@@ -18,7 +18,21 @@
 
         <div class="tabcontent">
           <div id = "listings" data-tab-content class="active">
-              <UserListings/>
+            <div class = "grid">
+            <div v-if="tours == []"> You have no tours yet!</div>
+            <div v-else class="col my-col" v-for="tour in tours" :key="tour.tour_name">
+                  <div class="card-group">
+                    <div class="card">
+                    <img class="card-img-top" :src="tour.image" alt="Card image cap"/>
+                    <div class="card-body">
+                    <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
+                    <button id="editlisting" @click="editing(tour.tour_id)"></button>
+                    <p class="card-text"> Available from: {{tour.start}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
             </div>
           <div id = "newReview" data-tab-content>
               <ReviewList/>
@@ -26,52 +40,149 @@
           </div>
         </div>
 
-        <button id="editprofilebtn" v-if="isUserAccount" @click="$router.push('/editUserProfile')"> </button>
+        <button id="editprofilebtn" @click="$router.push('/editUserProfile')"> </button>
+        
 
     <div class="name"></div>
-    <button class="uploadbtn" v-if="isUserAccount" @click="$router.push('/newtour')">New Tour</button>
-    <button class="newreview" v-if="isUserAccount" @click="$router.push('/newreview')">Review</button>
+    <button class="uploadbtn" @click="$router.push('/newtour')">New Tour</button>
+    <button class="newreview" @click="$router.push('/newreview')">Review</button>
     </body>
-    <button id="editprofilebtn" @click="$router.push('/EditUserProfile')"></button>
     </template>
 <script>
 import UserInfo from '@/components/UserInfo.vue'
 import SettingsButton from '@/components/SettingsButton.vue'
 import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
-import UserListings from '@/components/UserListings.vue'
 import ReviewList from '../components/ReviewList.vue'
+import firebase from 'firebase';
+import { db} from "../main.js";
 
 export default {
     name: "TourGuideProfile",
-    components: { UserInfo,Logo, UserListings, SettingsButton, NavBar,ReviewList},
-      mounted(){
-      let tabs = document.querySelectorAll('[data-tab-target]')
-      let tabContents = document.querySelectorAll('[data-tab-content]')
-
-      tabs.forEach(tab => {
-        tab.addEventListener('click', ()=> {
-          const target = document.querySelector(tab.dataset.tabTarget)
-          tabContents.forEach(tabContent => tabContent.classList.remove('active'))
-          tabs.forEach(tab=> tab.classList.remove('active'))
-          target.classList.add('active')
-          tab.classList.add('active')
-        })
-      })
-    },
-
-    methods: {
-        getTourGuideProfile() {
-            //TODO: Pull data from database
-        },
-        isUserAccount() {
-            //TODO: Check this is users account if they want to edit info
+    data(){
+        return{
+            tours:[],
+            currentUser: ""
         }
+    },
+        mounted(){
+
+          //showing tabs
+          let tabs = document.querySelectorAll('[data-tab-target]')
+          let tabContents = document.querySelectorAll('[data-tab-content]')
+
+          tabs.forEach(tab => {
+            tab.addEventListener('click', ()=> {
+              const target = document.querySelector(tab.dataset.tabTarget)
+              tabContents.forEach(tabContent => tabContent.classList.remove('active'))
+              tabs.forEach(tab=> tab.classList.remove('active'))
+              target.classList.add('active')
+              tab.classList.add('active')
+            })
+          })
+
+          //getting tours
+            const self = this;
+            async function display(){
+                const auth = firebase.auth();
+                auth.onAuthStateChanged(user => {
+                if (user){
+                    let fbuser = auth.currentUser.email;
+                    self.currentUser=fbuser
+                    if (fbuser){
+                    self.currentUser = fbuser
+                    db.collection("listings").where("email","==",fbuser)
+                    .get()
+                    .then(z => {
+                        z.forEach(doc => {
+                        const data = doc.data()
+                        if (!(data["tour_name"]== null || data["start_date"] == null)){
+                            let tour = {
+                                tourname : data["tour_name"],
+                                start : data["start_date"],
+                                image: data["tour_photo"],
+                                review: "4", //to make dynamic too KIV
+                                tour_id: String(data.email + ", " + data.tour_name)
+                            }
+                            self.tours.push(tour)
+                            }
+                            })
+                    
+                    })}
+                    }
+                })
+                
+            }
+        display();
+    },
+    components: { UserInfo,Logo,SettingsButton, NavBar,ReviewList},
+    methods:{
+       editing(tour_id) {
+         console.log("edit")
+         console.log(tour_id)
+        this.$router.push({
+            name: 'EditTour',
+            params:{
+                tour_id: tour_id
+            }
+        })
+        
+    }
     }
 }
 </script>
 
 <style scoped>
+#listings{
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.card-group:hover{
+    cursor: pointer;
+}
+.button-id{
+    border:none;
+    background-color:rgba(63,163,184,1) ;
+    color:white;
+    padding:5px;
+    padding-left: 10px;
+    padding-right:10px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.button-id:hover{
+    cursor: pointer;
+    background-color: grey;
+}
+.grid{
+    position: absolute;
+    top: 120px;
+    left:30px;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:40px
+}
+.card{
+  width:300px;
+  height:300px;
+}
+#editlisting {
+    width: 20px;
+    height: 20px;
+    background: url("~@/images/edit.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border: none;
+    float: right;
+}
 .listingComp{
   position:absolute;
   top:100px;
@@ -97,19 +208,6 @@ body {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border:none;
   text-align:left;
-}
-#editprofilebtn {
-    width: 30px;
-    height: 30px;
-    position : absolute;
-    left: 440px;
-    top : 565px;
-    margin: 30px;
-    background: url("~@/images/edit.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    border: none;
 }
 .newreview {
   width: 120px;

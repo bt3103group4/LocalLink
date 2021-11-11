@@ -77,7 +77,7 @@
         <div class="card-body">
           <h5 class="card-title">Top 10 destinations you should visit in 2021</h5>
           <p class="card-text"> What's on your travel bucket list? If you need a getaway
-              but don't know where to go, we list 15 destinations you should check out!
+              but don't know where to go, we list 10 destinations you should check out!
           </p>
         </div>
         </div>
@@ -161,7 +161,9 @@ body {
   width: 100%;
   padding-bottom: 100px;
 }
-
+.grid2{
+  padding-bottom: 100px;
+}
 #sec-img{
     width:377px;
     height:285px;

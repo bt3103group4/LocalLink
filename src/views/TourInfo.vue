@@ -28,6 +28,7 @@
         <span class="cost">From ${{ cost }} / person</span>
       </div>
       <span class="no_charge">You won’t be charged yet</span>
+      <button id="tourGuideBtn" @click="seeGuideProfile(this.email)"> See Tour Guide Profile </button>
       <button
         class="reserve_btn"
         @click="this.$router.push('/confirmationpage');saveToDB(this.tour_name,this.email)">
@@ -79,53 +80,63 @@ export default {
     };
   },
   methods:{
-        saveToDB(tour_name,email){
-            const auth = firebase.auth();
-            auth.onAuthStateChanged(user => {
-            if (user){
-                let fbuser = auth.currentUser.email;
-                if (fbuser){
-                    db.collection("users").doc(fbuser) 
-                    .update({
-                        bookings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
-                    }) 
-                }
+    seeGuideProfile(guideEmail){
+      this.$router.push({
+        name: "TourGuideView",
+        params:{
+          guideEmail: guideEmail,
+        },
+      })
+      console.log("guide profile")
+      console.log(guideEmail)
+    },
+    saveToDB(tour_name,email){
+        const auth = firebase.auth();
+        auth.onAuthStateChanged(user => {
+        if (user){
+            let fbuser = auth.currentUser.email;
+            if (fbuser){
+                db.collection("users").doc(fbuser) 
+                .update({
+                    bookings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
+                }) 
             }
-            })
+        }
+        })
     } ,
-            saveToSavedListings(tour_name,email){
-              if (this.selected == "") {
-                alert("Listing saved!")
-                const auth = firebase.auth();
-                auth.onAuthStateChanged(user => {
-                if (user){
-                    let fbuser = auth.currentUser.email;
-                    if (fbuser){
-                        db.collection("users").doc(fbuser) 
-                        .update({
-                            saved_listings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
-                        }) 
-                    }
-                }
-                })
-              } else {
-                alert("Removing saved listing!")
-                const auth = firebase.auth();
-                auth.onAuthStateChanged(user => {
-                if (user){
-                    let fbuser = auth.currentUser.email;
-                    if (fbuser){
-                        db.collection("users").doc(fbuser) 
-                        .update({
-                            saved_listings: firebase.firestore.FieldValue.arrayRemove(email +", " + tour_name )
-                        }) 
-                    }
-                }
-                })
-              }
-  
-    }      
-  },
+    saveToSavedListings(tour_name,email){
+      if (this.selected == "") {
+        alert("Listing saved!")
+        const auth = firebase.auth();
+        auth.onAuthStateChanged(user => {
+        if (user){
+            let fbuser = auth.currentUser.email;
+            if (fbuser){
+                db.collection("users").doc(fbuser) 
+                .update({
+                    saved_listings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
+                }) 
+            }
+        }
+        })
+      } else {
+        alert("Removing saved listing!")
+        const auth = firebase.auth();
+        auth.onAuthStateChanged(user => {
+        if (user){
+            let fbuser = auth.currentUser.email;
+            if (fbuser){
+                db.collection("users").doc(fbuser) 
+                .update({
+                    saved_listings: firebase.firestore.FieldValue.arrayRemove(email +", " + tour_name )
+                }) 
+            }
+        }
+        })
+      }
+
+}      
+},
 
   mounted() {
     console.log(this.id);
@@ -191,7 +202,12 @@ body {
   text-align: left;
   font-size: 30px;
 }
+#tourGuideBtn{
+  position: relative;
+  top:30px;
+  left:550px;
 
+}
 .duration_box {
   width: 380px;
   height: 52px;
