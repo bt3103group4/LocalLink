@@ -31,7 +31,7 @@
          <UserBookedListings/>
         </div>        
       </div>
-
+      <button id="editprofilebtn" @click="$router.push('/editUserProfile')"> </button>
     </div>
 </div>
   <DefaultFooter/>
@@ -151,5 +151,18 @@ body {
 .newReviewBtn:hover{
   background-color: rgba(0,0,0,0.3);
   cursor: pointer;
+}
+#editprofilebtn {
+    width: 30px;
+    height: 30px;
+    position : absolute;
+    left: -160px;
+    top : 460px;
+    margin: 30px;
+    background: url("~@/images/edit.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border: none;
 }
 </style>
