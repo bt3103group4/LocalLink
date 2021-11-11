@@ -109,7 +109,8 @@ const routes = [
     {
     path: '/tourGuideView',
     name: 'TourGuideView',
-    component: TourGuideView
+    component: TourGuideView,
+    props: true,
     },
     {
     path: '/logout',

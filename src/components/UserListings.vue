@@ -12,7 +12,7 @@
                     <img class="card-img-top" :src="tour.image" alt="Card image cap"/>
                     <div class="card-body">
                     <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
-                    <button id="editlisting" v-if="isTourGuide()== 'tour-guide'" @click="editing(tour.tour_id)"></button>
+                    <button id="editlisting" v-if="isTourGuide() == 'tour-guide'" @click="editing(tour.tour_id)"></button>
                     <p class="card-text"> Available from: {{tour.start}}</p>
                     </div>
                 </div>
@@ -30,7 +30,8 @@ export default {
     data(){
         return{
             tours:[],
-            type:""
+            type:"",
+            currentUser: ""
         }
     },
         mounted(){
@@ -41,6 +42,7 @@ export default {
                 if (user){
                     let fbuser = auth.currentUser.email;
                     if (fbuser){
+                    self.currentUser = fbuser
                     db.collection("listings").where("email","==",fbuser)
                     .get()
                     .then(z => {

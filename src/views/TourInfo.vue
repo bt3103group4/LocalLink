@@ -87,59 +87,63 @@ export default {
     };
   },
   methods:{
-        seeGuideProfile(guideEmail){
-          this.$router.push({
-            name: "TourGuideView",
-            guideEmail: guideEmail,
-          })
+    seeGuideProfile(guideEmail){
+      this.$router.push({
+        name: "TourGuideView",
+        params:{
+          guideEmail: guideEmail,
         },
-        saveToDB(tour_name,email){
-            const auth = firebase.auth();
-            auth.onAuthStateChanged(user => {
-            if (user){
-                let fbuser = auth.currentUser.email;
-                if (fbuser){
-                    db.collection("users").doc(fbuser) 
-                    .update({
-                        bookings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
-                    }) 
-                }
+      })
+      console.log("guide profile")
+      console.log(guideEmail)
+    },
+    saveToDB(tour_name,email){
+        const auth = firebase.auth();
+        auth.onAuthStateChanged(user => {
+        if (user){
+            let fbuser = auth.currentUser.email;
+            if (fbuser){
+                db.collection("users").doc(fbuser) 
+                .update({
+                    bookings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
+                }) 
             }
-            })
+        }
+        })
     } ,
-            saveToSavedListings(tour_name,email){
-              if (this.selected == "") {
-                alert("Listing saved!")
-                const auth = firebase.auth();
-                auth.onAuthStateChanged(user => {
-                if (user){
-                    let fbuser = auth.currentUser.email;
-                    if (fbuser){
-                        db.collection("users").doc(fbuser) 
-                        .update({
-                            saved_listings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
-                        }) 
-                    }
-                }
-                })
-              } else {
-                alert("Removing saved listing!")
-                const auth = firebase.auth();
-                auth.onAuthStateChanged(user => {
-                if (user){
-                    let fbuser = auth.currentUser.email;
-                    if (fbuser){
-                        db.collection("users").doc(fbuser) 
-                        .update({
-                            saved_listings: firebase.firestore.FieldValue.arrayRemove(email +", " + tour_name )
-                        }) 
-                    }
-                }
-                })
-              }
-  
-    }      
-  },
+    saveToSavedListings(tour_name,email){
+      if (this.selected == "") {
+        alert("Listing saved!")
+        const auth = firebase.auth();
+        auth.onAuthStateChanged(user => {
+        if (user){
+            let fbuser = auth.currentUser.email;
+            if (fbuser){
+                db.collection("users").doc(fbuser) 
+                .update({
+                    saved_listings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
+                }) 
+            }
+        }
+        })
+      } else {
+        alert("Removing saved listing!")
+        const auth = firebase.auth();
+        auth.onAuthStateChanged(user => {
+        if (user){
+            let fbuser = auth.currentUser.email;
+            if (fbuser){
+                db.collection("users").doc(fbuser) 
+                .update({
+                    saved_listings: firebase.firestore.FieldValue.arrayRemove(email +", " + tour_name )
+                }) 
+            }
+        }
+        })
+      }
+
+}      
+},
 
   mounted() {
     console.log(this.id);
