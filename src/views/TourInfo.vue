@@ -488,7 +488,8 @@ img {
 }
 
 .right_info_box {
-  width: 731px;
+  min-width: 731px;
+  /* width: 16%; */
   height: 300px;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
@@ -499,26 +500,28 @@ img {
   overflow: hidden;
   position: absolute;
   /* top: 800px; */
-  right: 200px;
+  right: 100px;
 }
 
 .left_info_box {
-  width: 731px;
-  height: 300px;
+  max-width: calc(100% - 1000px);
   overflow: hidden;
   position: absolute;
   /* top: 800px; */
-  left: 200px;
+  float: left;
+  left: 100px;
+
 }
 
 .name {
-  width: 590px;
+  /* width: 731px; */
   color: rgba(78, 78, 78, 1);
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 20px;
   opacity: 1;
   text-align: left;
+  /* display: inline-block; */
 }
 
 </style>
