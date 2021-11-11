@@ -31,32 +31,30 @@
       </div>
       <div class="inner">
         <div class="right_info_box">
+          <div class="container">
+            <input type="checkbox">
+          </div>
           <div class="v228_57">
             <div class="duration_box"></div>
             <span class="duration">Duration Offered:</span>
           </div>
           <span class="date">{{ start_date }} to {{ end_date }}</span>
         <div class="top_info">
-          <span class="v228_85">(120 reviews)</span
-          ><span class="v228_84">4.97</span
-          ><span class="cost">From ${{ cost }} / person</span>
+          <span class="v228_85">(120 reviews)</span>
+          <span class="v228_84">4.97</span>
+          <span class="cost">From ${{ cost }} / person</span>
         </div>
         <span class="no_charge">You won’t be charged yet</span>
         <button
           class="reserve_btn"
-          @click="this.$router.push('/confirmationpage');saveToDB(this.tour_name,this.email)"
-        >
+          @click="this.$router.push('/confirmationpage');saveToDB(this.tour_name,this.email)">
           Reserve
         </button>
-        <img id="bookmark" @click="saveToSavedListings(this.tour_name,this.email)" src="../images/bookmark.png">
+        <!-- <img id="bookmark" @click="saveToSavedListings(this.tour_name,this.email)" src="../images/bookmark.png"> -->
       </div>
       </div>
     </div>
   </div>
-
-      <div class="container">
-        <input type="checkbox">
-    </div>
 </template>
 
 <script>
@@ -485,22 +483,23 @@ body {
     box-sizing: border-box;
 }
 body{
-    height: 100vh;
+    height: 50vh;
     background: linear-gradient(
         rgba(63, 163, 184, 1),
         white
     );
 }
 .container{
-    height: 320px;
-    width: 320px;
+    height: 130px;
+    width: 130px;
     background-color: white;
-    position: absolute;
+    position:relative;
+    left: 290px;
+    /* width:130px;
     margin: auto;
-    top: 3000;
-    bottom: 0;
-    left: 100;
-    right: 0;
+    /* top: 3000; */
+    /* bottom: 0;
+    right: 0; */
     border-radius: 12px;
     display: grid;
     place-items: center;
@@ -508,19 +507,19 @@ body{
 input{
     -webkit-appearance: none;
     appearance: none;
-    height: 120px;
+    height: 45px;
     border-right: 40px solid lightgray;
     border-bottom: 40px solid transparent;
     position: relative;
-    left: 20px;
+    left: 40px;
     outline: none;
     cursor: pointer;
 }
 input:before{
     content: "";
     position: absolute;
-    left: -39.5px;
-    height: 120px;
+    left: 0px;
+    height: 45px;
     border-left: 40px solid lightgray;
     border-bottom: 40px solid transparent;
 }
