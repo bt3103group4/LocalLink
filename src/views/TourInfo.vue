@@ -14,7 +14,7 @@
     <br />
     <br />
     <br />
-    <div class="outer">
+    <!-- <div class="outer">
       <div class="inner bg-dark text-white">
         <img class="card-img" :src="tour_photo" alt="Card image" />
         <div class="card-img-overlay">
@@ -28,20 +28,23 @@
           </h5>
           <h5 class="card-text">Contact tour guide @ {{ email }}</h5>
         </div>
+      </div> -->
+
+      <div class="picture">
+          <img :src="tour_photo">
       </div>
 
 
 
-      <div class="inner">
-        <div class="right_info_box">
-          <div class="container">
-            <input type="checkbox" @click="saveToSavedListings(this.tour_name,this.email)" v-model="selected">
-          </div>
-          <div class="v228_57">
-            <div class="duration_box"></div>
-            <span class="duration">Duration Offered:</span>
-          </div>
-          <span class="date">{{ start_date }} to {{ end_date }}</span>
+      <div class="right_info_box">
+        <div class="container">
+          <input type="checkbox" @click="saveToSavedListings(this.tour_name,this.email)" v-model="selected">
+        </div>
+        <div class="v228_57">
+          <div class="duration_box"></div>
+          <span class="duration">Duration Offered:</span>
+        </div>
+        <span class="date">{{ start_date }} to {{ end_date }}</span>
         <div class="top_info">
           <span class="num_review">(120 reviews)</span>
           <span class="review">4.97</span>
@@ -53,21 +56,18 @@
           @click="this.$router.push('/confirmationpage');saveToDB(this.tour_name,this.email)">
           Reserve
         </button>
-        </div>
       </div>
 
-      <div class = "info">
-        <span class="name">Tour's Name: {{ tour_name }}</span>
-        <div class="transport">Mode of transport: {{ transport }}</div>
-        <div class="experience">Years of experience: {{ experience }}</div>
-        <div class="tour-type">Tour type: {{ tour_type }}</div>
-        <div class="email">Tour Guide's email: {{ email }}</div>
-        <div class="description">Description: {{ description }}</div>
-      </div>
+      <p class="name"> <b>Tour's Name:</b> {{ tour_name }} <br/>
+      <b> Mode of transport:</b> {{ transport }} <br/>
+      <b> Years of experience: </b> {{ experience }}<br/>
+      <b> Tour type: </b> {{ tour_type }}<br/>
+      <b> Tour Guide's email: </b> {{ email }}<br/><br/>
+      <b> Description: </b> <br/> {{ description }}</p>
 
 
     </div>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -183,13 +183,10 @@ body {
   width: 100%;
 }
 
-.inner {
-  position: relative;
-}
-
+/* 
 .card-title {
   font-size: 50;
-}
+} */
 
 .top_info {
   width: 648px;
@@ -302,8 +299,9 @@ body {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   position: absolute;
-  top: 20px;
-  left: 360px;
+  top: 600px;
+  right: 100px;
+  /* left: 560px; */
   overflow: hidden;
 }
 
@@ -357,12 +355,11 @@ body {
   font-size: 20px;
   opacity: 1;
   text-align: left;
-}
+} 
 
 .v198_104 {
   width: 295px;
   height: 168px;
-  /* background: url("../images/v198_104.png"); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -375,7 +372,6 @@ body {
 .v198_83 {
   width: 657px;
   height: 348px;
-  /* background: url("../images/v198_83.png"); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -388,7 +384,6 @@ body {
 .v198_103 {
   width: 295px;
   height: 168px;
-  /* background: url("../images/v198_103.png"); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -400,8 +395,6 @@ body {
 }
 .v198_105 {
   width: 419px;
-  height: 348px;
-  /* background: url("../images/v198_105.png"); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -473,13 +466,6 @@ body {
     margin: 0;
     box-sizing: border-box;
 }
-body{
-    height: 50vh;
-    background: linear-gradient(
-        rgba(63, 163, 184, 1),
-        white
-    );
-}
 .container{
     height: 130px;
     width: 130px;
@@ -528,75 +514,25 @@ input:checked:before{
   width: 590px;
   color: rgba(78, 78, 78, 1);
   position: absolute;
-  top: 710px;
+  top:620px;
   left: 49px;
   font-family: Ubuntu;
   font-weight: Regular;
-  font-size: 25px;
+  font-size: 20px;
   opacity: 1;
   text-align: left;
 }
 
-.transport {
-  width: 590px;
-  color: rgba(78, 78, 78, 1);
-  position: absolute;
-  top: 750px;
-  left: 49px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
-.experience {
-  width: 590px;
-  color: rgba(78, 78, 78, 1);
-  position: absolute;
-  top: 790px;
-  left: 49px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
-.tour-type {
-  width: 590px;
-  color: rgba(78, 78, 78, 1);
-  position: absolute;
-  top: 830px;
-  left: 49px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
-}
-.email {
-  width: 590px;
-  color: rgba(78, 78, 78, 1);
-  position: absolute;
-  top: 870px;
-  left: 49px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
+img {
+    max-width: 100%;
+    max-height: 100%;
 }
 
-.description {
-  width: 590px;
-  color: rgba(78, 78, 78, 1);
-  position: absolute;
-  top: 910px;
-  left: 50px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 25px;
-  opacity: 1;
-  text-align: left;
+.picture {
+  top: 10px;
+  height: 900px;
+  width: 900px;
 }
+
 
 </style>
