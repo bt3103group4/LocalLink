@@ -32,7 +32,7 @@
       <div class="inner">
         <div class="right_info_box">
           <div class="container">
-            <input type="checkbox">
+            <input type="checkbox" @click="saveToSavedListings(this.tour_name,this.email)">
           </div>
           <div class="v228_57">
             <div class="duration_box"></div>
@@ -50,7 +50,6 @@
           @click="this.$router.push('/confirmationpage');saveToDB(this.tour_name,this.email)">
           Reserve
         </button>
-        <!-- <img id="bookmark" @click="saveToSavedListings(this.tour_name,this.email)" src="../images/bookmark.png"> -->
       </div>
       </div>
     </div>
@@ -101,7 +100,7 @@ export default {
             })
     } ,
             saveToSavedListings(tour_name,email){
-              alert("Listing saved!")
+                alert("Listing saved!")
             const auth = firebase.auth();
             auth.onAuthStateChanged(user => {
             if (user){
@@ -152,15 +151,7 @@ body {
   font-size: 14px;
   width: 100%;
 }
-#bookmark{
-  position:relative;
-  width:130px;
-  left:635px;
-}
 
-#bookmark:hover{
-  cursor: pointer;
-}
 .inner {
   position: relative;
 }
@@ -390,23 +381,6 @@ body {
   overflow: hidden;
 }
 
-/* .v232_103 {
-  width: 731px;
-  height: 305px;
-  background: rgba(242, 235, 235, 1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  border: 1px solid rgba(234, 224, 224, 1);
-  border-top-left-radius: 34px;
-  border-top-right-radius: 34px;
-  border-bottom-left-radius: 34px;
-  border-bottom-right-radius: 34px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-} */
-
 .v228_57 {
   width: 618px;
   height: 52px;
@@ -495,11 +469,6 @@ body{
     background-color: white;
     position:relative;
     left: 290px;
-    /* width:130px;
-    margin: auto;
-    /* top: 3000; */
-    /* bottom: 0;
-    right: 0; */
     border-radius: 12px;
     display: grid;
     place-items: center;
