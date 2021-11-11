@@ -202,12 +202,7 @@ body {
   text-align: left;
   font-size: 30px;
 }
-#tourGuideBtn{
-  position: relative;
-  top:30px;
-  left:550px;
 
-}
 .duration_box {
   width: 380px;
   height: 52px;
@@ -260,7 +255,7 @@ body {
   overflow: hidden;
   color: rgba(255, 255, 255, 1);
   position: absolute;
-  top: 180px;
+  top: 260px;
   left: 180px;
   font-family: Ubuntu;
   font-weight: Medium;
@@ -268,6 +263,30 @@ body {
   opacity: 1;
   text-align: center;
 }
+
+#tourGuideBtn {
+  width: 320px;
+  height: 60px;
+  background: rgba(63, 163, 184, 1);
+  opacity: 1;
+  position: absolute;
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  color: rgba(255, 255, 255, 1);
+  position: absolute;
+  top: 180px;
+  left: 220px;
+  font-family: Ubuntu;
+  font-weight: Medium;
+  font-size: 26px;
+  opacity: 1;
+  text-align: center;
+}
+
 .reserve_btn:hover {
   cursor: pointer;
 }
@@ -275,7 +294,7 @@ body {
   width: 250px;
   color: rgba(0, 0, 0, 1);
   position: absolute;
-  top: 260px;
+  top: 350px;
   left: 250px;
   font-family: Ubuntu;
   font-weight: Regular;
@@ -483,14 +502,14 @@ img {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
-    height: 900px;
+    height: 1000px;
     width: 1400px;
 }
 
 .right_info_box {
   min-width: 731px;
   /* width: 16%; */
-  height: 300px;
+  height: 400px;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
