@@ -34,6 +34,7 @@
           <div class="container">
             <input type="checkbox" @click="saveToSavedListings(this.tour_name,this.email)" v-model="selected">
           </div>
+          <button id="tourGuideBtn" @click="seeGuideProfile(this.email)"> See Tour Guide Profile </button>
           <div class="v228_57">
             <div class="duration_box"></div>
             <span class="duration">Duration Offered:</span>
@@ -86,6 +87,12 @@ export default {
     };
   },
   methods:{
+        seeGuideProfile(guideEmail){
+          this.$router.push({
+            name: "TourGuideView",
+            guideEmail: guideEmail,
+          })
+        },
         saveToDB(tour_name,email){
             const auth = firebase.auth();
             auth.onAuthStateChanged(user => {
@@ -200,7 +207,11 @@ body {
   text-align: left;
   font-size: 30px;
 }
+#tourGuideBtn{
+  position: relative;
+  top:30px;
 
+}
 .duration_box {
   width: 380px;
   height: 52px;
