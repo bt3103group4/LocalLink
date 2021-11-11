@@ -12,8 +12,7 @@
                     <img class="card-img-top" :src="tour.image" alt="Card image cap"/>
                     <div class="card-body">
                     <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
-                    <button id="editlisting" v-if="isTourGuide()" @click="editing(tour.tour_id)"></button>
-                    <p v-else> fail </p>
+                    <button id="editlisting" v-if="isTourGuide()== 'tour-guide'" @click="editing(tour.tour_id)"></button>
                     <p class="card-text"> Available from: {{tour.start}}</p>
                     </div>
                 </div>
@@ -30,7 +29,8 @@ export default {
     name: "UserSavedListings",
     data(){
         return{
-            tours:[]
+            tours:[],
+            type:""
         }
     },
         mounted(){
@@ -67,6 +67,7 @@ export default {
     },
     methods: {
         isTourGuide() {
+            var self = this;
             const auth = firebase.auth();
             auth.onAuthStateChanged(user => {
             if (user){
@@ -76,12 +77,13 @@ export default {
                     .get()
                     .then(doc => {
                         const data = doc.data()
-                        return data["type"] == "tour-guide"
-                    })
+                        self.type = data["type"]
+                        }
+                    )
                 }
             }
         })
-        
+        return self.type
     }, 
     editing(tour_id) {
         this.$router.push({
