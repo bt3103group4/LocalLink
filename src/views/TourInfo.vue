@@ -10,51 +10,44 @@
       href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
       rel="stylesheet"
     />
-    <br />
-    <br />
-    <br />
-    <br />
-    <div class="outer">
-      <div class="inner bg-dark text-white">
-        <img class="card-img" :src="tour_photo" alt="Card image" />
-        <div class="card-img-overlay">
-          <h1 class="card-title">
-            <b>{{ tour_name }}</b>
-          </h1>
-          <h5 class="card-text">{{ description }}</h5>
-          <h5 class="card-text">Get there by {{ transport }}</h5>
-          <h5 class="card-text">
-            Host has {{ experience }} years of experience
-          </h5>
-          <h5 class="card-text">Contact tour guide @ {{ email }}</h5>
-        </div>
+
+    <img :src="tour_photo"> <br/> <br/>
+
+    <div class="right_info_box">
+      <div class="container">
+        <input type="checkbox" @click="saveToSavedListings(this.tour_name,this.email)" v-model="selected">
       </div>
-      <div class="inner">
-        <div class="right_info_box">
-          <div class="container">
-            <input type="checkbox" @click="saveToSavedListings(this.tour_name,this.email)" v-model="selected">
-          </div>
-          <button id="tourGuideBtn" @click="seeGuideProfile(this.email)"> See Tour Guide Profile </button>
-          <div class="v228_57">
-            <div class="duration_box"></div>
-            <span class="duration">Duration Offered:</span>
-          </div>
-          <span class="date">{{ start_date }} to {{ end_date }}</span>
-        <div class="top_info">
-          <span class="v228_85">(120 reviews)</span>
-          <span class="v228_84">4.97</span>
-          <span class="cost">From ${{ cost }} / person</span>
-        </div>
-        <span class="no_charge">You won’t be charged yet</span>
-        <button
-          class="reserve_btn"
-          @click="this.$router.push('/confirmationpage');saveToDB(this.tour_name,this.email)">
-          Reserve
-        </button>
+      <div class="v228_57">
+        <div class="duration_box"></div>
+        <span class="duration">Duration Offered:</span>
       </div>
+      <span class="date">{{ start_date }} to {{ end_date }}</span>
+      <div class="top_info">
+        <span class="num_review">(120 reviews)</span>
+        <span class="review">4.97</span>
+        <span class="cost">From ${{ cost }} / person</span>
       </div>
+      <span class="no_charge">You won’t be charged yet</span>
+      <button id="tourGuideBtn" @click="seeGuideProfile(this.email)"> See Tour Guide Profile </button>
+      <button
+        class="reserve_btn"
+        @click="this.$router.push('/confirmationpage');saveToDB(this.tour_name,this.email)">
+        Reserve
+      </button>
     </div>
+
+    <div class="left_info_box">
+      <p class="name"> <b>Tour's Name:</b> {{ tour_name }} <br/>
+      <b> Mode of transport:</b> {{ transport }} <br/>
+      <b> Years of experience: </b> {{ experience }}<br/>
+      <b> Tour type: </b> {{ tour_type }}<br/>
+      <b> Tour Guide's email: </b> {{ email }}<br/><br/>
+      <b> Description: </b> <br/> {{ description }}</p>
+    </div>
+
+
   </div>
+
 </template>
 
 <script>
@@ -176,17 +169,15 @@ export default {
   box-sizing: border-box;
 }
 body {
+  height:150px;
   font-size: 14px;
   width: 100%;
 }
 
-.inner {
-  position: relative;
-}
-
+/* 
 .card-title {
   font-size: 50;
-}
+} */
 
 .top_info {
   width: 648px;
@@ -292,22 +283,6 @@ body {
   text-align: center;
 }
 
-.right_info_box {
-  width: 731px;
-  height: 300px;
-  border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-  position: absolute;
-  top: 20px;
-  left: 360px;
-  overflow: hidden;
-}
-
 .backNav {
   position: absolute;
   top: 100px;
@@ -336,17 +311,6 @@ body {
   overflow: hidden;
 }
 
-.whole {
-  width: 100%;
-  height: 1000px;
-  background: rgba(255, 255, 255, 1);
-  opacity: 1;
-  position: absolute;
-  top: 140px;
-  left: 0px;
-  overflow: hidden;
-}
-
 .v257_57 {
   width: 374px;
   color: rgba(255, 255, 255, 1);
@@ -358,12 +322,11 @@ body {
   font-size: 20px;
   opacity: 1;
   text-align: left;
-}
+} 
 
 .v198_104 {
   width: 295px;
   height: 168px;
-  /* background: url("../images/v198_104.png"); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -376,7 +339,6 @@ body {
 .v198_83 {
   width: 657px;
   height: 348px;
-  /* background: url("../images/v198_83.png"); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -389,7 +351,6 @@ body {
 .v198_103 {
   width: 295px;
   height: 168px;
-  /* background: url("../images/v198_103.png"); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -401,8 +362,6 @@ body {
 }
 .v198_105 {
   width: 419px;
-  height: 348px;
-  /* background: url("../images/v198_105.png"); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -427,7 +386,7 @@ body {
   overflow: hidden;
 }
 
-.v228_85 {
+.num_review {
   width: 154px;
   color: rgba(123, 123, 123, 1);
   position: absolute;
@@ -439,7 +398,7 @@ body {
   opacity: 1;
   text-align: left;
 }
-.v228_84 {
+.review {
   width: 78px;
   color: rgba(0, 0, 0, 1);
   position: absolute;
@@ -450,20 +409,6 @@ body {
   font-size: 25px;
   opacity: 1;
   text-align: left;
-}
-
-.v228_78 {
-  width: 268px;
-  height: 245px;
-  /* background: url("../images/v228_78.png"); */
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 45px;
-  left: 260px;
-  overflow: hidden;
 }
 
 .v228_66 {
@@ -487,13 +432,6 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
-body{
-    height: 50vh;
-    background: linear-gradient(
-        rgba(63, 163, 184, 1),
-        white
-    );
 }
 .container{
     height: 130px;
@@ -538,4 +476,48 @@ input:checked:before{
     border-left-color: rgba(63, 163, 184, 1);
     transition: 0.1s 0.3s border;
 }
+
+img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    height: 600px;
+    width: 1000px;
+}
+
+.right_info_box {
+  width: 731px;
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  position: absolute;
+  /* top: 800px; */
+  right: 200px;
+}
+
+.left_info_box {
+  width: 731px;
+  height: 300px;
+  overflow: hidden;
+  position: absolute;
+  /* top: 800px; */
+  left: 200px;
+}
+
+.name {
+  width: 590px;
+  color: rgba(78, 78, 78, 1);
+  font-family: Ubuntu;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+
 </style>
