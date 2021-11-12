@@ -2,17 +2,18 @@
 <body>
   <div class="tour_name">Tour Name</div>
     <div class="tour_name_box">
-        <textarea v-if="this.type === 'tour-guide'"
-        class="tour_input"
-        v-model.lazy="tourname"
-        placeholder="Name of tour you hosted for your tourist"
-        ></textarea>
-
-        <textarea v-else
-        class="tour_input"
-        v-model.lazy="tourname"
-        placeholder="Name of tour you attended"
-        ></textarea>
+        <form  v-if="this.type === 'tour-guide'" >
+        <select id="tour_name_input" v-model="tourname" >
+          <option v-for="listing in listings" :key="listing">
+            {{listing.name}} </option>
+        </select>
+      </form>
+       <form v-else>
+        <select id="tour_name_input" v-model="tourname">
+          <option v-for="booking in bookedTrips" :key="booking">
+            {{booking.name}} </option>
+        </select>
+      </form>
     </div>
 
   <p class="email_title">Email</p>
@@ -73,6 +74,8 @@ export default {
       ratings: "",
       reviews: "",
       type:"",
+      bookedTrips:[],
+      listings: []
     };
   },
   mounted() {
@@ -87,7 +90,32 @@ export default {
             if (doc.exists){
               const data = doc.data()
               this.type = data["type"]
-              console.log(this.type)
+              if (this.type == 'tour-guide'){ //if tour guide, retrieve listings guide has for review
+                db.collection("listings").where("email","==",fbuser)
+                .get()
+                .then((z => {
+                  z.forEach((doc) => {
+                    const data = doc.data()
+                    const listing = {
+                        name: data["tour_name"],
+                        email:fbuser
+                    }
+                    console.log("here")
+                    console.log(listing)
+                    this.listings.push(listing)
+                  }
+                )}))
+              }
+              else{ //if tourist, retrieve their bookings to review
+                data["bookings"].forEach((booking)=>{
+                  let parsed = {
+                    name : booking.split(", ").slice(-1).toString(),
+                    email:  booking.split(", ").slice(0).toString()
+                  }
+                  this.bookedTrips.push(parsed)
+                }
+                )
+              }
             } else {
               console.log("no such document")
             }
@@ -147,7 +175,10 @@ body{
   opacity: 1;
   text-align: left;
 }
-
+#tour_name_input{
+  width:900px;
+  height:55px;
+}
 textarea{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding-top:15px;

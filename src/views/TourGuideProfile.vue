@@ -10,7 +10,7 @@
     </head>
     <body>
         <UserInfo/>
-      <div class="listingComp">
+      <div class="listingComp" style="height:100%">
         <ul class = "tabs">
           <li data-tab-target="#listings" class="active tab">Listings </li>
           <li data-tab-target="#newReview" class="tab"> Reviews </li>
@@ -118,8 +118,6 @@ export default {
     components: { UserInfo,Logo,SettingsButton, NavBar,ReviewList},
     methods:{
        editing(tour_id) {
-         console.log("edit")
-         console.log(tour_id)
         this.$router.push({
             name: 'EditTour',
             params:{
@@ -167,7 +165,7 @@ export default {
     left:30px;
     display:grid;
     grid-template-columns: repeat(2, 1fr);
-    gap:40px
+    gap:40px;
 }
 .card{
   width:300px;
@@ -184,10 +182,9 @@ export default {
     float: right;
 }
 .listingComp{
-  position:absolute;
-  top:100px;
-  right:40px;
-  height:830px;
+  position:relative;
+  top:-1475px;
+  right:-600px;
   width:800px;
   box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.25);
 }

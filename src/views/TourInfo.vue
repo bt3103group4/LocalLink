@@ -202,6 +202,10 @@ body {
   text-align: left;
   font-size: 30px;
 }
+#tourGuideBtn{
+  position: relative;
+  top:30px;
+  left:550px;
 
 .duration_box {
   width: 380px;
