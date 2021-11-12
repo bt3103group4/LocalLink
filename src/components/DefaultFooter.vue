@@ -60,7 +60,6 @@ export default {
 }
 
 .row {
-  border: 3px solid #fff;
   padding: 0px;
 }
 
@@ -68,29 +67,20 @@ export default {
   width: 33%;
   float: left;
   padding: 20px;
-  border: 2px solid red;
 }
 
 .contactCol{
-  position:absolute;
-  padding-left: 400px;
-  padding-right:750px;
   font-size:13px;
   width: 33%;
   float: left;
   padding: 20px;
-  border: 2px solid red;
 }
 
 .localLink{
-  position:absolute;
-  padding-left: 850px;
-  padding-right:250px;
   font-size:13px;
   width: 33%;
   float: left;
   padding: 20px;
-  border: 2px solid red;
 }
 
 .footer-dark h3 {
@@ -172,7 +162,6 @@ export default {
 
 .footer-dark .copyright{
   text-align:center;
-  padding-top:80px;
   opacity:0.3;
   font-size:13px;
   margin-bottom:0;
