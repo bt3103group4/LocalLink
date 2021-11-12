@@ -119,7 +119,7 @@ body{
     border-right:2px black solid;
     width: 80%;
     float: left;
-    padding: 20px;
+    padding: 40px;
 }
 #img{
     width:700px;
@@ -141,7 +141,7 @@ h1{
     right:40px;
     width: 20%;
     float: left;
-    padding: 20px;
+    padding: 40px;
 }
 #authorimg{
     width:200px;
