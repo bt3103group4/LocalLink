@@ -4,11 +4,7 @@
     <SettingsButton/>
     <Back/>
     <body>
-    <div class="credits">
-        <img id ="authorimg" src="../images/author1.jpg" alt="author" /><br>
-        <h4> By TravelDailyMedia</h4>
-        <h5> Authored by Kristin Mariano </h5>
-    </div>       
+    <div class="wrapper">
     <div class ="articletext">
         <h1> Top 5 expert tips for safe travel during Covid-19</h1><br>
         <img id ="img" src="../images/travel1.jpg" alt="travelling with covid" /><br><br>
@@ -48,6 +44,12 @@
             or any place for that matter, you should always wash your hands thoroughly for at least 20 seconds 
             using soap and water.</p>
     </div>
+    <div class="credits">
+        <img id ="authorimg" src="../images/author1.jpg" alt="author" /><br>
+        <h4> By TravelDailyMedia</h4>
+        <h5> Authored by Kristin Mariano </h5>
+    </div> 
+    </div> 
     </body>
 </template>
 
@@ -67,33 +69,55 @@ export default ({
 body{
     width:100%;
 }
+.wrapper {
+    padding: 20px;
+}
+
 .articletext{
-    width:1050px;
-    position:relative;
+
     top:50px;
     left:100px;
     padding-right:100px;
     padding-bottom: 100px;
     border-right:2px black solid;
+    width: 80%;
+    float: left;
+    padding: 40px;
 }
 #img{
     width:700px;
     position: relative;
-    left:100px;
+    object-fit: cover;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 h1{
     position: relative;
     top:-30px;
     font-size: 50px;
 }
 .credits{
-    position: absolute;
     top:150px;
     right:40px;
+    width: 20%;
+    float: left;
+    padding: 40px;
 }
+
 #authorimg{
     width:200px;
     border-radius: 100px;
     border: 5px solid lightgrey;
+    object-fit:cover;
+    position: relative;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 </style>
