@@ -159,7 +159,7 @@ export default {
 
 <style scoped>
 body{
-  height: 1200px;
+  width: 100%
 }
 
 .tour_name {
@@ -167,7 +167,7 @@ body{
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 235px;
-  left: 317px;
+  left: 20%;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-weight: Bold;
@@ -178,6 +178,7 @@ body{
 #tour_name_input{
   width:900px;
   height:55px;
+  outline: none;
 }
 textarea{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -191,7 +192,7 @@ textarea{
   opacity: 1;
   position: absolute;
   top: 300px;
-  left: 317px;
+  left: 20%;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -217,7 +218,7 @@ textarea{
 .email_title{
   position: absolute;
   top: 400px;
-  left: 317px;
+  left: 20%;
   font-size: 25px;
   font-weight: Bold;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -231,7 +232,7 @@ textarea{
   opacity: 1;
   position: absolute;
   top: 465px;
-  left: 317px;
+  left: 20%;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -250,7 +251,7 @@ textarea{
     border-bottom-style: hidden;
     width: 919px;
     height: 56px;
-    left: 400px;
+    left: 20%;
     outline: none;
 }
 
@@ -259,7 +260,7 @@ textarea{
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 565px;
-  left: 317px;
+  left: 20%;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-weight: Bold;
@@ -275,7 +276,7 @@ textarea{
   opacity: 1;
   position: absolute;
   top: 630px;
-  left: 317px;
+  left: 20%;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -294,7 +295,7 @@ textarea{
     border-bottom-style: hidden;
     width: 919px;
     height: 56px;
-    left: 400px;
+    left: 20%;
     outline: none;
 }
 
@@ -303,7 +304,7 @@ textarea{
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 730px;
-  left: 317px;
+  left: 20%;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-weight: Bold;
@@ -319,7 +320,7 @@ textarea{
   opacity: 1;
   position: absolute;
   top: 795px;
-  left: 317px;
+  left: 20%;
   border: 2px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -349,7 +350,7 @@ textarea{
   opacity: 1;
   position: absolute;
   top: 1100px;
-  left: 650px;
+  left: 50%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 30px;
   color: white;
