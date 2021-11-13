@@ -29,10 +29,10 @@
           </span>
           <div class="landing-btn-container">
             <button class="anchor landing-cta-btn">
-              <router-link to="/logintourist"> Login as Tourist</router-link>
+              <router-link style="color:white;" to="/logintourist"> Login as Tourist</router-link>
             </button>
             <button class="anchor landing-cta-btn">
-              <router-link to="/logintourguide">
+              <router-link style="color:white;" to="/logintourguide">
                 Login as Tour Guide</router-link
               >
             </button>
@@ -360,6 +360,9 @@ export default {};
   align-items: flex-start;
   flex-direction: row;
 }
+.landing-links-container a{
+  color:#595959
+}
 
 .landing-link {
   margin-right: var(--landing-space-space-tripleunit);
@@ -439,7 +442,6 @@ export default {};
   display: flex;
   flex-direction: row;
 }
-
 .grey-title {
   color: rgb(49, 59, 69);
   text-shadow: 0px 1px 30px white;
