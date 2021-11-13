@@ -12,24 +12,30 @@
 <script>
 import {ref, onBeforeMount} from 'vue'
 import firebase from 'firebase'
+import { useRouter } from 'vue-router'
+import { getCurrentInstance } from 'vue'
 
 export default {
    setup () {
             let name = ref("");
+            const store = getCurrentInstance().appContext.config.globalProperties.$store
+            const router = useRouter()
 
             onBeforeMount(() => {
                 const user = firebase.auth().currentUser;
                 if (user) {
                     name.value = user.email.split('@')[0];
                 }
-                
             });
 
             const Logout = () => {
-                firebase    
+                firebase
                     .auth()
                     .signOut()
                     .then(() => console.log("Sign Out"))
+                    .then(() => store.commit("setLoggedOut", null))
+                    .then(() => console.log(store.state))
+                    .then(() => router.push('/'))
                     .catch(err => alert(err.message));
             }
 
