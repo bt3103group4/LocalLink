@@ -195,7 +195,6 @@ export default {
   border: none;
   float: right;
 }
-<<<<<<< HEAD
 
 #deletelisting {
   width: 20px;
@@ -213,13 +212,6 @@ export default {
   top:-1475px;
   right:-600px;
   width:800px;
-=======
-.listingComp {
-  position: relative;
-  top: -1475px;
-  right: -600px;
-  width: 800px;
->>>>>>> upstream/main
   box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.25);
 }
 body {

@@ -25,6 +25,7 @@ import SoloTrip from '@/views/SoloTrip.vue'
 import Help from '@/views/Help.vue'
 import NoAccess from '@/views/NoAccess.vue'
 import NotFound from '@/views/NotFound.vue'
+import VirtualTour from '@/views/VirtualTour.vue'
 import store from '@/store/store.js'
 
 const allowOnlyTouristRoute = (to, from, next) => {
@@ -68,6 +69,12 @@ const routes = [
       name: 'Help',
       beforeEnter: allowOnlyAuthRoute,
       component: Help,
+    },
+    {
+      path: '/VirtualTour',
+      name: 'VirtualTour',
+      beforeEnter: allowOnlyAuthRoute,
+      component: VirtualTour,
     },
     {
     path: '/Explore',

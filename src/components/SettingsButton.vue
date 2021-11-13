@@ -71,7 +71,7 @@ export default {
     cursor: pointer;
     right:0;
     z-index:10;
-    top:10px;
+    top:4px;
     background: url("~@/images/v225_116.png");
     background-size: 90%;
     background-repeat: no-repeat;

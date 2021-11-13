@@ -3,6 +3,7 @@
     <div class="topnav">
       <div class="navcontents">
         <router-link to="/Explore">Explore</router-link>
+        <router-link to="/virtualTour">Virtual Tours</router-link>
         <a class="active" @click="Chat()">Chat</a>
         <router-link v-if="this.type === 'tour-guide'" to="/TourGuideProfile" >Account</router-link>
         <router-link v-else to="/TouristProfile" >Account</router-link>
@@ -95,13 +96,14 @@ export default {
   position: relative;
   top: 0px;
   height: 75px;
-  padding-left: 80%;
+  padding-left: 63%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.navcontents{
-  position: relative;
-  right:40%;
-  top: 35%;
+.navcontents {
+  display: flex;
+  padding-right: 50px;
+  align-items: center;
+  width: 800px;
 }
 a {
   padding: 20px;
@@ -112,8 +114,8 @@ a {
 }
 a:hover {
   cursor: pointer;
-  height: 75px;
-  top: 0px;
+  /* height: 75px; */
+  /* top: 0px; */
   color: white;
   font-style: normal;
 }
