@@ -17,6 +17,7 @@
     <NavBar />
     <Logo />
     <SettingsButton />
+
     <div class="page-container">
       <h1 class="main-header">Virtual Tours</h1>
       <h4 class="no-bold">
@@ -34,6 +35,15 @@
               </i>
             </p>
           </div>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/videoseries?controls=0&amp;list=PLO-Qy09mMggg6cZKhDKW6xT6EtP6QJiN3"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
 
         <div class="tour-card text-center">
@@ -46,6 +56,15 @@
               </i>
             </p>
           </div>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/videoseries?controls=0&amp;list=PLO-Qy09mMgggklnlZxIWsUQglqYGpQ_0t"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
 
         <div class="tour-card text-center">
@@ -58,6 +77,15 @@
               </i>
             </p>
           </div>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/videoseries?controls=0&amp;list=PLO-Qy09mMggiaz9VZ6FNtDNBmcVqtBSF0"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </div>
