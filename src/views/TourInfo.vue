@@ -14,9 +14,10 @@
     <img :src="tour_photo"> <br/> <br/>
 
     <div class="right_info_box">
-      <div class="container">
+      <div class="container" v-if="this.type === 'tourist'">
         <input type="checkbox" @click="saveToSavedListings(this.tour_name,this.email)" v-model="selected">
       </div>
+
       <div class="v228_57">
         <div class="duration_box"></div>
         <span class="duration">Duration Offered:</span>
@@ -77,6 +78,7 @@ export default {
       email: "",
       tour_photo: "",
       selected: "",
+      type:"",
     };
   },
   methods:{
@@ -160,7 +162,24 @@ export default {
           console.log("no such document");
         }
       });
-  },
+
+    const auth = firebase.auth();
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        let fbuser = auth.currentUser.email;
+        if (fbuser) {
+          db.collection("users").doc(String(fbuser))
+          .get()
+          .then(doc => {
+            if (doc.exists){
+              const data = doc.data()
+              this.type = data["type"]
+            }
+          })
+        }
+      }
+    });
+  }
 };
 </script>
 
