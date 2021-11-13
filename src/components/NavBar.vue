@@ -41,6 +41,7 @@ export default {
         .auth()
         .signOut()
         .then(() => console.log("Sign Out"))
+        .then(() => this.$router.push("/"))
         .catch((err) => alert(err.message));
     };
 

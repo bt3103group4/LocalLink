@@ -134,7 +134,8 @@ export default {
               console.log(this.Register);
             })
             .then(() => {
-              console.log(this.$router);
+              this.$store.commit("setLoggedIn", 'tourist');
+              console.log(this.$store.state);
               this.$router.push("/listingsnature");
             })
             .catch((error) => {

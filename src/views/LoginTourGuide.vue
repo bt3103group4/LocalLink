@@ -30,6 +30,7 @@ import FormLogo from '@/components/FormLogo.vue'
 import {ref} from 'vue';
 import firebase from 'firebase';
 import { useRouter } from 'vue-router'
+import { getCurrentInstance } from 'vue'
 
 export default {
     components: { FormLogo },
@@ -37,12 +38,16 @@ export default {
         const email = ref("");
         const password = ref("");
         const router = useRouter()
+        const store = getCurrentInstance().appContext.config.globalProperties.$store
 
         const Login = () => {
+          console.log(store);
             firebase
                 .auth()
                 .signInWithEmailAndPassword(email.value, password.value)
                 .then(data => console.log(data))
+                .then(() => store.commit("setLoggedIn", 'tour-guide'))
+                .then(() => console.log(store.state))
                 .then(() => router.push('/tourGuideProfile'))
                 .catch(err => alert(err.message));
         }
