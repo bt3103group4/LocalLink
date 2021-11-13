@@ -19,8 +19,8 @@
         <br>
         </div>
         <input class="login-submit" type="submit" value="Login as Tour Guide">
-        <span class="login-footer-text">Don't have an account yet? <router-link class="nav-link" to="/registertourguide">Register Here as a Tour Guide</router-link></span>
-        <span class="login-footer-text">Not a Tour Guide? Start travelling as a <router-link class="nav-link" to="/registertourist">Tourist</router-link>.</span>
+        <span class="login-footer-text">Don't have an account yet? <router-link class="router-link" to="/registertourguide">Register Here as a Tour Guide</router-link></span>
+        <span class="login-footer-text">Not a Tour Guide? <router-link class="router-link" to="/registertourist">Start travelling as a Tourist</router-link>.</span>
     </form>
 </div>
 </template>
@@ -72,11 +72,11 @@ export default {
   background-color: white;
   top:100px;
 }
-.nav-link {
+.router-link {
   color: #40a3b9;
 }
 
-.nav-link:hover {
+.router-link:hover {
   color: #337e8f;
 }
 
