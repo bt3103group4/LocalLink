@@ -245,7 +245,6 @@ body {
   font-size: 14px;
   color: grey;
   width: 100%;
-  height: 2500px;
   margin: 0px;
   padding: 0px;
   size: 100%;
@@ -264,7 +263,7 @@ li {
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 140px;
-  left: 450px;
+  left: 30%;
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 50px;
@@ -277,7 +276,7 @@ li {
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 240px;
-  left: 317px;
+  left: 20%;
   font-family: Ubuntu;
   font-size: 25px;
   opacity: 1;
@@ -291,7 +290,7 @@ li {
   opacity: 1;
   position: absolute;
   top: 350px;
-  left: 317px;
+  left: 20%;
   border: 2px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -321,7 +320,7 @@ li {
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 625px;
-  left: 317px;
+  left: 20%;
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
@@ -336,7 +335,7 @@ li {
   opacity: 1;
   position: absolute;
   top: 680px;
-  left: 317px;
+  left: 20%;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -348,7 +347,7 @@ li {
 
 .time_input {
   margin: 15px;
-  left: 320px;
+  left: 20%;
   top: 750px;
   outline: none;
   resize: none;
@@ -370,7 +369,7 @@ input {
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 780px;
-  left: 317px;
+  left: 20%;
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
@@ -385,7 +384,7 @@ input {
   opacity: 1;
   position: absolute;
   top: 830px;
-  left: 317px;
+  left: 20%;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -412,7 +411,7 @@ select {
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 940px;
-  left: 317px;
+  left: 20%;
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
@@ -427,7 +426,7 @@ select {
   opacity: 1;
   position: absolute;
   top: 990px;
-  left: 317px;
+  left: 20%;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -455,7 +454,7 @@ select {
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 1090px;
-  left: 317px;
+  left: 20%;
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
@@ -470,7 +469,7 @@ select {
   opacity: 1;
   position: absolute;
   top: 1140px;
-  left: 317px;
+  left: 20%;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -484,7 +483,7 @@ select {
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 1250px;
-  left: 317px;
+  left: 20%;
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
@@ -498,7 +497,7 @@ select {
   opacity: 1;
   position: absolute;
   top: 1300px;
-  left: 317px;
+  left: 20%;
   border: 2px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -525,7 +524,7 @@ select {
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 1810px;
-  left: 312px;
+  left: 20%;
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
@@ -540,7 +539,7 @@ select {
   opacity: 1;
   position: absolute;
   top: 1852px;
-  left: 308px;
+  left: 20%;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -555,7 +554,7 @@ select {
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 1960px;
-  left: 312px;
+  left: 20%;
   font-family: Ubuntu;
   font-weight: Bold;
   font-size: 25px;
@@ -570,7 +569,7 @@ select {
   opacity: 1;
   position: absolute;
   top: 2000px;
-  left: 308px;
+  left: 20%;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -587,7 +586,7 @@ select {
   opacity: 1;
   position: absolute;
   top: 2100px;
-  left: 650px;
+  left: 50%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 30px;
   color: white;
@@ -602,7 +601,11 @@ select {
   border: 10px solid red;
   position:relative;
   top: 1250px;
-  left: 317px;
+  left: 20%;
   z-index: 5;
+}
+
+*:focus {
+  outline: none;
 }
 </style>
