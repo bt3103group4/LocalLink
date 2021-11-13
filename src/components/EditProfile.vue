@@ -145,7 +145,8 @@ export default {
       lang: "",
       email: "",
       profilepic: "",
-      uploaded:true
+      uploaded:true,
+      askedForDeleteConfirmation: false
     };
   },
   mounted() {
@@ -251,6 +252,24 @@ export default {
           });
         }
       );
+    },
+
+    deleteProfile() {
+      if (!this.askedForDeleteConfirmation) {
+        this.askedForDeleteConfirmation = true;
+        return
+      }
+
+      const user = firebase.auth().currentUser;
+      db.collection("users").doc(this.email).delete()
+        .then(() => {
+          user.delete().then(() => {
+            console.log("User deleted");
+            alert("Account Deleted Successfully");
+            this.$store.commit("setLoggedOut", null);
+            this.$router.push("/");
+          }).catch((error) => alert(error.message));
+      })
     },
   },
 };
