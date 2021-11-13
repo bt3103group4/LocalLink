@@ -70,7 +70,7 @@
       <input class="register-submit" type="submit" value="Join as Tourist" />
       <span class="register-footer-text">
         Already have an account?
-        <router-link class="router-link" to="/logintourguide"
+        <router-link class="router-link" to="/logintourist"
           >Login instead</router-link
         >
       </span>

@@ -89,7 +89,8 @@ export default {
             .then((data) => console.log(data))
             .then(() => store.commit("setLoggedIn", "tour-guide"))
             .then(() => console.log(store.state))
-            .then(() => router.push("/tourGuideProfile"));
+            .then(() => router.push("/tourGuideProfile"))
+            .catch((err) => alert(err.message));
         })
         .catch((err) => alert(err.message));
     };
