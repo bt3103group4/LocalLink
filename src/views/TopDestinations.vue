@@ -4,11 +4,7 @@
     <SettingsButton/>
     <Back/>
     <body>
-    <div class="credits">
-        <img id ="authorimg" src="../images/author2.png" alt="author" /><br>
-        <h4> Adapted from Forbes</h4>
-        <h5> Authored by Laura Begley Bloom</h5>
-    </div>         
+    <div class="wrapper">
         <div class="article-text">
         <h1 id="title"> Bucket List Travel: The Top 10 Places In The World</h1><br>
         <img id ="img" src="../images/travel2.jpg" alt="top destinations" /><br><br>
@@ -78,6 +74,12 @@
             to you? To us, it’s everything we could want from a bucket list destination. </p><br>   
 
         </div>
+    <div class="credits">
+        <img id ="authorimg" src="../images/author2.png" alt="author" /><br>
+        <h4> Adapted from Forbes</h4>
+        <h5> Authored by Laura Begley Bloom</h5>
+    </div>   
+    </div> 
     </body>
     
 </template>
@@ -98,29 +100,47 @@ export default ({
 body{
     width:100%;
 }
+.wrapper {
+    padding: 20px;
+}
 .article-text{
-    width:1050px;
-    position:relative;
     top:10px;
     left:100px;
     padding-right:100px;
     padding-bottom: 100px;
     border-right:2px black solid;
+    width: 80%;
+    float: left;
+    padding: 40px;
 }
 #img{
     width:700px;
     position: relative;
-    left:100px;
+    object-fit: cover;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .credits{
-    position: absolute;
     top:150px;
     right:10px;
+    width: 20%;
+    float: left;
+    padding: 40px;
 }
 #authorimg{
     width:200px;
     border-radius: 100px;
     border: 5px solid lightgrey;
+    object-fit:cover;
+    position: relative;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 #title{
     font-size:50px;

@@ -164,10 +164,6 @@ body {
 .grid2{
   padding-bottom: 100px;
 }
-#sec-img{
-    width:377px;
-    height:285px;
-}
 #top{
     position: absolute;
     top:100px;
@@ -271,5 +267,11 @@ a.nav-link {
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 18px;
+}
+
+.card-img-top {
+  float: left;
+  height: 250px;
+  object-fit: cover;
 }
 </style>

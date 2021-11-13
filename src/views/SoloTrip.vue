@@ -4,11 +4,7 @@
     <SettingsButton/>
     <Back/>
     <body>
-    <div class="credits">
-        <img id ="authorimg" src="../images/author3.jpg" alt="author" /><br>
-        <h4> By Ciara Travel Blog</h4>
-        <h5> Authored by Ciara</h5>
-    </div>       
+    <div class="wrapper"> 
     <div class ="articletext">
         <h1> 7 Essential Tips for taking your first solo trip</h1><br>
         <img id ="img" src="../images/travel3.jpg" alt="solo trip" /><br><br>
@@ -87,6 +83,12 @@
              Try to go in with no expectations, while doing your best to stay positive. There's no way to predict 
              what will happen or what a certain destination will be like, so a positive mindset is crucial. </p>                
     </div>
+    <div class="credits">
+        <img id ="authorimg" src="../images/author3.jpg" alt="author" /><br>
+        <h4> By Ciara Travel Blog</h4>
+        <h5> Authored by Ciara</h5>
+    </div>      
+    </div>
     </body>
 </template>
 
@@ -106,19 +108,28 @@ export default ({
 body{
     width:100%;
 }
+.wrapper {
+    padding: 20px;
+}
 .articletext{
-    width:1050px;
-    position:relative;
-    top:50px;
+    top:60px;
     left:100px;
     padding-right:100px;
     padding-bottom: 100px;
     border-right:2px black solid;
+    width: 80%;
+    float: left;
+    padding: 40px;
 }
 #img{
     width:700px;
     position: relative;
-    left:100px;
+    object-fit: cover;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 h1{
     position: relative;
@@ -126,9 +137,11 @@ h1{
     font-size: 50px;
 }
 .credits{
-    position: absolute;
     top:150px;
     right:40px;
+    width: 20%;
+    float: left;
+    padding: 40px;
 }
 #authorimg{
     width:200px;
@@ -136,6 +149,12 @@ h1{
     border-radius: 1000px;
     object-fit:cover;
     border: 5px solid lightgrey;
+    position: relative;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 ul{
     position: relative;
