@@ -64,7 +64,8 @@ export default {
     data(){
         return{
             tours:[],
-            currentUser: ""
+            currentUser: "",
+            componentkey:0
         }
     },
         mounted(){
@@ -82,43 +83,41 @@ export default {
               tab.classList.add('active')
             })
           })
-
-          //getting tours
-            const self = this;
-            async function display(){
-                const auth = firebase.auth();
-                auth.onAuthStateChanged(user => {
-                if (user){
-                    let fbuser = auth.currentUser.email;
-                    self.currentUser=fbuser
-                    if (fbuser){
-                    self.currentUser = fbuser
-                    db.collection("listings").where("email","==",fbuser)
-                    .get()
-                    .then(z => {
-                        z.forEach(doc => {
-                        const data = doc.data()
-                        if (!(data["tour_name"]== null || data["start_date"] == null)){
-                            let tour = {
-                                tourname : data["tour_name"],
-                                start : data["start_date"],
-                                image: data["tour_photo"],
-                                review: "4", //to make dynamic too KIV
-                                tour_id: String(data.email + ", " + data.tour_name)
-                            }
-                            self.tours.push(tour)
-                            }
-                            })
-                    
-                    })}
-                    }
-                })
-                
-            }
-        display();
+          this.display();
     },
     components: { UserInfo,Logo,SettingsButton, NavBar,ReviewList},
     methods:{
+      //getting tours
+      async display(){
+        const self = this;
+        const auth = firebase.auth();
+        auth.onAuthStateChanged(user => {
+        if (user){
+          let fbuser = auth.currentUser.email;
+          self.currentUser=fbuser
+          if (fbuser){
+          self.currentUser = fbuser
+          db.collection("listings").where("email","==",fbuser)
+          .get()
+          .then(z => {
+            z.forEach(doc => {
+            const data = doc.data()
+            if (!(data["tour_name"]== null || data["start_date"] == null)){
+                let tour = {
+                    tourname : data["tour_name"],
+                    start : data["start_date"],
+                    image: data["tour_photo"],
+                    review: "4", //to make dynamic too KIV
+                    tour_id: String(data.email + ", " + data.tour_name)
+                }
+                self.tours.push(tour)
+                }
+                })
+              })}
+              }
+          })
+      },
+
        editing(tour_id) {
         this.$router.push({
             name: 'EditTour',
@@ -127,28 +126,11 @@ export default {
             }
         })
     },
-    deleting(tour_id) {
-      db.collection("listings").doc(tour_id).delete();
-        // db.collection("listings")
-        //   .doc(tour_id)
-        //   .get()
-        //   .then((doc) => {
-        //       if (doc.exists) {
-        //       const data = doc.data();
-        //           (this.description = data.description),
-        //           (this.start_date = data.start_date),
-        //           (this.end_date = data.end_date),
-        //           (this.transport = data.transport),
-        //           (this.experience = data.experience),
-        //           (this.cost = data.cost),
-        //           (this.tour_name = data.tour_name),
-        //           (this.tour_type = data.tour_type),
-        //           (this.tour_photo = data.tour_photo),
-        //           (this.email = data.email);
-        //       } else {
-        //       console.log("no such document");
-        //       }
-        //   });
+    async deleting(tour_id) {
+      alert("Deleting listing")
+      await db.collection("listings").doc(tour_id).delete();
+      window.location.reload()
+      this.display()
       },
     }
 }
