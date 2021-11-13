@@ -1,12 +1,11 @@
 <template>
     <div class= "dropdown">
-          <button class="settingsBtn"></button>
-            <div class="dropdown-content">
-                <router-link to="/help">Help</router-link> <br>
-                <button class="logout" @click="Logout">Logout</button>
-              </div>
-          </div>
-
+      <button class="settingsBtn"></button>
+        <div class="dropdown-content">
+            <a href="#">Help</a> <br>
+            <button class="logout" @click="Logout">Logout</button>
+        </div>
+    </div>
     <div class="settingsIcon"></div>
 </template>
 
