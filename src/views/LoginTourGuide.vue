@@ -1,6 +1,6 @@
 
 <template>
-<img class="background" src="../images/La-Plancha-Sunset-Bar-on-Seminyak-Beach-Bali-Indonesia.jpg">
+<img class="background" src="@/images/La-Plancha-Sunset-Bar-on-Seminyak-Beach-Bali-Indonesia.jpg">
 <div class="login">
   <div class="logo-and-title">
       <FormLogo/>
@@ -61,11 +61,16 @@ export default {
 
 <style scoped>
 
-.background{
+.background {
+  object-fit: cover;
   opacity: 0.85;
   z-index: 1;
-  width:100%;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-size: contain;
 }
+
 .login{
   z-index: 5;
   position: absolute;
