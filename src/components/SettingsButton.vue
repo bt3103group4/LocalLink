@@ -2,7 +2,7 @@
     <div class= "dropdown">
           <button class="settingsBtn"></button>
             <div class="dropdown-content">
-                <router-link to="/Help">Help</router-link> <br>
+                <router-link to="/help">Help</router-link> <br>
                 <button class="logout" @click="Logout">Logout</button>
               </div>
           </div>

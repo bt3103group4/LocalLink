@@ -204,7 +204,6 @@ body{
 }
 .faq_area {
     position: relative;
-    top:-93%;
     z-index: 1;
     background-color: #f5f5ff;
 }
