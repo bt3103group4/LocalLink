@@ -26,6 +26,7 @@
                     <img class="card-img-top" :src="tour.image" alt="Card image cap"/>
                     <div class="card-body">
                     <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
+                    <button id="deletelisting" @click="deleting(tour.tour_id)"></button>
                     <button id="editlisting" @click="editing(tour.tour_id)"></button>
                     <p class="card-text"> Available from: {{tour.start}}</p>
                     </div>
@@ -47,7 +48,8 @@
     <button class="uploadbtn" @click="$router.push('/newtour')">New Tour</button>
     <button class="newreview" @click="$router.push('/newreview')">Review</button>
     </body>
-    </template>
+</template>
+
 <script>
 import UserInfo from '@/components/UserInfo.vue'
 import SettingsButton from '@/components/SettingsButton.vue'
@@ -124,8 +126,30 @@ export default {
                 tour_id: tour_id
             }
         })
-        
-    }
+    },
+    deleting(tour_id) {
+      db.collection("listings").doc(tour_id).delete();
+        // db.collection("listings")
+        //   .doc(tour_id)
+        //   .get()
+        //   .then((doc) => {
+        //       if (doc.exists) {
+        //       const data = doc.data();
+        //           (this.description = data.description),
+        //           (this.start_date = data.start_date),
+        //           (this.end_date = data.end_date),
+        //           (this.transport = data.transport),
+        //           (this.experience = data.experience),
+        //           (this.cost = data.cost),
+        //           (this.tour_name = data.tour_name),
+        //           (this.tour_type = data.tour_type),
+        //           (this.tour_photo = data.tour_photo),
+        //           (this.email = data.email);
+        //       } else {
+        //       console.log("no such document");
+        //       }
+        //   });
+      },
     }
 }
 </script>
@@ -181,6 +205,18 @@ export default {
     border: none;
     float: right;
 }
+
+#deletelisting {
+  width: 20px;
+  height: 20px;
+  background: url("~@/images/delete.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border: none;
+  float: right;
+}
+
 .listingComp{
   position:relative;
   top:-1475px;
