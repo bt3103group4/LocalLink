@@ -158,7 +158,7 @@ export default {
     save() {
       const self = this;
       const auth = firebase.auth();
-      auth.onAuthStateChanged((user) => {
+      const user = auth.currentUser;
         if (user) {
           let fbuser = auth.currentUser.email;
           const tour_id = String(fbuser + ", " + this.tour_name);
@@ -194,7 +194,6 @@ export default {
             console.log("no such document");
           }
         }
-      });
     },
     click1() {
       this.$refs.input1.click();

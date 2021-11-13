@@ -182,43 +182,43 @@ export default {
     save() {
       const self = this;
       const auth = firebase.auth();
-      auth.onAuthStateChanged((user) => {
-        if (user) {
-          let fbuser = auth.currentUser.email;
-          const tour_id = String(fbuser + ", " + this.tour_name);
-          if (fbuser) {
-            if (
-              !(
-                this.description == "" ||
-                this.start_date == "" ||
-                this.end_date == "" ||
-                this.transport == "" ||
-                this.experience == "" ||
-                this.cost == "" ||
-                this.tour_name == "" ||
-                this.tour_type == "" ||
-                this.tour_photo == ""
-              )
-            ) {
-              db.collection("listings").doc(tour_id).set({
-                description: self.description,
-                start_date: self.start_date,
-                end_date: self.end_date,
-                transport: self.transport,
-                experience: self.experience,
-                cost: self.cost,
-                tour_name: self.tour_name,
-                tour_type: self.tour_type,
-                email: fbuser,
-                tour_photo: self.tour_photo,
-              });
-              alert("Edit successfully saved!");
-              this.$router.push("/tourGuideProfile");
-            } else alert("Cannot take empty Values. Please enter the values");
-            console.log("no such document");
-          }
+      const user = auth.currentUser;
+
+      if (user) {
+        let userEmail = auth.currentUser.email;
+        const tour_id = String(userEmail + ", " + this.tour_name);
+        if (userEmail) {
+          if (
+            !(
+              this.description == "" ||
+              this.start_date == "" ||
+              this.end_date == "" ||
+              this.transport == "" ||
+              this.experience == "" ||
+              this.cost == "" ||
+              this.tour_name == "" ||
+              this.tour_type == "" ||
+              this.tour_photo == ""
+            )
+          ) {
+            db.collection("listings").doc(tour_id).set({
+              description: self.description,
+              start_date: self.start_date,
+              end_date: self.end_date,
+              transport: self.transport,
+              experience: self.experience,
+              cost: self.cost,
+              tour_name: self.tour_name,
+              tour_type: self.tour_type,
+              email: userEmail,
+              tour_photo: self.tour_photo,
+            });
+            alert("Edit successfully saved!");
+            this.$router.push("/tourGuideProfile");
+          } else alert("Cannot take empty Values. Please enter the values");
+          console.log("no such document");
         }
-      });
+      }
     },
     click1() {
       this.$refs.input1.click();

@@ -109,6 +109,19 @@
               >
                 Save Profile
               </button>
+              <button
+                @click="deleteProfile()"
+                class="btn btn-danger profile-button-danger"
+                type="button"
+              >
+
+              <span v-if="!askedForDeleteConfirmation">
+                Delete Profile
+              </span>
+              <span v-else>
+                Confirm Delete?
+              </span>
+              </button>
             </div>
           </div>
         </div>
@@ -132,7 +145,8 @@ export default {
       lang: "",
       email: "",
       profilepic: "",
-      uploaded:true
+      uploaded:true,
+      askedForDeleteConfirmation: false
     };
   },
   mounted() {
@@ -239,6 +253,24 @@ export default {
         }
       );
     },
+
+    deleteProfile() {
+      if (!this.askedForDeleteConfirmation) {
+        this.askedForDeleteConfirmation = true;
+        return
+      }
+
+      const user = firebase.auth().currentUser;
+      db.collection("users").doc(this.email).delete()
+        .then(() => {
+          user.delete().then(() => {
+            console.log("User deleted");
+            alert("Account Deleted Successfully");
+            this.$store.commit("setLoggedOut", null);
+            this.$router.push("/");
+          }).catch((error) => alert(error.message));
+      })
+    },
   },
 };
 </script>
@@ -281,7 +313,15 @@ body {
   background: rgba(63, 163, 184, 1);
   box-shadow: none;
   border: none;
+  margin: 10px;
 }
+
+.profile-button-danger {
+  box-shadow: none;
+  border: none;
+  margin: 10px;
+}
+
 .name{
   position: relative;
   left:-15px;

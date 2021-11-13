@@ -3,6 +3,8 @@ import 'mutationobserver-shim'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router/index.js'
+// import Vuex from "vuex"
+import store from './store/store.js'
 import firebase from 'firebase'
 
 const firebaseConfig = {
@@ -16,4 +18,4 @@ const firebaseConfig = {
 
 const firebaseApp = firebase.initializeApp(firebaseConfig)
 export const db = firebaseApp.firestore();
-createApp(App).use(router).mount('#app')
+createApp(App).use(router).use(store).mount('#app')

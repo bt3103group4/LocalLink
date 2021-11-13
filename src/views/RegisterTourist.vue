@@ -70,7 +70,7 @@
       <input class="register-submit" type="submit" value="Join as Tourist" />
       <span class="register-footer-text">
         Already have an account?
-        <router-link class="router-link" to="/logintourguide"
+        <router-link class="router-link" to="/logintourist"
           >Login instead</router-link
         >
       </span>
@@ -134,7 +134,8 @@ export default {
               console.log(this.Register);
             })
             .then(() => {
-              console.log(this.$router);
+              this.$store.commit("setLoggedIn", 'tourist');
+              console.log(this.$store.state);
               this.$router.push("/listingsnature");
             })
             .catch((error) => {
