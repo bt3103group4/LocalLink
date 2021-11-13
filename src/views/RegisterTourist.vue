@@ -67,9 +67,9 @@
       </div>
 
       <input class="register-submit" type="submit" value="Join as Tourist" />
-      <p>
-        Already have an account? <router-link class="nav-link" to="/logintourist">Login instead</router-link>
-      </p>
+      <span class="register-footer-text">
+        Already have an account? <router-link class="router-link" to="/logintourguide">Login instead</router-link>
+      </span>
     </form>
   </div>
 </template>
@@ -145,12 +145,16 @@ export default {
 </script>
 
 <style scoped>
+.register-footer-text {
+  margin: 10px 0px;
+}
 
-.nav-link {
+
+.router-link {
   color: #40a3b9;
 }
 
-.nav-link:hover {
+.router-link:hover {
   color: #337e8f;
 }
 
