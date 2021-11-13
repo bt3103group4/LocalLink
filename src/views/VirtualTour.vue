@@ -23,6 +23,44 @@
         Find unique and exciting virtual tours to give you the adrenaline rush
         sitting at home
       </h4>
+      <div class="cards">
+        <div class="tour-card text-center">
+          <div class="card-textarea">
+            <h2 class="card-title">Adventure Tours</h2>
+            <p class="card-text">
+              <i>
+                Find unique and exciting virtual tours to give you the
+                adrenaline rush sitting at home
+              </i>
+            </p>
+          </div>
+        </div>
+
+        <div class="tour-card text-center">
+          <div class="card-textarea">
+            <h2 class="card-title">Nature Tours</h2>
+            <p class="card-text">
+              <i>
+                Find unique and exciting virtual tours to give you the peace and
+                tranquility of Nature right at home.
+              </i>
+            </p>
+          </div>
+        </div>
+
+        <div class="tour-card text-center">
+          <div class="card-textarea">
+            <h2 class="card-title">Beach Tours</h2>
+            <p class="card-text">
+              <i>
+                Find your next beach vacation here! Or take a beach vacation
+                from the comfort of your homes
+              </i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </template>
 
@@ -55,6 +93,42 @@ body {
 }
 .no-bold {
   font-weight: 300;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+}
+
+.tour-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 0 50px;
+}
+
+.card-textarea {
+  padding-right: 80px;
+}
+
+.cards > :nth-child(2) {
+  flex-direction: row-reverse;
+}
+
+.cards > :nth-child(2) > .card-textarea {
+  padding-right: 0px;
+  padding-left: 80px;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+.container {
+  position: absolute;
+  top: 50px;
 }
 
 #video1 {
