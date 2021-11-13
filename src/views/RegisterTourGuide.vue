@@ -1,4 +1,5 @@
 <template>
+  <img class="background" src="@/images/city.jpeg" />
   <div class="register">
     <div class="logo-and-title">
       <FormLogo/>
@@ -150,6 +151,16 @@ export default {
 
 <style scoped>
 
+.background {
+  object-fit: cover;
+  opacity: 0.85;
+  z-index: 1;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-size: contain;
+}
+
 .register-footer-text {
   margin: 10px 0px;
 }
@@ -194,9 +205,13 @@ export default {
 }
 
 .register {
+  z-index: 5;
   width: 100vw;
   margin-top: 60px;
   padding: 20px 20px;
+  position: absolute;
+  background-color: white;
+  top:100px;
 }
 
 @media only screen and (min-width: 728px) {

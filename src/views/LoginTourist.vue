@@ -1,6 +1,6 @@
 
 <template>
-<img class="background" src="../images/bali-beach.jpg">
+<img class="background" src="@/images/bali-beach.jpg">
 <div class="login">
   <div class="logo-and-title">
       <FormLogo/>
@@ -59,10 +59,16 @@ export default {
 
 
 <style scoped>
-.background{
+.background {
+  object-fit: cover;
   opacity: 0.85;
   z-index: 1;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-size: contain;
 }
+
 .login{
   z-index: 5;
   position: absolute;
