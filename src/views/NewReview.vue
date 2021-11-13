@@ -4,7 +4,7 @@
     <Logo/>
     <SettingsButton/>
   <span v-if="this.type === 'tour-guide'" class="header">Leave a Review for your Tourist!</span>
-  <span v-else class="header">Leave a Review for your Tourist!</span>
+  <span v-else class="header">Leave a Review for your Tour Guide!</span>
   <Back/>
   <head>
     <link

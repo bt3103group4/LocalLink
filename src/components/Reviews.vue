@@ -178,6 +178,7 @@ body{
 #tour_name_input{
   width:900px;
   height:55px;
+  outline: none;
 }
 textarea{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
