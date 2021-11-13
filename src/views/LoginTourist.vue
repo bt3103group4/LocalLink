@@ -1,4 +1,3 @@
-
 <template>
   <img class="background" src="@/images/bali-beach.jpg" />
   <div class="login">
@@ -89,7 +88,8 @@ export default {
             .then((data) => console.log(data))
             .then(() => store.commit("setLoggedIn", "tourist"))
             .then(() => console.log(store.state))
-            .then(() => router.push("/listingsnature"));
+            .then(() => router.push("/listingsnature"))
+            .catch((err) => alert(err.message));
         })
         .catch((err) => alert(err.message));
     };
