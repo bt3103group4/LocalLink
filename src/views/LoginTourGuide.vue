@@ -1,5 +1,6 @@
 
 <template>
+<img class="background" src="@/images/La-Plancha-Sunset-Bar-on-Seminyak-Beach-Bali-Indonesia.jpg">
 <div class="login">
   <div class="logo-and-title">
       <FormLogo/>
@@ -18,8 +19,8 @@
         <br>
         </div>
         <input class="login-submit" type="submit" value="Login as Tour Guide">
-        <span class="login-footer-text">Don't have an account yet? <router-link class="nav-link" to="/registertourguide">Register Here as a Tour Guide</router-link></span>
-        <span class="login-footer-text">Not a Tour Guide? Start travelling as a <router-link class="nav-link" to="/registertourist">Tourist</router-link>.</span>
+        <span class="login-footer-text">Don't have an account yet? <router-link class="router-link" to="/registertourguide">Register Here as a Tour Guide</router-link></span>
+        <span class="login-footer-text">Not a Tour Guide? <router-link class="router-link" to="/registertourist">Start travelling as a Tourist</router-link>.</span>
     </form>
 </div>
 </template>
@@ -42,7 +43,7 @@ export default {
                 .auth()
                 .signInWithEmailAndPassword(email.value, password.value)
                 .then(data => console.log(data))
-                .then(() => router.push('/tourguideprofile'))
+                .then(() => router.push('/tourGuideProfile'))
                 .catch(err => alert(err.message));
         }
         return {
@@ -60,11 +61,27 @@ export default {
 
 <style scoped>
 
-.nav-link {
+.background {
+  object-fit: cover;
+  opacity: 0.85;
+  z-index: 1;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-size: contain;
+}
+
+.login{
+  z-index: 5;
+  position: absolute;
+  background-color: white;
+  top:100px;
+}
+.router-link {
   color: #40a3b9;
 }
 
-.nav-link:hover {
+.router-link:hover {
   color: #337e8f;
 }
 

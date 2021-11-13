@@ -15,7 +15,6 @@
     <title>Document</title>
   </head>
   <body>
-    <button class="backNav" @click="$router.push('/TourGuideProfile')"></button>
     <Reviews/>
   </body>
 </template>

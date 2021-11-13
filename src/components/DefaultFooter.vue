@@ -55,20 +55,32 @@ export default {
   color:#f0f9ff;
   background-color:#282d32;
   position:absolute;
-  top:1400px;
+  top:1600px;
   width: 100%;
 }
-.contactCol{
-  position:absolute;
-  padding-left: 400px;
-  padding-right:750px;
-  font-size:13px;
+
+.row {
+  padding: 0px;
 }
-.localLink{
-  position:absolute;
-  padding-left: 850px;
-  padding-right:250px;
+
+.serviceCol {
+  width: 33%;
+  float: left;
+  padding: 20px;
+}
+
+.contactCol{
   font-size:13px;
+  width: 33%;
+  float: left;
+  padding: 20px;
+}
+
+.localLink{
+  font-size:13px;
+  width: 33%;
+  float: left;
+  padding: 20px;
 }
 
 .footer-dark h3 {
@@ -150,7 +162,6 @@ export default {
 
 .footer-dark .copyright{
   text-align:center;
-  padding-top:80px;
   opacity:0.3;
   font-size:13px;
   margin-bottom:0;

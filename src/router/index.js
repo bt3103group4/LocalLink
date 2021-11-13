@@ -1,9 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Search from "@/views/Search.vue";
 import NewTour from "@/views/NewTour.vue";
 import TouristProfile from "@/views/TouristProfile.vue";
 import TourGuideProfile from "@/views/TourGuideProfile.vue";
-import Chat from "@/views/Chat.vue";
 import Logout from "@/views/Logout.vue";
 import ListingsNature from "@/views/ListingsNature.vue";
 import ListingsAdv from "@/views/ListingsAdv.vue";
@@ -19,6 +17,12 @@ import EditTour from '@/views/EditTour.vue'
 import NewReview from '@/views/NewReview.vue'
 import TourInfo from '@/views/TourInfo.vue'
 import ConfirmationPage from '@/views/ConfirmationPage.vue'
+import TourGuideView from '@/views/TourGuideView.vue'
+import Explore from '@/views/Explore.vue'
+import TipsCovid from '@/views/TipsCovid.vue'
+import TopDestinations from '@/views/TopDestinations.vue'
+import SoloTrip from '@/views/SoloTrip.vue'
+import Help from '@/views/Help.vue'
 
 const routes = [
     {
@@ -27,9 +31,34 @@ const routes = [
     component: Landing
     },
     {
+      path: '/help',
+      name: 'Help',
+      component: Help,
+    },
+    {
+    path: '/Explore',
+    name: 'Explore',
+    component : Explore
+    },
+    {
     path: '/logintourguide',
     name: 'LoginTourGuide',
     component: LoginTourGuide
+    },
+    {
+      path: '/tips-for-travelling-with-covid',
+      name: 'TipsCovid',
+      component: TipsCovid
+    },
+    {
+      path: '/top-destinations-you-should-visit',
+      name: 'TopDestinations',
+      component: TopDestinations
+    },
+    {
+      path: '/tips-for-your-next-solo-trip',
+      name: 'SoloTrip',
+      component: SoloTrip
     },
     {
     path: '/registertourguide',
@@ -51,11 +80,6 @@ const routes = [
     // name: 'SignUp',
     // component: SignUp
     // },
-    {
-    path: '/search',
-    name: 'Search',
-    component: Search
-    },
     {
     path: "/newtour",
     name: "NewTour",
@@ -83,9 +107,10 @@ const routes = [
     component: TourGuideProfile
     },
     {
-    path: '/chat',
-    name: 'Chat',
-    component: Chat
+    path: '/tourGuideView',
+    name: 'TourGuideView',
+    component: TourGuideView,
+    props: true,
     },
     {
     path: '/logout',
@@ -123,12 +148,6 @@ const routes = [
       name: "ConfirmationPage",
       component: ConfirmationPage,
     },
-    //delete later, for testing
-    // {
-    // path: '/layout',
-    // name: 'Layout',
-    // component: Layout
-    // }
 ];
 
 const router = createRouter({

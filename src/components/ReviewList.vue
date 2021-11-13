@@ -46,8 +46,6 @@ export default {
                     .then(z => {
                         z.forEach(doc => {
                         const data = doc.data()
-                        console.log("below is data")
-                        console.log(data)
                         let newreview ={
                             reviewer : data["my_email"],
                             rating: data["ratings"],
@@ -55,7 +53,6 @@ export default {
                             tourname: data["tourname"]
                         }
                         self.reviews.push(newreview)
-                        console.log(newreview);
                         })
                     
                     })}

@@ -24,7 +24,7 @@
     </div>
     <br />
     <br />
-    <div class="card text-center" style="top: 40px">
+    <div id="nav" class="card text-center">
       <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
           <li class="nav-item">
@@ -81,7 +81,9 @@
     <div class="grid">
       <div class="card" v-for="tour in tours" :key="tour.tour_name">
         <img class="card-img-top" :src="tour.tour_photo" alt="Card image cap" />
-        <div class="card-body" id="tour-item">
+        <div class="card-body">
+          <br>
+          <button class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">See more</button> <br> <br>
           <h5 class="card-title">{{ tour.tour_name }}</h5>
           <p class="card-text">{{ tour.description }}</p>
           <p class="card-text">
@@ -188,7 +190,7 @@ body {
 .grid {
   size: 50%;
   position: absolute;
-  top: 400px;
+  top: 300px;
   left: 130px;
   right: 130px;
   display: grid;
@@ -197,7 +199,11 @@ body {
   justify-content: center;
   align-content: center;
 }
-
+#nav{
+  position:absolute;
+  width:100%;
+  top:80px;
+}
 .btn-primary {
   width: 120px;
   height: 48px;
@@ -213,6 +219,10 @@ body {
   opacity: 1;
   text-align: center;
   cursor: pointer;
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .customise {
@@ -221,6 +231,12 @@ body {
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 18px;
+}
+
+.card-img-top {
+  float: left;
+  height: 250px;
+  object-fit: cover;
 }
 
 a:hover {

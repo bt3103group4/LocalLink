@@ -1,9 +1,12 @@
 <template>
   <body>
     <div class="topnav">
-      <a href="#home">About</a>
-      <a class="active" href="#home">Contact</a>
-      <router-link to="/touristProfile">Account</router-link>
+      <div class="navcontents">
+        <router-link to="/Explore">Explore</router-link>
+        <a class="active" @click="Chat()">Chat</a>
+        <router-link v-if="this.type === 'tour-guide'" to="/TourGuideProfile" >Account</router-link>
+        <router-link v-else to="/TouristProfile" >Account</router-link>
+        </div>
     </div>
     <SearchBar />
   </body>
@@ -13,9 +16,16 @@
 import { ref, onBeforeMount } from "vue";
 import firebase from "firebase";
 import SearchBar from "./SearchBar.vue";
+import { db } from "../main.js";
 
 export default {
   components: { SearchBar },
+  data(){
+    return{
+      type: "",
+      email:""
+    }
+  },
   setup() {
     let name = ref("");
 
@@ -39,26 +49,58 @@ export default {
       Logout,
     };
   },
+    mounted() {
+    const auth = firebase.auth();
+    var self=this
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        let fbuser = auth.currentUser.email;
+        self.email=fbuser
+        if (fbuser) {
+          db.collection("users").doc(String(fbuser))
+          .get()
+          .then(doc => {
+            if (doc.exists){
+              const data = doc.data()
+              this.type = data["type"]
+              console.log(this.type)
+            } else {
+              console.log("no such document")
+            }
+          })
+        }
+      }
+    })
+  },
+  methods:{
+    Chat(){ //push current user's username to rooms list
+    const self=this
+      this.$router.push({
+        name: 'Chat',
+        params: {
+          email: self.email
+        }
+      })
+    }
+  }
 };
 </script>
 
 <style scoped>
-body {
-  margin: 0px;
-  padding: 0px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}
+
 .topnav {
   background-color: rgba(63, 163, 184, 1);
   width: 100%;
-  position: absolute;
+  position: relative;
   top: 0px;
   height: 75px;
-  padding-top: 25px;
-  padding-left: 1000px;
+  padding-left: 80%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.navcontents{
+  position: relative;
+  right:40%;
+  top: 35%;
 }
 a {
   padding: 20px;
@@ -69,7 +111,6 @@ a {
 }
 a:hover {
   cursor: pointer;
-  background-color: grey;
   height: 75px;
   top: 0px;
   color: white;
@@ -103,4 +144,5 @@ a:hover {
   left: 170px;
   overflow: hidden;
 }
+
 </style>

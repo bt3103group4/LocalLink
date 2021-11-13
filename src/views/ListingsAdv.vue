@@ -24,7 +24,7 @@
     </div>
     <br />
     <br />
-    <div class="card text-center" style="top: 40px">
+    <div id="nav" class="card text-center">
       <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
           <li class="nav-item">
@@ -181,10 +181,13 @@ export default {
 body {
   width: 100%;
 }
+.cardheader{
+  border: 10px red solid;
+}
 .grid {
   size: 50%;
   position: absolute;
-  top: 400px;
+  top: 300px;
   left: 130px;
   right: 130px;
   display: grid;
@@ -192,6 +195,11 @@ body {
   gap: 20px;
   justify-content: center;
   align-content: center;
+}
+#nav{
+  position:absolute;
+  width:100%;
+  top:80px;
 }
 
 .btn-primary {
@@ -209,6 +217,10 @@ body {
   opacity: 1;
   text-align: center;
   cursor: pointer;
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .customise {
@@ -217,6 +229,12 @@ body {
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 18px;
+}
+
+.card-img-top {
+  float: left;
+  height: 250px;
+  object-fit: cover;
 }
 
 a:hover {
