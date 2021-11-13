@@ -136,7 +136,8 @@ export default {
               console.log(this.Register);
             })
             .then(() => {
-              console.log(this.$router);
+              this.$store.commit("setLoggedIn", 'tour-guide');
+              console.log(this.$store.state);
               this.$router.push('/listingsnature')
             }) 
             .catch((error) => {
