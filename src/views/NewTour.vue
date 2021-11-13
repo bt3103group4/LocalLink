@@ -165,7 +165,7 @@ export default {
           if (fbuser) {
             if (
               !(
-                this.description == "" ||
+                (this.description.length < 100) ||
                 this.start_date == "" ||
                 this.end_date == "" ||
                 this.transport == "" ||
@@ -190,7 +190,7 @@ export default {
               });
               alert("Edit successfully saved!");
               this.$router.push("/tourGuideProfile");
-            } else alert("Cannot take empty Values. Please enter the values");
+            } else alert("Please check that your description is longer than 100 words or all fields are filled in!");
             console.log("no such document");
           }
         }
