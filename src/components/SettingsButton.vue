@@ -2,7 +2,7 @@
     <div class= "dropdown">
           <button class="settingsBtn"></button>
             <div class="dropdown-content">
-                <a href="#">Help</a> <br>
+                <router-link to="/Help">Help</router-link> <br>
                 <button class="logout" @click="Logout">Logout</button>
               </div>
           </div>
@@ -80,7 +80,7 @@ export default {
   min-width: 175px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding:10px;
-  z-index: 1;
+  z-index: 10;
   font-family: Ubuntu;
   right:0;
   top:50px;

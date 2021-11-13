@@ -206,7 +206,7 @@ body {
   position: relative;
   top:30px;
   left:550px;
-
+}
 .duration_box {
   width: 380px;
   height: 52px;

@@ -155,8 +155,8 @@ body {
 #editprofilebtn {
     width: 30px;
     height: 30px;
-    position : absolute;
-    left: -160px;
+    position : relative;
+    left: -20%;
     top : 460px;
     margin: 30px;
     background: url("~@/images/edit.png");

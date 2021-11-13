@@ -3,7 +3,7 @@
     <div class="topnav">
       <div class="navcontents">
         <router-link to="/Explore">Explore</router-link>
-        <a class="active" href="#home">Chat</a>
+        <a class="active" @click="Chat()">Chat</a>
         <router-link v-if="this.type === 'tour-guide'" to="/TourGuideProfile" >Account</router-link>
         <router-link v-else to="/TouristProfile" >Account</router-link>
         </div>
@@ -22,7 +22,8 @@ export default {
   components: { SearchBar },
   data(){
     return{
-      type: ""
+      type: "",
+      email:""
     }
   },
   setup() {
@@ -50,9 +51,11 @@ export default {
   },
     mounted() {
     const auth = firebase.auth();
+    var self=this
     auth.onAuthStateChanged(user => {
       if (user) {
         let fbuser = auth.currentUser.email;
+        self.email=fbuser
         if (fbuser) {
           db.collection("users").doc(String(fbuser))
           .get()
@@ -68,6 +71,17 @@ export default {
         }
       }
     })
+  },
+  methods:{
+    Chat(){ //push current user's username to rooms list
+    const self=this
+      this.$router.push({
+        name: 'Chat',
+        params: {
+          email: self.email
+        }
+      })
+    }
   }
 };
 </script>

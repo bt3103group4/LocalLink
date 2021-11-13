@@ -22,7 +22,7 @@ import Explore from '@/views/Explore.vue'
 import TipsCovid from '@/views/TipsCovid.vue'
 import TopDestinations from '@/views/TopDestinations.vue'
 import SoloTrip from '@/views/SoloTrip.vue'
-import Chat from '@/views/Chat.vue'
+import Help from '@/views/Help.vue'
 
 const routes = [
     {
@@ -31,9 +31,9 @@ const routes = [
     component: Landing
     },
     {
-      path: '/chat',
-      name: 'chat',
-      component: Chat
+      path: '/help',
+      name: 'Help',
+      component: Help,
     },
     {
     path: '/Explore',
