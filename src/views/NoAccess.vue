@@ -14,6 +14,51 @@
   </div>
 </template>
 
+<script>
+// import NavBar from "@/components/NavBar.vue";
+import Logo from "@/components/Logo.vue";
+// import DefaultFooter from "@/components/DefaultFooter.vue";
+import firebase from "firebase";
+import { db } from "../main.js";
+
+
+export default {
+  components: { Logo },
+
+  methods: {
+    landing() {
+      const self = this;
+      const auth = firebase.auth();
+      const user = auth.currentUser;
+
+      if (!user) {
+          self.$router.push("/");
+      } else {
+        let userEmail = auth.currentUser.email;
+        self.email = userEmail
+        if (userEmail) {
+          db.collection("users").doc(String(userEmail))
+          .get()
+          .then(doc => {
+            if (doc.exists){
+              const data = doc.data()
+              
+              if (data["type"] == "tourist") {
+                self.$router.push("/touristProfile");
+              } else {
+                  self.$router.push("/tourGuideProfile");
+              }
+            } else {
+              console.log("no such document")
+            }
+          })
+        }
+      }
+    },
+  },
+};
+</script>
+
 <style scoped>
 
 .page-container {
