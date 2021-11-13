@@ -30,6 +30,7 @@ import {ref} from 'vue';
 import firebase from 'firebase';
 import FormLogo from '@/components/FormLogo.vue'
 import { useRouter } from 'vue-router'
+import { getCurrentInstance } from 'vue'
 
 export default {
   components: { FormLogo },
@@ -38,6 +39,7 @@ export default {
         const password = ref("");
         // const navigator = this;
         const router = useRouter()
+        const store = getCurrentInstance().appContext.config.globalProperties.$store;
         // const route = useRoute()
 
         const Login = function() {
@@ -45,6 +47,8 @@ export default {
                 .auth()
                 .signInWithEmailAndPassword(email.value, password.value)
                 .then(data => console.log(data))
+                .then(() => store.commit("setLoggedIn", 'tourist'))
+                .then(() => console.log(store.state))
                 .then(() => router.push('/listingsnature')) 
                 .catch(err => alert(err.message));
         }
