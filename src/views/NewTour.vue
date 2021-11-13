@@ -22,9 +22,10 @@
 
     <div class="des_input">
       <textarea
+        minlength="100"
         class="des_text"
         v-model.lazy="description"
-        placeholder="Describe your tour to stand out from the rest! A good description usually has more than 200 words."
+        placeholder="Describe your tour to stand out from the rest! A good description usually has more than 200 words. (Min requirement: 100 words)"
         required = ""
       ></textarea>
     </div>
