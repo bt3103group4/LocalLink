@@ -109,6 +109,19 @@
               >
                 Save Profile
               </button>
+              <button
+                @click="deleteProfile()"
+                class="btn btn-danger profile-button-danger"
+                type="button"
+              >
+
+              <span v-if="!askedForDeleteConfirmation">
+                Delete Profile
+              </span>
+              <span v-else>
+                Confirm Delete?
+              </span>
+              </button>
             </div>
           </div>
         </div>
@@ -281,7 +294,15 @@ body {
   background: rgba(63, 163, 184, 1);
   box-shadow: none;
   border: none;
+  margin: 10px;
 }
+
+.profile-button-danger {
+  box-shadow: none;
+  border: none;
+  margin: 10px;
+}
+
 .name{
   position: relative;
   left:-15px;
