@@ -138,7 +138,6 @@ export default {
           this.tours.push(tour);
         });
       });
-    console.log("tours", this.tours);
   },
   methods: {
     viewTourInfo(tour_id) {

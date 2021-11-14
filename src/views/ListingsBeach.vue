@@ -153,30 +153,30 @@ export default {
         },
       });
     },
-     orderByCost() {
-    this.tours.sort(function (a, b) {
-      return a.cost - b.cost;
-    });
-    // console.log("cost", this.tours);
-  },
-  orderByName() {
-    this.tours.sort(function (a, b) {
-      return a.tour_name.localeCompare(b.tour_name);
-    });
-    // console.log("name", this.tours);
-  },
-  orderByStartDate() {
-    this.tours.sort(function (a, b) {
-      return new Date(a.start_date) - new Date(b.start_date);
-    });
-    //  console.log("dates", this.tours);
-  },
-  orderByEndDate() {
-    this.tours.sort(function (a, b) {
-      return new Date(a.end_date) - new Date(b.end_date);
-    });
-    //  console.log("end dates", this.tours);
-  },
+    orderByCost() {
+      this.tours.sort(function (a, b) {
+        return a.cost - b.cost;
+      });
+      // console.log("cost", this.tours);
+    },
+    orderByName() {
+      this.tours.sort(function (a, b) {
+        return a.tour_name.localeCompare(b.tour_name);
+      });
+      // console.log("name", this.tours);
+    },
+    orderByStartDate() {
+      this.tours.sort(function (a, b) {
+        return new Date(a.start_date) - new Date(b.start_date);
+      });
+      //  console.log("dates", this.tours);
+    },
+    orderByEndDate() {
+      this.tours.sort(function (a, b) {
+        return new Date(a.end_date) - new Date(b.end_date);
+      });
+      //  console.log("end dates", this.tours);
+    },
   },
  
 };
