@@ -82,16 +82,17 @@
       <div class="card" v-for="tour in tours" :key="tour.tour_name">
         <img class="card-img-top" :src="tour.tour_photo" alt="Card image cap" />
         <div class="card-body">
+          <br>
+          <button class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">See more</button> <br> <br>
           <h5 class="card-title">{{ tour.tour_name }}</h5>
           <p class="card-text">{{ tour.description }}</p>
-          <p class="card-text">
+          <!-- <p class="card-text">
             <b>{{ tour.start_date }} to {{ tour.end_date }}</b>
           </p>
           <p class="card-text">
             <b>${{ tour.cost }}</b>
           </p>
-           <br>
-          <button class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">See more</button> <br> <br>
+           <br> -->
           <!-- <p class="card-text"> -->
           <!-- <small class="text-muted">Last booked 5 mins ago</small> -->
           <!-- </p> -->
