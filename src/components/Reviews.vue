@@ -2,17 +2,18 @@
 <body>
   <div class="tour_name">Tour Name</div>
     <div class="tour_name_box">
-        <textarea v-if="this.type === 'tour-guide'"
-        class="tour_input"
-        v-model.lazy="tourname"
-        placeholder="Name of tour you hosted for your tourist"
-        ></textarea>
-
-        <textarea v-else
-        class="tour_input"
-        v-model.lazy="tourname"
-        placeholder="Name of tour you hosted for your tour guide"
-        ></textarea>
+        <form  v-if="this.type === 'tour-guide'" >
+        <select id="tour_name_input" v-model="tourname" >
+          <option v-for="listing in listings" :key="listing">
+            {{listing.name}} </option>
+        </select>
+      </form>
+       <form v-else>
+        <select id="tour_name_input" v-model="tourname">
+          <option v-for="booking in bookedTrips" :key="booking">
+            {{booking.name}} </option>
+        </select>
+      </form>
     </div>
 
   <p class="email_title">Email</p>
@@ -73,6 +74,8 @@ export default {
       ratings: "",
       reviews: "",
       type:"",
+      bookedTrips:[],
+      listings: []
     };
   },
   mounted() {
@@ -87,7 +90,32 @@ export default {
             if (doc.exists){
               const data = doc.data()
               this.type = data["type"]
-              console.log(this.type)
+              if (this.type == 'tour-guide'){ //if tour guide, retrieve listings guide has for review
+                db.collection("listings").where("email","==",fbuser)
+                .get()
+                .then((z => {
+                  z.forEach((doc) => {
+                    const data = doc.data()
+                    const listing = {
+                        name: data["tour_name"],
+                        email:fbuser
+                    }
+                    console.log("here")
+                    console.log(listing)
+                    this.listings.push(listing)
+                  }
+                )}))
+              }
+              else{ //if tourist, retrieve their bookings to review
+                data["bookings"].forEach((booking)=>{
+                  let parsed = {
+                    name : booking.split(", ").slice(-1).toString(),
+                    email:  booking.split(", ").slice(0).toString()
+                  }
+                  this.bookedTrips.push(parsed)
+                }
+                )
+              }
             } else {
               console.log("no such document")
             }
@@ -129,9 +157,9 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 body{
-  height: 1200px;
+  width: 100%
 }
 
 .tour_name {
@@ -139,7 +167,7 @@ body{
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 235px;
-  left: 317px;
+  left: 20%;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-weight: Bold;
@@ -147,7 +175,11 @@ body{
   opacity: 1;
   text-align: left;
 }
-
+#tour_name_input{
+  width:900px;
+  height:55px;
+  outline: none;
+}
 textarea{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding-top:15px;
@@ -160,7 +192,7 @@ textarea{
   opacity: 1;
   position: absolute;
   top: 300px;
-  left: 317px;
+  left: 20%;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -186,7 +218,7 @@ textarea{
 .email_title{
   position: absolute;
   top: 400px;
-  left: 317px;
+  left: 20%;
   font-size: 25px;
   font-weight: Bold;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -200,7 +232,7 @@ textarea{
   opacity: 1;
   position: absolute;
   top: 465px;
-  left: 317px;
+  left: 20%;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -219,7 +251,7 @@ textarea{
     border-bottom-style: hidden;
     width: 919px;
     height: 56px;
-    left: 400px;
+    left: 20%;
     outline: none;
 }
 
@@ -228,7 +260,7 @@ textarea{
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 565px;
-  left: 317px;
+  left: 20%;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-weight: Bold;
@@ -244,7 +276,7 @@ textarea{
   opacity: 1;
   position: absolute;
   top: 630px;
-  left: 317px;
+  left: 20%;
   border: 1px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -263,7 +295,7 @@ textarea{
     border-bottom-style: hidden;
     width: 919px;
     height: 56px;
-    left: 400px;
+    left: 20%;
     outline: none;
 }
 
@@ -272,7 +304,7 @@ textarea{
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 730px;
-  left: 317px;
+  left: 20%;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Ubuntu;
   font-weight: Bold;
@@ -288,7 +320,7 @@ textarea{
   opacity: 1;
   position: absolute;
   top: 795px;
-  left: 317px;
+  left: 20%;
   border: 2px solid rgba(0, 0, 0, 0.33000001311302185);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -318,7 +350,7 @@ textarea{
   opacity: 1;
   position: absolute;
   top: 1100px;
-  left: 650px;
+  left: 50%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 30px;
   color: white;

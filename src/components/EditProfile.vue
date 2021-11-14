@@ -59,7 +59,7 @@
             <div class="d-flex justify-content-between align-items-center mb-3">
               <h4 class="text-right">Edit your profile</h4>
             </div>
-            <div class="row mt-2">
+            <div class="name">
               <div class="col-md-6">
                 <label class="labels">First Name</label>
                 <input
@@ -69,12 +69,11 @@
                   placeholder="First name"
                   v-model="firstname"
                 />
-              </div>
-              <div class="lastname">
-                <label class="labels">Last Name</label>
+                <label id ="lastname" class="labels">Last Name</label>
                 <input
                   type="text"
                   class="form-control"
+                  id ="lastname" 
                   placeholder="Last name"
                   v-model="lastname"
                 />
@@ -104,11 +103,24 @@
             </div>
             <div class="mt-5 text-center">
               <button
-                @click="saveEdits(), $router.push('/TouristProfile')"
+                @click="saveEdits(), $router.go(-1)"
                 class="btn btn-primary profile-button"
                 type="button"
               >
                 Save Profile
+              </button>
+              <button
+                @click="deleteProfile()"
+                class="btn btn-danger profile-button-danger"
+                type="button"
+              >
+
+              <span v-if="!askedForDeleteConfirmation">
+                Delete Profile
+              </span>
+              <span v-else>
+                Confirm Delete?
+              </span>
               </button>
             </div>
           </div>
@@ -133,7 +145,8 @@ export default {
       lang: "",
       email: "",
       profilepic: "",
-      uploaded:true
+      uploaded:true,
+      askedForDeleteConfirmation: false
     };
   },
   mounted() {
@@ -240,6 +253,24 @@ export default {
         }
       );
     },
+
+    deleteProfile() {
+      if (!this.askedForDeleteConfirmation) {
+        this.askedForDeleteConfirmation = true;
+        return
+      }
+
+      const user = firebase.auth().currentUser;
+      db.collection("users").doc(this.email).delete()
+        .then(() => {
+          user.delete().then(() => {
+            console.log("User deleted");
+            alert("Account Deleted Successfully");
+            this.$store.commit("setLoggedOut", null);
+            this.$router.push("/");
+          }).catch((error) => alert(error.message));
+      })
+    },
   },
 };
 </script>
@@ -282,15 +313,28 @@ body {
   background: rgba(63, 163, 184, 1);
   box-shadow: none;
   border: none;
-}
-.lastname {
-  position: absolute;
-  top: 101px;
-  right: 0px;
-  left: 340px;
-  width: 290px;
+  margin: 10px;
 }
 
+.profile-button-danger {
+  box-shadow: none;
+  border: none;
+  margin: 10px;
+}
+
+.name{
+  position: relative;
+  left:-15px;
+  width:600px;
+  height:50px;
+}
+#lastname{
+  position: relative;
+  top: -62px;
+  width:300px;
+
+  left:300px;
+}
 #langtextbox {
   width: 600px;
 }

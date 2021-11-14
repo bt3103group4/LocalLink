@@ -17,6 +17,7 @@ export default {
     height:30px;
     background-size: 100% 100%;
     border:none;
+    z-index: 10;
 }
 .backNav:hover{
     cursor: pointer;

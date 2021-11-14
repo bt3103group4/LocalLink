@@ -21,8 +21,6 @@
             <p v-if="bio != ''"> {{bio}} </p>
             <p style="color:grey;font-style: italic;font-size:15px" v-else> Nothing here yet :(   Add your bio by clicking on the edit icon! </p><br>
         </div>
-
-        <button id="editprofilebtn" @click="$router.push('/EditUserProfile')"></button>
         </div>
         </body>
 </template>
@@ -33,8 +31,10 @@ import { db} from "../main.js";
 
 export default{
     name : "UserProfile",
+    props:['gEmail'],
     data(){
       return{
+        guideEmail: this.gEmail,
         username: "",
         firstname: "",
         lastname: "",
@@ -50,15 +50,15 @@ export default{
       auth.onAuthStateChanged(user => {
       if (user){
         let fbuser = auth.currentUser.email;
-        if (fbuser){
+        if (self.guideEmail == null){
           db.collection("users").doc(String(fbuser))
           .get()
           .then(doc => {
           if (doc.exists){
-          const data = doc.data()
-          self.firstname = data["firstname"] 
-          self.lastname = data["lastname"]
-          self.username = data["username"]
+            const data = doc.data()
+            self.firstname = data["firstname"] 
+            self.lastname = data["lastname"]
+            self.username = data["username"]
             if(data["bio"] != null){
                 self.bio = data["bio"]
             }
@@ -74,11 +74,35 @@ export default{
           }
         })
       } 
+      else{
+        db.collection("users").doc(self.guideEmail)
+          .get()
+          .then(doc => {
+          if (doc.exists){
+            const data = doc.data()
+            self.firstname = data["firstname"] 
+            self.lastname = data["lastname"]
+            self.username = data["username"]
+            if(data["bio"] != null){
+                self.bio = data["bio"]
+            }
+            if(data["lang"] != null){
+                self.lang = data["lang"]
+            }
+            if(data["profilepic"] != null){
+                self.profilepic=data["profilepic"]
+            }
+          }
+          else{
+            console.log("no such document")
+          }
+        })
+      }
     }
   })
 }
     display();
-    },
+    }
 }
 </script>
 
@@ -137,17 +161,5 @@ button{
   opacity: 1;
   text-align: center;
 }
-#editprofilebtn {
-    width: 30px;
-    height: 30px;
-    position : absolute;
-    left: 440px;
-    top : 565px;
-    margin: 30px;
-    background: url("~@/images/edit.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    border: none;
-}
+
 </style>
