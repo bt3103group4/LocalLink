@@ -90,9 +90,10 @@
           <p class="card-text">
             <b>${{ tour.cost }}</b>
           </p>
+          <br>
           <button class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">
             See more
-          </button>
+          </button><br><br>
           <!-- <p class="card-text"> -->
           <!-- <small class="text-muted">Last booked 5 mins ago</small> -->
           <!-- </p> -->
