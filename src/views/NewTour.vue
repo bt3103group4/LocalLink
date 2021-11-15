@@ -35,7 +35,7 @@
       <div class="time_input">
         <form>
           <label for="start_date"> Start Date:</label>
-          <input id="start_date" v-model.lazy="start_date" type="date" required/>
+          <input id="start_date" v-model.lazy="start_date" type="date" min="getDate()" required/>
           <label for="end_date"> End Date:</label>
           <input id="end_date" v-model.lazy="end_date" type="date" required/>
         </form>
@@ -159,6 +159,7 @@ export default {
       const self = this;
       const auth = firebase.auth();
       const user = auth.currentUser;
+      console.log(this.start_date);
         if (user) {
           let fbuser = auth.currentUser.email;
           const tour_id = String(fbuser + ", " + this.tour_name);
@@ -168,12 +169,14 @@ export default {
                 (this.description.length < 100) ||
                 this.start_date == "" ||
                 this.end_date == "" ||
+                this.start_date > this.end_date ||
                 this.transport == "" ||
                 this.experience == "" ||
                 this.cost == "" ||
                 this.tour_name == "" ||
                 this.tour_type == "" ||
-                this.tour_photo == ""
+                this.tour_photo == "" ||
+                new Date().toISOString().slice(0, 10) > this.start_date
               )
             ) {
               db.collection("listings").doc(tour_id).set({
@@ -189,8 +192,9 @@ export default {
                 tour_photo: self.tour_photo,
               });
               alert("Edit successfully saved!");
+              alert("this.")
               this.$router.push("/tourGuideProfile");
-            } else alert("Please check that your description is longer than 100 words or all fields are filled in!");
+            } else alert("Please check that your description is longer than 100 words, start and end dates are correct or all fields are filled in!");
             console.log("no such document");
           }
         }

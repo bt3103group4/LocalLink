@@ -151,7 +151,7 @@ const routes = [
     {
     path: '/tourGuideView',
     name: 'TourGuideView',
-    beforeEnter: allowOnlyAuthRoute,
+    // beforeEnter: allowOnlyTourGuideRoute,
     component: TourGuideView,
     props: true,
     },
@@ -163,19 +163,19 @@ const routes = [
     {
       path: "/listingsnature",
       name: "ListingsNature",
-      beforeEnter: allowOnlyAuthRoute,
+      // beforeEnter: allowOnlyAuthRoute,
       component: ListingsNature,
     },
     {
       path: "/listingsadv",
       name: "ListingsAdv",
-      beforeEnter: allowOnlyAuthRoute,
+      // beforeEnter: allowOnlyAuthRoute,
       component: ListingsAdv,
     },
     {
       path: "/listingsbeach",
       name: "ListingsBeach",
-      beforeEnter: allowOnlyAuthRoute,
+      // beforeEnter: allowOnlyAuthRoute,
       component: ListingsBeach,
     },
     {
@@ -187,6 +187,7 @@ const routes = [
     {
       path: "/tourInfo",
       name: "TourInfo",
+      // beforeEnter: allowOnlyAuthRoute,
       component: TourInfo,
       props: true,
     },

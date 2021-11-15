@@ -190,15 +190,17 @@ export default {
         if (userEmail) {
           if (
             !(
-              this.description == "" ||
-              this.start_date == "" ||
-              this.end_date == "" ||
-              this.transport == "" ||
-              this.experience == "" ||
-              this.cost == "" ||
-              this.tour_name == "" ||
-              this.tour_type == "" ||
-              this.tour_photo == ""
+              (this.description.length < 100) ||
+                this.start_date == "" ||
+                this.end_date == "" ||
+                this.start_date > this.end_date ||
+                this.transport == "" ||
+                this.experience == "" ||
+                this.cost == "" ||
+                this.tour_name == "" ||
+                this.tour_type == "" ||
+                this.tour_photo == "" ||
+                new Date().toISOString().slice(0, 10) > this.start_date
             )
           ) {
             db.collection("listings").doc(tour_id).set({
@@ -215,7 +217,7 @@ export default {
             });
             alert("Edit successfully saved!");
             this.$router.push("/tourGuideProfile");
-          } else alert("Cannot take empty Values. Please enter the values");
+          } else alert("Please check that your description is longer than 100 words, start and end dates are correct or all fields are filled in!");
           console.log("no such document");
         }
       }
