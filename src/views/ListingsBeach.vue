@@ -44,27 +44,23 @@
           </li>
 
           <!-- ordering buttons -->
-          <div>Order results by</div>
-          <li class="nav-item">
-            <button class="nav-link" href="#" @click="orderByStartDate()">
-              Start Date
-            </button>
-          </li>
-          <li class="nav-item">
-            <button class="nav-link" href="#" @click="orderByEndDate()">
-              End Date
-            </button>
-          </li>
-          <li class="nav-item">
-            <button class="nav-link" href="#" @click="orderByCost()">
-              Cost
-            </button>
-          </li>
-          <li class="nav-item">
-            <button class="nav-link" href="#" @click="orderByName()">
-              Tour Name
-            </button>
-          </li>
+      <div class= "dropdown">Order results by
+              <button class="filterBtn"></button>
+                <div class="dropdown-content">
+                  <button class="nav-link" href="#" @click="orderByStartDate()">
+                    Start Date
+                  </button>
+                  <button class="nav-link" href="#" @click="orderByEndDate()">
+                    End Date
+                  </button>
+                  <button class="nav-link" href="#" @click="orderByCost()">
+                    Cost
+                  </button>
+                  <button class="nav-link" href="#" @click="orderByName()">
+                    Tour Name
+                  </button>
+                </div>
+            </div>
         </ul>
       </div>
       <div class="card-body">
@@ -213,6 +209,59 @@ body {
   position: absolute;
   width: 100%;
   top: 80px;
+}
+.filterBtn{
+    border:none;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    background: none;
+    margin:0px;
+    cursor: pointer;
+    right:0;
+    z-index:10;
+    top:4px;
+    background: url("~@/images/dropdown_arrow.png");
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    align-content: right;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 175px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding:10px;
+  z-index: 10;
+  font-family: Ubuntu;
+  right:0;
+  top:50px;
+  text-align: right;
+  color:black;
+}
+.dropdown {
+  position: absolute;
+  top:20px;
+  right:4%;
+  display: inline-block;
+  height:60px;
+  color:black;
+  
+}
+.dropdown-content a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  padding-right: 0px;
+  right: 60px;
+}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 .btn-primary {
   width: 120px;

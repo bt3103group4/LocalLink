@@ -242,17 +242,7 @@ body {
   text-align: left;
   font-size: 30px;
 }
-#tourGuideBtn {
-  position: relative;
-  top: 200px;
-  left: 250px;
-  background: rgba(63, 163, 184, 1);
-  color: white;
-  width:250px;
-  height: 50px;
-  font-size: 20px;
-  border-radius: 30px;
-}
+
 .duration_box {
   width: 380px;
   height: 52px;
@@ -314,7 +304,7 @@ body {
   text-align: center;
 }
 
-.tourGuideBtn {
+#tourGuideBtn {
   width: 320px;
   height: 60px;
   background: rgba(63, 163, 184, 1);
