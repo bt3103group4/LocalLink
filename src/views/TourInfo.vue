@@ -492,7 +492,7 @@ body {
   width: 130px;
   background-color: white;
   position: relative;
-  left: 290px;
+  left: 550px;
   border-radius: 12px;
   display: grid;
   place-items: center;
