@@ -216,7 +216,7 @@ export default {
             });
             alert("Edit successfully saved!");
             this.$router.push("/tourGuideProfile");
-          } else alert("Cannot take empty Values. Please enter the values");
+          } else alert("Please check that your description is longer than 100 words, start and end dates are correct or all fields are filled in!");
           console.log("no such document");
         }
       }
