@@ -190,15 +190,16 @@ export default {
         if (userEmail) {
           if (
             !(
-              this.description == "" ||
-              this.start_date == "" ||
-              this.end_date == "" ||
-              this.transport == "" ||
-              this.experience == "" ||
-              this.cost == "" ||
-              this.tour_name == "" ||
-              this.tour_type == "" ||
-              this.tour_photo == ""
+              (this.description.length < 100) ||
+                this.start_date == "" ||
+                this.end_date == "" ||
+                this.start_date > this.end_date ||
+                this.transport == "" ||
+                this.experience == "" ||
+                this.cost == "" ||
+                this.tour_name == "" ||
+                this.tour_type == "" ||
+                this.tour_photo == ""
             )
           ) {
             db.collection("listings").doc(tour_id).set({
