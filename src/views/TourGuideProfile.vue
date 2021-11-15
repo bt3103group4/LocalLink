@@ -38,7 +38,7 @@
                     <img class="card-img-top" :src="tour.image" alt="Card image cap"/>
                     <div class="card-body">
                     <h5 class="card-title" style="display:inline-block;">{{tour.tourname}}</h5>
-                    <button id="deletelisting" @click="deleting(tour.tour_id)"></button>
+                    <button id="deletelisting" @click="deleting(tour.tour_id)"></button><br>
                     <button id="editlisting" @click="editing(tour.tour_id)"></button>
                     <p class="card-text"> Available from: {{tour.start}}</p>
                     </div>

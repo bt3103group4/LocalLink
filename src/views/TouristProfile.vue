@@ -31,10 +31,8 @@
          <UserBookedListings/>
         </div>        
       </div>
-      <button id="editprofilebtn" @click="$router.push('/editUserProfile')"> </button>
     </div>
 </div>
-  <DefaultFooter/>
     </body>
 </template>
 
@@ -46,11 +44,10 @@ import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
 import UserBookedListings from '@/components/UserBookedListings.vue'
 import ReviewList from '@/components/ReviewList.vue'
-import DefaultFooter from '@/components/DefaultFooter.vue'
 
 export default {
     name: "TouristProfile",
-    components: { UserInfo, Logo ,UserSavedListings, SettingsButton, NavBar, UserBookedListings, ReviewList, DefaultFooter},
+    components: { UserInfo, Logo ,UserSavedListings, SettingsButton, NavBar, UserBookedListings, ReviewList},
     mounted(){
       let tabs = document.querySelectorAll('[data-tab-target]')
       let tabContents = document.querySelectorAll('[data-tab-content]')
@@ -82,18 +79,29 @@ export default {
 }
 .listingsComp{
   position:absolute;
-  top:100px;
-  right:40px;
-  height:830px;
+  top:16%;
+  left:40%;
+  height:800px;
   width:800px;
   box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  overflow-y:scroll;
+}
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 body {
   font-size: 14px;
   background-color: rgba(242,238,238,1);
   width: 100%;
-  height:1500px;
+  height:1000px;
 }
 .tabs{
   position: absolute;
@@ -151,18 +159,5 @@ body {
 .newReviewBtn:hover{
   background-color: rgba(0,0,0,0.3);
   cursor: pointer;
-}
-#editprofilebtn {
-    width: 30px;
-    height: 30px;
-    position : relative;
-    left: -20%;
-    top : 460px;
-    margin: 30px;
-    background: url("~@/images/edit.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    border: none;
 }
 </style>

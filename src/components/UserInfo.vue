@@ -11,6 +11,7 @@
         </div>
 
         <div class="details">
+            <button id="editprofilebtn" @click="$router.push('/editUserProfile')"> </button>
             <p style="font-weight:900;font-size:22px" class="about">About me</p> <hr>
             <span style="font-weight:700;font-size:15px">Name </span>
             <p> {{firstname}} {{lastname}} </p>
@@ -160,6 +161,18 @@ button{
   font-size: 35px;
   opacity: 1;
   text-align: center;
+}
+#editprofilebtn {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top:10px;
+    right: 0px;
+    background: url("~@/images/edit.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border: none;
 }
 
 </style>

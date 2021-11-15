@@ -190,6 +190,7 @@ import Logo from '@/components/Logo.vue'
 import Back from '@/components/Back.vue'
 
 export default {
+    name: "Help",
     components: {NavBar,Logo,SettingsButton,Back}
 }
 </script>
