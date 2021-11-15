@@ -54,8 +54,12 @@
       <div class="card" v-for="tour in tours" :key="tour.tour_name">
         <img class="card-img-top" :src="tour.tour_photo" alt="Card image cap" />
         <div class="card-body">
-          <br>
-          <button class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">See more </button> <br> <br>
+          <br />
+          <button class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">
+            See more
+          </button>
+          <br />
+          <br />
           <h5 class="card-title">{{ tour.tour_name }}</h5>
           <p class="card-text">{{ tour.description }}</p>
           <!-- <p class="card-text"> -->
@@ -63,9 +67,11 @@
           <!-- </p> -->
         </div>
       </div>
+      <div class="card">
+        <div class="card-footer"><DefaultFooter /></div>
+      </div>
     </div>
   </body>
-      <DefaultFooter />
 </template>
 
 <script>
@@ -133,10 +139,10 @@ body {
   justify-content: center;
   align-content: center;
 }
-#nav{
-  position:absolute;
-  width:100%;
-  top:80px;
+#nav {
+  position: absolute;
+  width: 100%;
+  top: 80px;
 }
 .btn-primary {
   width: 120px;
