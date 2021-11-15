@@ -244,8 +244,14 @@ body {
 }
 #tourGuideBtn {
   position: relative;
-  top: 30px;
-  left: 550px;
+  top: 200px;
+  left: 250px;
+  background: rgba(63, 163, 184, 1);
+  color: white;
+  width:250px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 30px;
 }
 .duration_box {
   width: 380px;
@@ -360,8 +366,6 @@ body {
   overflow: hidden;
 }
 
-<<<<<<< HEAD
-=======
 .v257_57 {
   width: 374px;
   color: rgba(255, 255, 255, 1);
@@ -423,7 +427,6 @@ body {
   overflow: hidden;
 }
 
->>>>>>> 5622545cbc4022b2fc2b727cae22a498ddb68922
 .v228_57 {
   width: 618px;
   height: 52px;
