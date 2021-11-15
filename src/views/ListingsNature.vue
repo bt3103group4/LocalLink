@@ -126,6 +126,7 @@ export default {
       .where("tour_type", "==", "Nature")
       .get()
       .then((docs) => {
+        console.log(docs)
         docs.forEach((doc) => {
           const data = doc.data();
           let tour = {
