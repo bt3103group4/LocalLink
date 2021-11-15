@@ -208,7 +208,7 @@ export default {
   padding: 20px 0px;
   position: absolute;
   background-color: white;
-  top:100px;
+  top:0px;
 }
 
 @media only screen and (min-width: 728px) {
