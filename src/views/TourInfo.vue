@@ -324,21 +324,6 @@ body {
   text-align: center;
 }
 
-.backNav {
-  position: absolute;
-  top: 100px;
-  left: 25px;
-  background: url("~@/images/back-button.png");
-  width: 45px;
-  height: 30px;
-  background-size: 100% 100%;
-  border: none;
-}
-
-.backNav:hover {
-  cursor: pointer;
-}
-
 .tour_photo_div {
   width: 1250px;
   height: 600px;
@@ -349,67 +334,6 @@ body {
   position: absolute;
   top: 20px;
   left: 100px;
-  overflow: hidden;
-}
-
-.v257_57 {
-  width: 374px;
-  color: rgba(255, 255, 255, 1);
-  position: absolute;
-  top: 781px;
-  left: 23px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 20px;
-  opacity: 1;
-  text-align: left;
-} 
-
-.v198_104 {
-  width: 295px;
-  height: 168px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 180px;
-  left: 676px;
-  overflow: hidden;
-}
-.v198_83 {
-  width: 657px;
-  height: 348px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
-}
-.v198_103 {
-  width: 295px;
-  height: 168px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 676px;
-  overflow: hidden;
-}
-.v198_105 {
-  width: 419px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 988px;
   overflow: hidden;
 }
 
@@ -450,21 +374,6 @@ body {
   font-size: 25px;
   opacity: 1;
   text-align: left;
-}
-
-.v228_66 {
-  width: 170px;
-  height: 34px;
-  background: rgba(255, 255, 255, 1);
-  opacity: 1;
-  position: absolute;
-  top: 367px;
-  left: 1237px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  overflow: hidden;
 }
 
 *,
