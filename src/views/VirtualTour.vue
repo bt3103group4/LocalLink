@@ -127,7 +127,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 80vh;
+  padding: 35px 65px;
 }
 
 .tour-card {

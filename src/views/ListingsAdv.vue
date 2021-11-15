@@ -15,9 +15,7 @@
   <body>
     <NavBar />
     <Logo />
-    <DefaultFooter />
-    <SettingsButton/>
-
+    <SettingsButton />
 
     <div class="container">
       <div style="width: 10%"></div>
@@ -44,7 +42,7 @@
               >Beach</a
             >
           </li>
-          
+
           <!-- ordering buttons -->
           <div>Order results by</div>
           <li class="nav-item">
@@ -83,8 +81,10 @@
       <div class="card" v-for="tour in tours" :key="tour.tour_name">
         <img class="card-img-top" :src="tour.tour_photo" alt="Card image cap" />
         <div class="card-body" id="tour-item">
-          <br>
-          <button class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">See more</button><br><br>
+          <br />
+          <button class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">
+            See more</button
+          ><br /><br />
           <h5 class="card-title">{{ tour.tour_name }}</h5>
           <p class="card-text">{{ tour.description }}</p>
           <!-- <p class="card-text">
@@ -100,6 +100,7 @@
         </div>
       </div>
     </div>
+    <div><DefaultFooter /></div>
   </body>
 </template>
 
@@ -128,7 +129,7 @@ export default {
       .then((docs) => {
         docs.forEach((doc) => {
           const data = doc.data();
-         let tour = {
+          let tour = {
             email: data.email,
             tour_name: data.tour_name,
             description: data.description,
@@ -183,25 +184,34 @@ export default {
 body {
   width: 100%;
 }
-.cardheader{
+.cardheader {
   border: 10px red solid;
 }
 .grid {
   size: 50%;
-  position: absolute;
-  top: 300px;
+  position: relative;
+  /* top: 300px;
   left: 130px;
-  right: 130px;
+  right: 130px; */
+  margin: 50px;
+  margin-top: 250px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   justify-content: center;
   align-content: center;
 }
-#nav{
-  position:absolute;
-  width:100%;
-  top:80px;
+.footer {
+  width: 100%;
+  position: fixed;
+  height: 20%;
+  bottom: 0;
+  left: 0;
+}
+#nav {
+  position: absolute;
+  width: 100%;
+  top: 80px;
 }
 
 .btn-primary {
