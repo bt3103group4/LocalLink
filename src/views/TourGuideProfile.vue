@@ -1,7 +1,7 @@
 <template>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <NavBar />
   <Logo />
-  <SettingsButton />
   <head>
     <link
       href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
@@ -18,11 +18,15 @@
   </head>
   <body>
     <UserInfo />
-    <div class="listingComp" style="height: 100%">
+    <div class="listingComp">
       <ul class="tabs">
         <li data-tab-target="#listings" class="active tab">Listings</li>
         <li data-tab-target="#newReview" class="tab">Reviews</li>
       </ul>
+    <div class="name">
+      <button class="uploadbtn" @click="$router.push('/newtour')">New Tour</button>
+      <button class="newreview" @click="$router.push('/newreview')">Review</button>
+    </div>
 
         <div class="tabcontent">
           <div id = "listings" data-tab-content class="active">
@@ -33,7 +37,7 @@
                     <div class="card">
                     <img class="card-img-top" :src="tour.image" alt="Card image cap"/>
                     <div class="card-body">
-                    <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
+                    <h5 class="card-title" style="display:inline-block;">{{tour.tourname}}</h5>
                     <button id="deletelisting" @click="deleting(tour.tour_id)"></button>
                     <button id="editlisting" @click="editing(tour.tour_id)"></button>
                     <p class="card-text"> Available from: {{tour.start}}</p>
@@ -53,16 +57,11 @@
       id="editprofilebtn"
       @click="$router.push('/editUserProfile')"
     ></button>
-
-    <div class="name"></div>
-    <button class="uploadbtn" @click="$router.push('/newtour')">New Tour</button>
-    <button class="newreview" @click="$router.push('/newreview')">Review</button>
     </body>
 </template>
 
 <script>
 import UserInfo from "@/components/UserInfo.vue";
-import SettingsButton from "@/components/SettingsButton.vue";
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
 import ReviewList from "../components/ReviewList.vue";
@@ -93,7 +92,7 @@ export default {
           })
           this.display();
     },
-    components: { UserInfo,Logo,SettingsButton, NavBar,ReviewList},
+    components: { UserInfo,Logo, NavBar,ReviewList},
     methods:{
       //getting tours
       async display(){
@@ -155,6 +154,10 @@ export default {
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  overflow-y: auto;
+  height: 800px;
+  width: 100%;
+
 }
 .card-group:hover {
   cursor: pointer;
@@ -181,6 +184,7 @@ export default {
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
 }
+
 .card {
   width: 300px;
   height: 300px;
@@ -208,15 +212,26 @@ export default {
 }
 
 .listingComp{
-  position:relative;
-  top:-1475px;
-  right:-600px;
+  position:absolute;
+  top:16%;
+  left: 40%;
+  height:800px;
   width:800px;
   box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.25);
 }
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
 body {
   width: 100%;
-  height: 1500px;
+  height:1000px;
   background: rgba(242, 238, 238, 1);
   opacity: 1;
 }
@@ -225,21 +240,16 @@ body {
   height: 48px;
   background: rgba(63, 163, 184, 1);
   opacity: 1;
-  position: absolute;
-  top: 150px;
-  left: 1130px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: none;
   text-align: left;
+  z-index: 1;
 }
 .newreview {
   width: 120px;
   height: 48px;
   background: rgba(63, 163, 184, 1);
   opacity: 1;
-  position: absolute;
-  top: 130px;
-  left: 1250px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: none;
   color: rgba(255, 255, 255, 1);
@@ -247,99 +257,11 @@ body {
   font-weight: Regular;
   opacity: 1;
   text-align: center;
+  z-index: 1;
 }
 
-.v207_66 {
-  width: 118px;
-  color: rgba(63, 163, 184, 1);
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  font-family: Roboto;
-  font-weight: Black;
-  font-size: 24px;
-  opacity: 1;
-  text-align: left;
-}
-.v207_69 {
-  width: 118px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 0px;
-  left: 149px;
-  font-family: Roboto;
-  font-weight: Regular;
-  font-size: 24px;
-  opacity: 1;
-  text-align: left;
-}
-.v207_82 {
-  width: 215px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 432px;
-  left: 664px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 18px;
-  opacity: 1;
-  text-align: left;
-}
-.v208_58 {
-  width: 215px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 748px;
-  left: 664px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 18px;
-  opacity: 1;
-  text-align: left;
-}
-.v208_59 {
-  width: 215px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 748px;
-  left: 1022px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 18px;
-  opacity: 1;
-  text-align: left;
-}
-.v207_106 {
-  width: 215px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 425px;
-  left: 1022px;
-  font-family: Ubuntu;
-  font-weight: Regular;
-  font-size: 18px;
-  opacity: 1;
-  text-align: left;
-}
-.name {
-  color: #fff;
-}
-.v218_79 {
-  width: 255px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 187px;
-  left: 619px;
-  font-family: Roboto;
-  font-weight: Medium;
-  font-size: 30px;
-  opacity: 1;
-  text-align: left;
-}
 .uploadbtn {
   color: rgba(255, 255, 255, 1);
-  position: absolute;
-  top: 130px;
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 16px;
@@ -348,6 +270,10 @@ body {
 }
 .name {
   color: #fff;
+  position:relative;
+  right:-63%;
+  top: 2%;
+  z-index:2;
 }
 
 #editprofilebtn {
@@ -365,7 +291,6 @@ body {
 }
 .tabs {
   position: absolute;
-  top: 10px;
   left: 20px;
   display: flex;
   color: rgba(0, 0, 0, 0.75);
@@ -374,8 +299,10 @@ body {
   background-color: rgba(242, 238, 238, 1);
   font-size: 23px;
   font-weight: 700;
-  width: 750px;
+  width: 90%;
   text-align: left;
+  height:80px;
+  z-index: 1;
 }
 .tab {
   cursor: pointer;
