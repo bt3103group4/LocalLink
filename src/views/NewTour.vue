@@ -175,7 +175,8 @@ export default {
                 this.cost == "" ||
                 this.tour_name == "" ||
                 this.tour_type == "" ||
-                this.tour_photo == ""
+                this.tour_photo == "" ||
+                new Date().toISOString().slice(0, 10) > this.start_date
               )
             ) {
               db.collection("listings").doc(tour_id).set({
@@ -191,6 +192,7 @@ export default {
                 tour_photo: self.tour_photo,
               });
               alert("Edit successfully saved!");
+              alert("this.")
               this.$router.push("/tourGuideProfile");
             } else alert("Please check that your description is longer than 100 words, start and end dates are correct or all fields are filled in!");
             console.log("no such document");
@@ -199,11 +201,6 @@ export default {
     },
     click1() {
       this.$refs.input1.click();
-    },
-
-    getdate() {
-      let today = new Date().toISOString().slice(0, 10);
-      console.log(today);
     },
 
     previewImage(event) {

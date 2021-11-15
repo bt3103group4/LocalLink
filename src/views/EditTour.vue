@@ -199,7 +199,8 @@ export default {
                 this.cost == "" ||
                 this.tour_name == "" ||
                 this.tour_type == "" ||
-                this.tour_photo == ""
+                this.tour_photo == "" ||
+                new Date().toISOString().slice(0, 10) > this.start_date
             )
           ) {
             db.collection("listings").doc(tour_id).set({
