@@ -4,11 +4,18 @@
       <div class="navcontents">
         <router-link to="/Explore">Explore</router-link>
         <router-link to="/virtualTour">Virtual Tours</router-link>
-        <a class="active" @click="Chat()">Chat</a>
         <router-link v-if="this.type === 'tour-guide'" to="/TourGuideProfile" >Account</router-link>
         <router-link v-else to="/TouristProfile" >Account</router-link>
         </div>
+      <div class= "dropdown">
+        <button class="settingsBtn"></button>
+          <div class="dropdown-content">
+              <a href="#">Help</a> <br>
+              <button class="logout" @click="Logout">Logout</button>
+          </div>
+      </div>
     </div>
+    <div class="settingsIcon"></div>
     <SearchBar />
   </body>
 </template>
@@ -96,7 +103,7 @@ export default {
   position: relative;
   top: 0px;
   height: 75px;
-  padding-left: 63%;
+  padding-left:70%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .navcontents {
@@ -148,4 +155,65 @@ a:hover {
   overflow: hidden;
 }
 
+.logout{
+  border:None;
+  text-align: right;
+  padding: 0px;
+  font-family: Ubuntu;
+  font-size: 16px;
+}
+.logout:hover{
+  cursor: pointer;
+}
+.settingsBtn{
+    border:none;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    background: none;
+    margin:0px;
+    cursor: pointer;
+    right:0;
+    z-index:10;
+    top:4px;
+    background: url("~@/images/v225_116.png");
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    align-content: right;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 175px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding:10px;
+  z-index: 10;
+  font-family: Ubuntu;
+  right:0;
+  top:50px;
+  text-align: right;
+}
+.dropdown {
+  position: absolute;
+  top:20px;
+  left: 95%;
+  display: inline-block;
+  height:60px;
+  
+}
+.dropdown-content a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  padding-right: 0px;
+  right: 60px;
+}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 </style>

@@ -205,7 +205,7 @@ body{
 .faq_area {
     position: relative;
     z-index: 1;
-    background-color: #f5f5ff;
+    background-color: rgba(242,238,238,1)
 }
 
 .faq-accordian {

@@ -15,7 +15,6 @@
   <body>
     <NavBar />
     <Logo />
-    <SettingsButton />
     <div class="container">
       <div style="width: 10%"></div>
       <div style="flex-grow: 1"></div>
@@ -99,8 +98,7 @@
 </template>
 
 <script>
-//import NavBar from "@/components/NavBar.vue";
-import SettingsButton from "@/components/SettingsButton.vue";
+
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
 import DefaultFooter from "@/components/DefaultFooter.vue";
@@ -109,7 +107,7 @@ import { db } from "../main.js";
 
 export default {
   name: "ListingsNature",
-  components: { SettingsButton, NavBar, Logo, DefaultFooter },
+  components: { NavBar, Logo, DefaultFooter },
   emits: ["fetchInfo"],
   data() {
     return {

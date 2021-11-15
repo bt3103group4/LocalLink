@@ -10,14 +10,15 @@ export default {
 <style scoped>
 .backNav{
     position: absolute;
-    top: 100px;
+    top: 90px;
     left:25px;
     background: url("~@/images/back-button.png");
-    width: 45px;
+    width: 30px;
     height:30px;
     background-size: 100% 100%;
     border:none;
     z-index: 10;
+    opacity: 50%;
 }
 .backNav:hover{
     cursor: pointer;
