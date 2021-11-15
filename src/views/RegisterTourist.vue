@@ -1,7 +1,8 @@
 <template>
+  <img class="background" src="@/images/boat.jpeg" />
   <div class="register">
     <div class="logo-and-title">
-    <FormLogo/>
+      <FormLogo />
       <div class="centered-container">
         <h1 class="align-left">
           Join to unlock the<br />
@@ -67,9 +68,12 @@
       </div>
 
       <input class="register-submit" type="submit" value="Join as Tourist" />
-      <p>
-        Already have an account? <router-link class="nav-link" to="/logintourist">Login instead</router-link>
-      </p>
+      <span class="register-footer-text">
+        Already have an account?
+        <router-link class="router-link" to="/logintourist"
+          >Login instead</router-link
+        >
+      </span>
     </form>
   </div>
 </template>
@@ -78,7 +82,7 @@
 import firebase from "firebase";
 import { ref } from "vue";
 import { db } from "../main.js";
-import FormLogo from '@/components/FormLogo.vue'
+import FormLogo from "@/components/FormLogo.vue";
 
 export default {
   components: { FormLogo },
@@ -110,9 +114,7 @@ export default {
   },
   data() {
     return {
-      user: {
-    
-      },
+      user: {},
     };
   },
   methods: {
@@ -122,8 +124,9 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(this.user.email, this.user.password)
         .then(() => {
-          this.user.type = "tourist"
-          db.collection("users").doc(this.user.email)
+          this.user.type = "tourist";
+          db.collection("users")
+            .doc(this.user.email)
             .set(this.user)
             .then(() => {
               alert("User successfully created!");
@@ -131,9 +134,10 @@ export default {
               console.log(this.Register);
             })
             .then(() => {
-              console.log(this.$router);
-              this.$router.push('/listingsnature')
-            }) 
+              this.$store.commit("setLoggedIn", 'tourist');
+              console.log(this.$store.state);
+              this.$router.push("/listingsnature");
+            })
             .catch((error) => {
               console.log(error);
             });
@@ -146,11 +150,25 @@ export default {
 
 <style scoped>
 
-.nav-link {
+.background {
+  object-fit: cover;
+  opacity: 0.85;
+  z-index: 1;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-size: contain;
+}
+
+.register-footer-text {
+  margin: 10px 0px;
+}
+
+.router-link {
   color: #40a3b9;
 }
 
-.nav-link:hover {
+.router-link:hover {
   color: #337e8f;
 }
 
@@ -185,8 +203,12 @@ export default {
 }
 
 .register {
+  z-index: 5;
   width: 100vw;
   padding: 20px 0px;
+  position: absolute;
+  background-color: white;
+  top:100px;
 }
 
 @media only screen and (min-width: 728px) {

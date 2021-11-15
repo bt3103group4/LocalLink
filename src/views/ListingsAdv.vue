@@ -42,6 +42,29 @@
               >Beach</a
             >
           </li>
+
+          <!-- ordering buttons -->
+          <div>Order results by</div>
+          <li class="nav-item">
+            <button class="nav-link" href="#" @click="orderByStartDate()">
+              Start Date
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" href="#" @click="orderByEndDate()">
+              End Date
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" href="#" @click="orderByCost()">
+              Cost
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" href="#" @click="orderByName()">
+              Tour Name
+            </button>
+          </li>
         </ul>
       </div>
       <div class="card-body">
@@ -57,15 +80,20 @@
     <div class="grid">
       <div class="card" v-for="tour in tours" :key="tour.tour_name">
         <img class="card-img-top" :src="tour.tour_photo" alt="Card image cap" />
-        <div class="card-body">
+        <div class="card-body" id="tour-item">
           <br />
           <button class="btn btn-primary" @click="viewTourInfo(tour.tour_id)">
-            See more
-          </button>
-          <br />
-          <br />
+            See more</button
+          ><br /><br />
           <h5 class="card-title">{{ tour.tour_name }}</h5>
           <p class="card-text">{{ tour.description }}</p>
+          <!-- <p class="card-text">
+            <b>{{ tour.start_date }} to {{ tour.end_date }}</b>
+          </p>
+          <p class="card-text">
+            <b>${{ tour.cost }}</b>
+          </p> -->
+          <!-- <br> -->
           <!-- <p class="card-text"> -->
           <!-- <small class="text-muted">Last booked 5 mins ago</small> -->
           <!-- </p> -->
@@ -106,10 +134,11 @@ export default {
             tour_name: data.tour_name,
             description: data.description,
             tour_photo: data.tour_photo,
+            cost: data.cost,
+            start_date: data.start_date,
+            end_date: data.end_date,
             tour_id: String(data.email + ", " + data.tour_name),
           };
-          // console.log(this.tours)
-          // console.log(tour)
           this.tours.push(tour);
         });
       });
@@ -122,6 +151,30 @@ export default {
           tour_id: tour_id,
         },
       });
+    },
+    orderByCost() {
+      this.tours.sort(function (a, b) {
+        return a.cost - b.cost;
+      });
+      // console.log("cost", this.tours);
+    },
+    orderByName() {
+      this.tours.sort(function (a, b) {
+        return a.tour_name.localeCompare(b.tour_name);
+      });
+      // console.log("name", this.tours);
+    },
+    orderByStartDate() {
+      this.tours.sort(function (a, b) {
+        return new Date(a.start_date) - new Date(b.start_date);
+      });
+      //  console.log("dates", this.tours);
+    },
+    orderByEndDate() {
+      this.tours.sort(function (a, b) {
+        return new Date(a.end_date) - new Date(b.end_date);
+      });
+      //  console.log("end dates", this.tours);
     },
   },
 };
@@ -136,15 +189,24 @@ body {
 }
 .grid {
   size: 50%;
-  position: absolute;
-  top: 300px;
+  position: relative;
+  /* top: 300px;
   left: 130px;
-  right: 130px;
+  right: 130px; */
+  margin: 50px;
+  margin-top: 250px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   justify-content: center;
   align-content: center;
+}
+.footer {
+  width: 100%;
+  position: fixed;
+  height: 20%;
+  bottom: 0;
+  left: 0;
 }
 #nav {
   position: absolute;

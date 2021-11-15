@@ -1,20 +1,28 @@
 <template>
-    <NavBar/>
-    <Logo/>
-    <SettingsButton/>
-    <head><link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-        <link href="./main.css" rel="stylesheet" />
-        <title>Document</title><link href="./css/main.css" rel="stylesheet" />
-        <title>Document</title>
-    </head>
-    <body>
-        <UserInfo/>
-      <div class="listingComp" style="height:100%">
-        <ul class = "tabs">
-          <li data-tab-target="#listings" class="active tab">Listings </li>
-          <li data-tab-target="#newReview" class="tab"> Reviews </li>
-        </ul>
+  <NavBar />
+  <Logo />
+  <SettingsButton />
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./main.css" rel="stylesheet" />
+    <title>Document</title>
+    <link href="./css/main.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+    <UserInfo />
+    <div class="listingComp" style="height: 100%">
+      <ul class="tabs">
+        <li data-tab-target="#listings" class="active tab">Listings</li>
+        <li data-tab-target="#newReview" class="tab">Reviews</li>
+      </ul>
 
         <div class="tabcontent">
           <div id = "listings" data-tab-content class="active">
@@ -26,50 +34,53 @@
                     <img class="card-img-top" :src="tour.image" alt="Card image cap"/>
                     <div class="card-body">
                     <h5 class="card-title" style="display: inline;">{{tour.tourname}}</h5>
+                    <button id="deletelisting" @click="deleting(tour.tour_id)"></button>
                     <button id="editlisting" @click="editing(tour.tour_id)"></button>
                     <p class="card-text"> Available from: {{tour.start}}</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-            </div>
-          <div id = "newReview" data-tab-content>
-              <ReviewList/>
+              </div>
             </div>
           </div>
         </div>
+        <div id="newReview" data-tab-content>
+          <ReviewList />
+        </div>
+      </div>
+    </div>
 
-        <button id="editprofilebtn" @click="$router.push('/editUserProfile')"> </button>
-        
+    <button
+      id="editprofilebtn"
+      @click="$router.push('/editUserProfile')"
+    ></button>
 
     <div class="name"></div>
     <button class="uploadbtn" @click="$router.push('/newtour')">New Tour</button>
     <button class="newreview" @click="$router.push('/newreview')">Review</button>
     </body>
-    </template>
+</template>
+
 <script>
-import UserInfo from '@/components/UserInfo.vue'
-import SettingsButton from '@/components/SettingsButton.vue'
-import NavBar from '@/components/NavBar.vue'
-import Logo from '@/components/Logo.vue'
-import ReviewList from '../components/ReviewList.vue'
-import firebase from 'firebase';
-import { db} from "../main.js";
+import UserInfo from "@/components/UserInfo.vue";
+import SettingsButton from "@/components/SettingsButton.vue";
+import NavBar from "@/components/NavBar.vue";
+import Logo from "@/components/Logo.vue";
+import ReviewList from "../components/ReviewList.vue";
+import firebase from "firebase";
+import { db } from "../main.js";
 
 export default {
-    name: "TourGuideProfile",
-    data(){
-        return{
-            tours:[],
-            currentUser: ""
-        }
-    },
-        mounted(){
-
-          //showing tabs
-          let tabs = document.querySelectorAll('[data-tab-target]')
-          let tabContents = document.querySelectorAll('[data-tab-content]')
+  name: "TourGuideProfile",
+  data() {
+    return {
+      tours: [],
+      currentUser: "",
+    };
+  },
+  mounted() {
+    //showing tabs
+    let tabs = document.querySelectorAll("[data-tab-target]");
+    let tabContents = document.querySelectorAll("[data-tab-content]");
 
           tabs.forEach(tab => {
             tab.addEventListener('click', ()=> {
@@ -80,43 +91,41 @@ export default {
               tab.classList.add('active')
             })
           })
-
-          //getting tours
-            const self = this;
-            async function display(){
-                const auth = firebase.auth();
-                auth.onAuthStateChanged(user => {
-                if (user){
-                    let fbuser = auth.currentUser.email;
-                    self.currentUser=fbuser
-                    if (fbuser){
-                    self.currentUser = fbuser
-                    db.collection("listings").where("email","==",fbuser)
-                    .get()
-                    .then(z => {
-                        z.forEach(doc => {
-                        const data = doc.data()
-                        if (!(data["tour_name"]== null || data["start_date"] == null)){
-                            let tour = {
-                                tourname : data["tour_name"],
-                                start : data["start_date"],
-                                image: data["tour_photo"],
-                                review: "4", //to make dynamic too KIV
-                                tour_id: String(data.email + ", " + data.tour_name)
-                            }
-                            self.tours.push(tour)
-                            }
-                            })
-                    
-                    })}
-                    }
-                })
-                
-            }
-        display();
+          this.display();
     },
     components: { UserInfo,Logo,SettingsButton, NavBar,ReviewList},
     methods:{
+      //getting tours
+      async display(){
+        const self = this;
+        const auth = firebase.auth();
+        auth.onAuthStateChanged(user => {
+        if (user){
+          let fbuser = auth.currentUser.email;
+          self.currentUser=fbuser
+          if (fbuser){
+          self.currentUser = fbuser
+          db.collection("listings").where("email","==",fbuser)
+          .get()
+          .then(z => {
+            z.forEach(doc => {
+            const data = doc.data()
+            if (!(data["tour_name"]== null || data["start_date"] == null)){
+                let tour = {
+                    tourname : data["tour_name"],
+                    start : data["start_date"],
+                    image: data["tour_photo"],
+                    review: "4", //to make dynamic too KIV
+                    tour_id: String(data.email + ", " + data.tour_name)
+                }
+                self.tours.push(tour)
+                }
+                })
+              })}
+              }
+          })
+      },
+
        editing(tour_id) {
         this.$router.push({
             name: 'EditTour',
@@ -124,14 +133,19 @@ export default {
                 tour_id: tour_id
             }
         })
-        
+    },
+    async deleting(tour_id) {
+      alert("Deleting listing")
+      await db.collection("listings").doc(tour_id).delete();
+      window.location.reload()
+      this.display()
+      },
     }
-    }
-}
+};
 </script>
 
 <style scoped>
-#listings{
+#listings {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -142,45 +156,57 @@ export default {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-.card-group:hover{
-    cursor: pointer;
+.card-group:hover {
+  cursor: pointer;
 }
-.button-id{
-    border:none;
-    background-color:rgba(63,163,184,1) ;
-    color:white;
-    padding:5px;
-    padding-left: 10px;
-    padding-right:10px;
-    font-weight: bold;
-    border-radius: 10px;
+.button-id {
+  border: none;
+  background-color: rgba(63, 163, 184, 1);
+  color: white;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: bold;
+  border-radius: 10px;
 }
-.button-id:hover{
-    cursor: pointer;
-    background-color: grey;
+.button-id:hover {
+  cursor: pointer;
+  background-color: grey;
 }
-.grid{
-    position: absolute;
-    top: 120px;
-    left:30px;
-    display:grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap:40px;
+.grid {
+  position: absolute;
+  top: 120px;
+  left: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
 }
-.card{
-  width:300px;
-  height:300px;
+.card {
+  width: 300px;
+  height: 300px;
 }
 #editlisting {
-    width: 20px;
-    height: 20px;
-    background: url("~@/images/edit.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    border: none;
-    float: right;
+  width: 20px;
+  height: 20px;
+  background: url("~@/images/edit.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border: none;
+  float: right;
 }
+
+#deletelisting {
+  width: 20px;
+  height: 20px;
+  background: url("~@/images/delete.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border: none;
+  float: right;
+}
+
 .listingComp{
   position:relative;
   top:-1475px;
@@ -190,33 +216,33 @@ export default {
 }
 body {
   width: 100%;
-  height:1500px;
-  background: rgba(242,238,238,1);
+  height: 1500px;
+  background: rgba(242, 238, 238, 1);
   opacity: 1;
 }
 .uploadbtn {
   width: 120px;
   height: 48px;
-  background: rgba(63,163,184,1);
+  background: rgba(63, 163, 184, 1);
   opacity: 1;
   position: absolute;
   top: 150px;
   left: 1130px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border:none;
-  text-align:left;
+  border: none;
+  text-align: left;
 }
 .newreview {
   width: 120px;
   height: 48px;
-  background: rgba(63,163,184,1);
+  background: rgba(63, 163, 184, 1);
   opacity: 1;
   position: absolute;
-  top: 130px;  
+  top: 130px;
   left: 1250px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border:none;
-  color: rgba(255,255,255,1);
+  border: none;
+  color: rgba(255, 255, 255, 1);
   font-family: Ubuntu;
   font-weight: Regular;
   opacity: 1;
@@ -225,7 +251,7 @@ body {
 
 .v207_66 {
   width: 118px;
-  color: rgba(63,163,184,1);
+  color: rgba(63, 163, 184, 1);
   position: absolute;
   top: 0px;
   left: 0px;
@@ -237,7 +263,7 @@ body {
 }
 .v207_69 {
   width: 118px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 0px;
   left: 149px;
@@ -249,7 +275,7 @@ body {
 }
 .v207_82 {
   width: 215px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 432px;
   left: 664px;
@@ -261,7 +287,7 @@ body {
 }
 .v208_58 {
   width: 215px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 748px;
   left: 664px;
@@ -273,7 +299,7 @@ body {
 }
 .v208_59 {
   width: 215px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 748px;
   left: 1022px;
@@ -285,7 +311,7 @@ body {
 }
 .v207_106 {
   width: 215px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 425px;
   left: 1022px;
@@ -300,7 +326,7 @@ body {
 }
 .v218_79 {
   width: 255px;
-  color: rgba(0,0,0,1);
+  color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 187px;
   left: 619px;
@@ -311,9 +337,9 @@ body {
   text-align: left;
 }
 .uploadbtn {
-  color: rgba(255,255,255,1);
+  color: rgba(255, 255, 255, 1);
   position: absolute;
-  top:130px;
+  top: 130px;
   font-family: Ubuntu;
   font-weight: Regular;
   font-size: 16px;
@@ -325,48 +351,47 @@ body {
 }
 
 #editprofilebtn {
-    width: 30px;
-    height: 30px;
-    position : absolute;
-    left: 440px;
-    top : 565px;
-    margin: 30px;
-    background: url("~@/images/edit.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    border: none;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 440px;
+  top: 565px;
+  margin: 30px;
+  background: url("~@/images/edit.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border: none;
 }
-.tabs{
+.tabs {
   position: absolute;
   top: 10px;
   left: 20px;
-  display : flex;
-  color:rgba(0, 0, 0, 0.75);
+  display: flex;
+  color: rgba(0, 0, 0, 0.75);
   list-style-type: none;
   border-bottom: 2px solid black;
-  background-color : rgba(242,238,238,1);
+  background-color: rgba(242, 238, 238, 1);
   font-size: 23px;
   font-weight: 700;
-  width:750px;
+  width: 750px;
   text-align: left;
 }
-.tab{
+.tab {
   cursor: pointer;
   padding: 25px;
   padding-bottom: 10px;
 }
-.tab:hover{
-  background-color: #AAA;
+.tab:hover {
+  background-color: #aaa;
 }
-.tab.active{
-  border-bottom: rgba(63,163,184,1) 5px solid;
+.tab.active {
+  border-bottom: rgba(63, 163, 184, 1) 5px solid;
 }
-[data-tab-content]{
+[data-tab-content] {
   display: none;
 }
-.active[data-tab-content]{
+.active[data-tab-content] {
   display: block;
 }
-
 </style>

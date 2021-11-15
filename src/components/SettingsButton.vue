@@ -1,36 +1,41 @@
 <template>
     <div class= "dropdown">
-          <button class="settingsBtn"></button>
-            <div class="dropdown-content">
-                <a href="#">Help</a> <br>
-                <button class="logout" @click="Logout">Logout</button>
-              </div>
-          </div>
-
+      <button class="settingsBtn"></button>
+        <div class="dropdown-content">
+            <a href="#">Help</a> <br>
+            <button class="logout" @click="Logout">Logout</button>
+        </div>
+    </div>
     <div class="settingsIcon"></div>
 </template>
 
 <script>
 import {ref, onBeforeMount} from 'vue'
 import firebase from 'firebase'
+import { useRouter } from 'vue-router'
+import { getCurrentInstance } from 'vue'
 
 export default {
    setup () {
             let name = ref("");
+            const store = getCurrentInstance().appContext.config.globalProperties.$store
+            const router = useRouter()
 
             onBeforeMount(() => {
                 const user = firebase.auth().currentUser;
                 if (user) {
                     name.value = user.email.split('@')[0];
                 }
-                
             });
 
             const Logout = () => {
-                firebase    
+                firebase
                     .auth()
                     .signOut()
                     .then(() => console.log("Sign Out"))
+                    .then(() => store.commit("setLoggedOut", null))
+                    .then(() => console.log(store.state))
+                    .then(() => router.push('/'))
                     .catch(err => alert(err.message));
             }
 
@@ -66,7 +71,7 @@ export default {
     cursor: pointer;
     right:0;
     z-index:10;
-    top:10px;
+    top:4px;
     background: url("~@/images/v225_116.png");
     background-size: 90%;
     background-repeat: no-repeat;
@@ -80,7 +85,7 @@ export default {
   min-width: 175px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding:10px;
-  z-index: 1;
+  z-index: 10;
   font-family: Ubuntu;
   right:0;
   top:50px;
