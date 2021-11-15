@@ -60,7 +60,7 @@ export default {
                                     image : data["tour_photo"],
                                     email:data["email"]
                                 }
-                                console.log(data)
+                                // console.log(data)
                                 self.savedTours.push(tour)
                             })
 

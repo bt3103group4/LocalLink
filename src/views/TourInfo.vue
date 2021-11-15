@@ -29,8 +29,8 @@
       </div>
       <span class="date">{{ start_date }} to {{ end_date }}</span>
       <div class="top_info">
-        <span class="num_review">(120 reviews)</span>
-        <span class="review">4.97</span>
+        <span class="num_review">{{ review_count }} reviews</span>
+        <span class="review">{{ review_avg }}</span>
         <span class="cost">From ${{ cost }} / person</span>
       </div>
       <span class="no_charge">You won’t be charged yet</span>
@@ -71,6 +71,8 @@ import Back from "@/components/Back.vue";
 import { db } from "../main.js";
 import firebase from "firebase";
 import SettingsButton from "@/components/SettingsButton.vue";
+// import { collection, query, where , getDocs} from "firebase/firestore";
+
 
 export default {
   name: "TourInfo",
@@ -91,6 +93,8 @@ export default {
       tour_photo: "",
       selected: "",
       type: "",
+      review_avg: "",
+      review_count: 0,
     };
   },
   methods: {
@@ -104,20 +108,27 @@ export default {
       console.log("guide profile");
       console.log(guideEmail);
     },
-    saveToDB(tour_name,email){
-        const auth = firebase.auth();
-        auth.onAuthStateChanged(user => {
-        if (user){
-            let fbuser = auth.currentUser.email;
-            db.collection("users").doc(this.email).update({
-              tour_bookings: firebase.firestore.FieldValue.arrayUnion(tour_name + ' by ' + fbuser)
-            })
-            if (fbuser){
-                db.collection("users").doc(fbuser) 
-                .update({
-                    bookings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
-                }) 
-            }
+    saveToDB(tour_name, email) {
+      const auth = firebase.auth();
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          let fbuser = auth.currentUser.email;
+          db.collection("users")
+            .doc(this.email)
+            .update({
+              tour_bookings: firebase.firestore.FieldValue.arrayUnion(
+                tour_name + " by " + fbuser
+              ),
+            });
+          if (fbuser) {
+            db.collection("users")
+              .doc(fbuser)
+              .update({
+                bookings: firebase.firestore.FieldValue.arrayUnion(
+                  email + ", " + tour_name
+                ),
+              });
+          }
         }
       });
     },
@@ -161,14 +172,13 @@ export default {
   },
 
   mounted() {
-    console.log(this.id);
-    db.collection("listings")
-      .doc(this.id)
-      .get()
-      .then((doc) => {
+    //console.log(this.id);
+    const listingRef = db.collection("listings").doc(this.id);
+    listingRef.get()
+      .then(async (doc) => {
         if (doc.exists) {
           const data = doc.data();
-          (this.description = data.description),
+            (this.description = data.description),
             (this.start_date = data.start_date),
             (this.end_date = data.end_date),
             (this.transport = data.transport),
@@ -179,9 +189,24 @@ export default {
             (this.email = data.email);
           this.tour_photo = data.tour_photo;
         } else {
-          console.log("no such document");
+          console.log("no such document1");
         }
-      });
+        const reviewsRef = db.collection("Reviews").where("tourname", "==", this.tour_name);
+        reviewsRef.get()
+          .then((docs) => {
+              var total = 0;
+              docs.forEach((doc) => {
+                const data = doc.data();
+                console.log(data.tourname);
+                this.review_count++;
+                total += data.ratings;
+              });
+              this.review_avg = (this.review_count !== 0)? (total / this.review_count).toFixed(1)  : "" ;
+              console.log(this.review_avg)
+          });
+      })
+      
+     
 
     const auth = firebase.auth();
     auth.onAuthStateChanged((user) => {
@@ -242,7 +267,6 @@ body {
   text-align: left;
   font-size: 30px;
 }
-
 .duration_box {
   width: 380px;
   height: 52px;

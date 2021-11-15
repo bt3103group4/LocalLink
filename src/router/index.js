@@ -49,19 +49,11 @@ const allowOnlyAuthRoute = (to, from, next) => {
   store.state.type !== null ? next() : next("/noaccess");
 }
 
-const allowOnlyNoAuthRoute = (to, from, next) => {
-  console.log(store.state);
-  console.log(store.state.type);
-  console.log(`Allow: ${store.state.type === null}`);
-  store.state.type === null ? next() : next("/noaccess");
-}
-
 
 const routes = [
     {
     path: '/',
     name: 'Landing',
-    beforeEnter: allowOnlyNoAuthRoute,
     component: Landing
     },
     {
@@ -85,7 +77,6 @@ const routes = [
     {
     path: '/logintourguide',
     name: 'LoginTourGuide',
-    beforeEnter: allowOnlyNoAuthRoute,
     component: LoginTourGuide,
     },
     {
@@ -109,19 +100,16 @@ const routes = [
     {
     path: '/registertourguide',
     name: 'RegisterTourGuide',
-    beforeEnter: allowOnlyNoAuthRoute,
     component: RegisterTourGuide
     },
     {
     path: '/logintourist',
     name: 'LoginTourist',
-    beforeEnter: allowOnlyNoAuthRoute,
     component: LoginTourist
     },
     {
     path: '/registertourist',
     name: 'RegisterTourist',
-    beforeEnter: allowOnlyNoAuthRoute,
     component: RegisterTourist
     },
     // {
