@@ -15,7 +15,6 @@
   <body>
     <NavBar />
     <Logo />
-    <SettingsButton />
     <DefaultFooter />
 
     <div class="container">
@@ -103,7 +102,6 @@
 </template>
 
 <script>
-import SettingsButton from "@/components/SettingsButton.vue";
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
 import DefaultFooter from "@/components/DefaultFooter.vue";
@@ -112,7 +110,7 @@ import { db } from "../main.js";
 
 export default {
   name: "ListingsAdv",
-  components: { SettingsButton, NavBar, Logo, DefaultFooter },
+  components: { NavBar, Logo, DefaultFooter },
 
   data() {
     return {

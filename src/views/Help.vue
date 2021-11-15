@@ -3,7 +3,6 @@
 <body>
     <NavBar/>
     <Logo/>
-    <SettingsButton/>
     <Back/>
 
 <div class="faq_area section_padding_130" id="faq">
@@ -184,14 +183,13 @@
 </template>
 
 <script>
-import SettingsButton from '@/components/SettingsButton.vue'
 import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
 import Back from '@/components/Back.vue'
 
 export default {
     name: "Help",
-    components: {NavBar,Logo,SettingsButton,Back}
+    components: {NavBar,Logo,Back}
 }
 </script>
 <style scoped>

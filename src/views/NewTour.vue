@@ -11,7 +11,6 @@
   <body>
     <NavBar />
     <Logo />
-    <SettingsButton />
     <Back />
     <span class="header">Describe your experience</span>
     <div class="description">
@@ -128,7 +127,6 @@
 </template>
 
 <script>
-import SettingsButton from "@/components/SettingsButton.vue";
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
 import Back from "@/components/Back.vue";
@@ -137,7 +135,7 @@ import { db } from "../main.js";
 
 export default {
   name: "NewTour",
-  components: { NavBar, SettingsButton, Logo, Back },
+  components: { NavBar, Logo, Back },
   data() {
     return {
       description: "",

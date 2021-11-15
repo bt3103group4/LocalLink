@@ -16,7 +16,6 @@
   <body>
     <NavBar />
     <Logo />
-    <SettingsButton />
 
     <div class="page-container">
       <h1 class="main-header">Virtual Tours</h1>
@@ -93,14 +92,13 @@
 </template>
 
 <script>
-import SettingsButton from "@/components/SettingsButton.vue";
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
 
 export default {
   name: "VirtualTour",
   data() {},
-  components: { SettingsButton, NavBar, Logo },
+  components: { NavBar, Logo },
   methods: {},
 };
 </script>

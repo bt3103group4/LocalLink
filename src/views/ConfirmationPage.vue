@@ -5,7 +5,6 @@
 <body>
     <NavBar/>
     <Logo/>
-    <SettingsButton/>
     <img class="background-image" src="../images/pool.jpg">
     <div id="wrapper">
       <div class="main_message">Your booking has been confirmed! </div>
@@ -19,11 +18,10 @@
 <script>
 import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
-import SettingsButton from '@/components/SettingsButton.vue'
 
 export default {
     name: "ConfirmationPage",
-    components: {NavBar,Logo, SettingsButton},
+    components: {NavBar,Logo},
 }
 </script>
 

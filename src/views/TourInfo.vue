@@ -2,7 +2,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <NavBar />
   <Logo />
-  <SettingsButton />
   <DefaultFooter />
   <Back/>
   <div>
@@ -52,7 +51,6 @@
 </template>
 
 <script>
-import SettingsButton from "@/components/SettingsButton.vue";
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
 import DefaultFooter from "@/components/DefaultFooter.vue";
@@ -62,7 +60,7 @@ import firebase from 'firebase';
 
 export default {
   name: "TourInfo",
-  components: { SettingsButton, NavBar, Logo, DefaultFooter , Back},
+  components: {  NavBar, Logo, DefaultFooter , Back},
   props: ["tour_id"],
   data() {
     return {

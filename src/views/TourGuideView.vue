@@ -1,7 +1,6 @@
 <template>
     <NavBar/>
     <Logo/>
-    <SettingsButton/>
     <head><link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
         <link href="./main.css" rel="stylesheet" />
@@ -50,7 +49,6 @@
     </template>
 <script>
 import UserInfo from '@/components/UserInfo.vue'
-import SettingsButton from '@/components/SettingsButton.vue'
 import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
 import ReviewList from '@/components/ReviewList.vue'
@@ -59,7 +57,7 @@ import { db} from "../main.js";
 
 export default {
     name: "TourGuideView",
-    components: { UserInfo,Logo,SettingsButton, NavBar,ReviewList},
+    components: { UserInfo,Logo, NavBar,ReviewList},
     props:['guideEmail'],
     data(){
       return{

@@ -16,7 +16,6 @@
   <body>
     <NavBar />
     <Logo />
-    <SettingsButton />
 
     <div class="container">
       <div style="width: 10%"></div>
@@ -110,7 +109,6 @@
 
 
 <script>
-import SettingsButton from "@/components/SettingsButton.vue";
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
 // import firebase from "firebase";
@@ -124,7 +122,7 @@ export default {
       tourName:["jialu98@hotmail.com, Churito Pagoda","jialu98@hotmail.com, Hakone Day Trip","jialu98@hotmail.com, Tibumana Waterfalls"]
     }
   },
-  components: { SettingsButton, NavBar, Logo},
+  components: { NavBar, Logo},
 
   mounted() {
     this.tourName.forEach((tourid)=>{
@@ -214,13 +212,13 @@ body {
 #video1{
     position: absolute;
     top:300px;
-    left:100px;
+    left:14%;
 }
 
 #video2{
     position: absolute;
     top:300px;
-    left:750px;
+    left:55%;
 }
 .btn-primary {
   width: 120px;
