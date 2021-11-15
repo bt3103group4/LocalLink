@@ -143,7 +143,7 @@ export default {
                 my_email: fbuser,
               });
               alert("Edit successfully saved!");
-              this.$router.push("/touristProfile")
+              this.$router.go(-1)
             }
             else alert("Cannot take empty Values. Please enter the values")
             console.log("no such document");
