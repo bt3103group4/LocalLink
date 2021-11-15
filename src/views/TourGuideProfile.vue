@@ -155,7 +155,7 @@ export default {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   overflow-y: auto;
-  height: 800px;
+  height: 700px;
   width: 100%;
 
 }
@@ -178,11 +178,12 @@ export default {
 }
 .grid {
   position: absolute;
-  top: 120px;
+  top: 50px;
   left: 30px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
+  z-index:0px;
 }
 
 .card {
@@ -217,6 +218,7 @@ export default {
   left: 40%;
   height:800px;
   width:800px;
+  z-index: 3;
   box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.25);
 }
 ::-webkit-scrollbar {
