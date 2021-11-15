@@ -203,7 +203,7 @@ body {
 }
 .footer {
   width: 100%;
-  position: fixed;
+  position:relative;
   height: 20%;
   bottom: 0;
   left: 0;

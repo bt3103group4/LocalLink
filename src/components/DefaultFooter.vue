@@ -66,8 +66,8 @@ export default {
   padding: 40px 0;
   color: #f0f9ff;
   background-color: #282d32;
-  position: absolute;
-  top: 200%;
+  position: relative;
+  /* top: 200%; */
   /* bottom: 0px; */
   width: 100%;
 }
