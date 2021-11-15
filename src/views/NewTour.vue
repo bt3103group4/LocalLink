@@ -192,7 +192,6 @@ export default {
                 tour_photo: self.tour_photo,
               });
               alert("Edit successfully saved!");
-              alert("this.")
               this.$router.push("/tourGuideProfile");
             } else alert("Please check that your description is longer than 100 words, start and end dates are correct or all fields are filled in!");
             console.log("no such document");
