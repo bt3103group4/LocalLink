@@ -3,7 +3,7 @@
   <NavBar />
   <Logo />
   <SettingsButton/>
-  <DefaultFooter />
+  <!-- <DefaultFooter /> -->
   <Back />
   <div>
     <link
@@ -66,7 +66,7 @@
 <script>
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
-import DefaultFooter from "@/components/DefaultFooter.vue";
+// import DefaultFooter from "@/components/DefaultFooter.vue";
 import Back from "@/components/Back.vue";
 import { db } from "../main.js";
 import firebase from "firebase";
@@ -74,7 +74,7 @@ import SettingsButton from "@/components/SettingsButton.vue";
 
 export default {
   name: "TourInfo",
-  components: { SettingsButton, NavBar, Logo, DefaultFooter, Back },
+  components: { SettingsButton, NavBar, Logo, Back },
   props: ["tour_id"],
   data() {
     return {
@@ -242,17 +242,7 @@ body {
   text-align: left;
   font-size: 30px;
 }
-#tourGuideBtn {
-  position: relative;
-  top: 200px;
-  left: 250px;
-  background: rgba(63, 163, 184, 1);
-  color: white;
-  width:250px;
-  height: 50px;
-  font-size: 20px;
-  border-radius: 30px;
-}
+
 .duration_box {
   width: 380px;
   height: 52px;
@@ -314,7 +304,7 @@ body {
   text-align: center;
 }
 
-.tourGuideBtn {
+#tourGuideBtn {
   width: 320px;
   height: 60px;
   background: rgba(63, 163, 184, 1);
