@@ -95,6 +95,9 @@ export default {
         auth.onAuthStateChanged(user => {
         if (user){
             let fbuser = auth.currentUser.email;
+            db.collection("users").doc(this.email).update({
+              tour_bookings: firebase.firestore.FieldValue.arrayUnion(tour_name + ' by ' + fbuser)
+            })
             if (fbuser){
                 db.collection("users").doc(fbuser) 
                 .update({

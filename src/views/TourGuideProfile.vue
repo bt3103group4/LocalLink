@@ -22,6 +22,7 @@
       <ul class="tabs">
         <li data-tab-target="#listings" class="active tab">Listings</li>
         <li data-tab-target="#newReview" class="tab">Reviews</li>
+        <li data-tab-target="#newBooking" class="tab">Bookings</li>
       </ul>
     <div class="name">
       <button class="uploadbtn" @click="$router.push('/newtour')">New Tour</button>
@@ -50,13 +51,26 @@
         <div id="newReview" data-tab-content>
           <ReviewList />
         </div>
-      </div>
+        <div id="newBooking" data-tab-content>
+          <div class = "grid">
+            <div v-if="tourbookings == []"> No tourists have booked a trip yet!</div>
+            <div v-else class="col my-col" v-for="bookings in tourbookings" :key="bookings.tourist">
+                  <div class="card-group">
+                    <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title" style="display: inline;">{{bookings.tourist}} has booked a trip to {{bookings.tourname}}! </h5>
+                    <br><br>
+                    <p class="card-text"> Please proceed to email your tourist about their customisation requests (if any)
+                      and let them know the payment methods that you accept! 
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <button
-      id="editprofilebtn"
-      @click="$router.push('/editUserProfile')"
-    ></button>
+                </div>
+            </div>
+        </div>
     </body>
 </template>
 
@@ -74,6 +88,7 @@ export default {
     return {
       tours: [],
       currentUser: "",
+      tourbookings:[]
     };
   },
   mounted() {
@@ -120,7 +135,29 @@ export default {
                 self.tours.push(tour)
                 }
                 })
-              })}
+              })
+              
+            db.collection("users").doc(fbuser)
+            .get()
+            .then( doc => {
+              const data  = doc.data()
+              let touristbookings = data["tour_bookings"]
+              if (touristbookings!= null){
+                touristbookings.forEach(tour => {
+                  let tour_name = tour.split(' by ')[0]
+                  let booking = {
+                  tourname : tour_name,
+                  tourist : tour.split(' by ')[1],
+                  }
+                  self.tourbookings.push(booking)
+                  console.log(booking)
+                }
+              )
+                
+              }
+            }
+
+            )}
               }
           })
       },
@@ -178,7 +215,7 @@ export default {
 }
 .grid {
   position: absolute;
-  top: 50px;
+  top: 100px;
   left: 30px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -225,7 +262,6 @@ export default {
   -webkit-appearance: none;
   width: 7px;
 }
-
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: rgba(0, 0, 0, .5);
