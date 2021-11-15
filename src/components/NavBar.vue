@@ -103,7 +103,7 @@ export default {
   display: flex;
   padding-right: 50px;
   align-items: center;
-  width: 800px;
+  width: 100%;
 }
 a {
   padding: 20px;
