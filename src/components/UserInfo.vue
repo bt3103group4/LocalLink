@@ -11,7 +11,7 @@
         </div>
 
         <div class="details">
-            <button id="editprofilebtn" @click="$router.push('/editUserProfile')"> </button>
+            <button id="editprofilebtn" v-if="isUserAccount()"  @click="$router.push('/editUserProfile')"> </button>
             <p style="font-weight:900;font-size:22px" class="about">About me</p> <hr>
             <span style="font-weight:700;font-size:15px">Name </span>
             <p> {{firstname}} {{lastname}} </p>
@@ -42,6 +42,13 @@ export default{
         bio: "",
         lang:"",
         profilepic:''
+      }
+    },
+    methods:{
+      isUserAccount(){
+        console.log(this.gEmail)
+        console.log(this.currentUser)
+        return this.currentUser === this.gEmail
       }
     },
     mounted(){

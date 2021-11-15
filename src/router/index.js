@@ -163,7 +163,7 @@ const routes = [
     {
     path: '/tourGuideView',
     name: 'TourGuideView',
-    beforeEnter: allowOnlyTourGuideRoute,
+    beforeEnter: allowOnlyAuthRoute,
     component: TourGuideView,
     props: true,
     },
