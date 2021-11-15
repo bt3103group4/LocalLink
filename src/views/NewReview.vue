@@ -20,17 +20,17 @@
 </template>
 
 <script>
-import SettingsButton from '@/components/SettingsButton.vue'
 import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
 import Reviews from '@/components/Reviews.vue'
 import Back from '@/components/Back.vue'
 import firebase from "firebase";
+import SettingsButton from '@/components/SettingsButton.vue'
 import { db } from "../main.js";
 
 export default {
   name: "NewReview",
-  components: { NavBar,SettingsButton, Logo, Reviews, Back},
+  components: { NavBar, Logo, Reviews, Back, SettingsButton},
   data() {
     return {
       type:"",

@@ -3,8 +3,8 @@
 <body>
     <NavBar/>
     <Logo/>
-    <SettingsButton/>
     <Back/>
+    <SettingsButton />
 
 <div class="faq_area section_padding_130" id="faq">
     <div class="container">
@@ -184,13 +184,14 @@
 </template>
 
 <script>
-import SettingsButton from '@/components/SettingsButton.vue'
 import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
 import Back from '@/components/Back.vue'
+import SettingsButton from '@/components/SettingsButton.vue'
 
 export default {
-    components: {NavBar,Logo,SettingsButton,Back}
+    name: "Help",
+    components: {NavBar,Logo,Back, SettingsButton}
 }
 </script>
 <style scoped>
@@ -205,7 +206,7 @@ body{
 .faq_area {
     position: relative;
     z-index: 1;
-    background-color: #f5f5ff;
+    background-color: rgba(242,238,238,1)
 }
 
 .faq-accordian {

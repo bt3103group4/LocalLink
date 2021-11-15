@@ -1,7 +1,7 @@
 <template>
     <NavBar/>
     <Logo/>
-    <SettingsButton/>
+    <SettingsButton />
     <Back/>
     <body>
     <div class="wrapper"> 
@@ -95,12 +95,12 @@
 <script>
 import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
-import SettingsButton from '@/components/SettingsButton.vue'
 import Back from '@/components/Back.vue'
+import SettingsButton from '@/components/SettingsButton.vue'
 
 export default ({
     name: "SoloTrip",
-    components: {NavBar,Logo,SettingsButton,Back}
+    components: {NavBar,Logo,Back, SettingsButton}
 })
 </script>
 

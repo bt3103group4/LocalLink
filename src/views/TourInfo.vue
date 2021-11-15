@@ -2,7 +2,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <NavBar />
   <Logo />
-  <SettingsButton />
+  <SettingsButton/>
   <DefaultFooter />
   <Back />
   <div>
@@ -64,13 +64,13 @@
 </template>
 
 <script>
-import SettingsButton from "@/components/SettingsButton.vue";
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
 import DefaultFooter from "@/components/DefaultFooter.vue";
 import Back from "@/components/Back.vue";
 import { db } from "../main.js";
 import firebase from "firebase";
+import SettingsButton from "@/components/SettingsButton.vue";
 
 export default {
   name: "TourInfo",
@@ -104,20 +104,20 @@ export default {
       console.log("guide profile");
       console.log(guideEmail);
     },
-    saveToDB(tour_name, email) {
-      const auth = firebase.auth();
-      auth.onAuthStateChanged((user) => {
-        if (user) {
-          let fbuser = auth.currentUser.email;
-          if (fbuser) {
-            db.collection("users")
-              .doc(fbuser)
-              .update({
-                bookings: firebase.firestore.FieldValue.arrayUnion(
-                  email + ", " + tour_name
-                ),
-              });
-          }
+    saveToDB(tour_name,email){
+        const auth = firebase.auth();
+        auth.onAuthStateChanged(user => {
+        if (user){
+            let fbuser = auth.currentUser.email;
+            db.collection("users").doc(this.email).update({
+              tour_bookings: firebase.firestore.FieldValue.arrayUnion(tour_name + ' by ' + fbuser)
+            })
+            if (fbuser){
+                db.collection("users").doc(fbuser) 
+                .update({
+                    bookings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
+                }) 
+            }
         }
       });
     },
@@ -244,8 +244,14 @@ body {
 }
 #tourGuideBtn {
   position: relative;
-  top: 30px;
-  left: 550px;
+  top: 200px;
+  left: 250px;
+  background: rgba(63, 163, 184, 1);
+  color: white;
+  width:250px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 30px;
 }
 .duration_box {
   width: 380px;
@@ -345,21 +351,6 @@ body {
   font-size: 15px;
   opacity: 1;
   text-align: center;
-}
-
-.backNav {
-  position: absolute;
-  top: 100px;
-  left: 25px;
-  background: url("~@/images/back-button.png");
-  width: 45px;
-  height: 30px;
-  background-size: 100% 100%;
-  border: none;
-}
-
-.backNav:hover {
-  cursor: pointer;
 }
 
 .tour_photo_div {
@@ -473,21 +464,6 @@ body {
   font-size: 25px;
   opacity: 1;
   text-align: left;
-}
-
-.v228_66 {
-  width: 170px;
-  height: 34px;
-  background: rgba(255, 255, 255, 1);
-  opacity: 1;
-  position: absolute;
-  top: 367px;
-  left: 1237px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  overflow: hidden;
 }
 
 *,

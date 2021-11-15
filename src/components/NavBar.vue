@@ -4,7 +4,6 @@
       <div class="navcontents">
         <router-link to="/Explore">Explore</router-link>
         <router-link to="/virtualTour">Virtual Tours</router-link>
-        <a class="active" @click="Chat()">Chat</a>
         <router-link v-if="this.type === 'tour-guide'" to="/TourGuideProfile" >Account</router-link>
         <router-link v-else to="/TouristProfile" >Account</router-link>
         </div>
@@ -73,17 +72,6 @@ export default {
         }
       }
     })
-  },
-  methods:{
-    Chat(){ //push current user's username to rooms list
-    const self=this
-      this.$router.push({
-        name: 'Chat',
-        params: {
-          email: self.email
-        }
-      })
-    }
   }
 };
 </script>

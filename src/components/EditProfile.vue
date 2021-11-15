@@ -291,8 +291,8 @@ body {
 }
 #choosephoto {
   position: absolute;
-  top: 180px;
-  left: 140px;
+  top: 33%;
+  left: 40%;
 }
 #choosephoto:hover {
   cursor: pointer;
