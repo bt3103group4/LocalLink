@@ -82,7 +82,9 @@
             See more</button
           ><br /><br />
           <h5 class="card-title">{{ tour.tour_name }}</h5>
-          <p class="card-text">{{ tour.description }}</p>
+          <p class="card-text"> Available from:  {{tour.start_date}} to {{tour.end_date}} </p>
+          <b class="card-text"> From ${{tour.cost}} per person</b><br>
+          <br><p class="card-text">{{ tour.description }}</p>
           <!-- <p class="card-text">
             <b>{{ tour.start_date }} to {{ tour.end_date }}</b>
           </p>

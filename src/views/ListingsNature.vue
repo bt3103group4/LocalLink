@@ -64,8 +64,7 @@
         <h1 class="card-title">Natural Wonders</h1>
         <p class="card-text">
           <i>
-            Forget not that the earth delights to feel your bare feet and the
-            winds long to play with your hair.</i
+            Forget not that the earth's wonders are waiting for you to discover.</i
           >
         </p>
       </div>
@@ -81,7 +80,9 @@
           <br />
           <br />
           <h5 class="card-title">{{ tour.tour_name }}</h5>
-          <p class="card-text">{{ tour.description }}</p>
+          <p class="card-text"> Available from:  {{tour.start_date}} to {{tour.end_date}} </p>
+          <b class="card-text" > From ${{tour.cost}} per person</b><br>
+          <br><p class="card-text">{{ tour.description }}</p>
           <!-- <p class="card-text">
             <b>{{ tour.start_date }} to {{ tour.end_date }}</b>
           </p>
