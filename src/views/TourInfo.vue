@@ -4,18 +4,23 @@
   <Logo />
   <SettingsButton />
   <DefaultFooter />
-  <Back/>
+  <Back />
   <div>
     <link
       href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
       rel="stylesheet"
     />
 
-    <img :src="tour_photo"> <br/> <br/>
+    <img :src="tour_photo" /> <br />
+    <br />
 
     <div class="right_info_box">
       <div class="container" v-if="this.type === 'tourist'">
-        <input type="checkbox" @click="saveToSavedListings(this.tour_name,this.email)" v-model="selected">
+        <input
+          type="checkbox"
+          @click="saveToSavedListings(this.tour_name, this.email)"
+          v-model="selected"
+        />
       </div>
 
       <div class="v228_57">
@@ -29,26 +34,33 @@
         <span class="cost">From ${{ cost }} / person</span>
       </div>
       <span class="no_charge">You won’t be charged yet</span>
-      <button id="tourGuideBtn" @click="seeGuideProfile(this.email)"> See Tour Guide Profile </button>
+      <button id="tourGuideBtn" @click="seeGuideProfile(this.email)">
+        See Tour Guide Profile
+      </button>
+
       <button
         class="reserve_btn"
-        @click="this.$router.push('/confirmationpage');saveToDB(this.tour_name,this.email)">
+        @click="
+          this.$router.push('/confirmationpage');
+          saveToDB(this.tour_name, this.email);
+        "
+      >
         Reserve
       </button>
     </div>
 
     <div class="left_info_box">
-      <p class="name"> <b>Tour's Name:</b> {{ tour_name }} <br/>
-      <b> Mode of transport:</b> {{ transport }} <br/>
-      <b> Years of experience: </b> {{ experience }}<br/>
-      <b> Tour type: </b> {{ tour_type }}<br/>
-      <b> Tour Guide's email: </b> {{ email }}<br/><br/>
-      <b> Description: </b> <br/> {{ description }}</p>
+      <p class="name">
+        <b>Tour's Name:</b> {{ tour_name }} <br />
+        <b> Mode of transport:</b> {{ transport }} <br />
+        <b> Years of experience: </b> {{ experience }}<br />
+        <b> Tour type: </b> {{ tour_type }}<br />
+        <b> Tour Guide's email: </b> {{ email }}<br /><br />
+        <b> Description: </b> <br />
+        {{ description }}
+      </p>
     </div>
-
-
   </div>
-
 </template>
 
 <script>
@@ -56,13 +68,13 @@ import SettingsButton from "@/components/SettingsButton.vue";
 import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
 import DefaultFooter from "@/components/DefaultFooter.vue";
-import Back from "@/components/Back.vue"
+import Back from "@/components/Back.vue";
 import { db } from "../main.js";
-import firebase from 'firebase';
+import firebase from "firebase";
 
 export default {
   name: "TourInfo",
-  components: { SettingsButton, NavBar, Logo, DefaultFooter , Back},
+  components: { SettingsButton, NavBar, Logo, DefaultFooter, Back },
   props: ["tour_id"],
   data() {
     return {
@@ -78,67 +90,75 @@ export default {
       email: "",
       tour_photo: "",
       selected: "",
-      type:"",
+      type: "",
     };
   },
-  methods:{
-    seeGuideProfile(guideEmail){
+  methods: {
+    seeGuideProfile(guideEmail) {
       this.$router.push({
         name: "TourGuideView",
-        params:{
+        params: {
           guideEmail: guideEmail,
         },
-      })
-      console.log("guide profile")
-      console.log(guideEmail)
+      });
+      console.log("guide profile");
+      console.log(guideEmail);
     },
-    saveToDB(tour_name,email){
-        const auth = firebase.auth();
-        auth.onAuthStateChanged(user => {
-        if (user){
-            let fbuser = auth.currentUser.email;
-            if (fbuser){
-                db.collection("users").doc(fbuser) 
-                .update({
-                    bookings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
-                }) 
-            }
+    saveToDB(tour_name, email) {
+      const auth = firebase.auth();
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          let fbuser = auth.currentUser.email;
+          if (fbuser) {
+            db.collection("users")
+              .doc(fbuser)
+              .update({
+                bookings: firebase.firestore.FieldValue.arrayUnion(
+                  email + ", " + tour_name
+                ),
+              });
+          }
         }
-        })
-    } ,
-    saveToSavedListings(tour_name,email){
+      });
+    },
+    saveToSavedListings(tour_name, email) {
       if (this.selected == "") {
-        alert("Listing saved!")
+        alert("Listing saved!");
         const auth = firebase.auth();
-        auth.onAuthStateChanged(user => {
-        if (user){
+        auth.onAuthStateChanged((user) => {
+          if (user) {
             let fbuser = auth.currentUser.email;
-            if (fbuser){
-                db.collection("users").doc(fbuser) 
+            if (fbuser) {
+              db.collection("users")
+                .doc(fbuser)
                 .update({
-                    saved_listings: firebase.firestore.FieldValue.arrayUnion(email +", " + tour_name )
-                }) 
+                  saved_listings: firebase.firestore.FieldValue.arrayUnion(
+                    email + ", " + tour_name
+                  ),
+                });
             }
-        }
-        })
+          }
+        });
       } else {
-        alert("Removing saved listing!")
+        alert("Removing saved listing!");
         const auth = firebase.auth();
-        auth.onAuthStateChanged(user => {
-        if (user){
+        auth.onAuthStateChanged((user) => {
+          if (user) {
             let fbuser = auth.currentUser.email;
-            if (fbuser){
-                db.collection("users").doc(fbuser) 
+            if (fbuser) {
+              db.collection("users")
+                .doc(fbuser)
                 .update({
-                    saved_listings: firebase.firestore.FieldValue.arrayRemove(email +", " + tour_name )
-                }) 
+                  saved_listings: firebase.firestore.FieldValue.arrayRemove(
+                    email + ", " + tour_name
+                  ),
+                });
             }
-        }
-        })
+          }
+        });
       }
-
-}      
-},
+    },
+  },
 
   mounted() {
     console.log(this.id);
@@ -164,22 +184,23 @@ export default {
       });
 
     const auth = firebase.auth();
-    auth.onAuthStateChanged(user => {
+    auth.onAuthStateChanged((user) => {
       if (user) {
         let fbuser = auth.currentUser.email;
         if (fbuser) {
-          db.collection("users").doc(String(fbuser))
-          .get()
-          .then(doc => {
-            if (doc.exists){
-              const data = doc.data()
-              this.type = data["type"]
-            }
-          })
+          db.collection("users")
+            .doc(String(fbuser))
+            .get()
+            .then((doc) => {
+              if (doc.exists) {
+                const data = doc.data();
+                this.type = data["type"];
+              }
+            });
         }
       }
     });
-  }
+  },
 };
 </script>
 
@@ -188,7 +209,7 @@ export default {
   box-sizing: border-box;
 }
 body {
-  height:150px;
+  height: 150px;
   font-size: 14px;
   width: 100%;
 }
@@ -221,10 +242,10 @@ body {
   text-align: left;
   font-size: 30px;
 }
-#tourGuideBtn{
+#tourGuideBtn {
   position: relative;
-  top:30px;
-  left:550px;
+  top: 30px;
+  left: 550px;
 }
 .duration_box {
   width: 380px;
@@ -287,7 +308,7 @@ body {
   text-align: center;
 }
 
-#tourGuideBtn {
+.tourGuideBtn {
   width: 320px;
   height: 60px;
   background: rgba(63, 163, 184, 1);
@@ -365,7 +386,7 @@ body {
   font-size: 20px;
   opacity: 1;
   text-align: left;
-} 
+}
 
 .v198_104 {
   width: 295px;
@@ -471,62 +492,62 @@ body {
 
 *,
 *:before,
-*:after{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-.container{
-    height: 130px;
-    width: 130px;
-    background-color: white;
-    position:relative;
-    left: 290px;
-    border-radius: 12px;
-    display: grid;
-    place-items: center;
+.container {
+  height: 130px;
+  width: 130px;
+  background-color: white;
+  position: relative;
+  left: 290px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
 }
-input{
-    -webkit-appearance: none;
-    appearance: none;
-    height: 45px;
-    border-right: 40px solid lightgray;
-    border-bottom: 40px solid transparent;
-    position: relative;
-    left: 40px;
-    outline: none;
-    cursor: pointer;
+input {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 45px;
+  border-right: 40px solid lightgray;
+  border-bottom: 40px solid transparent;
+  position: relative;
+  left: 40px;
+  outline: none;
+  cursor: pointer;
 }
-input:before{
-    content: "";
-    position: absolute;
-    left: 0px;
-    height: 45px;
-    border-left: 40px solid lightgray;
-    border-bottom: 40px solid transparent;
+input:before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  height: 45px;
+  border-left: 40px solid lightgray;
+  border-bottom: 40px solid transparent;
 }
-input:checked{
-    border-right-color: rgba(63, 163, 184, 1);
-    animation: scale 0.4s;
-    transition: 0.1s 0.3s border;
+input:checked {
+  border-right-color: rgba(63, 163, 184, 1);
+  animation: scale 0.4s;
+  transition: 0.1s 0.3s border;
 }
-@keyframes scale{
-    80%{
-        transform: scale(0.8);
-    }    
+@keyframes scale {
+  80% {
+    transform: scale(0.8);
+  }
 }
-input:checked:before{
-    border-left-color: rgba(63, 163, 184, 1);
-    transition: 0.1s 0.3s border;
+input:checked:before {
+  border-left-color: rgba(63, 163, 184, 1);
+  transition: 0.1s 0.3s border;
 }
 
 img {
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    height: 1000px;
-    width: 1400px;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  height: 1000px;
+  width: 1400px;
 }
 
 .right_info_box {
@@ -552,7 +573,6 @@ img {
   /* top: 800px; */
   float: left;
   left: 100px;
-
 }
 
 .name {
@@ -565,5 +585,4 @@ img {
   text-align: left;
   /* display: inline-block; */
 }
-
 </style>
