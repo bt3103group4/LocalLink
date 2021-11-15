@@ -193,10 +193,7 @@ export default {
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  overflow-y: auto;
   height: 700px;
-  width: 100%;
-
 }
 .card-group:hover {
   cursor: pointer;
@@ -259,6 +256,7 @@ export default {
   width:800px;
   z-index: 3;
   box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.25);
+  overflow-y:scroll ;
 }
 ::-webkit-scrollbar {
   -webkit-appearance: none;

@@ -221,7 +221,7 @@ body {
     margin:0px;
     cursor: pointer;
     right:0;
-    z-index:10;
+    z-index:9;
     top:4px;
     background: url("~@/images/dropdown_arrow.png");
     background-size: 90%;
@@ -236,7 +236,7 @@ body {
   min-width: 175px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding:10px;
-  z-index: 10;
+  z-index: 9;
   font-family: Ubuntu;
   right:0;
   top:50px;

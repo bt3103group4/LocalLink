@@ -95,6 +95,7 @@ export default {
   position: absolute;
   top:20px;
   right:4%;
+  z-index: 10;
   display: inline-block;
   height:60px;
   
