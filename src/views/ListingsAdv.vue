@@ -16,6 +16,8 @@
     <NavBar />
     <Logo />
     <DefaultFooter />
+    <SettingsButton/>
+
 
     <div class="container">
       <div style="width: 10%"></div>
@@ -107,10 +109,11 @@ import Logo from "@/components/Logo.vue";
 import DefaultFooter from "@/components/DefaultFooter.vue";
 // import firebase from "firebase";
 import { db } from "../main.js";
+import SettingsButton from '@/components/SettingsButton.vue'
 
 export default {
   name: "ListingsAdv",
-  components: { NavBar, Logo, DefaultFooter },
+  components: { NavBar, Logo, DefaultFooter, SettingsButton },
 
   data() {
     return {

@@ -12,6 +12,7 @@
     <NavBar />
     <Logo />
     <Back />
+    <SettingsButton/> 
     <span class="header">Describe your experience</span>
     <div class="description">
       <b>What will you and your guests do?</b><br/>
@@ -130,11 +131,12 @@ import NavBar from "@/components/NavBar.vue";
 import Logo from "@/components/Logo.vue";
 import Back from "@/components/Back.vue";
 import firebase from "firebase";
+import SettingsButton from '@/components/SettingsButton.vue'
 import { db } from "../main.js";
 
 export default {
   name: "EditTour",
-  components: { NavBar, Logo, Back },
+  components: { NavBar, Logo, Back, SettingsButton },
   props: ['tour_id'],
   data() {
     return {

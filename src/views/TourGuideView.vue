@@ -1,6 +1,7 @@
 <template>
     <NavBar/>
     <Logo/>
+    <SettingsButton />
     <head><link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
         <link href="./main.css" rel="stylesheet" />
@@ -52,10 +53,11 @@ import Logo from '@/components/Logo.vue'
 import ReviewList from '@/components/ReviewList.vue'
 import firebase from 'firebase';
 import { db} from "../main.js";
+import SettingsButton from '@/components/SettingsButton.vue'
 
 export default {
     name: "TourGuideView",
-    components: { UserInfo,Logo, NavBar,ReviewList},
+    components: { UserInfo,Logo, NavBar,ReviewList, SettingsButton},
     props:['guideEmail'],
     data(){
       return{

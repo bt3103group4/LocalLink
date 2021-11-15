@@ -2,6 +2,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <NavBar />
   <Logo />
+  <SettingsButton />
   <head>
     <link
       href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
@@ -81,6 +82,7 @@ import Logo from "@/components/Logo.vue";
 import ReviewList from "../components/ReviewList.vue";
 import firebase from "firebase";
 import { db } from "../main.js";
+import SettingsButton from '@/components/SettingsButton.vue'
 
 export default {
   name: "TourGuideProfile",
@@ -107,7 +109,7 @@ export default {
           })
           this.display();
     },
-    components: { UserInfo,Logo, NavBar,ReviewList},
+    components: { UserInfo,Logo, NavBar,ReviewList, SettingsButton},
     methods:{
       //getting tours
       async display(){

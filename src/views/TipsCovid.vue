@@ -2,6 +2,7 @@
     <NavBar/>
     <Logo/>
     <Back/>
+    <SettingsButton/>
     <body>
     <div class="wrapper">
     <div class ="articletext">
@@ -56,10 +57,11 @@
 import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
 import Back from '@/components/Back.vue'
+import SettingsButton from '@/components/SettingsButton.vue'
 
 export default ({
     name: "TipsCovid",
-    components: {NavBar,Logo,Back}
+    components: {NavBar,Logo,Back, SettingsButton}
 })
 </script>
 

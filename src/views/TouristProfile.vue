@@ -9,6 +9,7 @@
         <NavBar/>
         <UserInfo/>
         <Logo/>
+        <SettingsButton />
 
 
   <div class="listingsComp">
@@ -42,10 +43,11 @@ import NavBar from '@/components/NavBar.vue'
 import Logo from '@/components/Logo.vue'
 import UserBookedListings from '@/components/UserBookedListings.vue'
 import ReviewList from '@/components/ReviewList.vue'
+import SettingsButton from '@/components/SettingsButton.vue'
 
 export default {
     name: "TouristProfile",
-    components: { UserInfo, Logo ,UserSavedListings,NavBar, UserBookedListings, ReviewList},
+    components: { UserInfo, Logo ,UserSavedListings,NavBar, UserBookedListings, ReviewList, SettingsButton},
     mounted(){
       let tabs = document.querySelectorAll('[data-tab-target]')
       let tabContents = document.querySelectorAll('[data-tab-content]')

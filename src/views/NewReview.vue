@@ -2,6 +2,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <NavBar/>
     <Logo/>
+    <SettingsButton/>
   <span v-if="this.type === 'tour-guide'" class="header">Leave a Review for your Tourist!</span>
   <span v-else class="header">Leave a Review for your Tour Guide!</span>
   <Back/>
@@ -24,11 +25,12 @@ import Logo from '@/components/Logo.vue'
 import Reviews from '@/components/Reviews.vue'
 import Back from '@/components/Back.vue'
 import firebase from "firebase";
+import SettingsButton from '@/components/SettingsButton.vue'
 import { db } from "../main.js";
 
 export default {
   name: "NewReview",
-  components: { NavBar, Logo, Reviews, Back},
+  components: { NavBar, Logo, Reviews, Back, SettingsButton},
   data() {
     return {
       type:"",
